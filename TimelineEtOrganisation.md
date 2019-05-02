@@ -2,9 +2,15 @@
 
 
   _**09/05/19**_ :  
-                  * Chacun développe sa partie UML de l'architecture du noyau. N'oubliez pas d'intégrer les DESIGNS PATTERNS!
-                  * RV Jeudi 9 Mai entre 10h et 14h pour la mise en commun et pour discuter de l'implémentation.
-              
+* Chacun développe sa partie UML de l'architecture du noyau. N'oubliez pas d'intégrer les DESIGNS PATTERNS!
+* RV Jeudi 9 Mai entre 10h et 14h pour la mise en commun et pour discuter de l'implémentation.
+ 
+* Une puce
+* Une autre puce
+    * Une sous-puce
+    * Une autre sous-puce
+* Et encore une autre puce !
+
   **16/05/19** :  
                 * Code c++ de notre partie.
                 * RV Jeudi pour en discuter.
