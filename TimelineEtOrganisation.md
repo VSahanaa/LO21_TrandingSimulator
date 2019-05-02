@@ -42,7 +42,7 @@ Pour le **09/05/19** (UML + design pattern)
 * Chenchao : Fichier, Trading, Indicateur
 * Jiali    : 
 * Amsatou  : Mode manuel, mode pas à pas, mode auto
-* Nghia    : Plafond, Editeur
+* Nghia    : Plafond, Editeur, Contexte
 * Sahanaa  : Stratégies, Mode auto
  
 Pour le 16/05/19 (c++)
