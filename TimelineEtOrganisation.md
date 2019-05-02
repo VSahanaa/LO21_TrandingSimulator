@@ -1,7 +1,7 @@
 #__TIMELINE__
 
 
-  _**09/05/19**_ :  
+_**09/05/19**_ :  
 * Chacun développe sa partie UML de l'architecture du noyau. N'oubliez pas d'intégrer les DESIGNS PATTERNS!
 * RV Jeudi 9 Mai entre 10h et 14h pour la mise en commun et pour discuter de l'implémentation.
 
@@ -13,7 +13,7 @@
 * Code c++ terminé! (ou presque)
 * RV jeudi pour en discuter
   
-  _**30/05/19**_ :  
+_**30/05/19**_ :  
 * **Implémentation du code FINI!!** Début de réflexion pour les interfaces
 * RV jeudi pour en discuter
   
@@ -21,14 +21,14 @@
 * Implémentation de l'interfaces
 * RV Jeudi pour continuer.
   
-  _**09/06/19**_ :  
+_**09/06/19**_ :  
 * **TOUT EST FINI : DERNIER DELAI!**
   
-  _**13/06/19**_ :  
+_**13/06/19**_ :  
 * **FIN DU RAPPORT.** 
 * RV Jeudi pour la **VIDEO **
   
-  _**15/06/19**_ :  
+_**15/06/19**_ :  
 * **RENDU EN ZIP PAR MAIL**
 
 
