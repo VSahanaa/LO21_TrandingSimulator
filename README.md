@@ -13,6 +13,7 @@ Programme de simulations des stratégies de trading
 - UML is on Google Drive, every modify in the code should be updated on UML
 
 - If need something or to edit a class, please contact the person in charge of that class before making any modify
+
 Les objets :
 
 Devise
