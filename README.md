@@ -14,14 +14,3 @@ Programme de simulations des stratégies de trading
 
 - If need something or to edit a class, please contact the person in charge of that class before making any modify
 
-Les objets :
-
-Devise
-PairDevise
-Cours OHLC
-EvolutionCours
-Bougie
-
-Les fonctions :
-
-L'interface et ses fonctionnalités :
