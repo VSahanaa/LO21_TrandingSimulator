@@ -1,7 +1,7 @@
 # LO21_TrandingSimulator
 Programme de simulations des stratégies de trading
 - Coding Convention: 
-  + Meaningful name
+  + Meaningful name, should avoid one-letter name like a,b,c or misleading name
   + Name format like listeEvolutionCours
   + Function should be short
   + Function should only do 1 thing,if a function do more than 1 thing => separate into different functions
