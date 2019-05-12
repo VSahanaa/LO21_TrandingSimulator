@@ -14,3 +14,4 @@ Programme de simulations des stratégies de trading
 
 - If need something or to edit a class, please contact the person in charge of that class before making any modify
 
+- All exceptions are handled by TradingException class
