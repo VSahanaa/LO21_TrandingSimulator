@@ -1,5 +1,6 @@
 #include "trading.h"
 
+/*----------------------------------------------- Methodes de classe Devise -------------------------------------------------*/
 Devise::Devise(const QString& code, const QString& monnaie, const QString& zone) :
     monnaie(monnaie), zone(zone) {
     if (code.size() != 3) throw TradingException("code devise incorrect");
@@ -10,6 +11,7 @@ Devise::Devise(const QString& code, const QString& monnaie, const QString& zone)
     this->code=code;
 }
 
+/*----------------------------------------------- Methodes de classe PaireDevises -------------------------------------------*/
 PaireDevises::PaireDevises(const Devise& base, const Devise& contrepartie, const QString& surnom) : base(&base), contrepartie(&contrepartie), surnom(surnom) {}
 
 QString PaireDevises::toString() const{
@@ -19,6 +21,7 @@ QString PaireDevises::toString() const{
     return string;
 }
 
+/*----------------------------------------------- Methodes de classe CoursOHLCV ---------------------------------------------*/
 CoursOHLCV::CoursOHLCV(double open, double high, double low, double close, unsigned volume, const QDate& date):date(date) {
     if (open < 0 || high < 0 || low < 0 || close < 0 || low > high) throw TradingException("Cours OHLCV incorrect");
         this->open = open;
@@ -36,6 +39,7 @@ void CoursOHLCV::setCours(double open, double high, double low, double close) {
         this->close = close;
 }
 
+/*---------------------------------------------- Methodes de classe EvolutionCours --------------------------------------------*/
 void EvolutionCours::addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date) {
     if (nbMaxCours == nbCours) { // agrandissement du tableau
         CoursOHLCV* newTable = new CoursOHLCV[nbMaxCours + 100];
@@ -76,6 +80,7 @@ EvolutionCours& EvolutionCours::operator=(const EvolutionCours& evolutionCours) 
     return *this;
 }
 
+/*------------------------------------------------ Methodes de classe DevisesManager ---------------------------------------------*/
 const Devise& DevisesManager::creationDevise(const QString& code, const QString& monnaie, const QString& zone) {
     if (nbDevises == nbMaxDevises) { // agrandissement tableau
         Devise** newTable = new Devise*[nbMaxDevises + 10];

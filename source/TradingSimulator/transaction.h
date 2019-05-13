@@ -19,21 +19,37 @@ public:
     double roi(double montantTotalInitial) const {return montantTotal() / montantTotalInitial;}
     double getMontantBase() const {return montantBase;}
     double getMontantContrepartie() const {return montantContrepartie;}
-    Transaction* getTransactionDernier() const {return transactionDernier;}
+    Transaction* getLastTransaction() const {return transactionDernier;}
 };
 
 class TransactionManager {
+    static TransactionManager* instance;
     Transaction* listeTransaction = nullptr;    //pointeur vers la transaction le plus current, les transactions se organisent comme une liste chainée
-    float pourcentage;
+    float pourcentage;  //profit du broker
     double montantBaseInitial;
     double montantContrepartieInitial;
     double montantTotalInitial;
+    TransactionManager(float pourcentage, double montantBaseInitial, double montantContrepartieInitial, double montantTotalInitial): pourcentage(pourcentage), montantBaseInitial(montantBaseInitial), montantContrepartieInitial(montantContrepartieInitial), montantTotalInitial(montantTotalInitial) {}
+    ~TransactionManager();
 public:
-    //TransactionManager();
-    //~TransactionManager();
+    static TransactionManager* getTransactionManager() {
+        if (instance == nullptr) throw TradingException("Transaction Manager n'est pas instancié");
+        return instance;
+    }
+    static TransactionManager* getTransactionManager(float pourcentage, double montantBaseInitial, double montantContrepartieInitial, double montantTotalInitial){
+        if (instance == nullptr) {
+            instance = new TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantTotalInitial);
+        }
+        return instance;
+    }
+    static void libererTransactionManager(){
+        delete instance;
+        instance = nullptr;
+    }
     void addTransaction(PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
-    void deleteTransaction();   //supprimer transaction derniere
+    void deleteLastTransaction();   //supprimer transaction derniere
     double solde() const;
+
 };
 
 #endif // TRANSACTION_H

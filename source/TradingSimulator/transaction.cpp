@@ -1,5 +1,17 @@
 #include "transaction.h"
 
+/*----------------------------------- Methodes de classe TransactionManager --------------------------------------*/
+
+TransactionManager::~TransactionManager() {
+    Transaction* currentTransatction;
+    //supprimer tous les transaction
+    while (listeTransaction) {
+        currentTransatction = listeTransaction;
+        listeTransaction = currentTransatction->getLastTransaction();
+        delete currentTransatction;
+    }
+}
+
 void TransactionManager::addTransaction(PaireDevises *paire, CoursOHLCV *cours, bool achat, double montant) {
     double currentMontantBase, currentMontantContrepartie;
     double montantBase, montantContrepartie;
@@ -26,10 +38,10 @@ void TransactionManager::addTransaction(PaireDevises *paire, CoursOHLCV *cours, 
     listeTransaction = new Transaction(listeTransaction, paire, cours, achat, montantBase, montantContrepartie);
 }
 
-void TransactionManager::deleteTransaction() {
+void TransactionManager::deleteLastTransaction() {
     if (listeTransaction == nullptr) throw TradingException("Il n'y a pas transaction à annuler");
     Transaction* transactionCurrent = listeTransaction;
-    listeTransaction = transactionCurrent->getTransactionDernier();
+    listeTransaction = transactionCurrent->getLastTransaction();
     delete transactionCurrent;
 }
 
