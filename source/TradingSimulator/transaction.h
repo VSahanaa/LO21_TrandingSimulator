@@ -20,6 +20,8 @@ public:
     double getMontantBase() const {return montantBase;}
     double getMontantContrepartie() const {return montantContrepartie;}
     Transaction* getLastTransaction() const {return transactionDernier;}
+    Transaction* next() {return getLastTransaction();}
+    bool hasNext() {if (transactionDernier) {return true;} else {return false;}}
 };
 
 class TransactionManager {
@@ -49,7 +51,7 @@ public:
     void addTransaction(PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
     void deleteLastTransaction();   //supprimer transaction derniere
     double solde() const;
-
+    using iterator = Transaction*;      //definir iterator avec 2 operations: next() et hasNext()
 };
 
 #endif // TRANSACTION_H
