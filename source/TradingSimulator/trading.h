@@ -2,6 +2,9 @@
 #define TRADING_H
 #include <QString>
 #include <QDate>
+#include <QStringList>
+#include <QFile>
+#include <QDebug>
 #include<cmath>
 
 using namespace std;
@@ -58,13 +61,24 @@ public:
     void setDate(const QDate& d) { date=d; }
 };
 
+class ListEvolutionCours {
+    QStringList filenames;
+    int nbFiles;
+public:
+    ListEvolutionCours(QStringList list) {filenames = list; nbFiles = list.length();}
+    ~ListEvolutionCours() = default;
+    void addFile(QString file) {filenames<<file; nbFiles++;}
+};
+
 class EvolutionCours {
     const PaireDevises* paire;
+    QString filen;
     CoursOHLCV* cours = nullptr;
     unsigned int nbCours = 0;
     unsigned int nbMaxCours = 0;
 public:
     EvolutionCours(const PaireDevises& paire) :paire(&paire) {}
+    EvolutionCours(const PaireDevises& pair, QString filename);
     void addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date);
     ~EvolutionCours();
     EvolutionCours(const EvolutionCours& evolutionCours);
@@ -77,6 +91,8 @@ public:
     using constIterator = const CoursOHLCV*;
     constIterator cbegin() const { return cours; }
     constIterator cend() const { return cours + nbCours; }
+    void setFile(QString file) {filen = file;}
+    int saveFile();
 };
 
 class DevisesManager {
