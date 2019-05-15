@@ -21,7 +21,7 @@ public:
     double getMontantContrepartie() const {return montantContrepartie;}
     Transaction* getLastTransaction() const {return transactionDernier;}
     Transaction* next() {return getLastTransaction();}
-    bool hasNext() {if (transactionDernier) {return true;} else {return false;}}
+    bool hasNext() const {if (transactionDernier) {return true;} else {return false;}}
 };
 
 class TransactionManager {
