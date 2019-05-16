@@ -11,9 +11,11 @@ EMA::EMA(const int p,EvolutionCours* e, char* n) {
 	strcpy(nom, n);
 	evolutionCours = e;
 	indices=(IndiceIndicateur*)malloc((e->nbCours)*sizeof(IndiceIndicateur));
-	indices[0] = e->cours[0].getClose();
+	indices[0].donnee = e->cours[0].getClose();
+	//indices[0].date = e->cours[0].getDate();
 	for (int i = 1; i < e->nbCours; i++) 
-		indices[i] = (indices[i - 1].getIndice()* (periode - 1) + 2 * e->cours[i].getClose()) / (periode + 1);
+		indices[i].donnee = (indices[i - 1].getIndice()* (periode - 1) + 2 * e->cours[i].getClose()) / (periode + 1);
+	    //indices[i].date = e->cours[i].getDate();  
 }
 
 EMA::~EMA() {
@@ -45,6 +47,7 @@ RSI::RSI(const int p, EvolutionCours* e, char* n) {
 	downavg = down / p;
 	rs = upavg/downavg;
 	indices[0].donnee = 100 - 100 / (1 + rs);
+	//indices[0].date = e->cours[0].getDate(); 
 	//element suivant
 	for (int i = p; i <e->nbCours; i++) {
 		up = down = 0;
@@ -56,6 +59,7 @@ RSI::RSI(const int p, EvolutionCours* e, char* n) {
 		downavg = (downavg*(p - 1) + down) / p;
 		rs = upavg / downavg;
 		indices[i-p+1].donnee= 100 - 100 / (1 + rs);
+		//indices[i-p+1].date = e->cours[i-p+1].getDate(); 
 	}
 }
 
@@ -84,8 +88,10 @@ MACD::MACD(const int shortp, const int longp, EvolutionCours* e, char* n) {
 	longPeriode = longp;
 	shortPeriode = shortp;
 	evolutionCours = e;
-	for (int i = 1; i < e->nbCours; i++)
-		indices[i].donnee = es[i]-el[i];
+	for (int i = 0; i < e->nbCours; i++) {
+		indices[i].donnee = es[i] - el[i];
+		//indices[i].date = e->cours[i].getDate(); 
+	}
 	free(el);
 	free(es);
 
