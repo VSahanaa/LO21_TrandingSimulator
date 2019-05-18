@@ -12,15 +12,17 @@ Indicateur::~Indicateur() { delete[] nom; };
 
 /*----------------------------------------------- Methodes de classe EMA -------------------------------------------------*/
 EMA::EMA(const int p,EvolutionCours* e, char* n):Indicateur(e,n) {
-	if (p>e->nbCours) throw TradingException("periode est plus superieur ");
+	int nb;
+	nb = e->getNbCours();
+	if (p>nb) throw TradingException("periode est plus superieur ");
 	if (p<0) throw TradingException("periode negative");
-	if (e==nullptr||e->nbCours==0) throw TradingException("EvolutionCours null ");
-	nbIndicateur = e->nbCours;
+	if (e==nullptr||e->nb) throw TradingException("EvolutionCours null ");
+	nbIndicateur =nb;
 	periode = p;
 	indices=(IndiceIndicateur*)malloc((e->nbCours)*sizeof(IndiceIndicateur));
 	indices[0].setIndice(e->cours[0].getClose());
 	indices[0].setDate(e->cours[0].getDate());
-	for (int i = 1; i < e->nbCours; i++) {
+	for (int i = 1; i <nb; i++) {
 		indices[i].setIndice((indices[i - 1].getIndice()* (periode - 1) + 2 * e->cours[i].getClose()) / (periode + 1));
 		indices[i].setDate(e->cours[i].getDate());
 	}
@@ -32,11 +34,13 @@ EMA::~EMA() {
 
 /*----------------------------------------------- Methodes de classe RSI -------------------------------------------------*/
 RSI::RSI(const int p, EvolutionCours* e, char* n):Indicateur(e, n){
-	if (p > e->nbCours) throw TradingException("periode est plus superieur ");
+	int nb;
+	nb = e->getNbCours();
+	if (p >nb) throw TradingException("periode est plus superieur ");
 	if (p < 0) throw TradingException("periode negative");
-	if (e == nullptr || e->nbCours == 0) throw TradingException("EvolutionCours null ");
+	if (e == nullptr ||nb== 0) throw TradingException("EvolutionCours null ");
 	parametre = p;
-	nbIndicateur = e->nbCours-p+1;
+	nbIndicateur =nb-p+1;
 	indices = (IndiceIndicateur*)malloc(nbIndicateur * sizeof(IndiceIndicateur));
 	double up,down,rs,upavg,downavg;
 	up = down = 0;
@@ -53,7 +57,7 @@ RSI::RSI(const int p, EvolutionCours* e, char* n):Indicateur(e, n){
 	indices[0].setIndice(100 - 100 / (1 + rs));
 	indices[0].setDate(e->cours[0].getDate()); 
 	//element suivant
-	for (int i = p; i <e->nbCours; i++) {
+	for (int i = p; i <nb; i++) {
 		up = down = 0;
 		if (e->cours[i].getClose() >= e->cours[i - 1].getClose())
 			up += e->cours[i].getClose() - e->cours[i - 1].getClose();
@@ -73,23 +77,25 @@ RSI::~RSI() {
 
 /*----------------------------------------------- Methodes de classe MACD -------------------------------------------------*/
 MACD::MACD(const int shortp, const int longp, EvolutionCours* e, char* n) :Indicateur(e, n){
-	if (longp <shortp|| shortp > e->nbCours) throw TradingException("periode erreur");
+	int nb;
+	nb = e->getNbCours();
+	if (longp <shortp|| shortp > nb) throw TradingException("periode erreur");
 	if (longp< 0||shortp< 0) throw TradingException("periode negative");
 	if (e == nullptr) throw TradingException("EvolutionCours null ");
-	nbIndicateur = e->nbCours;
+	nbIndicateur =nb;
 	double* el, * es;
-	el = (double *)malloc((e->nbCours) * sizeof(double));
-	es = (double *)malloc((e->nbCours) * sizeof(double));
+	el = (double *)malloc(nb* sizeof(double));
+	es = (double *)malloc(nb* sizeof(double));
 	EMA emal(longp, e,n);
 	EMA emas(shortp, e,n);
-	for (int k = 1; k< e->nbCours; k++){
+	for (int k = 1; k<nb; k++){
 		el[k] = emal.indices[k].getIndice;
 		es[k] = emas.indices[k].getIndice;
 	}
 	longPeriode = longp;
 	shortPeriode = shortp;
 	evolutionCours = e;
-	for (int i = 0; i < e->nbCours; i++) {
+	for (int i = 0; i <nb; i++) {
 		indices[i].setIndice(es[i] - el[i]);
 		indices[i].setDate(e->cours[i].getDate()); 
 	}
