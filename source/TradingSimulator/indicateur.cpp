@@ -1,38 +1,42 @@
 #include "indicateur.h"
+/*----------------------------------------------- Methodes de classe Indicateur -------------------------------------------------*/
+
+Indicateur::Indicateur(EvolutionCours* e, char* n) {
+	nom = new char[strlen(n) + 1];
+	strcpy(nom, n);
+	evolutionCours = e;
+};
+Indicateur::~Indicateur() { delete[] nom; };
+
+
 
 /*----------------------------------------------- Methodes de classe EMA -------------------------------------------------*/
-EMA::EMA(const int p,EvolutionCours* e, char* n) {
+EMA::EMA(const int p,EvolutionCours* e, char* n):Indicateur(e,n) {
 	if (p>e->nbCours) throw TradingException("periode est plus superieur ");
 	if (p<0) throw TradingException("periode negative");
 	if (e==nullptr||e->nbCours==0) throw TradingException("EvolutionCours null ");
 	nbIndicateur = e->nbCours;
 	periode = p;
-	nom = new char[strlen(n) + 1];
-	strcpy(nom, n);
-	evolutionCours = e;
 	indices=(IndiceIndicateur*)malloc((e->nbCours)*sizeof(IndiceIndicateur));
-	indices[0].donnee = e->cours[0].getClose();
-	//indices[0].date = e->cours[0].getDate();
-	for (int i = 1; i < e->nbCours; i++) 
-		indices[i].donnee = (indices[i - 1].getIndice()* (periode - 1) + 2 * e->cours[i].getClose()) / (periode + 1);
-	    //indices[i].date = e->cours[i].getDate();  
+	indices[0].setIndice(e->cours[0].getClose());
+	indices[0].setDate(e->cours[0].getDate());
+	for (int i = 1; i < e->nbCours; i++) {
+		indices[i].setIndice((indices[i - 1].getIndice()* (periode - 1) + 2 * e->cours[i].getClose()) / (periode + 1));
+		indices[i].setDate(e->cours[i].getDate());
+	}
 }
 
 EMA::~EMA() {
-	free(indices);
-	delete[] nom;
+	free(indices);	
 }
 
 /*----------------------------------------------- Methodes de classe RSI -------------------------------------------------*/
-RSI::RSI(const int p, EvolutionCours* e, char* n) {
+RSI::RSI(const int p, EvolutionCours* e, char* n):Indicateur(e, n){
 	if (p > e->nbCours) throw TradingException("periode est plus superieur ");
 	if (p < 0) throw TradingException("periode negative");
 	if (e == nullptr || e->nbCours == 0) throw TradingException("EvolutionCours null ");
 	parametre = p;
 	nbIndicateur = e->nbCours-p+1;
-	nom = new char[strlen(n) + 1];
-	strcpy(nom, n);
-	evolutionCours = e;
 	indices = (IndiceIndicateur*)malloc(nbIndicateur * sizeof(IndiceIndicateur));
 	double up,down,rs,upavg,downavg;
 	up = down = 0;
@@ -46,8 +50,8 @@ RSI::RSI(const int p, EvolutionCours* e, char* n) {
 	upavg = up / p;
 	downavg = down / p;
 	rs = upavg/downavg;
-	indices[0].donnee = 100 - 100 / (1 + rs);
-	//indices[0].date = e->cours[0].getDate(); 
+	indices[0].setIndice(100 - 100 / (1 + rs));
+	indices[0].setDate(e->cours[0].getDate()); 
 	//element suivant
 	for (int i = p; i <e->nbCours; i++) {
 		up = down = 0;
@@ -58,24 +62,21 @@ RSI::RSI(const int p, EvolutionCours* e, char* n) {
 		upavg = (upavg*(p - 1) + up) / p;
 		downavg = (downavg*(p - 1) + down) / p;
 		rs = upavg / downavg;
-		indices[i-p+1].donnee= 100 - 100 / (1 + rs);
-		//indices[i-p+1].date = e->cours[i-p+1].getDate(); 
+		indices[i-p+1].setIndice(100 - 100 / (1 + rs));
+		indices[i-p+1].setDate(e->cours[i-p+1].getDate()); 
 	}
 }
 
 RSI::~RSI() {
 	free(indices);
-	delete[] nom;
 }
 
 /*----------------------------------------------- Methodes de classe MACD -------------------------------------------------*/
-MACD::MACD(const int shortp, const int longp, EvolutionCours* e, char* n) {
+MACD::MACD(const int shortp, const int longp, EvolutionCours* e, char* n) :Indicateur(e, n){
 	if (longp <shortp|| shortp > e->nbCours) throw TradingException("periode erreur");
 	if (longp< 0||shortp< 0) throw TradingException("periode negative");
 	if (e == nullptr) throw TradingException("EvolutionCours null ");
 	nbIndicateur = e->nbCours;
-	nom = new char[strlen(n) + 1];
-	strcpy(nom, n);
 	double* el, * es;
 	el = (double *)malloc((e->nbCours) * sizeof(double));
 	es = (double *)malloc((e->nbCours) * sizeof(double));
@@ -89,8 +90,8 @@ MACD::MACD(const int shortp, const int longp, EvolutionCours* e, char* n) {
 	shortPeriode = shortp;
 	evolutionCours = e;
 	for (int i = 0; i < e->nbCours; i++) {
-		indices[i].donnee = es[i] - el[i];
-		//indices[i].date = e->cours[i].getDate(); 
+		indices[i].setIndice(es[i] - el[i]);
+		indices[i].setDate(e->cours[i].getDate()); 
 	}
 	free(el);
 	free(es);
@@ -99,5 +100,4 @@ MACD::MACD(const int shortp, const int longp, EvolutionCours* e, char* n) {
 
 MACD::~MACD() {
 	free(indices);
-	delete[] nom;
 }
