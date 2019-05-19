@@ -83,7 +83,7 @@ public:
     ~EvolutionCours();
     EvolutionCours(const EvolutionCours& evolutionCours);
     EvolutionCours& operator=(const EvolutionCours& evolutionCours);
-    //unsigned int getNbCours() const { return nbCours; }
+    unsigned int getNbCours() const { return nbCours; };
     const PaireDevises& getPaireDevises() const { return *paire; }
     using iterator = CoursOHLCV*;
     iterator begin() { return iterator(cours); }
