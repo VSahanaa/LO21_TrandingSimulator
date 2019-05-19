@@ -1,0 +1,14 @@
+indicateur:
+
+macd:par défaut,MACD (9, 12 ou 12, 26)
+https://www.trading-attitude.com/macd-bourse-comment-ca-marche
+
+rsi
+https://www.edubourse.com/guide-bourse/rsi.php
+
+ema
+https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_averages
+https://www.investopedia.com/terms/e/ema.asp
+remarque ema :http://fxcodebase.com/wiki/index.php/Exponential_Moving_Average_(EMA)
+ps.First Value:Different implementation of EMA uses:
+The first price or The Simple Moving Average of the first N prices (Stockcharts).we use the first close price as first value.

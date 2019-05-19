@@ -40,6 +40,33 @@ void CoursOHLCV::setCours(double open, double high, double low, double close) {
 }
 
 /*---------------------------------------------- Methodes de classe EvolutionCours --------------------------------------------*/
+EvolutionCours::EvolutionCours(const PaireDevises &pair, QString filename) {
+    paire = &pair;
+    filen = filename;
+    QFile file(filen);
+    QStringList wordlist;
+        if (!file.open(QIODevice::ReadOnly)) {
+            qDebug() << file.errorString();
+        }
+        while (!file.atEnd()) {
+            QString line = file.readLine();
+            wordlist = line.split(',');
+            if(wordlist.length() == 8)
+            {
+                double open = wordlist.at(0).toDouble();
+                double high = wordlist.at(1).toDouble();
+                double low = wordlist.at(2).toDouble();
+                double close = wordlist.at(3).toDouble();
+                int volume = wordlist.at(4).toInt();
+                int year = wordlist.at(5).toInt();
+                int month = wordlist.at(6).toInt();
+                int day = wordlist.at(7).toInt();
+                addCours(open, high, low, close, static_cast<unsigned>(volume), QDate(year, month, day));
+            }
+        }
+        file.close();
+}
+
 void EvolutionCours::addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date) {
     if (nbMaxCours == nbCours) { // agrandissement du tableau
         CoursOHLCV* newTable = new CoursOHLCV[nbMaxCours + 100];
@@ -78,6 +105,25 @@ EvolutionCours& EvolutionCours::operator=(const EvolutionCours& evolutionCours) 
             addCours(evolutionCours.cours[i].getOpen(), evolutionCours.cours[i].getHigh(),evolutionCours.cours[i].getLow(), evolutionCours.cours[i].getClose(), evolutionCours.cours[i].getVolume(), evolutionCours.cours[i].getDate());
     }
     return *this;
+}
+
+int EvolutionCours::saveFile() {
+    QFile file(filen);
+    if (!file.open(QIODevice::WriteOnly)) {
+        qDebug() << file.errorString();
+        return 1;
+    }
+    for(unsigned int i=0; i<nbCours; i++) {
+        QStringList line;
+        line << QString::number(cours[i].getOpen());
+        line << QString::number(cours[i].getHigh());
+        line << QString::number(cours[i].getLow());
+        line << QString::number(cours[i].getClose());
+        line << QString::number(cours[i].getVolume());
+        line << cours[i].getDate().toString("yyyy,M,d\n");
+        file.write(line.join(',').toLocal8Bit());
+    }
+    return 0;
 }
 
 /*------------------------------------------------ Methodes de classe DevisesManager ---------------------------------------------*/

@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
     evolution.addCours(3701.23000000, 4069.80000000, 3349.92000000, 3434.10000000, 202123, QDate(2018,6,1));
     evolution.addCours(3434.10000000, 4198.00000000, 3373.10000000, 3813.69000000, 321202, QDate(2018,7,1));
     evolution.addCours(3814.26000000, 4140.00000000, 3670.69000000, 4106.65000000, 212313, QDate(2018,8,1));
+    //EvolutionCours evolution(BTC_USD, "/Users/jl-x/Exercice2/test.csv");
     QApplication app(argc, argv);
     EvolutionViewer view(evolution);
     view.show();
