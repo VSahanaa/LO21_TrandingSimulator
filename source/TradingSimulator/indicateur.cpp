@@ -1,38 +1,48 @@
 #include "indicateur.h"
 /*----------------------------------------------- Methodes de classe Indicateur -------------------------------------------------*/
-Indicateur::Indicateur(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom = "un named indicator"): nom(nom) {
+Indicateur::Indicateur(EvolutionCours* evolutionCours, QString nom = "un named indicator"): nom(nom) {
     if (!evolutionCours) throw TradingException("Idicateur: evolutionCours est null");
         this->evolutionCours = evolutionCours;
-    if(!startingPoint || !endPoint) throw TradingException("EMA: startingPoint ou endPoint est null");
-        this->startingPoint = startingPoint;
-        this->endPoint = endPoint;
     nbMaxIndicateur = evolutionCours->getNbCours();
     indices = new IndiceIndicateur[nbMaxIndicateur];
 }
 
-/*----------------------------------------------- Methodes de classe EMA -------------------------------------------------*/
+IndiceIndicateur* Indicateur::searchIndice(CoursOHLCV* cours) {
+    QDate date = cours->getDate();
+    iterator indiceIterator;
+    for (indiceIterator = begin(); indiceIterator != end(); indiceIterator++) {
+        if(indiceIterator->getDate() == date) break;
+        if(indiceIterator->getDate() > date) return nullptr;
+    }
+    if (indiceIterator == end()) return nullptr;
+    return indiceIterator;
+}
 
-EMA::EMA(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom) : Indicateur(startingPoint, endPoint, evolutionCours, nom) {
-    period = startingPoint->getDate().daysTo(endPoint->getDate());
-    if(period <= 0) throw TradingException("EMA: periode est null");
+
+/*----------------------------------------------- Methodes de classe EMA -------------------------------------------------*/
+//information sur EMA (https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp)
+
+EMA::EMA(EvolutionCours* evolutionCours, QString nom, unsigned int period = 10) : Indicateur(evolutionCours, nom), period(period) {
 
     //EMA initial est SMA pour cette periode
+    //il n'y a pas de SMA et EMA pendant la premiere periode
     double sum = 0;
-    nbIndicateur = 0;
+    nbIndicateur = nbMaxIndicateur - period + 1;
     EvolutionCours::iterator coursIterator;
-    for(coursIterator = startingPoint; coursIterator != endPoint+1; coursIterator++) {
+
+    //cacule premier SMA
+    for(coursIterator = evolutionCours->begin(); coursIterator != evolutionCours->begin() + period; coursIterator++) {
         sum += coursIterator->getClose();
         nbIndicateur++;
     }
 
-    iterator indiceIterator = this->begin();
-    indiceIterator->setDate(startingPoint->getDate());
-    indiceIterator->setIndice((period - sum)/period);       //SMA
+    iterator indiceIterator = begin();
+    indiceIterator->setDate((coursIterator-1)->getDate());
+    indiceIterator->setIndice(sum/period);       //premier SMA
     indiceIterator++;
-    coursIterator = startingPoint+1;
-    while(indiceIterator != end()) {
+
+ while(indiceIterator != end()) {
         indiceIterator->setDate(coursIterator->getDate());
-        //information sur EMA (https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp)
         indiceIterator->setIndice((coursIterator->getClose()-(indiceIterator-1)->getIndice())*2/(period+1) + (indiceIterator-1)->getIndice());
         indiceIterator++;
         coursIterator++;
@@ -41,12 +51,12 @@ EMA::EMA(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolut
 
 
 /*----------------------------------------------- Methodes de classe RSI -------------------------------------------------*/
+ //information sur RSI (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi)
+
+RSI::RSI(EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPeriod = 14, double overboughtBound= 70, double oversoldBound= 30)
+    : Indicateur(evolutionCours, nom), lookBackPeriod(lookbackPeriod), overboughtBound(overboughtBound), oversoldBound(oversoldBound) {
 
 
-RSI::RSI(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPeriod = 14, double overboughtBound= 70, double oversoldBound= 30)
-    : Indicateur(startingPoint, endPoint, evolutionCours, nom), lookBackPeriod(lookbackPeriod), overboughtBound(overboughtBound), oversoldBound(oversoldBound) {
-
-    //information sur RSI (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi)
     nbIndicateur = nbMaxIndicateur-lookbackPeriod;
     double avgGain=0, avgLost=0, RS;
     EvolutionCours::iterator coursIterator;
@@ -91,36 +101,36 @@ RSI::RSI(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolut
 
 /*----------------------------------------------- Methodes de classe MACD -------------------------------------------------*/
 
-/*
-MACD::MACD(const int shortp, const int longp, EvolutionCours* e, char* n) :Indicateur(e, n){
-	int nb;
-	nb = e->getNbCours();
-	if (longp <shortp|| shortp > nb) throw TradingException("periode erreur");
-	if (longp< 0||shortp< 0) throw TradingException("periode negative");
-	if (e == nullptr) throw TradingException("EvolutionCours null ");
-	nbIndicateur =nb;
-	double* el, * es;
-	el = (double *)malloc(nb* sizeof(double));
-	es = (double *)malloc(nb* sizeof(double));
-	EMA emal(longp, e,n);
-	EMA emas(shortp, e,n);
-	for (int k = 1; k<nb; k++){
-		el[k] = emal.indices[k].getIndice;
-		es[k] = emas.indices[k].getIndice;
-	}
-	longPeriode = longp;
-	shortPeriode = shortp;
-	evolutionCours = e;
-	for (int i = 0; i <nb; i++) {
-		indices[i].setIndice(es[i] - el[i]);
-		indices[i].setDate(e->cours[i].getDate()); 
-	}
-	free(el);
-	free(es);
 
+MACD::MACD(EvolutionCours* evolutionCours, QString nom, unsigned int shortPeriod=12, unsigned int longPeriod=26, unsigned int signalPeriod=9) :Indicateur(evolutionCours, nom), longPeriod(longPeriod), shortPeriod(shortPeriod), signalPeriod(signalPeriod) {
+    if(longPeriod < shortPeriod || longPeriod < signalPeriod) throw TradingException("MACD: long period doit etre le plus grand");
+    signalLine = new IndiceIndicateur[nbMaxIndicateur];
+    histogram = new IndiceIndicateur[nbMaxIndicateur];
+    nbIndicateur = nbMaxIndicateur - longPeriod + 1;
+    Indicateur* shortEMA = new EMA(evolutionCours, QString::number(shortPeriod)+ "-EMA", shortPeriod);
+    Indicateur* longEMA = new EMA(evolutionCours, QString::number(longPeriod)+ "-EMA", longPeriod);
+    Indicateur* signalEMA = new EMA(evolutionCours, QString::number(signalPeriod)+ "-EMA", signalPeriod);
+    iterator shortEMA_Iterator, longEMA_Iterator, signalEMA_Iterator, indiceIterator, signalLine_Iterator, histogram_Iterator;
+    longEMA_Iterator = longEMA->begin();
+    shortEMA_Iterator = shortEMA->begin() + longPeriod - shortPeriod;
+    signalEMA_Iterator = signalEMA->begin() + longPeriod - signalPeriod;
+    indiceIterator = begin();
+    signalLine_Iterator = signalLine;
+    histogram_Iterator = histogram;
+    while(longEMA_Iterator != longEMA->end()) {
+        indiceIterator->setDate(longEMA_Iterator->getDate());
+        signalLine_Iterator->setDate(longEMA_Iterator->getDate());
+        histogram_Iterator->setDate(longEMA_Iterator->getDate());
+
+        indiceIterator->setIndice(shortEMA_Iterator++->getIndice() - longEMA_Iterator->getIndice());
+        signalLine_Iterator->setIndice(signalEMA_Iterator++->getIndice());
+        histogram_Iterator++->setIndice(indiceIterator++->getIndice() - signalLine_Iterator++->getIndice());
+
+        longEMA_Iterator++;
+
+    }
+    delete[] shortEMA;
+    delete[] longEMA;
+    delete[] signalEMA;
 }
 
-MACD::~MACD() {
-	free(indices);
-}
-*/

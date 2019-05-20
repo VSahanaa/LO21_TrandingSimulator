@@ -24,49 +24,45 @@ class Indicateur {
 protected:
 	EvolutionCours* evolutionCours;
     QString nom;
-    CoursOHLCV* startingPoint;
-    CoursOHLCV* endPoint;
     IndiceIndicateur* indices;  //array de IndiceIndicateur
     unsigned int nbIndicateur;
     unsigned int nbMaxIndicateur;
 public:
-    Indicateur(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom);
+    Indicateur(EvolutionCours* evolutionCours, QString nom);
     ~Indicateur(){delete[] indices;}
     using iterator = IndiceIndicateur*;
     iterator begin(){return indices;}
     iterator end(){return indices + nbIndicateur;}
+    IndiceIndicateur* searchIndice(CoursOHLCV* cours);
 };
 
 
 class EMA : public Indicateur{
-    friend class MACD;
 private:
     unsigned int period;
 public:
-    EMA(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom);
+    EMA(EvolutionCours* evolutionCours, QString nom, unsigned period);
 };
 
 
-class RSI: public Indicateur {
+class RSI : public Indicateur {
 private:
     unsigned int lookBackPeriod;
     double overboughtBound, oversoldBound;
 public:
-    RSI(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPeriod, double overboughtBound, double oversoldBound);
-	~RSI();
+    RSI(EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPeriod, double overboughtBound, double oversoldBound);
 };
 
 
-
-
-
-class MACD:public Indicateur {
+class MACD : public Indicateur {
 private:
-	int	longPeriode;
-	int	shortPeriode;
+    unsigned int longPeriod;
+    unsigned int shortPeriod;
+    unsigned int signalPeriod;
+    IndiceIndicateur* signalLine;
+    IndiceIndicateur* histogram;
 public:
-	MACD(const int longPeriode,const int shortPeriode, EvolutionCours* e,char* n);
-	~MACD() ;
+    MACD(EvolutionCours* evolutionCours, QString nom, unsigned int shortPeriod, unsigned int longPeriod, unsigned int signalPeriod);
 };
 
 class IndicateurManage {
