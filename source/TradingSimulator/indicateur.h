@@ -4,7 +4,8 @@
 #include<string.h>
 #include <QString>
 #include "trading.h"
-
+/*Information de Indicateurs (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:introduction_to_technical_indicators_and_oscillators#momentum_oscillators)
+ */
 class IndiceIndicateur {
 private:
 		double donnee;
@@ -18,6 +19,7 @@ public:
 };
 
 //classe abstrait des indicateur
+
 class Indicateur {
 protected:
 	EvolutionCours* evolutionCours;
@@ -47,10 +49,10 @@ public:
 
 class RSI: public Indicateur {
 private:
-    int lookBackPeriod;
+    unsigned int lookBackPeriod;
     double overboughtBound, oversoldBound;
 public:
-    RSI(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom, int lookbackPeriod, double overboughtBound, double oversoldBound);
+    RSI(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPeriod, double overboughtBound, double oversoldBound);
 	~RSI();
 };
 

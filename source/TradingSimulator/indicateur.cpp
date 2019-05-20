@@ -32,7 +32,7 @@ EMA::EMA(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolut
     coursIterator = startingPoint+1;
     while(indiceIterator != end()) {
         indiceIterator->setDate(coursIterator->getDate());
-        //EMA formula (https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp)
+        //information sur EMA (https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp)
         indiceIterator->setIndice((coursIterator->getClose()-(indiceIterator-1)->getIndice())*2/(period+1) + (indiceIterator-1)->getIndice());
         indiceIterator++;
         coursIterator++;
@@ -43,60 +43,47 @@ EMA::EMA(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolut
 /*----------------------------------------------- Methodes de classe RSI -------------------------------------------------*/
 
 
-RSI::RSI(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom, int lookbackPeriod = 14, double overboughtBound= 70, double oversoldBound= 30)
+RSI::RSI(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPeriod = 14, double overboughtBound= 70, double oversoldBound= 30)
     : Indicateur(startingPoint, endPoint, evolutionCours, nom), lookBackPeriod(lookbackPeriod), overboughtBound(overboughtBound), oversoldBound(oversoldBound) {
 
+    //information sur RSI (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi)
+    nbIndicateur = nbMaxIndicateur-lookbackPeriod;
+    double avgGain=0, avgLost=0, RS;
+    EvolutionCours::iterator coursIterator;
+    double e;
+    for (coursIterator = evolutionCours->begin()+1; coursIterator != evolutionCours->begin()+lookbackPeriod+1; coursIterator++) {
+        e = coursIterator->getClose() - (coursIterator-1)->getClose();
+        if (e>0) {
+            avgGain += e;
+        }
+        else {
+            avgLost += -e;
+        }
+    }
+    avgGain /= lookBackPeriod;
+    avgLost /= lookBackPeriod;
+    RS = avgGain/avgLost;
 
+    //il n'y a pas d'indicateur RSI pendant le look back periode
+    iterator indiceIterator = begin();
+    indiceIterator->setDate((coursIterator-1)->getDate());
+    indiceIterator->setIndice(100-100/(1+RS));
+    indiceIterator++;
 
-
-
-
-
-
-
-
-
-
-
-	int nb;
-	nb = e->getNbCours();
-	if (p >nb) throw TradingException("periode est plus superieur ");
-	if (p < 0) throw TradingException("periode negative");
-	if (e == nullptr ||nb== 0) throw TradingException("EvolutionCours null ");
-
-	parametre = p;
-	nbIndicateur =nb-p+1;
-
-	indices = (IndiceIndicateur*)malloc(nbIndicateur * sizeof(IndiceIndicateur));
-	double up,down,rs,upavg,downavg;
-	up = down = 0;
-
-	//premiere element
-	for (int i = 1; i <=p; i++) {
-		if (e->cours[i].getClose() >= e->cours[i - 1].getClose())
-			up += e->cours[i].getClose() - e->cours[i - 1].getClose();
-		else
-			down+= e->cours[i-1].getClose() - e->cours[i].getClose();
-	}
-
-	upavg = up / p;
-	downavg = down / p;
-	rs = upavg/downavg;
-
-	indices[0].setIndice(100 - 100 / (1 + rs));
-	indices[0].setDate(e->cours[0].getDate()); 
 	//element suivant
-	for (int i = p; i <nb; i++) {
-		up = down = 0;
-		if (e->cours[i].getClose() >= e->cours[i - 1].getClose())
-			up += e->cours[i].getClose() - e->cours[i - 1].getClose();
-		else
-			down += e->cours[i - 1].getClose() - e->cours[i].getClose();
-		upavg = (upavg*(p - 1) + up) / p;
-		downavg = (downavg*(p - 1) + down) / p;
-		rs = upavg / downavg;
-		indices[i-p+1].setIndice(100 - 100 / (1 + rs));
-		indices[i-p+1].setDate(e->cours[i-p+1].getDate()); 
+    while(indiceIterator != end()) {
+        e = coursIterator->getClose() - (coursIterator-1)->getClose();
+        if (e > 0) {
+            avgGain = (avgGain*(lookbackPeriod-1) + e)/lookbackPeriod;
+        }
+        else {
+            avgLost = (avgLost*(lookbackPeriod-1) - e)/lookbackPeriod;
+        }
+        RS = avgGain/avgLost;
+        indiceIterator->setDate(coursIterator->getDate());
+        indiceIterator->setIndice(100 - 100/(1+RS));
+        indiceIterator++;
+        coursIterator++;
 	}
 }
 
