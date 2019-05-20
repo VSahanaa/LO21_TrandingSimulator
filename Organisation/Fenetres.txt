@@ -1,0 +1,312 @@
+LES  FENETRES (en majuscule)
+Fenetre 1 			: fenetre principale qui va subir des mise à jour/modification selon l'utilisation de l'application
+Fenetre a,b,c.. 	: petite fenetre de choix. Tant qu'il est actif, l'acces à Fenetre 1 est bloqué.
+Fenetre 1.a, 1.b..	: fenetre composant la fenetre 1, peut être optionnelle.
+
+[Boutton]	->	Reference, action du clique	//explication.
+
+Categories :
+	-fenetre 1 			: fenetre principale(ATTENTION SELON LE CAS, certains bouttons sont invisibles ou inactifs)
+								composée de graph ou tableau
+								souvent mise a jour
+								visibilité des bouttons selon les modes (heritage ?)
+	-fenetre a,c,d,f	: petite fenetre de choix, entraine une mise a jour de la fenetre 1
+								autre fenetre 
+								bloque l'acces a la fenetre 1
+								envoie un mess a fenetre 1 qui entraine souvent sa mise a jour
+	-fenetre e1			: demande de confirmation, mise a jour fenetre 1
+								idem
+	-graphes			: chandelier, RSI, EMI....(penser au curseurs)
+								dimension de la fenetre doit être modifiable
+								curseur possible
+	-tableau de données : coursOHLCV, infos bougie, historique, parametres
+	
+	
+
+Cas I.	ACCUEIL (Fenetre 1) :
+			
+			Barre de menu {				
+				[FICHIER] :	
+					[NOUVELLE SIMULATION]	->	I.a. CHOIX DU MONDE		(Fenetre a1,a2,a3)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER SIMULATION]	->	I.b. CHOIX DES FICHIERS	(Fenetre c)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER COURSOHLCV]	->	I.c. CHOIX DU FICHIERS	(Fenetre d)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+			}
+			
+	Cas I.a. Demande de simulation:
+		
+			Cas I.a.1.	CHOIX DU MENU	(Fenetre a1) :
+				Menu scroll{
+					[MODE PAS A PAS]	->	I.a.2.	PAS A PAS (fenetre a2)
+					[MODE MANUEL]		->	I.a.3.	MANUEL	  (fenetre a3)
+					[MODE AUTO]			->	I.a.4.	AUTO	  (fenetre a4)
+				}
+				[ANNULER]				->	//retour dans l'état de fenetre 1 précédent
+				[VALIDER]				->	//ouverture de la fenetre appropiée + fermeture de celle-ci.
+			
+			Cas I.a.2	PAS A PAS	(Fenetre a2)
+				
+				//choix de la paire dans un scroll ou création de la paire
+				//charger le fichier coursOHLCV
+				//les autres parametres 
+				
+				[ANNULER]				->	//retour dans l'état précédent de la fenetre 1.
+				[VALIDER]				->	II. SIMULATION	(fenetre 1, etat S1)	//envoie des infos aux objets...
+			
+			Cas I.a.3	MANUEL		(Fenetre a3)
+			
+				//choix de la paire dans un scroll ou création de la paire
+				//charger le fichier coursOHLCV
+				//les autres parametres 
+				
+				[ANNULER]				->	//retour dans l'état précédent de la fenetre 1.
+				[VALIDER]				->	II. SIMULATION	(fenetre 1, etat S1)	//envoie des infos aux objets...
+			
+			Cas I.a.4	AUTO		(Fenetre a4)
+			
+				//choix de la paire dans un scroll ou création de la paire
+				//charger le fichier coursOHLCV
+				//les autres parametres 
+				
+				[ANNULER]				->	//retour dans l'état précédent de la fenetre 1.
+				[VALIDER]				->	II. SIMULATION	(fenetre 1, etat S1)	//envoie des infos aux objets...
+			
+	Cas I.b. CHARGER LA SIMULATION 	(Fenetre c)
+			//fichier ?
+			[ANNULER]
+			[VALIDER]					->III.	CHARGEMENT SIMULATION	(Fenetre1, etat A)
+			
+	Cas I.c. CHARGER COURSOHLCV		(Fenetre d)
+			//fichier ?
+			[ANNULER]
+			[VALIDER]					->IV.	CHARGEMENT COURSOHLCV	(Fenetre1, etat C)
+	
+Cas II.	SIMULATION	(fenetre 1, etat S1)
+	
+			Barre de menu {				
+				[FICHIER] :	
+					[NOUVELLE SIMULATION]	->	I.a. CHOIX DU MONDE		(Fenetre a1,a2,a3)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER SIMULATION]	->	I.b. CHOIX DES FICHIERS	(Fenetre c1)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER COURSOHLCV]	->	I.c. CHOIX DU FICHIERS	(Fenetre c2)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[SAUVERGARDER]			->	II.a. SAUVEGARDE		(Fenetre d)
+					[QUITTER]				->	II.b. QUITTER			(Fenetre e1)	
+				[EDITER] :
+					[FICHIER TXT]
+					[PARAMETRES]			->	II.e. //Resolution etc...		(Fenetre f)
+				[AFFICHER] :
+					[TABLEAU COURS]			->	//(Fenetre 1, etat S3)
+					[HISTORIQUE]			-> 	//(Fenetre 1, etat S3)
+				[TRANSACTION]:
+					[NOUVELLE]				->	II.c. 	TRANSACTION		(Fenetre f)
+					[ANNULER PRECENDENTE]	->	II.d 	ANNULER			(fenetre e2)
+				[OUTILS] :
+					[CURSEUR]				-> //Apparition d'un curseur sur le graph selectionné => ouverture d'une fenetre annexe
+					[INDICATEUR]:
+						[EMI]				->	//Ouverture de la fenetre 1 en etat S2
+						[RSI]				-> 	//Ouverture de la fenetre 1 en etat S2
+						...		/!\ être pret à des mises à jour...
+				
+			}
+
+			Graph {				
+				//graphique en chandelier
+				[BOUGIE]					-> //affichage des données
+				//[curseur]					-> //affichage des données
+			}
+			
+			RSI {				
+				//graphique du RSI
+				//[curseur]					-> //affichage des données
+			}
+			ParametreInfos	{
+				//infos sur la simulation (nom, devises,...)
+			}
+			
+	Fenetre1, etat S1,2... (optionnelle):
+			
+			TableauCoursOHLVC{
+				//tableau des coursOHLCV
+			}
+			
+			historique{
+				//transactions passees, montants,...
+			}
+			
+			Donnee des bougies{
+				//qd on clique sur la bougie.
+			}
+	
+	cas II.a. SAUVEGARDE		(Fenetre d)
+		//
+		[ANNULER]
+		[VALIDER]
+		
+	cas II.b. QUITTER			(Fenetre e1)
+		//confirmation
+		[ANNULER]
+		[CONFIRMER]			-> //pas de sauvegarde. Retour Fenetre1 etat S
+		
+	cas II.c. 	TRANSACTION		(Fenetre f)
+		[Montant]
+		[ACHAT]
+		[OpenPrice]
+		//....
+		[ANNULER]
+		[CONFIRMER]			-> //mise a jour fenetre 1	
+		
+	cas II.d 	ANNULER			(fenetre e2)
+		[ANNULER]
+		[CONFIRMER]			-> //mise a jour fenetre 1
+		
+	cas II.e PARAMETRES			-> //mis a jour fenetre 1
+		//A reflechir (exemple resolution ?)
+	
+	
+Cas III. CHARGEMENT TRANSACTION	(fenetre 1, Etat A)
+
+			Barre de menu {				
+				[FICHIER] :	
+					[NOUVELLE SIMULATION]	->	I.a. CHOIX DU MONDE		(Fenetre a1,a2,a3)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER SIMULATION]	->	I.b. CHOIX DES FICHIERS	(Fenetre c)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER COURSOHLCV]	->	I.c. CHOIX DU FICHIERS	(Fenetre d)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+			}
+			
+	Cas I.a. Demande de simulation:
+		
+			Cas I.a.1.	CHOIX DU MENU	(Fenetre a1) :
+				Menu scroll{
+					[MODE PAS A PAS]	->	I.a.2.	PAS A PAS (fenetre a2)
+					[MODE MANUEL]		->	I.a.3.	MANUEL	  (fenetre a3)
+					[MODE AUTO]			->	I.a.4.	AUTO	  (fenetre a4)
+				}
+				[ANNULER]				->	//retour dans l'état de fenetre 1 précédent
+				[VALIDER]				->	//ouverture de la fenetre appropiée + fermeture de celle-ci.
+			
+			Cas I.a.2	PAS A PAS	(Fenetre a2)
+				
+				//choix de la paire dans un scroll ou création de la paire
+				//charger le fichier coursOHLCV
+				//les autres parametres 
+				
+				[ANNULER]				->	//retour dans l'état précédent de la fenetre 1.
+				[VALIDER]				->	II. SIMULATION	(fenetre 1, etat S1)	//envoie des infos aux objets...
+			
+			Cas I.a.3	MANUEL		(Fenetre a3)
+			
+				//choix de la paire dans un scroll ou création de la paire
+				//charger le fichier coursOHLCV
+				//les autres parametres 
+				
+				[ANNULER]				->	//retour dans l'état précédent de la fenetre 1.
+				[VALIDER]				->	II. SIMULATION	(fenetre 1, etat S1)	//envoie des infos aux objets...
+			
+			Cas I.a.4	AUTO		(Fenetre a4)
+			
+				//choix de la paire dans un scroll ou création de la paire
+				//charger le fichier coursOHLCV
+				//les autres parametres 
+				
+				[ANNULER]				->	//retour dans l'état précédent de la fenetre 1.
+				[VALIDER]				->	II. SIMULATION	(fenetre 1, etat S1)	//envoie des infos aux objets...
+			
+	Cas I.b. CHARGER LA SIMULATION 	(Fenetre c)
+			//fichier ?
+			[ANNULER]
+			[VALIDER]					->III.	CHARGEMENT SIMULATION	(Fenetre1, etat A)
+			
+	Cas I.c. CHARGER COURSOHLCV		(Fenetre d)
+			//fichier ?
+			[ANNULER]
+			[VALIDER]					->IV.	CHARGEMENT COURSOHLCV	(Fenetre1, etat C)
+	
+Cas II.	SIMULATION	(fenetre 1, etat S1)
+	
+			Barre de menu {				
+				[FICHIER] :	
+					[NOUVELLE SIMULATION]	->	I.a. CHOIX DU MONDE		(Fenetre a1,a2,a3)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER SIMULATION]	->	I.b. CHOIX DES FICHIERS	(Fenetre c1)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER COURSOHLCV]	->	I.c. CHOIX DU FICHIERS	(Fenetre c2)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[SAUVERGARDER]			->	II.a. SAUVEGARDE		(Fenetre d)
+					[QUITTER]				->	II.b. QUITTER			(Fenetre e1)
+					
+				[EDITER] :
+					[PARAMETRES]			->	II.e. //Resolution etc...		(Fenetre f)
+					
+				[OUTILS] :
+					[CURSEUR]				-> //Apparition d'un curseur sur le graph selectionné => ouverture d'une fenetre annexe
+					[INDICATEUR]:
+						[EMI]				->	//Ouverture de la fenetre 1 en etat S2
+						[RSI]				-> 	//Ouverture de la fenetre 1 en etat S2
+						...		/!\ être pret à des mises à jour...
+				
+			}
+
+			Graph {				
+				//graphique en chandelier
+				[BOUGIE]					-> //affichage des données
+				//[curseur]					-> //affichage des données
+			}
+			
+			RSI {				
+				//graphique du RSI
+				//[curseur]					-> //affichage des données
+			}
+			ParametreInfos	{
+				//infos sur la simulation (nom, devises,...)
+			}
+			
+			TableauCoursOHLVC{
+				//tableau des coursOHLCV
+			}
+			
+			historique{
+				//transactions passees, montants,...
+			}
+			
+			Donnee des bougies{
+				//qd on clique sur la bougie.
+			}
+	
+
+Cas IV. CHARGEMENT COURSOHLCV	(fenetre 1, etat C)
+
+			Barre de menu {				
+				[FICHIER] :	
+					[NOUVELLE SIMULATION]	->	I.a. CHOIX DU MONDE		(Fenetre a1,a2,a3)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER SIMULATION]	->	I.b. CHOIX DES FICHIERS	(Fenetre c1)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[CHARGER COURSOHLCV]	->	I.c. CHOIX DU FICHIERS	(Fenetre c2)	//	Ouverture d'une petite fenetre et bloque l'acces à la Fenetre 1
+					[SAUVERGARDER]			->	II.a. SAUVEGARDE		(Fenetre d)
+					[QUITTER]				->	II.b. QUITTER			(Fenetre e1)
+					
+				[EDITER] :
+					[PARAMETRES]			->	II.e. //Resolution etc...		(Fenetre f)
+					
+				[OUTILS] :
+					[CURSEUR]				-> //Apparition d'un curseur sur le graph selectionné => ouverture d'une fenetre annexe
+					[INDICATEUR]:
+						[EMI]				->	//Ouverture de la fenetre 1 en etat S2
+						[RSI]				-> 	//Ouverture de la fenetre 1 en etat S2
+						...		/!\ être pret à des mises à jour...
+				
+			}
+
+			Graph {				
+				//graphique en chandelier
+				[BOUGIE]					-> //affichage des données
+				//[curseur]					-> //affichage des données
+			}
+			
+			RSI {				
+				//graphique du RSI
+				//[curseur]					-> //affichage des données
+			}
+			ParametreInfos	{
+				//infos sur la simulation (nom, devises,...)
+			}
+			
+			TableauCoursOHLVC{
+				//tableau des coursOHLCV
+			}
+			
+			Donnee des bougies{
+				//qd on clique sur la bougie.
+			}
