@@ -1,38 +1,40 @@
 #include "indicateur.h"
 /*----------------------------------------------- Methodes de classe Indicateur -------------------------------------------------*/
 
-Indicateur::Indicateur(EvolutionCours* e, char* n) {
-	nom = new char[strlen(n) + 1];
-	strcpy(nom, n);
-	evolutionCours = e;
-};
-Indicateur::~Indicateur() { delete[] nom; };
-
-
 
 /*----------------------------------------------- Methodes de classe EMA -------------------------------------------------*/
-EMA::EMA(const int p,EvolutionCours* e, char* n):Indicateur(e,n) {
-	int nb;
-	nb = e->getNbCours();
-	if (p>nb) throw TradingException("periode est plus superieur ");
-	if (p<0) throw TradingException("periode negative");
-	if (e==nullptr||e->nb) throw TradingException("EvolutionCours null ");
-	nbIndicateur =nb;
-	periode = p;
-	indices=(IndiceIndicateur*)malloc((e->nbCours)*sizeof(IndiceIndicateur));
-	indices[0].setIndice(e->cours[0].getClose());
-	indices[0].setDate(e->cours[0].getDate());
-	for (int i = 1; i <nb; i++) {
-		indices[i].setIndice((indices[i - 1].getIndice()* (periode - 1) + 2 * e->cours[i].getClose()) / (periode + 1));
-		indices[i].setDate(e->cours[i].getDate());
-	}
-}
 
-EMA::~EMA() {
-	free(indices);	
+EMA::EMA(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom) : Indicateur(evolutionCours,nom), startingPoint(startingPoint), endPoint(endPoint) {
+    if(!startingPoint || !endPoint) throw TradingException("EMA: startingPoint ou endPoint est null");
+    periode = startingPoint->getDate().daysTo(endPoint->getDate());
+    if(periode <= 0) throw TradingException("EMA: periode est null");
+    nbMaxIndicateur = evolutionCours->getNbCours();
+
+    indices = new IndiceIndicateur[nbMaxIndicateur];
+    //EMA initial est SMA pour cette periode
+    double sum = 0;
+    nbIndicateur = 0;
+    EvolutionCours::iterator coursIterator;
+    for(coursIterator = startingPoint; coursIterator != endPoint+1; coursIterator++) {
+        sum += coursIterator->getClose();
+        nbIndicateur++;
+    }
+
+    iterator indiceIterator = this->begin();
+    indiceIterator->setDate(startingPoint->getDate());
+    indiceIterator->setIndice((periode - sum)/periode);       //SMA
+    indiceIterator++;
+    coursIterator = startingPoint+1;
+    while(indiceIterator != end()) {
+        indiceIterator->setDate(coursIterator->getDate());
+        indiceIterator->setIndice((coursIterator->getClose()-(indiceIterator-1)->getIndice())*2/(periode+1) + (indiceIterator-1)->getIndice());
+        indiceIterator++;
+        coursIterator++;
+    }
 }
 
 /*----------------------------------------------- Methodes de classe RSI -------------------------------------------------*/
+
 RSI::RSI(const int p, EvolutionCours* e, char* n):Indicateur(e, n){
 	int nb;
 	nb = e->getNbCours();
@@ -76,6 +78,8 @@ RSI::~RSI() {
 }
 
 /*----------------------------------------------- Methodes de classe MACD -------------------------------------------------*/
+
+/*
 MACD::MACD(const int shortp, const int longp, EvolutionCours* e, char* n) :Indicateur(e, n){
 	int nb;
 	nb = e->getNbCours();
@@ -107,3 +111,4 @@ MACD::MACD(const int shortp, const int longp, EvolutionCours* e, char* n) :Indic
 MACD::~MACD() {
 	free(indices);
 }
+*/

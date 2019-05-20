@@ -29,14 +29,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         trading.cpp \
-        transaction.cpp
+        transaction.cpp\
+        indicateur.cpp
 
 HEADERS += \
         evolutionviewer.h \
         mainwindow.h \
         simulation.h \
         trading.h \
-        transaction.h
+        transaction.h\
+        indicateur.h
 
 FORMS += \
         mainwindow.ui

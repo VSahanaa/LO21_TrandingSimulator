@@ -8,39 +8,53 @@
 class IndiceIndicateur {
 private:
 		double donnee;
-		Qdate  date;
+        QDate  date;
 public:
-		double getIndice() { return donnee; };
-	    Qdate  getDate() { return date; };
-		void setIndice(double don) { donnee = don;};
-		void setDate(Qdate da) { date = da; };
+        IndiceIndicateur(){}
+        double getIndice() { return donnee;}
+        QDate  getDate() { return date;}
+        void setIndice(double donnee) { this->donnee = donnee;}
+        void setDate(QDate date) { this->date = date;}
 };
+
+//classe abstrait des indicateur
 class Indicateur {
 protected:
 	EvolutionCours* evolutionCours;
-	int nbIndicateur;
-	char* nom;
-	IndiceIndicateur* indices;
+    QString nom;
+    IndiceIndicateur* indices;  //array de IndiceIndicateur
+    unsigned int nbIndicateur;
+    unsigned int nbMaxIndicateur;
 public:
-	Indicateur(EvolutionCours* e, char* n) {};
-	~Indicateur();
-};
-class EMA:public Indicateur{
-private:
-	int	periode ;
-public:
-	friend class MACD;
-	EMA(const int p, EvolutionCours* e, char* n);
-	~EMA();
+    Indicateur(EvolutionCours* evolutionCours, QString nom = ""): evolutionCours(evolutionCours), nom(nom) {if (!evolutionCours) throw TradingException("Idicateur: evolutionCours est null");}
+    ~Indicateur(){delete[] indices;}
+    using iterator = IndiceIndicateur*;
+    iterator begin(){return indices;}
+    iterator end(){return indices + nbIndicateur;}
 };
 
-class RSI:public Indicateur {
+
+class EMA : public Indicateur{
+    friend class MACD;
+private:
+    CoursOHLCV* startingPoint;
+    CoursOHLCV* endPoint;
+    unsigned int periode;
+public:
+    EMA(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom);
+};
+
+
+class RSI: public Indicateur {
 private:
 	int	parametre;
 public:
 	RSI(const int p, EvolutionCours* e, char* n);
 	~RSI();
 };
+
+
+
 
 
 class MACD:public Indicateur {
@@ -57,6 +71,5 @@ private:
 	Indicateur* listeIndicateur;
 	int nbIndicateur;
 };
-
 #endif // INDICATEUR_H
 
