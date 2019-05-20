@@ -22,11 +22,13 @@ class Indicateur {
 protected:
 	EvolutionCours* evolutionCours;
     QString nom;
+    CoursOHLCV* startingPoint;
+    CoursOHLCV* endPoint;
     IndiceIndicateur* indices;  //array de IndiceIndicateur
     unsigned int nbIndicateur;
     unsigned int nbMaxIndicateur;
 public:
-    Indicateur(EvolutionCours* evolutionCours, QString nom = ""): evolutionCours(evolutionCours), nom(nom) {if (!evolutionCours) throw TradingException("Idicateur: evolutionCours est null");}
+    Indicateur(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom);
     ~Indicateur(){delete[] indices;}
     using iterator = IndiceIndicateur*;
     iterator begin(){return indices;}
@@ -37,9 +39,7 @@ public:
 class EMA : public Indicateur{
     friend class MACD;
 private:
-    CoursOHLCV* startingPoint;
-    CoursOHLCV* endPoint;
-    unsigned int periode;
+    unsigned int period;
 public:
     EMA(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom);
 };
@@ -47,9 +47,10 @@ public:
 
 class RSI: public Indicateur {
 private:
-	int	parametre;
+    int lookBackPeriod;
+    double overboughtBound, oversoldBound;
 public:
-	RSI(const int p, EvolutionCours* e, char* n);
+    RSI(CoursOHLCV* startingPoint, CoursOHLCV* endPoint, EvolutionCours* evolutionCours, QString nom, int lookbackPeriod, double overboughtBound, double oversoldBound);
 	~RSI();
 };
 
