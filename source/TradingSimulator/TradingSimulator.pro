@@ -30,7 +30,8 @@ SOURCES += \
         mainwindow.cpp \
         trading.cpp \
         transaction.cpp\
-        indicateur.cpp
+        indicateur.cpp\
+        strategie.cpp
 
 HEADERS += \
         evolutionviewer.h \
@@ -38,7 +39,8 @@ HEADERS += \
         simulation.h \
         trading.h \
         transaction.h\
-        indicateur.h
+        indicateur.h\
+        strategie.h
 
 FORMS += \
         mainwindow.ui
