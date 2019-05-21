@@ -24,6 +24,8 @@ public:
     bool hasNext() const {if (transactionDernier) {return true;} else {return false;}}
 };
 
+
+
 class TransactionManager {
     static TransactionManager* instance;
     Transaction* listeTransaction = nullptr;    //pointeur vers la transaction le plus current, les transactions se organisent comme une liste chainée
@@ -31,6 +33,8 @@ class TransactionManager {
     double montantBaseInitial;
     double montantContrepartieInitial;
     double montantTotalInitial;
+    TransactionManager(const TransactionManager& transactionManager) = delete;
+    TransactionManager& operator=(const TransactionManager& transactionManager) = delete;
     TransactionManager(float pourcentage, double montantBaseInitial, double montantContrepartieInitial, double montantTotalInitial): pourcentage(pourcentage), montantBaseInitial(montantBaseInitial), montantContrepartieInitial(montantContrepartieInitial), montantTotalInitial(montantTotalInitial) {}
     ~TransactionManager();
 public:
@@ -44,10 +48,12 @@ public:
         }
         return instance;
     }
+
     static void libererTransactionManager(){
         delete instance;
         instance = nullptr;
     }
+
     void addTransaction(PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
     void deleteLastTransaction();   //supprimer transaction derniere
     double solde() const;

@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        commande.cpp \
         evolutionviewer.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -34,6 +35,7 @@ SOURCES += \
         strategie.cpp
 
 HEADERS += \
+        commande.h \
         evolutionviewer.h \
         mainwindow.h \
         simulation.h \
