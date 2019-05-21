@@ -83,14 +83,14 @@ public:
     ~EvolutionCours();
     EvolutionCours(const EvolutionCours& evolutionCours);
     EvolutionCours& operator=(const EvolutionCours& evolutionCours);
-    unsigned int getNbCours() const { return nbCours; };
+    unsigned int getNbCours() const { return nbCours; }
     const PaireDevises& getPaireDevises() const { return *paire; }
     using iterator = CoursOHLCV*;
     iterator begin() { return iterator(cours); }
     iterator end() { return iterator(cours + nbCours); }
-    using constIterator = const CoursOHLCV*;
-    constIterator cbegin() const { return cours; }
-    constIterator cend() const { return cours + nbCours; }
+    using const_iterator = const CoursOHLCV*;
+    const_iterator cbegin() const { return cours; }
+    const_iterator cend() const { return cours + nbCours; }
     void setFile(QString file) {filen = file;}
     int saveFile();
 };
