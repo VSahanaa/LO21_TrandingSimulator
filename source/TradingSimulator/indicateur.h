@@ -1,7 +1,5 @@
 #ifndef INDICATEUR_H
 #define INDICATEUR_H
-#include<iostream>
-#include<string.h>
 #include <QString>
 #include "trading.h"
 /*Information de Indicateurs (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:introduction_to_technical_indicators_and_oscillators#momentum_oscillators)
@@ -67,11 +65,12 @@ private:
 public:
     MACD(EvolutionCours* evolutionCours, QString nom, unsigned int shortPeriod, unsigned int longPeriod, unsigned int signalPeriod);
 };
-
+/*
 class IndicateurManage {
 private:
 	Indicateur* listeIndicateur;
 	int nbIndicateur;
 };
+*/
 #endif // INDICATEUR_H
 
