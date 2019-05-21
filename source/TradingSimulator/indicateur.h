@@ -12,8 +12,8 @@ private:
         QDate  date;
 public:
         IndiceIndicateur(){}
-        double getIndice() { return donnee;}
-        QDate  getDate() { return date;}
+        double getIndice() const { return donnee;}
+        QDate  getDate() const { return date;}
         void setIndice(double donnee) { this->donnee = donnee;}
         void setDate(QDate date) { this->date = date;}
 };
@@ -31,8 +31,11 @@ public:
     Indicateur(EvolutionCours* evolutionCours, QString nom);
     ~Indicateur(){delete[] indices;}
     using iterator = IndiceIndicateur*;
+    using const_iterator = const IndiceIndicateur*;
     iterator begin(){return indices;}
     iterator end(){return indices + nbIndicateur;}
+    const_iterator cbegin() const {return indices;}
+    const_iterator cend() const {return indices+ nbIndicateur;}
     IndiceIndicateur* searchIndice(CoursOHLCV* cours);
 };
 
