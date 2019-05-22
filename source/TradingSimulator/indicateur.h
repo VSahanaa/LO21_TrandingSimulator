@@ -14,6 +14,7 @@ public:
         QDate  getDate() const { return date;}
         void setIndice(double donnee) { this->donnee = donnee;}
         void setDate(QDate date) { this->date = date;}
+        //for debugging
         QString toString() const {return date.toString() + " indicateur: " + QString::number(donnee);}
 };
 

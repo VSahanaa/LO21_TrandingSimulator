@@ -28,7 +28,7 @@ EMA::EMA(EvolutionCours* evolutionCours, QString nom, unsigned int period) : Ind
     //il n'y a pas de SMA et EMA pendant la premiere periode
     double sum = 0;
     nbIndicateur = nbMaxIndicateur - period + 1;
-    qDebug() << nbMaxIndicateur <<" " << nbIndicateur;
+    //qDebug() << nbMaxIndicateur <<" " << nbIndicateur;
     EvolutionCours::iterator coursIterator;
     //cacule premier SMA
     for(coursIterator = evolutionCours->begin(); coursIterator != evolutionCours->begin() + period+1; coursIterator++) {
@@ -38,7 +38,7 @@ EMA::EMA(EvolutionCours* evolutionCours, QString nom, unsigned int period) : Ind
     iterator indiceIterator = begin();
     indiceIterator->setDate((coursIterator-1)->getDate());
     indiceIterator->setIndice(sum/period);       //premier SMA
-    qDebug() << indiceIterator->toString();
+    //qDebug() << indiceIterator->toString();
     indiceIterator++;
 
  while(indiceIterator != end()) {
@@ -57,8 +57,7 @@ EMA::EMA(EvolutionCours* evolutionCours, QString nom, unsigned int period) : Ind
 RSI::RSI(EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPeriod, double overboughtBound, double oversoldBound)
     : Indicateur(evolutionCours, nom), lookBackPeriod(lookbackPeriod), overboughtBound(overboughtBound), oversoldBound(oversoldBound) {
 
-
-    nbIndicateur = nbMaxIndicateur-lookbackPeriod;
+    nbIndicateur = nbMaxIndicateur-lookbackPeriod-1;
     double avgGain=0, avgLost=0, RS;
     EvolutionCours::iterator coursIterator;
     double e;
@@ -73,13 +72,9 @@ RSI::RSI(EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPerio
     }
     avgGain /= lookBackPeriod;
     avgLost /= lookBackPeriod;
-    RS = avgGain/avgLost;
 
     //il n'y a pas d'indicateur RSI pendant le look back periode
     iterator indiceIterator = begin();
-    indiceIterator->setDate((coursIterator-1)->getDate());
-    indiceIterator->setIndice(100-100/(1+RS));
-    indiceIterator++;
 
 	//element suivant
     while(indiceIterator != end()) {
@@ -93,6 +88,7 @@ RSI::RSI(EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPerio
         RS = avgGain/avgLost;
         indiceIterator->setDate(coursIterator->getDate());
         indiceIterator->setIndice(100 - 100/(1+RS));
+        //qDebug() << indiceIterator->toString();
         indiceIterator++;
         coursIterator++;
 	}
@@ -101,37 +97,38 @@ RSI::RSI(EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPerio
 
 
 /*----------------------------------------------- Methodes de classe MACD -------------------------------------------------*/
-
+//information sur MACD (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd)
 
 MACD::MACD(EvolutionCours* evolutionCours, QString nom, unsigned int shortPeriod, unsigned int longPeriod, unsigned int signalPeriod) :Indicateur(evolutionCours, nom), longPeriod(longPeriod), shortPeriod(shortPeriod), signalPeriod(signalPeriod) {
     if(longPeriod < shortPeriod || longPeriod < signalPeriod) throw TradingException("MACD: long period doit etre le plus grand");
     signalLine = new IndiceIndicateur[nbMaxIndicateur];
     histogram = new IndiceIndicateur[nbMaxIndicateur];
-    nbIndicateur = nbMaxIndicateur - longPeriod + 1;
+    nbIndicateur = nbMaxIndicateur - longPeriod+1;
+
     Indicateur* shortEMA = new EMA(evolutionCours, QString::number(shortPeriod)+ "-EMA", shortPeriod);
     Indicateur* longEMA = new EMA(evolutionCours, QString::number(longPeriod)+ "-EMA", longPeriod);
     Indicateur* signalEMA = new EMA(evolutionCours, QString::number(signalPeriod)+ "-EMA", signalPeriod);
     iterator shortEMA_Iterator, longEMA_Iterator, signalEMA_Iterator, indiceIterator, signalLine_Iterator, histogram_Iterator;
+
     longEMA_Iterator = longEMA->begin();
     shortEMA_Iterator = shortEMA->begin() + longPeriod - shortPeriod;
     signalEMA_Iterator = signalEMA->begin() + longPeriod - signalPeriod;
     indiceIterator = begin();
     signalLine_Iterator = signalLine;
     histogram_Iterator = histogram;
-    while(longEMA_Iterator != longEMA->end()) {
+    while(longEMA_Iterator != longEMA->end()-1) {
         indiceIterator->setDate(longEMA_Iterator->getDate());
         signalLine_Iterator->setDate(longEMA_Iterator->getDate());
         histogram_Iterator->setDate(longEMA_Iterator->getDate());
-
-        indiceIterator->setIndice(shortEMA_Iterator++->getIndice() - longEMA_Iterator->getIndice());
+        //qDebug() <<"short EMA" << shortEMA_Iterator->toString();
+        //qDebug() <<"long EMA" <<longEMA_Iterator->toString();
+        //qDebug() <<"signal EMA" <<signalEMA_Iterator->toString();
+        indiceIterator->setIndice(shortEMA_Iterator++->getIndice() - longEMA_Iterator++->getIndice());
         signalLine_Iterator->setIndice(signalEMA_Iterator++->getIndice());
         histogram_Iterator++->setIndice(indiceIterator++->getIndice() - signalLine_Iterator++->getIndice());
-
-        longEMA_Iterator++;
-
     }
-    delete[] shortEMA;
-    delete[] longEMA;
-    delete[] signalEMA;
+    delete shortEMA;
+    delete longEMA;
+    delete signalEMA;
 }
 

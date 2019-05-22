@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     evolution.addCours(3814.26000000, 4140.00000000, 3670.69000000, 4106.65000000, 212313, QDate(2018,8,1));
     */
     EvolutionCours evolution(BTC_USD, ":/TradingSimulator/evolutionCours/fichier_OHLCV/BTC-USD.csv");
-    Indicateur* ema = new EMA(&evolution);
+    Indicateur* macd = new MACD(&evolution);
     QApplication app(argc, argv);
     EvolutionViewer view(evolution);
     view.show();
