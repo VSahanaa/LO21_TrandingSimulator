@@ -14,6 +14,7 @@ public:
         QDate  getDate() const { return date;}
         void setIndice(double donnee) { this->donnee = donnee;}
         void setDate(QDate date) { this->date = date;}
+        QString toString() const {return date.toString() + " indicateur: " + QString::number(donnee);}
 };
 
 //classe abstrait des indicateur
@@ -42,7 +43,7 @@ class EMA : public Indicateur{
 private:
     unsigned int period;
 public:
-    EMA(EvolutionCours* evolutionCours, QString nom, unsigned period);
+    EMA(EvolutionCours* evolutionCours, QString nom="EMA", unsigned period=10);
 };
 
 
@@ -51,7 +52,7 @@ private:
     unsigned int lookBackPeriod;
     double overboughtBound, oversoldBound;
 public:
-    RSI(EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPeriod, double overboughtBound, double oversoldBound);
+    RSI(EvolutionCours* evolutionCours, QString nom="RSI", unsigned int lookbackPeriod = 14, double overboughtBound= 70, double oversoldBound= 30);
 };
 
 
@@ -63,7 +64,7 @@ private:
     IndiceIndicateur* signalLine;
     IndiceIndicateur* histogram;
 public:
-    MACD(EvolutionCours* evolutionCours, QString nom, unsigned int shortPeriod, unsigned int longPeriod, unsigned int signalPeriod);
+    MACD(EvolutionCours* evolutionCours, QString nom="MACD", unsigned int shortPeriod=12, unsigned int longPeriod=26, unsigned int signalPeriod=9);
 };
 /*
 class IndicateurManage {
