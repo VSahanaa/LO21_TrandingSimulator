@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/TradingSimulator/evolutionCours">
+        <file>fichier_OHLCV/TWTR.csv</file>
+        <file>fichier_OHLCV/TSLA.csv</file>
+        <file>fichier_OHLCV/FB.csv</file>
+        <file>fichier_OHLCV/BTC-USD.csv</file>
+        <file>fichier_OHLCV/AMZN.csv</file>
+    </qresource>
+</RCC>

@@ -21,7 +21,6 @@ public:
         delete instance;
         instance = nullptr;
     }
-
     void achat(PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager->addTransaction(paire, cours, true, montant);}
     void vente(PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager->addTransaction(paire, cours, false, montant);}
 
@@ -29,7 +28,8 @@ public:
 
 class ModeManuel: public Commande {
 public:
-    ModeManuel() {}
+    ModeManuel(const Commande& commande) = delete;
+    ModeManuel& operator=(const Commande& commande) = delete;
     void annule() {transactionManager->deleteLastTransaction();}
 };
 

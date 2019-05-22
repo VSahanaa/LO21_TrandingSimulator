@@ -32,7 +32,7 @@ SOURCES += \
         trading.cpp \
         transaction.cpp\
         indicateur.cpp\
-        strategie.cpp
+        #strategie.cpp
 
 HEADERS += \
         commande.h \
@@ -42,7 +42,7 @@ HEADERS += \
         trading.h \
         transaction.h\
         indicateur.h\
-        strategie.h
+        #strategie.h
 
 FORMS += \
         mainwindow.ui
@@ -51,3 +51,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc

@@ -78,10 +78,11 @@ class EvolutionCours {
     unsigned int nbMaxCours = 0;
 public:
     EvolutionCours(const PaireDevises& paire) :paire(&paire) {}
-    EvolutionCours(const PaireDevises& pair, QString filename);
-    void addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date);
+    EvolutionCours(const PaireDevises& pair, QString filename); //charger depuis fichier csv
     ~EvolutionCours();
     EvolutionCours(const EvolutionCours& evolutionCours);
+
+    void addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date);  
     EvolutionCours& operator=(const EvolutionCours& evolutionCours);
     unsigned int getNbCours() const { return nbCours; }
     const PaireDevises& getPaireDevises() const { return *paire; }
@@ -91,7 +92,6 @@ public:
     using const_iterator = const CoursOHLCV*;
     const_iterator cbegin() const { return cours; }
     const_iterator cend() const { return cours + nbCours; }
-    void setFile(QString file) {filen = file;}
     int saveFile();
 };
 

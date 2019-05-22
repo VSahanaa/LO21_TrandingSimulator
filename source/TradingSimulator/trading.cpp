@@ -43,6 +43,9 @@ void CoursOHLCV::setCours(double open, double high, double low, double close) {
 EvolutionCours::EvolutionCours(const PaireDevises &pair, QString filename) {
     paire = &pair;
     filen = filename;
+    QDate date;
+    double open, high, close, low;
+    unsigned int volume;
     QFile file(filen);
     QStringList wordlist;
         if (!file.open(QIODevice::ReadOnly)) {
@@ -51,18 +54,15 @@ EvolutionCours::EvolutionCours(const PaireDevises &pair, QString filename) {
         while (!file.atEnd()) {
             QString line = file.readLine();
             wordlist = line.split(',');
-            if(wordlist.length() == 8)
-            {
-                double open = wordlist.at(0).toDouble();
-                double high = wordlist.at(1).toDouble();
-                double low = wordlist.at(2).toDouble();
-                double close = wordlist.at(3).toDouble();
-                int volume = wordlist.at(4).toInt();
-                int year = wordlist.at(5).toInt();
-                int month = wordlist.at(6).toInt();
-                int day = wordlist.at(7).toInt();
-                addCours(open, high, low, close, static_cast<unsigned>(volume), QDate(year, month, day));
-            }
+            //qDebug() << wordlist;
+            date = QDate::fromString(wordlist.at(0), "yyyy-MM-dd");
+            //qDebug() << date.toString();
+            open = wordlist.at(1).toDouble();
+            high = wordlist.at(2).toDouble();
+            low = wordlist.at(3).toDouble();
+            close = wordlist.at(4).toDouble();
+            volume = wordlist.at(6).toInt();
+            addCours(open, high, low, close, static_cast<unsigned>(volume), date);
         }
         file.close();
 }

@@ -9,9 +9,9 @@ int main(int argc, char *argv[])
     deviseManager.creationDevise("USD", "Dollar Américain","USA");
     deviseManager.creationDevise("BTC", "BitCoin","monnaie virtuelle");
     const PaireDevises& BTC_USD=deviseManager.getPaireDevises("BTC", "USD");
-    EvolutionCours evolution(BTC_USD);
+    //EvolutionCours evolution(BTC_USD);
     // Une bougie = Un mois pour bitcoin entre janvier 2017 et août 2018
-    evolution.addCours(4261.48000000, 4745.42000000, 3400.00000000, 4724.89000000, 100000, QDate(2017,1,1));
+    /*evolution.addCours(4261.48000000, 4745.42000000, 3400.00000000, 4724.89000000, 100000, QDate(2017,1,1));
     evolution.addCours(4689.89000000, 4939.19000000, 2817.00000000, 4378.51000000, 102000, QDate(2017,2,1));
     evolution.addCours(4378.49000000, 6498.01000000, 4110.00000000, 6463.00000000, 95200, QDate(2017,3,1));
     evolution.addCours(6463.00000000, 11300.03000000, 5325.01000000, 9838.96000000, 132021, QDate(2017,4,1));
@@ -31,7 +31,8 @@ int main(int argc, char *argv[])
     evolution.addCours(3701.23000000, 4069.80000000, 3349.92000000, 3434.10000000, 202123, QDate(2018,6,1));
     evolution.addCours(3434.10000000, 4198.00000000, 3373.10000000, 3813.69000000, 321202, QDate(2018,7,1));
     evolution.addCours(3814.26000000, 4140.00000000, 3670.69000000, 4106.65000000, 212313, QDate(2018,8,1));
-    //EvolutionCours evolution(BTC_USD, "/Users/jl-x/Exercice2/test.csv");
+    */
+    EvolutionCours evolution(BTC_USD, ":/TradingSimulator/evolutionCours/fichier_OHLCV/BTC-USD.csv");
     QApplication app(argc, argv);
     EvolutionViewer view(evolution);
     view.show();

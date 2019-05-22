@@ -82,7 +82,7 @@ void Strategie::updateHausse(){
 }
 
 //STRATEGIE Trivial
-double Strategie::Strategie_Trivial::operator()(const Transaction& precedent){
+double Strategie_Trivial::operator()(const Transaction& precedent){
 	updateHausse();
 	if (temps>3) //&& (&precedent!=nullptr).?
 	{

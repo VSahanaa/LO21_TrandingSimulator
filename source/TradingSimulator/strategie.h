@@ -1,6 +1,7 @@
 #include "indicateur.h"
 #include "transaction.h"
 class Strategie {
+protected:
     QString nom;
 	EvolutionCours& evolutioncours;
 	unsigned int temps; //compteur de jour => faire un evolutioncours->iterator ?
@@ -35,7 +36,7 @@ class Strategie {
 		//a faire le doji
 };
 
-class Strategie_Trivial :public Strategie {
+class Strategie_Trivial : public Strategie {
 	double limiteBase;
 	double limiteContrepartie;
 	
