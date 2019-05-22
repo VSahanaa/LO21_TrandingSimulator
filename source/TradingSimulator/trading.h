@@ -77,8 +77,9 @@ class EvolutionCours {
     unsigned int nbCours = 0;
     unsigned int nbMaxCours = 0;
 public:
+    //EvolutionCours() {}
     EvolutionCours(const PaireDevises& paire) :paire(&paire) {}
-    EvolutionCours(const PaireDevises& pair, QString filename); //charger depuis fichier csv
+    EvolutionCours(QString filename); //charger depuis fichier csv
     ~EvolutionCours();
     EvolutionCours(const EvolutionCours& evolutionCours);
 
@@ -92,6 +93,7 @@ public:
     using const_iterator = const CoursOHLCV*;
     const_iterator cbegin() const { return cours; }
     const_iterator cend() const { return cours + nbCours; }
+    void readFile(QString filename);
     int saveFile();
 };
 
