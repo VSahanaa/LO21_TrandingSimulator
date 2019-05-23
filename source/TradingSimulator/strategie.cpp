@@ -1,4 +1,34 @@
+#include "strategie.h"
 
+double MA_strategie::operator()(Transaction* latestTransaction, EvolutionCours::iterator currentCours) {
+    QDate currentDate = currentCours->getDate();
+    double montantBase = latestTransaction->getMontantBase();
+    double montantContrepartie = latestTransaction->getMontantContrepartie();
+    // move ema_Iterator to current date
+    while(ema_Iterator->getDate() != currentDate) {
+        ema_Iterator++;
+    }
+    if (currentCours->getOpen() > ema_Iterator->getIndice()) {
+        //buy signal
+        if(montantContrepartie > 0) {
+            return montantContrepartie;
+        }
+        else {
+            return 0;
+        }
+    }
+    else {
+        //sell signal
+        if (montantBase > 0) {
+            return montantBase;
+        }
+        else {
+            return 0;
+        }
+    }
+}
+
+/*
 //INDICATEUR GRAPHIQUE BOUGIE
 bool Strategie::verte(const CoursOHLC& c){
 	if (c.getClose()-c.getOpen()>0) return true;
@@ -127,3 +157,4 @@ double Strategie_Trivial::operator()(const Transaction& precedent){
 		return 0;
 	}
 };
+*/

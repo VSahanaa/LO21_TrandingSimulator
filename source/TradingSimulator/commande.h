@@ -1,36 +1,37 @@
 #ifndef COMMANDE_H
 #define COMMANDE_H
 #include "transaction.h"
-
+#include "evolutionviewer.h"
 class Commande {
 protected:
     TransactionManager* transactionManager;
+    EvolutionCours* currentEvolutionCours;
     static Commande* instance;
     Commande(const Commande& commande) = delete;
     Commande& operator=(const Commande& commande) = delete;
-    Commande() {transactionManager = TransactionManager::getTransactionManager();}
+    Commande(EvolutionCours* evolutionCours) : currentEvolutionCours(evolutionCours) {transactionManager = TransactionManager::getTransactionManager();}
 public:
-    static Commande* getCommande() {
-        if (instance == nullptr) {
-            instance = new Commande();
-        }
-        return instance;
-    }
+    //la commande doit savoir le Transaction Manager et evolution Cours actuel pour commander les transactions
+    //static virtual Commande* getCommande(EvolutionCours* currentEvolutionCours) = 0;
 
     static void libererCommande() {
         delete instance;
         instance = nullptr;
     }
+
     void achat(PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager->addTransaction(paire, cours, true, montant);}
     void vente(PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager->addTransaction(paire, cours, false, montant);}
 
 };
 
-class ModeManuel: public Commande {
+class ModeManuel: public Commande, public QObject {
+    Q_OBJECT
+    CoursOHLCV* currentCours;
+    ModeManuel(EvolutionCours* evolutionCours) : Commande(evolutionCours) {}
 public:
-    ModeManuel(const Commande& commande) = delete;
-    ModeManuel& operator=(const Commande& commande) = delete;
     void annule() {transactionManager->deleteLastTransaction();}
+private slots:
+    void changeCours(Bougie* bougie) {currentCours = &(bougie->getCoursOHLCV());}
 };
 
 #endif // COMMANDE_H

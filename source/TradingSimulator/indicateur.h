@@ -27,8 +27,9 @@ protected:
     IndiceIndicateur* indices;  //array de IndiceIndicateur
     unsigned int nbIndicateur;
     unsigned int nbMaxIndicateur;
+    Indicateur(EvolutionCours* evolutionCours, QString nom);    //peut utiliser que des classes dérivé
 public:
-    Indicateur(EvolutionCours* evolutionCours, QString nom);
+    Indicateur() = delete;
     ~Indicateur(){delete[] indices;}
     using iterator = IndiceIndicateur*;
     using const_iterator = const IndiceIndicateur*;
@@ -44,7 +45,7 @@ class EMA : public Indicateur{
 private:
     unsigned int period;
 public:
-    EMA(EvolutionCours* evolutionCours, QString nom="EMA", unsigned period=10);
+    EMA(EvolutionCours* evolutionCours, unsigned period=10);
 };
 
 
@@ -53,7 +54,7 @@ private:
     unsigned int lookBackPeriod;
     double overboughtBound, oversoldBound;
 public:
-    RSI(EvolutionCours* evolutionCours, QString nom="RSI", unsigned int lookbackPeriod = 14, double overboughtBound= 70, double oversoldBound= 30);
+    RSI(EvolutionCours* evolutionCours, unsigned int lookbackPeriod = 14, double overboughtBound= 70, double oversoldBound= 30);
 };
 
 
@@ -65,8 +66,9 @@ private:
     IndiceIndicateur* signalLine;
     IndiceIndicateur* histogram;
 public:
-    MACD(EvolutionCours* evolutionCours, QString nom="MACD", unsigned int shortPeriod=12, unsigned int longPeriod=26, unsigned int signalPeriod=9);
+    MACD(EvolutionCours* evolutionCours, unsigned int shortPeriod=12, unsigned int longPeriod=26, unsigned int signalPeriod=9);
 };
+
 /*
 class IndicateurManage {
 private:

@@ -22,7 +22,7 @@ IndiceIndicateur* Indicateur::searchIndice(CoursOHLCV* cours) {
 /*----------------------------------------------- Methodes de classe EMA -------------------------------------------------*/
 //information sur EMA (https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp)
 
-EMA::EMA(EvolutionCours* evolutionCours, QString nom, unsigned int period) : Indicateur(evolutionCours, nom), period(period) {
+EMA::EMA(EvolutionCours* evolutionCours, unsigned int period) : Indicateur(evolutionCours, "EMA"), period(period) {
 
     //EMA initial est SMA pour cette periode
     //il n'y a pas de SMA et EMA pendant la premiere periode
@@ -54,8 +54,8 @@ EMA::EMA(EvolutionCours* evolutionCours, QString nom, unsigned int period) : Ind
 /*----------------------------------------------- Methodes de classe RSI -------------------------------------------------*/
  //information sur RSI (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi)
 
-RSI::RSI(EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPeriod, double overboughtBound, double oversoldBound)
-    : Indicateur(evolutionCours, nom), lookBackPeriod(lookbackPeriod), overboughtBound(overboughtBound), oversoldBound(oversoldBound) {
+RSI::RSI(EvolutionCours* evolutionCours, unsigned int lookbackPeriod, double overboughtBound, double oversoldBound)
+    : Indicateur(evolutionCours, "RSI"), lookBackPeriod(lookbackPeriod), overboughtBound(overboughtBound), oversoldBound(oversoldBound) {
 
     nbIndicateur = nbMaxIndicateur-lookbackPeriod-1;
     double avgGain=0, avgLost=0, RS;
@@ -99,7 +99,7 @@ RSI::RSI(EvolutionCours* evolutionCours, QString nom, unsigned int lookbackPerio
 /*----------------------------------------------- Methodes de classe MACD -------------------------------------------------*/
 //information sur MACD (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd)
 
-MACD::MACD(EvolutionCours* evolutionCours, QString nom, unsigned int shortPeriod, unsigned int longPeriod, unsigned int signalPeriod) :Indicateur(evolutionCours, nom), longPeriod(longPeriod), shortPeriod(shortPeriod), signalPeriod(signalPeriod) {
+MACD::MACD(EvolutionCours* evolutionCours, unsigned int shortPeriod, unsigned int longPeriod, unsigned int signalPeriod) :Indicateur(evolutionCours, "MACD"), longPeriod(longPeriod), shortPeriod(shortPeriod), signalPeriod(signalPeriod) {
     if(longPeriod < shortPeriod || longPeriod < signalPeriod) throw TradingException("MACD: long period doit etre le plus grand");
     signalLine = new IndiceIndicateur[nbMaxIndicateur];
     histogram = new IndiceIndicateur[nbMaxIndicateur];

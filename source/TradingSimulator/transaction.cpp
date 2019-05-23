@@ -33,9 +33,9 @@ void TransactionManager::addTransaction(PaireDevises *paire, CoursOHLCV *cours, 
     else {
         montantBase = currentMontantBase - montant;
         montantContrepartie = currentMontantContrepartie + montant/cours->getClose()*(1-pourcentage);
-        if (montantBase<0) throw TradingException("montant de devise de base n'est pas assez");
+        if (montantBase < 0) throw TradingException("montant de devise de base n'est pas assez");
     }
-    listeTransaction = new Transaction(listeTransaction, paire, cours, achat, montantBase, montantContrepartie);
+    listeTransaction = new Transaction(listeTransaction, paire, cours, achat, montantBase, montantContrepartie);    //effectuer la transaction
 }
 
 void TransactionManager::deleteLastTransaction() {

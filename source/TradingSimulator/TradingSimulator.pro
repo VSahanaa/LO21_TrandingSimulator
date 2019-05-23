@@ -32,7 +32,7 @@ SOURCES += \
         trading.cpp \
         transaction.cpp\
         indicateur.cpp\
-        #strategie.cpp
+        strategie.cpp
 
 HEADERS += \
         commande.h \
@@ -42,7 +42,7 @@ HEADERS += \
         trading.h \
         transaction.h\
         indicateur.h\
-        #strategie.h
+        strategie.h
 
 FORMS += \
         mainwindow.ui
