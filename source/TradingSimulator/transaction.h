@@ -58,6 +58,7 @@ public:
     void deleteLastTransaction();   //supprimer transaction derniere
     double solde() const;
     using iterator = Transaction*;      //definir iterator avec 2 operations: next() et hasNext()
+    iterator head() const {return listeTransaction;}
 };
 
 #endif // TRANSACTION_H

@@ -1,32 +1,90 @@
 #include "strategie.h"
 
-double MA_strategie::operator()(Transaction* latestTransaction, EvolutionCours::iterator currentCours) {
-    QDate currentDate = currentCours->getDate();
+/*--------------------------------------------------- Methodes de classe StrategieFactory ----------------------------------------------*/
+StrategieFactory* StrategieFactory::instance = nullptr;
+StrategieFactory::StrategieFactory(EvolutionCours* evolutionCours){
+    strategieDictionary.empty();
+    if (!evolutionCours) throw TradingException("Evolution Cours is null");
+    this->evolutionCours = evolutionCours;
+    indicateurFactory = IndicateurFactory::getIndicateurFactory(evolutionCours);
+    //add Strategie to dictionary
+
+}
+
+
+/*--------------------------------------------------- Methodes de classe MA_Strategie ---------------------------------------------------*/
+double MA_Strategie::operator()(Transaction* latestTransaction, EvolutionCours::iterator currentCours) {
     double montantBase = latestTransaction->getMontantBase();
     double montantContrepartie = latestTransaction->getMontantContrepartie();
+    if(ema_Iterator->getDate() > currentCours->getDate()) {
+        //hold until has enough indicateur data
+        return 0;
+    }
     // move ema_Iterator to current date
-    while(ema_Iterator->getDate() != currentDate) {
+    while(ema_Iterator->getDate() < currentCours->getDate()) {
         ema_Iterator++;
     }
-    if (currentCours->getOpen() > ema_Iterator->getIndice()) {
+
+    if (currentCours->getOpen() > ema_Iterator->getIndice() && montantContrepartie > 0) {
         //buy signal
-        if(montantContrepartie > 0) {
             return montantContrepartie;
-        }
-        else {
-            return 0;
-        }
+    }
+    else if (currentCours->getOpen() < ema_Iterator->getIndice() && montantBase > 0){
+        //sell signal
+        return - montantBase;
     }
     else {
-        //sell signal
-        if (montantBase > 0) {
-            return montantBase;
-        }
-        else {
-            return 0;
-        }
+        return 0;
     }
 }
+
+/*---------------------------------------------------------- Methodes de classe RSI_Strategie ------------------------------------------------*/
+RSI_Strategie::RSI_Strategie(EvolutionCours* evolutionCours, RSI* rsi, double buyBound, double sellBound) : Strategie("RSI_Strategie", evolutionCours){
+    if (!rsi) throw TradingException("RSI_Strategie: RSI is null");
+    this->rsi = rsi;
+    if(sellBound < buyBound) throw TradingException("RSI_Strategie: sell bound is lower thand buy bound");
+    this->buyBound = buyBound;
+    this->sellBound = sellBound;
+    rsi_Iterator = rsi->begin();
+}
+
+double RSI_Strategie::operator()(Transaction *latestTransaction, EvolutionCours::iterator currentCours) {
+    double montantBase = latestTransaction->getMontantBase();
+    double montantContrepartie = latestTransaction->getMontantContrepartie();
+    if(rsi_Iterator->getDate() > currentCours->getDate()) {
+        //hold until has enough indicateur data
+        return 0;
+    }
+    // move rsi_Iterator to current date
+    while(rsi_Iterator->getDate() < currentCours->getDate()) {
+        rsi_Iterator++;
+    }
+
+    if (rsi_Iterator->getIndice() <= buyBound && montantContrepartie > 0) {
+        //buy signal
+        return montantContrepartie;
+    }
+    else if (rsi_Iterator->getIndice() >= sellBound && montantBase > 0) {
+        //sell signal
+        return - montantBase;
+    }
+    else {
+        return 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 //INDICATEUR GRAPHIQUE BOUGIE

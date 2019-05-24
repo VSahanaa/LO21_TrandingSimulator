@@ -1,6 +1,7 @@
 #ifndef COMMANDE_H
 #define COMMANDE_H
 #include "transaction.h"
+#include "strategie.h"
 #include "evolutionviewer.h"
 class Commande {
 protected:
@@ -9,7 +10,10 @@ protected:
     static Commande* instance;
     Commande(const Commande& commande) = delete;
     Commande& operator=(const Commande& commande) = delete;
-    Commande(EvolutionCours* evolutionCours) : currentEvolutionCours(evolutionCours) {transactionManager = TransactionManager::getTransactionManager();}
+    Commande(EvolutionCours* evolutionCours) {
+        if (!evolutionCours) throw TradingException("Commande: evolution Cours is null");
+        this->currentEvolutionCours = evolutionCours;
+        transactionManager = TransactionManager::getTransactionManager();}
 public:
     //la commande doit savoir le Transaction Manager et evolution Cours actuel pour commander les transactions
     //static virtual Commande* getCommande(EvolutionCours* currentEvolutionCours) = 0;
@@ -24,14 +28,23 @@ public:
 
 };
 
-class ModeManuel: public Commande, public QObject {
-    Q_OBJECT
-    CoursOHLCV* currentCours;
+class ModeManuel : public Commande {
     ModeManuel(EvolutionCours* evolutionCours) : Commande(evolutionCours) {}
 public:
     void annule() {transactionManager->deleteLastTransaction();}
-private slots:
-    void changeCours(Bougie* bougie) {currentCours = &(bougie->getCoursOHLCV());}
+};
+
+class ModeAutomatique : public Commande {
+    Strategie* strategie;
+    EvolutionCours::iterator currentCours;
+    ModeAutomatique(EvolutionCours* evolutionCours, Strategie* strategie, EvolutionCours::iterator coursDebut) : Commande(evolutionCours) {
+        if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
+        this->strategie = strategie;
+        if (!coursDebut) throw TradingException("ModeAutomatique: Cours debut is null");
+        this->currentCours = coursDebut;
+    }
+public:
+    void eachIteration();
 };
 
 #endif // COMMANDE_H
