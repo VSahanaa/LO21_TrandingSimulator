@@ -41,8 +41,7 @@ HEADERS += \
         simulation.h \
         Trading/trading.h \
         Transaction/transaction.h\
-
-Strategie/strategie.h
+        Strategie/strategie.h
 
 FORMS += \
         mainwindow.ui

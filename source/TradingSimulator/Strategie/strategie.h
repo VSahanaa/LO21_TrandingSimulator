@@ -1,5 +1,4 @@
-
-#include "transaction.h"
+#include "../Transaction/transaction.h"
 
 class Strategie {
     friend class StrategieFactory;

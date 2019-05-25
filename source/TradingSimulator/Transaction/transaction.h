@@ -1,7 +1,7 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 #include <QDate>
-#include "trading.h"
+#include "../Trading/trading.h"
 
 class Transaction {
     Transaction* transactionDernier = nullptr;      //organiser comme une liste chainée
