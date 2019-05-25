@@ -1,4 +1,4 @@
-#include "indicateur.h"
+
 #include "transaction.h"
 
 class Strategie {
@@ -6,9 +6,8 @@ class Strategie {
 protected:
     QString nom;
     EvolutionCours* evolutionCours;
-    Strategie(QString nom, EvolutionCours* evolutionCours) : nom(nom), evolutionCours(evolutionCours) {}
+    Strategie(QString nom, EvolutionCours* evolutionCours = nullptr) : nom(nom), evolutionCours(evolutionCours) {}
     virtual ~Strategie() {}
-
 public:
     //pure virtual function of abstract class
     virtual double operator()() = 0;   //implementer algorithme de trading, retourne le montant à effectuer la transaction
@@ -37,15 +36,15 @@ class StrategieFactory {
     static StrategieFactory* instance; //singleton
     QHash<QString, Strategie*> strategieDictionary;
     EvolutionCours* evolutionCours;
-    IndicateurFactory* indicateurFactory;
+    IndicateurCollection* indicateurCollection;
 
 
     StrategieFactory(EvolutionCours* evolutionCours);
     ~StrategieFactory() { strategieDictionary.clear();}
-    StrategieFactory(IndicateurFactory*) = delete;
-    StrategieFactory& operator=(IndicateurFactory*) = delete;
+    StrategieFactory(IndicateurCollection*) = delete;
+    StrategieFactory& operator=(IndicateurCollection*) = delete;
 public:
-    static StrategieFactory* getIndicateurFactory(EvolutionCours* evolutionCours){
+    static StrategieFactory* getIndicateurCollection(EvolutionCours* evolutionCours){
         if (instance == nullptr) {
             instance = new StrategieFactory(evolutionCours);
         }

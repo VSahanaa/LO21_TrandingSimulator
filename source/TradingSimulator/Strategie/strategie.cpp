@@ -6,7 +6,7 @@ StrategieFactory::StrategieFactory(EvolutionCours* evolutionCours){
     strategieDictionary.empty();
     if (!evolutionCours) throw TradingException("Evolution Cours is null");
     this->evolutionCours = evolutionCours;
-    indicateurFactory = IndicateurFactory::getIndicateurFactory(evolutionCours);
+    //IndicateurCollection = IndicateurCollection::getIndicateurCollection(evolutionCours);
     //add Strategie to dictionary
 
 }

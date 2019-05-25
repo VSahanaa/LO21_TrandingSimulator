@@ -1,9 +1,10 @@
-#include "indicateur.h"
+#include "trading.h"
+/* Implement Indicateurs
+ */
 /*----------------------------------------------- Methodes de classe Indicateur -------------------------------------------------*/
-Indicateur::Indicateur(EvolutionCours* evolutionCours, QString nom = "un named indicator"): nom(nom) {
+Indicateur::Indicateur(EvolutionCours* evolutionCours, QString nom): nom(nom) {
     if (!evolutionCours) throw TradingException("Idicateur: evolutionCours est null");
         this->evolutionCours = evolutionCours;
-    nbMaxIndicateur = evolutionCours->getNbCours();
     nbIndicateur = 0;
 }
 
@@ -18,15 +19,25 @@ IndiceIndicateur* Indicateur::searchIndice(CoursOHLCV* cours) {
     return indiceIterator;
 }
 
-/*----------------------------------------------- Methode de classe IndicateurFactory -----------------------------------------------*/
-IndicateurFactory* IndicateurFactory::instance = nullptr;
-IndicateurFactory::IndicateurFactory(EvolutionCours* evolutionCours) {
-    if (!evolutionCours) throw TradingException("Evolution Cours is null");
-    this->evolutionCours = evolutionCours;
+/*----------------------------------------------- Methode de classe IndicateurCollection -----------------------------------------------*/
+IndicateurCollection::IndicateurCollection(EvolutionCours* evolutionCours) {
     indicateurDictionary.empty();
+    //insert empty indicateur to the collection
     indicateurDictionary.insert("EMA", new EMA(evolutionCours));
     indicateurDictionary.insert("RSI", new RSI(evolutionCours));
     indicateurDictionary.insert("MACD", new MACD(evolutionCours));
+}
+
+IndicateurCollection::~IndicateurCollection() {
+    foreach(QString nom, indicateurDictionary.keys()) {
+        delete indicateurDictionary[nom];
+    }
+    indicateurDictionary.clear();
+}
+
+Indicateur* IndicateurCollection::getIndicateur(QString nom) {
+    if (!indicateurDictionary.contains(nom)) throw TradingException("IndicateurCollection: collection not containing requested item");
+    return indicateurDictionary[nom];
 }
 
 /*----------------------------------------------- Methodes de classe EMA -------------------------------------------------*/
@@ -34,11 +45,12 @@ IndicateurFactory::IndicateurFactory(EvolutionCours* evolutionCours) {
 
 void EMA::generateIndice() {
     delete [] indices;
+    nbMaxIndicateur = evolutionCours->getNbCours();
     indices = new IndiceIndicateur[nbMaxIndicateur];
     //EMA initial est SMA pour cette periode
     //il n'y a pas de SMA et EMA pendant la premiere periode
     double sum = 0;
-    nbIndicateur = nbMaxIndicateur - period + 1;
+    nbIndicateur = nbMaxIndicateur - period;
     //qDebug() << nbMaxIndicateur <<" " << nbIndicateur;
     EvolutionCours::iterator coursIterator;
     //cacule premier SMA
@@ -49,13 +61,13 @@ void EMA::generateIndice() {
     iterator indiceIterator = begin();
     indiceIterator->setDate((coursIterator-1)->getDate());
     indiceIterator->setIndice(sum/period);       //premier SMA
-    //qDebug() << indiceIterator->toString();
+    qDebug() << indiceIterator->toString();
     indiceIterator++;
 
- while(indiceIterator != end()) {
+    while(indiceIterator != end()) {
         indiceIterator->setDate(coursIterator->getDate());
         indiceIterator->setIndice((coursIterator->getClose()-(indiceIterator-1)->getIndice())*2/(period+1) + (indiceIterator-1)->getIndice());
-        //qDebug() << indiceIterator->toString();
+        qDebug() << indiceIterator->toString();
         indiceIterator++;
         coursIterator++;
     }
@@ -65,6 +77,7 @@ void EMA::generateIndice() {
 
 void RSI::generateIndice() {
     //set parameters
+    nbMaxIndicateur = evolutionCours->getNbCours();
     nbIndicateur = nbMaxIndicateur - lookbackPeriod -1;
     delete [] indices;
     indices = new IndiceIndicateur[nbMaxIndicateur];
@@ -99,7 +112,7 @@ void RSI::generateIndice() {
         RS = avgGain/avgLost;
         indiceIterator->setDate(coursIterator->getDate());
         indiceIterator->setIndice(100 - 100/(1+RS));
-        //qDebug() << indiceIterator->toString();
+        qDebug() << indiceIterator->toString();
         indiceIterator++;
         coursIterator++;
 	}
@@ -111,14 +124,15 @@ void RSI::generateIndice() {
 //information sur MACD (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd)
 
 void MACD::generateIndice() {
-    delete [] signalLine;
-    delete [] histogram;
-    delete [] indices;
-
+    delete[] signalLine;
+    delete[] histogram;
+    delete[] indices;
+    nbMaxIndicateur = evolutionCours->getNbCours();
+    qDebug() << "nbCOurs" << evolutionCours->getNbCours();
     signalLine = new IndiceIndicateur[nbMaxIndicateur];
     histogram = new IndiceIndicateur[nbMaxIndicateur];
     indices = new IndiceIndicateur[nbMaxIndicateur];
-    nbIndicateur = nbMaxIndicateur - longPeriod+1;
+    nbIndicateur = nbMaxIndicateur - longPeriod + 1;
 
     EMA* shortEMA = new EMA(evolutionCours, shortPeriod);
     shortEMA->generateIndice();
@@ -134,13 +148,13 @@ void MACD::generateIndice() {
     indiceIterator = begin();
     signalLine_Iterator = signalLine;
     histogram_Iterator = histogram;
-    while(longEMA_Iterator != longEMA->end()-1) {
+    while(longEMA_Iterator != longEMA->end()) {
         indiceIterator->setDate(longEMA_Iterator->getDate());
         signalLine_Iterator->setDate(longEMA_Iterator->getDate());
         histogram_Iterator->setDate(longEMA_Iterator->getDate());
-        //qDebug() <<"short EMA" << shortEMA_Iterator->toString();
-        //qDebug() <<"long EMA" <<longEMA_Iterator->toString();
-        //qDebug() <<"signal EMA" <<signalEMA_Iterator->toString();
+        qDebug() <<"short EMA" << shortEMA_Iterator->toString();
+        qDebug() <<"long EMA" <<longEMA_Iterator->toString();
+        qDebug() <<"signal EMA" <<signalEMA_Iterator->toString();
         indiceIterator->setIndice(shortEMA_Iterator++->getIndice() - longEMA_Iterator++->getIndice());
         signalLine_Iterator->setIndice(signalEMA_Iterator++->getIndice());
         histogram_Iterator++->setIndice(indiceIterator++->getIndice() - signalLine_Iterator++->getIndice());

@@ -16,7 +16,6 @@ public:
     double differenceBase() const {return this->montantBase - transactionDernier->montantBase;}
     double differenceContrepartie() const {return this->montantContrepartie - transactionDernier->montantContrepartie;}
     double montantTotal() const {return montantBase/cours->getClose() + montantContrepartie;}
-    double roi(double montantTotalInitial) const {return montantTotal() / montantTotalInitial;}
     double getMontantBase() const {return montantBase;}
     double getMontantContrepartie() const {return montantContrepartie;}
     Transaction* getLastTransaction() const {return transactionDernier;}
@@ -57,6 +56,7 @@ public:
     void addTransaction(PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
     void deleteLastTransaction();   //supprimer transaction derniere
     double solde() const;
+    double roi() const {return solde()/ montantTotalInitial;}
     using iterator = Transaction*;      //definir iterator avec 2 operations: next() et hasNext()
     iterator head() const {return listeTransaction;}
 };

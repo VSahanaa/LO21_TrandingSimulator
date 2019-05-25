@@ -1,4 +1,6 @@
 #include "trading.h"
+/* Implement Trading
+ */
 
 /*----------------------------------------------- Methodes de classe Devise -------------------------------------------------*/
 Devise::Devise(const QString& code, const QString& monnaie, const QString& zone) :
@@ -22,7 +24,7 @@ QString PaireDevises::toString() const{
 }
 
 /*----------------------------------------------- Methodes de classe CoursOHLCV ---------------------------------------------*/
-CoursOHLCV::CoursOHLCV(double open, double high, double low, double close, unsigned volume, const QDate& date):date(date) {
+CoursOHLCV::CoursOHLCV(double open, double high, double low, double close, unsigned int volume, const QDate& date):date(date) {
     if (open < 0 || high < 0 || low < 0 || close < 0 || low > high) throw TradingException("Cours OHLCV incorrect");
         this->open = open;
         this->high = high;
@@ -40,6 +42,8 @@ void CoursOHLCV::setCours(double open, double high, double low, double close) {
 }
 
 /*---------------------------------------------- Methodes de classe EvolutionCours --------------------------------------------*/
+EvolutionCours::EvolutionCours(const PaireDevises& paire) :paire(&paire) { indicateurCollection = new IndicateurCollection(this);}
+
 EvolutionCours::EvolutionCours(const PaireDevises &pair, QString filename) {
     paire = &pair;
     filen = filename;
@@ -65,6 +69,7 @@ EvolutionCours::EvolutionCours(const PaireDevises &pair, QString filename) {
             addCours(open, high, low, close, static_cast<unsigned>(volume), date);
         }
         file.close();
+        indicateurCollection = new IndicateurCollection(this);  //initalize collection
 }
 
 void EvolutionCours::addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date) {

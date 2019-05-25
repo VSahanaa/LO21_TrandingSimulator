@@ -25,24 +25,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        commande.cpp \
+        Mode/commande.cpp \
         evolutionviewer.cpp \
         main.cpp \
-        mainwindow.cpp \
-        trading.cpp \
-        transaction.cpp\
-        indicateur.cpp\
-        strategie.cpp
+        UI/mainwindow.cpp \
+        Trading/trading.cpp \
+        Transaction/transaction.cpp\
+        Trading/indicateur.cpp\
+        Strategie/strategie.cpp
 
 HEADERS += \
-        commande.h \
+        Mode/commande.h \
         evolutionviewer.h \
-        mainwindow.h \
+        UI/mainwindow.h \
         simulation.h \
-        trading.h \
-        transaction.h\
-        indicateur.h\
-        strategie.h
+        Trading/trading.h \
+        Transaction/transaction.h\
+
+Strategie/strategie.h
 
 FORMS += \
         mainwindow.ui
