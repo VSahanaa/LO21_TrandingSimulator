@@ -33,6 +33,7 @@ SOURCES += \
         transaction.cpp\
         indicateur.cpp\
         #strategie.cpp
+    welcome.cpp \
 
 HEADERS += \
         commande.h \
@@ -43,9 +44,12 @@ HEADERS += \
         transaction.h\
         indicateur.h\
         #strategie.h
+    welcome.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    welcome.ui \
+    info.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

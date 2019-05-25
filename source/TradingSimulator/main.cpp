@@ -1,7 +1,8 @@
-#include "mainwindow.h"
-#include "trading.h"
-#include "evolutionviewer.h"
 #include <QApplication>
+#include "welcome.h"
+//#include "trading.h"
+//#include "evolutionviewer.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -38,7 +39,7 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
 
-    MainWindow win;
+    Welcome win(&app);
     win.show();
 
     return app.exec();
