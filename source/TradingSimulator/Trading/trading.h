@@ -186,7 +186,6 @@ class IndicateurCollection {
     ~IndicateurCollection();
 public:
     Indicateur* getIndicateur(QString nom);
-
 };
 
 /*-----------------------------------------------------------------Derived classes of Indicateur---------------------------------------------------*/

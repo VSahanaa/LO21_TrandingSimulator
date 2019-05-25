@@ -2,10 +2,8 @@
 
 /*--------------------------------------------------- Methodes de classe StrategieFactory ----------------------------------------------*/
 StrategieFactory* StrategieFactory::instance = nullptr;
-StrategieFactory::StrategieFactory(EvolutionCours* evolutionCours){
+StrategieFactory::StrategieFactory(){
     strategieDictionary.empty();
-    if (!evolutionCours) throw TradingException("Evolution Cours is null");
-    this->evolutionCours = evolutionCours;
     //IndicateurCollection = IndicateurCollection::getIndicateurCollection(evolutionCours);
     //add Strategie to dictionary
 
@@ -13,9 +11,15 @@ StrategieFactory::StrategieFactory(EvolutionCours* evolutionCours){
 
 
 /*--------------------------------------------------- Methodes de classe MA_Strategie ---------------------------------------------------*/
-double MA_Strategie::operator()(Transaction* latestTransaction, EvolutionCours::iterator currentCours) {
-    double montantBase = latestTransaction->getMontantBase();
-    double montantContrepartie = latestTransaction->getMontantContrepartie();
+MA_Strategie::MA_Strategie(EvolutionCours* evolutionCours, unsigned int period) : Strategie(evolutionCours, "MA Strategie") {
+    ema = dynamic_cast<EMA*>(evolutionCours->getCollection()->getIndicateur("EMA"));
+    ema ->setPeriod(period);
+    ema_Iterator = ema->begin();
+}
+
+double MA_Strategie::operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours) {
+    double montantBase = transactionManager->getMontantBase();
+    double montantContrepartie = transactionManager->getMontantContrepartie();
     if(ema_Iterator->getDate() > currentCours->getDate()) {
         //hold until has enough indicateur data
         return 0;
@@ -39,18 +43,17 @@ double MA_Strategie::operator()(Transaction* latestTransaction, EvolutionCours::
 }
 
 /*---------------------------------------------------------- Methodes de classe RSI_Strategie ------------------------------------------------*/
-RSI_Strategie::RSI_Strategie(EvolutionCours* evolutionCours, RSI* rsi, double buyBound, double sellBound) : Strategie("RSI_Strategie", evolutionCours){
-    if (!rsi) throw TradingException("RSI_Strategie: RSI is null");
-    this->rsi = rsi;
-    if(sellBound < buyBound) throw TradingException("RSI_Strategie: sell bound is lower thand buy bound");
-    this->buyBound = buyBound;
-    this->sellBound = sellBound;
+RSI_Strategie::RSI_Strategie(EvolutionCours* evolutionCours, unsigned int lookbackPeriod, double sellBound, double buyBound) : Strategie(evolutionCours, "RSI Strategie") {
+    rsi = dynamic_cast<RSI*>(evolutionCours->getCollection()->getIndicateur("RSI"));
+    rsi->setOversoldBound(buyBound);
+    rsi->setOverboughtBound(sellBound);
+    rsi->setLookbackPeriod(lookbackPeriod);
     rsi_Iterator = rsi->begin();
 }
 
-double RSI_Strategie::operator()(Transaction *latestTransaction, EvolutionCours::iterator currentCours) {
-    double montantBase = latestTransaction->getMontantBase();
-    double montantContrepartie = latestTransaction->getMontantContrepartie();
+double RSI_Strategie::operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours) {
+    double montantBase = transactionManager->getMontantBase();
+    double montantContrepartie = transactionManager->getMontantContrepartie();
     if(rsi_Iterator->getDate() > currentCours->getDate()) {
         //hold until has enough indicateur data
         return 0;
@@ -60,11 +63,11 @@ double RSI_Strategie::operator()(Transaction *latestTransaction, EvolutionCours:
         rsi_Iterator++;
     }
 
-    if (rsi_Iterator->getIndice() <= buyBound && montantContrepartie > 0) {
+    if (rsi_Iterator->getIndice() <= rsi->getOversoldBound() && montantContrepartie > 0) {
         //buy signal
         return montantContrepartie;
     }
-    else if (rsi_Iterator->getIndice() >= sellBound && montantBase > 0) {
+    else if (rsi_Iterator->getIndice() >= rsi->getOverboughtBound() && montantBase > 0) {
         //sell signal
         return - montantBase;
     }

@@ -4,22 +4,23 @@
 #include "../Trading/trading.h"
 
 class Transaction {
+    friend class TransactionManager;
     Transaction* transactionDernier = nullptr;      //organiser comme une liste chainée
     PaireDevises* paire;
     CoursOHLCV* cours;
     bool achat;
     double montantBase; //montant actuel de devise de base que l'utilisateur possède
     double montantContrepartie; //montant actuel de devise de contre partie que l'utilisateur possède
-public:
     Transaction(Transaction* transactionDernier, PaireDevises* paire, CoursOHLCV* cours, bool achat, double montantBase, double montantContrepartie)
-        :transactionDernier(transactionDernier), paire(paire), cours(cours), achat(achat), montantBase(montantBase), montantContrepartie(montantContrepartie) {}
+    :transactionDernier(transactionDernier), paire(paire), cours(cours), achat(achat), montantBase(montantBase), montantContrepartie(montantContrepartie) {}
+public:
     double differenceBase() const {return this->montantBase - transactionDernier->montantBase;}
     double differenceContrepartie() const {return this->montantContrepartie - transactionDernier->montantContrepartie;}
     double montantTotal() const {return montantBase/cours->getClose() + montantContrepartie;}
     double getMontantBase() const {return montantBase;}
     double getMontantContrepartie() const {return montantContrepartie;}
     Transaction* getLastTransaction() const {return transactionDernier;}
-    Transaction* next() {return getLastTransaction();}
+    Transaction* next() const {return getLastTransaction();}
     bool hasNext() const {if (transactionDernier) {return true;} else {return false;}}
 };
 
@@ -56,6 +57,14 @@ public:
     void addTransaction(PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
     void deleteLastTransaction();   //supprimer transaction derniere
     double solde() const;
+    double getMontantBase() const {
+        if (!listeTransaction) {return montantBaseInitial;}
+            return listeTransaction->getMontantBase();
+    }
+    double getMontantContrepartie() const {
+        if (!listeTransaction) {return montantContrepartieInitial;}
+            return listeTransaction->getMontantContrepartie();
+    }
     double roi() const {return solde()/ montantTotalInitial;}
     using iterator = Transaction*;      //definir iterator avec 2 operations: next() et hasNext()
     iterator head() const {return listeTransaction;}
