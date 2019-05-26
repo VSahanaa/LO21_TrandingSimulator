@@ -29,8 +29,8 @@ IndicateurCollection::IndicateurCollection(EvolutionCours* evolutionCours) {
 }
 
 IndicateurCollection::~IndicateurCollection() {
-    foreach(QString nom, indicateurDictionary.keys()) {
-        delete indicateurDictionary[nom];
+    foreach(Indicateur* indicateur, indicateurDictionary.values()) {
+        delete indicateur;
     }
     indicateurDictionary.clear();
 }

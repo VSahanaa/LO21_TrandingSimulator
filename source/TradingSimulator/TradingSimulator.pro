@@ -25,26 +25,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        Mode/commande.cpp \
-        evolutionviewer.cpp \
-        main.cpp \
+        Core/trading.cpp \
+        Core/transaction.cpp\
+        Core/indicateur.cpp\
+        Control/strategie.cpp\
+        Control/commande.cpp \
+        UI/evolutionviewer.cpp \
         UI/mainwindow.cpp \
-        Trading/trading.cpp \
-        Transaction/transaction.cpp\
-        Trading/indicateur.cpp\
-        Strategie/strategie.cpp
+        main.cpp
 
 HEADERS += \
-        Mode/commande.h \
-        evolutionviewer.h \
-        UI/mainwindow.h \
-        simulation.h \
-        Trading/trading.h \
-        Transaction/transaction.h\
-        Strategie/strategie.h
+        Core/trading.h \
+        Core/transaction.h\
+        Control/commande.h \
+        Control/strategie.h\
+        UI/evolutionviewer.h \
+        UI/mainwindow.h
 
 FORMS += \
-        mainwindow.ui
+        UI/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

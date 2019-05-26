@@ -1,8 +1,6 @@
 #ifndef COMMANDE_H
 #define COMMANDE_H
-#include "../Transaction/transaction.h"
-#include "../Strategie/strategie.h"
-#include "evolutionviewer.h"
+#include "strategie.h"
 class Commande {
 protected:
     TransactionManager* transactionManager;

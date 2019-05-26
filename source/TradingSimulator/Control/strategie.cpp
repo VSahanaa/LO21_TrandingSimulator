@@ -2,16 +2,37 @@
 
 /*--------------------------------------------------- Methodes de classe StrategieFactory ----------------------------------------------*/
 StrategieFactory* StrategieFactory::instance = nullptr;
+
 StrategieFactory::StrategieFactory(){
     strategieDictionary.empty();
-    //IndicateurCollection = IndicateurCollection::getIndicateurCollection(evolutionCours);
-    //add Strategie to dictionary
-
+    //insert empty strategie to the collection
+    strategieDictionary.insert("MA Strategie", new MA_Strategie());
+    strategieDictionary.insert("RSI Strategie", new RSI_Strategie());
 }
 
+StrategieFactory::~StrategieFactory() {
+    foreach(Strategie* strategie, strategieDictionary.values()) {
+        delete strategie;
+    }
+    strategieDictionary.clear();
+}
+
+Strategie* StrategieFactory::getStrategie(QString nom, EvolutionCours *evolutionCours) {
+    Strategie* strategie = strategieDictionary[nom]->clone();       //clone new object
+    strategie->setEvolutionCours(evolutionCours);
+    return strategie;
+}
 
 /*--------------------------------------------------- Methodes de classe MA_Strategie ---------------------------------------------------*/
-MA_Strategie::MA_Strategie(EvolutionCours* evolutionCours, unsigned int period) : Strategie(evolutionCours, "MA Strategie") {
+Strategie* MA_Strategie::clone() {
+    MA_Strategie* clone = new MA_Strategie();
+    clone->ema = this->ema;
+    clone->ema_Iterator = this->ema_Iterator;
+    return clone;
+}
+
+void MA_Strategie::setParameters(unsigned int period){
+    if (!evolutionCours) throw TradingException("Strategie: Can not set parameters when evolutionCours is null");
     ema = dynamic_cast<EMA*>(evolutionCours->getCollection()->getIndicateur("EMA"));
     ema ->setPeriod(period);
     ema_Iterator = ema->begin();
@@ -28,7 +49,7 @@ double MA_Strategie::operator()(TransactionManager* transactionManager, Evolutio
     while(ema_Iterator->getDate() < currentCours->getDate()) {
         ema_Iterator++;
     }
-
+    // trading decision
     if (currentCours->getOpen() > ema_Iterator->getIndice() && montantContrepartie > 0) {
         //buy signal
             return montantContrepartie;
@@ -43,7 +64,16 @@ double MA_Strategie::operator()(TransactionManager* transactionManager, Evolutio
 }
 
 /*---------------------------------------------------------- Methodes de classe RSI_Strategie ------------------------------------------------*/
-RSI_Strategie::RSI_Strategie(EvolutionCours* evolutionCours, unsigned int lookbackPeriod, double sellBound, double buyBound) : Strategie(evolutionCours, "RSI Strategie") {
+
+Strategie* RSI_Strategie::clone() {
+    RSI_Strategie* clone = new RSI_Strategie();
+    clone->rsi = this->rsi;
+    clone->rsi_Iterator = this->rsi_Iterator;
+    return clone;
+}
+
+void RSI_Strategie::setParameters(unsigned int lookbackPeriod, double sellBound, double buyBound) {
+    if (!evolutionCours) throw TradingException("Strategie: Can not set parameters when evolutionCours is null");
     rsi = dynamic_cast<RSI*>(evolutionCours->getCollection()->getIndicateur("RSI"));
     rsi->setOversoldBound(buyBound);
     rsi->setOverboughtBound(sellBound);
@@ -75,13 +105,6 @@ double RSI_Strategie::operator()(TransactionManager* transactionManager, Evoluti
         return 0;
     }
 }
-
-
-
-
-
-
-
 
 
 

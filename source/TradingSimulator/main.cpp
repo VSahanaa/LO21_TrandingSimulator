@@ -1,6 +1,6 @@
-#include "mainwindow.h"
-#include "trading.h"
-#include "evolutionviewer.h"
+#include "UI/mainwindow.h"
+#include "Core/trading.h"
+#include "UI/evolutionviewer.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

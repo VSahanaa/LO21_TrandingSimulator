@@ -1,7 +1,7 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 #include <QDate>
-#include "../Trading/trading.h"
+#include "trading.h"
 
 class Transaction {
     friend class TransactionManager;

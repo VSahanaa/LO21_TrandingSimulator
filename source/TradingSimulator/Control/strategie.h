@@ -1,19 +1,21 @@
-#include "../Transaction/transaction.h"
+#include "../Core/transaction.h"
 
 class Strategie {
     friend class StrategieFactory;
 protected:
     QString nom = "unnamed strategie";
     EvolutionCours* evolutionCours = nullptr;
-    Strategie(EvolutionCours* evolutionCours, QString nom) : nom(nom), evolutionCours(evolutionCours){}
+    Strategie(QString nom) : nom(nom){}
     Strategie(Strategie* strategie) = delete;
-    virtual ~Strategie() {}
+    virtual ~Strategie() = default;
+    void setEvolutionCours(EvolutionCours* evolutionCours) {this->evolutionCours = evolutionCours;}
 public:
-    //pure virtual function of abstract class
-    virtual double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours) = 0;   //implementer algorithme de trading, retourne le montant à effectuer la transaction
-
-
-
+    virtual Strategie* clone() {
+        Strategie* clone = new Strategie(nom);
+        clone->setEvolutionCours(evolutionCours);
+        return clone;
+    }
+    virtual double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours){return 0;  /*do nothing*/}  //implementer algorithme de trading
     //unsigned int temps; //compteur de jour => faire un evolutioncours->iterator ?
     //int hausse; //PERIODE 5utilisation pour les methodes pendu, marteau... : -1 baissiere, 0 neutre, 1 hausse
 		//hausse
@@ -31,6 +33,30 @@ public:
         //bool avalementbaissiere(const CoursOHLCV& c1,const CoursOHLCV& c2);
 		//a faire le doji
 };
+
+class MA_Strategie : public Strategie {
+    friend class StrategieFactory;
+    EMA* ema=nullptr;
+    EMA::iterator ema_Iterator=nullptr;
+    MA_Strategie(): Strategie("MA Strategie") {}
+public:
+    Strategie* clone();
+    void setParameters(unsigned int period=10);
+    double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours);
+};
+
+
+class RSI_Strategie : public Strategie {
+    friend class StrategieFactory;
+    RSI* rsi=nullptr;
+    RSI::iterator rsi_Iterator=nullptr;
+    RSI_Strategie() : Strategie("RSI Strategie") {}
+public:
+    Strategie* clone();
+    void setParameters(unsigned int lookbackPeriod = 14, double sellBound=80, double buyBound=20);
+    double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours);
+};
+
 
 class StrategieFactory {
     static StrategieFactory* instance;              //singleton
@@ -50,27 +76,10 @@ public:
         delete instance;
         instance = nullptr;
     }
-    Strategie getStrategie(QString nom, EvolutionCours* evolutionCours); //????????
-};
-
-class MA_Strategie : public Strategie {
-    friend class StrategieFactory;
-    EMA* ema;
-    EMA::iterator ema_Iterator;
-    MA_Strategie(EvolutionCours* evolutionCours, unsigned int period);
-public:
-    double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours);
+    Strategie* getStrategie(QString nom, EvolutionCours* evolutionCours);
 };
 
 
-class RSI_Strategie : public Strategie {
-    friend class StrategieFactory;
-    RSI* rsi;
-    RSI::iterator rsi_Iterator;
-    RSI_Strategie(EvolutionCours* evolutionCours, unsigned int lookbackPeriod = 14, double sellBound=80, double buyBound=20);
-public:
-    double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours);
-};
 
 /*
 class Strategie_Trivial : public Strategie {
