@@ -3,7 +3,7 @@
 EvolutionViewer::EvolutionViewer(EvolutionCours& evolutionCours,QWidget *parent): QWidget(parent), evolutionCours(evolutionCours){
     //installer la serie
     series = new QCandlestickSeries(this);
-    series->setName(evolutionCours.getPaireDevises().toString());
+    series->setName(evolutionCours.getPaireDevises()->toString());
     series->setIncreasingColor(QColor(Qt::green));
     series->setDecreasingColor(QColor(Qt::red));
     //ajouter des bougies

@@ -6,13 +6,14 @@
 class Transaction {
     friend class TransactionManager;
     Transaction* transactionDernier = nullptr;      //organiser comme une liste chainée
-    PaireDevises* paire;
+    const PaireDevises* paire;
     CoursOHLCV* cours;
     bool achat;
-    double montantBase; //montant actuel de devise de base que l'utilisateur possède
+    double montantBase;         //montant actuel de devise de base que l'utilisateur possède
     double montantContrepartie; //montant actuel de devise de contre partie que l'utilisateur possède
-    Transaction(Transaction* transactionDernier, PaireDevises* paire, CoursOHLCV* cours, bool achat, double montantBase, double montantContrepartie)
-    :transactionDernier(transactionDernier), paire(paire), cours(cours), achat(achat), montantBase(montantBase), montantContrepartie(montantContrepartie) {}
+
+    Transaction(Transaction* transactionDernier, const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montantBase, double montantContrepartie):
+        transactionDernier(transactionDernier), paire(paire), cours(cours), achat(achat), montantBase(montantBase), montantContrepartie(montantContrepartie) {}
 public:
     double differenceBase() const {return this->montantBase - transactionDernier->montantBase;}
     double differenceContrepartie() const {return this->montantContrepartie - transactionDernier->montantContrepartie;}
@@ -25,19 +26,18 @@ public:
 };
 
 
-
 class TransactionManager {
     friend class Simulation;
     Transaction* listeTransaction = nullptr;    //pointeur vers la transaction le plus current, les transactions se organisent comme une liste chainée
-    float pourcentage;                          //interet du broker
-    double montantBaseInitial;
-    double montantContrepartieInitial;
-    double montantTotalInitial;
-    TransactionManager(float pourcentage, double montantBaseInitial, double montantContrepartieInitial, double montantTotalInitial): pourcentage(pourcentage), montantBaseInitial(montantBaseInitial), montantContrepartieInitial(montantContrepartieInitial), montantTotalInitial(montantTotalInitial) {}
+    double pourcentage;                          //interet du broker
+    double montantBaseInitial, montantContrepartieInitial, montantTotalInitial;
+
+    TransactionManager(double pourcentage, double montantBaseInitial, double montantContrepartieInitial, double montantTotalInitial):
+        pourcentage(pourcentage), montantBaseInitial(montantBaseInitial), montantContrepartieInitial(montantContrepartieInitial), montantTotalInitial(montantTotalInitial) {}
     ~TransactionManager();
 public:
-    void addTransaction(PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
-    void deleteLastTransaction();               //supprimer transaction derniere
+    void addTransaction(const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
+    void deleteLastTransaction();
     double solde() const;                       //retourne le solde en devise de contrepartie
     double getMontantBase() const {
         if (!listeTransaction) {return montantBaseInitial;}

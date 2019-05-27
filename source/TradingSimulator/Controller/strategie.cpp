@@ -40,13 +40,13 @@ void MA_Strategie::setParameters(unsigned int period){
 double MA_Strategie::operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours) {
     double montantBase = transactionManager->getMontantBase();
     double montantContrepartie = transactionManager->getMontantContrepartie();
-    if(ema_Iterator->getDate() > currentCours->getDate()) {
-        //hold until has enough indicateur data
-        return 0;
-    }
     // move ema_Iterator to current date
     while(ema_Iterator->getDate() < currentCours->getDate()) {
         ema_Iterator++;
+    }
+    if(ema_Iterator->getDate() > currentCours->getDate()) {
+        //hold until has enough indicateur data
+        return 0;
     }
     // trading decision
     if (currentCours->getOpen() > ema_Iterator->getIndice() && montantContrepartie > 0) {
@@ -83,13 +83,13 @@ void RSI_Strategie::setParameters(unsigned int lookbackPeriod, double sellBound,
 double RSI_Strategie::operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours) {
     double montantBase = transactionManager->getMontantBase();
     double montantContrepartie = transactionManager->getMontantContrepartie();
-    if(rsi_Iterator->getDate() > currentCours->getDate()) {
-        //hold until has enough indicateur data
-        return 0;
-    }
     // move rsi_Iterator to current date
     while(rsi_Iterator->getDate() < currentCours->getDate()) {
         rsi_Iterator++;
+    }
+    if(rsi_Iterator->getDate() > currentCours->getDate()) {
+        //hold until has enough indicateur data
+        return 0;
     }
 
     if (rsi_Iterator->getIndice() <= rsi->getOversoldBound() && montantContrepartie > 0) {

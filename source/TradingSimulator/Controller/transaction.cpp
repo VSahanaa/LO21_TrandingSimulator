@@ -11,7 +11,7 @@ TransactionManager::~TransactionManager() {
     }
 }
 
-void TransactionManager::addTransaction(PaireDevises *paire, CoursOHLCV *cours, bool achat, double montant) {
+void TransactionManager::addTransaction(const PaireDevises *paire, CoursOHLCV *cours, bool achat, double montant) {
     double currentMontantBase, currentMontantContrepartie;
     double montantBase, montantContrepartie;
 

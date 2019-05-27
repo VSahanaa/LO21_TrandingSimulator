@@ -123,7 +123,7 @@ public:
     void addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date);  
     EvolutionCours& operator=(const EvolutionCours& evolutionCours);
     unsigned int getNbCours() const { return nbCours; }
-    const PaireDevises& getPaireDevises() const { return *paire; }
+    const PaireDevises* getPaireDevises() const { return paire; }
     IndicateurCollection* getCollection() const {return indicateurCollection;}
     using iterator = CoursOHLCV*;
     iterator begin() { return iterator(cours); }
