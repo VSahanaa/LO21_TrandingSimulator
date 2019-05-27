@@ -105,7 +105,7 @@ public:
     void addFile(QString file) {filenames<<file; nbFiles++;}
 };
 
-class IndicateurCollection; //forward declaration of IndicateurCollection
+class IndicateurCollection;     //forward declaration of IndicateurCollection
 
 class EvolutionCours {
     const PaireDevises* paire;
@@ -139,6 +139,10 @@ public:
 /*Information de Indicateurs
  * (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:introduction_to_technical_indicators_and_oscillators#momentum_oscillators)
  */
+
+/* * Class Indiceindicateur: stocks every day data of an Indicateur
+ * has a attribute donnee and a date
+ */
 class IndiceIndicateur {
 private:
         double donnee;
@@ -154,7 +158,12 @@ public:
 };
 
 
-//classe base des indicateur
+/* * Indicateur Class: base class of every Indicateur
+ * has a name and associates with an evolutionCours
+ * it contans an array of IndiceIndicateur
+ * The constructor and destrcutor is protected therefore can only be used by Inherited classes or IndicateurCollection
+ * Each Indicateur is created with an empty array of Indiceindicateur, the array is generate after the call of method generateIndice or setParameters()
+ */
 class Indicateur {
     friend class IndicateurCollection;
 protected:

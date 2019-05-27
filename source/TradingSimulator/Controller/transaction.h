@@ -1,7 +1,7 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 #include <QDate>
-#include "trading.h"
+#include "../Core_Devises/trading.h"
 
 class Transaction {
     friend class TransactionManager;
@@ -27,36 +27,18 @@ public:
 
 
 class TransactionManager {
-    static TransactionManager* instance;
+    friend class Simulation;
     Transaction* listeTransaction = nullptr;    //pointeur vers la transaction le plus current, les transactions se organisent comme une liste chainée
-    float pourcentage;  //profit du broker
+    float pourcentage;                          //interet du broker
     double montantBaseInitial;
     double montantContrepartieInitial;
     double montantTotalInitial;
-    TransactionManager(const TransactionManager& transactionManager) = delete;
-    TransactionManager& operator=(const TransactionManager& transactionManager) = delete;
     TransactionManager(float pourcentage, double montantBaseInitial, double montantContrepartieInitial, double montantTotalInitial): pourcentage(pourcentage), montantBaseInitial(montantBaseInitial), montantContrepartieInitial(montantContrepartieInitial), montantTotalInitial(montantTotalInitial) {}
     ~TransactionManager();
 public:
-    static TransactionManager* getTransactionManager() {
-        if (instance == nullptr) throw TradingException("Transaction Manager n'est pas instancié");
-        return instance;
-    }
-    static TransactionManager* getTransactionManager(float pourcentage, double montantBaseInitial, double montantContrepartieInitial, double montantTotalInitial){
-        if (instance == nullptr) {
-            instance = new TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantTotalInitial);
-        }
-        return instance;
-    }
-
-    static void libererTransactionManager(){
-        delete instance;
-        instance = nullptr;
-    }
-
     void addTransaction(PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
-    void deleteLastTransaction();   //supprimer transaction derniere
-    double solde() const;
+    void deleteLastTransaction();               //supprimer transaction derniere
+    double solde() const;                       //retourne le solde en devise de contrepartie
     double getMontantBase() const {
         if (!listeTransaction) {return montantBaseInitial;}
             return listeTransaction->getMontantBase();

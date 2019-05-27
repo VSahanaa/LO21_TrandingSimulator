@@ -3,7 +3,7 @@
 #include <QWidget>
 #include <QtCharts>
 #include <QDate>
-#include "../Core/trading.h"
+#include "../Core_Devises/trading.h"
 
 class Bougie : public QCandlestickSet {
     Q_OBJECT

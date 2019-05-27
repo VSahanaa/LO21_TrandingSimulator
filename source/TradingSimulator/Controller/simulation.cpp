@@ -1,6 +1,5 @@
-#include "commande.h"
+#include "simulation.h"
 
-Commande* Commande::instance = nullptr;
 /*void ModeAutomatique::eachIteration() {
     double montant = strategie()
 

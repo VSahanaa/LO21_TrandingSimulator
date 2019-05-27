@@ -1,7 +1,6 @@
 #include "transaction.h"
 
 /*----------------------------------- Methodes de classe TransactionManager --------------------------------------*/
-TransactionManager* TransactionManager::instance = nullptr;
 TransactionManager::~TransactionManager() {
     Transaction* currentTransatction;
     //supprimer tous les transaction

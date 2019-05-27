@@ -25,20 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        Core/trading.cpp \
-        Core/transaction.cpp\
-        Core/indicateur.cpp\
-        Control/strategie.cpp\
-        Control/commande.cpp \
+        Core_Devises/trading.cpp \
+        Core_Devises/indicateur.cpp\
+        Controller/transaction.cpp\
+        Controller/strategie.cpp\
+        Controller/simulation.cpp \
         UI/evolutionviewer.cpp \
         UI/mainwindow.cpp \
         main.cpp
 
 HEADERS += \
-        Core/trading.h \
-        Core/transaction.h\
-        Control/commande.h \
-        Control/strategie.h\
+        Core_Devises/trading.h \
+        Controller/transaction.h\
+        Controller/strategie.h\
+        Controller/simulation.h \
         UI/evolutionviewer.h \
         UI/mainwindow.h
 

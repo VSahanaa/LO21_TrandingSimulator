@@ -1,5 +1,5 @@
 #include "UI/mainwindow.h"
-#include "Core/trading.h"
+#include "Core_Devises/trading.h"
 #include "UI/evolutionviewer.h"
 #include <QApplication>
 

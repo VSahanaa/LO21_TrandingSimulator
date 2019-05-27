@@ -1,11 +1,10 @@
 #include "strategie.h"
 
-/*--------------------------------------------------- Methodes de classe StrategieFactory ----------------------------------------------*/
 StrategieFactory* StrategieFactory::instance = nullptr;
 
 StrategieFactory::StrategieFactory(){
     strategieDictionary.empty();
-    //insert empty strategie to the collection
+    //only insert empty strategie to the collection
     strategieDictionary.insert("MA Strategie", new MA_Strategie());
     strategieDictionary.insert("RSI Strategie", new RSI_Strategie());
 }

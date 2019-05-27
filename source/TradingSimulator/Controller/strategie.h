@@ -1,5 +1,14 @@
-#include "../Core/transaction.h"
+#include "transaction.h"
 
+/* * Strategie class: base class of all Strategies
+ * each Strategie has a name and an evolutionCours
+ * The Constructor and Destructor is protected, which can only be accessed by Inherit classes or Strategiefactory
+ * Trading algorithm is implemented in operator(), which returns the trading decision for each day
+ *      - a negative value is for selling
+ *      - a positive value is for buying
+ *      - 0 is for holding
+ * each Strategie overload a clone() method to make a replicate of it
+ */
 class Strategie {
     friend class StrategieFactory;
 protected:
@@ -57,7 +66,11 @@ public:
     double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours);
 };
 
-
+/* * StrategieFactory keeps track only the prototype of Strategie
+ * When ever a new Strategie is added to the code base, it's only need to be added here to the strategieDictonary at the constructor in order to be used with other Strategies
+ * When ever a strategie is needed, function getStrategie() will create a replicate of the strategie object stored in strategieDictonary and return it with an evolutionCours
+ * Strategie objects in strategieDictonary are always prototype of each Strategie with evolutionCours is null
+ */
 class StrategieFactory {
     static StrategieFactory* instance;              //singleton
     QHash<QString, Strategie*> strategieDictionary;
