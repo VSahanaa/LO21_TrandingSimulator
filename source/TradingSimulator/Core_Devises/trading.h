@@ -125,6 +125,7 @@ public:
     unsigned int getNbCours() const { return nbCours; }
     const PaireDevises* getPaireDevises() const { return paire; }
     IndicateurCollection* getCollection() const {return indicateurCollection;}
+    const QString& getNomFichier() const {return filen;}
     using iterator = CoursOHLCV*;
     iterator begin() { return iterator(cours); }
     iterator end() { return iterator(cours + nbCours); }

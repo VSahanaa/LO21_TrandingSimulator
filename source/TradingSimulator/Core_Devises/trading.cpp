@@ -126,6 +126,16 @@ int EvolutionCours::saveFile() {
         line << QString::number(cours[i].getClose());
         line << QString::number(cours[i].getVolume());
         line << cours[i].getDate().toString("yyyy,M,d\n");
+
+        /*
+         * date = QDate::fromString(wordlist.at(0), "yyyy-MM-dd");
+            //qDebug() << date.toString();
+            open = wordlist.at(1).toDouble();
+            high = wordlist.at(2).toDouble();
+            low = wordlist.at(3).toDouble();
+            close = wordlist.at(4).toDouble();
+            volume = wordlist.at(6).toInt();
+            */
         file.write(line.join(',').toLocal8Bit());
     }
     return 0;
