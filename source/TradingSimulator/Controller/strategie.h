@@ -24,6 +24,8 @@ public:
         clone->setEvolutionCours(evolutionCours);
         return clone;
     }
+    virtual void setParameters(QMap<QString, QVariant> parameters) {}
+    virtual QMap<QString, QVariant> getParameters() const {return QMap<QString, QVariant>();}
     virtual double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours){return 0;  /*do nothing*/}  //implementer algorithme de trading
     //unsigned int temps; //compteur de jour => faire un evolutioncours->iterator ?
     //int hausse; //PERIODE 5utilisation pour les methodes pendu, marteau... : -1 baissiere, 0 neutre, 1 hausse
@@ -50,7 +52,8 @@ class MA_Strategie : public Strategie {
     MA_Strategie(): Strategie("MA Strategie") {}
 public:
     Strategie* clone();
-    void setParameters(unsigned int period=10);
+    void setParameters(QMap<QString, QVariant> parameters);
+    QMap<QString, QVariant> getParameters() const {return ema->getParameters();}
     double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours);
 };
 
@@ -62,7 +65,8 @@ class RSI_Strategie : public Strategie {
     RSI_Strategie() : Strategie("RSI Strategie") {}
 public:
     Strategie* clone();
-    void setParameters(unsigned int lookbackPeriod = 14, double sellBound=80, double buyBound=20);
+    void setParameters(QMap<QString, QVariant> parameters);
+    QMap<QString, QVariant> getParameters() const {return rsi->getParameters();}
     double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours);
 };
 

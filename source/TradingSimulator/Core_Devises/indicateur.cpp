@@ -72,6 +72,21 @@ void EMA::generateIndice() {
         coursIterator++;
     }
 }
+
+void EMA::setParameters(QMap<QString, QVariant> parameters) {
+    if(!parameters.contains("period")) throw TradingException("EMA: parametres manquants");
+    //refresh array of indice if period is changed
+    if (this->period != parameters["period"].toInt() || !indices) {
+        this->period = parameters["period"].toInt();
+        generateIndice();
+    }
+}
+QMap<QString, QVariant> EMA::getParameters() const {
+    QMap<QString, QVariant> parameters;
+    parameters["period"] = period;
+    return parameters;
+}
+
 /*----------------------------------------------- Methodes de classe RSI -------------------------------------------------*/
  //information sur RSI (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi)
 
@@ -118,7 +133,21 @@ void RSI::generateIndice() {
 	}
 }
 
+void RSI::setParameters(QMap<QString, QVariant> parameters) {
+    if (!parameters.contains("lookbackPeriod") || !parameters.contains("overboughtBound") || !parameters.contains("oversoldBound"))
+        throw TradingException("RSI: parametres manquants");
+    setLookbackPeriod(parameters["lookbackPeriod"].toInt());
+    setOverboughtBound(parameters["overboughtBound"].toDouble());
+    setOversoldBound(parameters["oversoldBound"].toDouble());
+}
 
+QMap<QString, QVariant> RSI::getParameters() const {
+    QMap<QString, QVariant> parameters;
+    parameters["lookbackPeriod"] = lookbackPeriod;
+    parameters["overboughtBound"] = overboughtBound;
+    parameters["oversoldBound"] = oversoldBound;
+    return parameters;
+}
 
 /*----------------------------------------------- Methodes de classe MACD -------------------------------------------------*/
 //information sur MACD (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd)
@@ -164,3 +193,22 @@ void MACD::generateIndice() {
     delete signalEMA;
 }
 
+void MACD::setParameters(QMap<QString, QVariant> parameters) {
+   if (!parameters.contains("shortPeriod") || !parameters.contains("longPeriod") || !parameters.contains("signalPeriod"))
+       throw TradingException("MACD: parametres manquants");
+   if (parameters["longPeriod"].toInt() < parameters["shortPeriod"].toInt() || parameters["longPeriod"].toInt() < parameters["signalPeriod"].toInt()) throw TradingException("MACD: long period doit etre le plus grand");
+   if (this->longPeriod!=parameters["longPeriod"].toInt() || this->shortPeriod!=parameters["shortPeriod"].toInt() || this->signalPeriod!=parameters["signalPeriod"].toInt() || !indices) {
+       this->longPeriod = parameters["longPeriod"].toInt();
+       this->shortPeriod = parameters["shortPeriod"].toInt();
+       this->signalPeriod = parameters["signalPeriod"].toInt();
+       generateIndice();
+    }
+}
+
+QMap<QString, QVariant> MACD::getParameters() const {
+    QMap<QString, QVariant> parameters;
+    parameters["longPeriod"] = longPeriod;
+    parameters["shortPeriod"] = shortPeriod;
+    parameters["signalPeriod"] = signalPeriod;
+    return parameters;
+}

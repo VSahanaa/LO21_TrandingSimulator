@@ -1,7 +1,7 @@
 #include "simulation.h"
 
 /*---------------------------------------------------------- Methodes de classe Simulation -------------------------------------------------------*/
-void Simulation::saveEvolutionCours() {
+void Simulation::saveEvolutionCours() const {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
@@ -24,7 +24,7 @@ void Simulation::saveEvolutionCours() {
     setting.endGroup();
 }
 
-void Simulation::saveTransactions() {
+void Simulation::saveTransactions() const {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
@@ -53,7 +53,7 @@ void Simulation::saveTransactions() {
     setting.endGroup();
 }
 
-bool Simulation::verifierNomSimulation(QString nom) {
+bool Simulation::verifierNomSimulation(QString nom) const {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     return !simulationManager->listSavedSimulation().contains(nom);
 }
@@ -63,7 +63,13 @@ bool Simulation::verifierNomSimulation(QString nom) {
 void ModeManuel::saveSimulation() {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
-
+    setting.beginGroup("Simulation");
+    setting.beginGroup(nom);
+    setting.setValue("type", type);
+    setting.endGroup();
+    setting.endGroup();
+    saveEvolutionCours();
+    saveTransactions();
 }
 /*---------------------------------------------------------- Methodes de Mode Automatique -------------------------------------------------------*/
 ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, Strategie* strategie, unsigned int time_interval):
@@ -89,6 +95,19 @@ void ModeAutomatique::iteration() {
         emit endSimulation();
     }
     currentCours++;        //move to next day
+}
+
+void ModeAutomatique::saveSimulation() {
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
+    setting.beginGroup("Simulation");
+    setting.beginGroup(nom);
+    setting.setValue("type", type);
+
+    setting.endGroup();
+    setting.endGroup();
+    saveEvolutionCours();
+    saveTransactions();
 }
 
 /*---------------------------------------------------------- Methodes de Mode Pas à pas -------------------------------------------------------*/

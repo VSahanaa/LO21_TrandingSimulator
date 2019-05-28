@@ -186,17 +186,10 @@ public:
     const_iterator cbegin() const {return indices;}
     const_iterator cend() const {return indices+ nbIndicateur;}
     IndiceIndicateur* searchIndice(CoursOHLCV* cours);
+    virtual void setParameters(QMap<QString, QVariant> parameters) = 0;         //encapsulate parameters inside an QMap object and pass it as argument
+    virtual QMap<QString, QVariant> getParameters() const = 0;
 };
 
-
-class IndicateurCollection {
-    friend class EvolutionCours;        //can only be created and deleted bt EvolutionCours
-    QHash<QString, Indicateur*> indicateurDictionary;
-    IndicateurCollection(EvolutionCours* evolutionCours);
-    ~IndicateurCollection();
-public:
-    Indicateur* getIndicateur(QString nom);
-};
 
 /*-----------------------------------------------------------------Derived classes of Indicateur---------------------------------------------------*/
 class EMA : public Indicateur{
@@ -207,14 +200,9 @@ private:
     EMA(EvolutionCours* evolutionCours, unsigned int period = 10) : Indicateur(evolutionCours, "EMA"), period(period) {}      //create instance with an empty array of indices
 public:
     void generateIndice();        //where array of indice is really instanciate
-    void setPeriod(unsigned int period=10) {
-        //refresh array of indice if period is changed
-        if (this->period != period || !indices) {
-            this->period = period;
-            generateIndice();
-        }
-    }
-    unsigned int getPeriod() const {return period;}
+
+    void setParameters(QMap<QString, QVariant> parameters);
+    QMap<QString, QVariant> getParameters() const;
 };
 
 
@@ -236,9 +224,8 @@ public:
             generateIndice();
         }
     }
-    unsigned int getLookbackPeriod() const {return lookbackPeriod;}
-    double getOverboughtBound() const {return overboughtBound;}
-    double getOversoldBound() const {return oversoldBound;}
+    void setParameters(QMap<QString, QVariant> parameters);
+    QMap<QString, QVariant> getParameters() const;
 };
 
 
@@ -258,12 +245,16 @@ private:
     }
 public:
     void generateIndice();
-    void setParameters(unsigned int shortPeriod=12, unsigned int longPeriod=26, unsigned int signalPeriod=9) {
-        if (this->longPeriod!=longPeriod || this->shortPeriod!=shortPeriod || this->signalPeriod!=signalPeriod || !indices) {
-            this->longPeriod = longPeriod;  this->shortPeriod = shortPeriod;    this->signalPeriod = signalPeriod;
-            generateIndice();
-        }
-    }
+    void setParameters(QMap<QString, QVariant> parameters);
+    QMap<QString, QVariant> getParameters() const;
 };
 
+class IndicateurCollection {
+    friend class EvolutionCours;        //can only be created and deleted bt EvolutionCours
+    QHash<QString, Indicateur*> indicateurDictionary;
+    IndicateurCollection(EvolutionCours* evolutionCours);
+    ~IndicateurCollection();
+public:
+    Indicateur* getIndicateur(QString nom);
+};
 #endif // TRADING_H

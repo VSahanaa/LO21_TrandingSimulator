@@ -30,10 +30,10 @@ Strategie* MA_Strategie::clone() {
     return clone;
 }
 
-void MA_Strategie::setParameters(unsigned int period){
+void MA_Strategie::setParameters(QMap<QString, QVariant> parameters){
     if (!evolutionCours) throw TradingException("Strategie: Can not set parameters when evolutionCours is null");
     ema = dynamic_cast<EMA*>(evolutionCours->getCollection()->getIndicateur("EMA"));
-    ema ->setPeriod(period);
+    ema ->setParameters(parameters);
     ema_Iterator = ema->begin();
 }
 
@@ -71,12 +71,10 @@ Strategie* RSI_Strategie::clone() {
     return clone;
 }
 
-void RSI_Strategie::setParameters(unsigned int lookbackPeriod, double sellBound, double buyBound) {
+void RSI_Strategie::setParameters(QMap<QString, QVariant> parameters) {
     if (!evolutionCours) throw TradingException("Strategie: Can not set parameters when evolutionCours is null");
     rsi = dynamic_cast<RSI*>(evolutionCours->getCollection()->getIndicateur("RSI"));
-    rsi->setOversoldBound(buyBound);
-    rsi->setOverboughtBound(sellBound);
-    rsi->setLookbackPeriod(lookbackPeriod);
+    rsi->setParameters(parameters);
     rsi_Iterator = rsi->begin();
 }
 
@@ -92,11 +90,11 @@ double RSI_Strategie::operator()(TransactionManager* transactionManager, Evoluti
         return 0;
     }
 
-    if (rsi_Iterator->getIndice() <= rsi->getOversoldBound() && montantContrepartie > 0) {
+    if (rsi_Iterator->getIndice() <= rsi->getParameters()["oversoldBound"].toDouble() && montantContrepartie > 0) {
         //buy signal
         return montantContrepartie;
     }
-    else if (rsi_Iterator->getIndice() >= rsi->getOverboughtBound() && montantBase > 0) {
+    else if (rsi_Iterator->getIndice() >= rsi->getParameters()["overboughtBound"].toDouble() && montantBase > 0) {
         //sell signal
         return - montantBase;
     }

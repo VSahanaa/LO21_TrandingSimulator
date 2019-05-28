@@ -26,9 +26,10 @@ public:
     EvolutionCours::iterator getCurrentCours() const {return currentCours;}
     EvolutionCours::iterator getFinishCours() const {return finishCours;}
     virtual void saveSimulation() = 0;
-    virtual void saveEvolutionCours();
-    virtual void saveTransactions();
-    bool verifierNomSimulation(QString nom);
+    virtual void saveEvolutionCours() const;
+    virtual void saveTransactions() const;
+    //virtual void saveNote() const;                                                        TO IMPLEMENT !!!
+    bool verifierNomSimulation(QString nom) const;
     //const TransactionManager* getTransactionManager() const {return &transactionManager;}
 };
 
@@ -37,7 +38,7 @@ public:
     ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial) :
         Simulation("Manuel", nom, evolutionCours, coursDebut, coursFini, pourcentage, montantBaseInitial, montantContrepartieInitial) {}
     ~ModeManuel();
-    void saveSimulation();
+    virtual void saveSimulation();
     void annule() {transactionManager.deleteLastTransaction();}
 };
 
