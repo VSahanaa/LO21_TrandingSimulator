@@ -25,7 +25,7 @@ public:
     void vente(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, false, montant);}
     EvolutionCours::iterator getCurrentCours() const {return currentCours;}
     EvolutionCours::iterator getFinishCours() const {return finishCours;}
-    virtual void saveSimulation() = 0;
+    virtual void saveSimulation() const = 0;
     virtual void saveEvolutionCours() const;
     virtual void saveTransactions() const;
     //virtual void saveNote() const;                                                        TO IMPLEMENT !!!
@@ -38,7 +38,7 @@ public:
     ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial) :
         Simulation("Manuel", nom, evolutionCours, coursDebut, coursFini, pourcentage, montantBaseInitial, montantContrepartieInitial) {}
     ~ModeManuel();
-    virtual void saveSimulation();
+    virtual void saveSimulation() const;
     void annule() {transactionManager.deleteLastTransaction();}
 };
 
@@ -49,7 +49,7 @@ class ModePas_Pas: public ModeManuel, public QObject {
 public:
     ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval=600000);
     ~ModePas_Pas();
-    void saveSimulation();
+    void saveSimulation() const;
 signals:
     void endSimulation();
 private slots:
@@ -73,7 +73,8 @@ class ModeAutomatique : public Simulation, public QObject {
 public:
     ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, Strategie* strategie, unsigned int time_interval=600000);
     ~ModeAutomatique();
-    void saveSimulation();
+    void saveSimulation() const;
+    void saveStrategie() const;
 signals:
     void endSimulation();
 private slots:
