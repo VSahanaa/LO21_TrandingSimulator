@@ -26,24 +26,28 @@ CONFIG += c++11
 
 SOURCES += \
         Core_Devises/trading.cpp \
-        Core_Devises/indicateur.cpp\
-        Controller/transaction.cpp\
-        Controller/strategie.cpp\
+        Core_Devises/indicateur.cpp \
+        Controller/transaction.cpp \
+        Controller/strategie.cpp \
         Controller/simulation.cpp \
         UI/evolutionviewer.cpp \
         UI/mainwindow.cpp \
+        welcome.cpp \
         main.cpp
 
 HEADERS += \
         Core_Devises/trading.h \
         Controller/transaction.h\
-        Controller/strategie.h\
+        Controller/strategie.h \
         Controller/simulation.h \
         UI/evolutionviewer.h \
-        UI/mainwindow.h
+        UI/mainwindow.h \
+        welcome.h
 
 FORMS += \
-        UI/mainwindow.ui
+        UI/mainwindow.ui \
+        welcome.ui \
+        info.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

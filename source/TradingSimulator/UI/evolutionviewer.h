@@ -39,6 +39,7 @@ class EvolutionViewer: public QWidget{
     QHBoxLayout* fenetre;
 public:
     explicit EvolutionViewer(EvolutionCours& evolutionCours, QWidget *parent = nullptr);
+    void setname(QString name) {series->setName(name);}
 signals:
 private slots:
     void showCoursOHLCV(Bougie *bougie);

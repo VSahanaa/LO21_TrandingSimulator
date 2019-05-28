@@ -42,10 +42,15 @@ void CoursOHLCV::setCours(double open, double high, double low, double close) {
 }
 
 /*---------------------------------------------- Methodes de classe EvolutionCours --------------------------------------------*/
+<<<<<<< HEAD:source/TradingSimulator/Core_Devises/trading.cpp
 EvolutionCours::EvolutionCours(const PaireDevises& paire) :paire(&paire) { indicateurCollection = new IndicateurCollection(this);}
 
 EvolutionCours::EvolutionCours(const PaireDevises &pair, QString filename) {
     paire = &pair;
+=======
+EvolutionCours::EvolutionCours(QString filename) {
+    //paire = &pair;
+>>>>>>> ui:source/TradingSimulator/trading.cpp
     filen = filename;
     QDate date;
     double open, high, close, low;
@@ -139,6 +144,31 @@ int EvolutionCours::saveFile() {
         file.write(line.join(',').toLocal8Bit());
     }
     return 0;
+}
+
+void EvolutionCours::readFile(QString filename) {
+    QDate date;
+    double open, high, close, low;
+    unsigned int volume;
+    QFile file(filename);
+    QStringList wordlist;
+        if (!file.open(QIODevice::ReadOnly)) {
+            qDebug() << file.errorString();
+        }
+        while (!file.atEnd()) {
+            QString line = file.readLine();
+            wordlist = line.split(',');
+            //qDebug() << wordlist;
+            date = QDate::fromString(wordlist.at(0), "yyyy-MM-dd");
+            //qDebug() << date.toString();
+            open = wordlist.at(1).toDouble();
+            high = wordlist.at(2).toDouble();
+            low = wordlist.at(3).toDouble();
+            close = wordlist.at(4).toDouble();
+            volume = wordlist.at(6).toInt();
+            addCours(open, high, low, close, static_cast<unsigned>(volume), date);
+        }
+        file.close();
 }
 
 /*------------------------------------------------ Methodes de classe DevisesManager ---------------------------------------------*/

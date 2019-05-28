@@ -5,5 +5,13 @@
         <file>fichier_OHLCV/FB.csv</file>
         <file>fichier_OHLCV/BTC-USD.csv</file>
         <file>fichier_OHLCV/AMZN.csv</file>
+        <file>icons/auto.png</file>
+        <file>icons/back.png</file>
+        <file>icons/display.png</file>
+        <file>icons/manuel.png</file>
+        <file>icons/quit.png</file>
+        <file>icons/step.png</file>
+        <file>icons/trading.png</file>
+        <file>icons/welcome.png</file>
     </qresource>
 </RCC>

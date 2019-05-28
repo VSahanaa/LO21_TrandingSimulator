@@ -3,7 +3,11 @@
 EvolutionViewer::EvolutionViewer(EvolutionCours& evolutionCours,QWidget *parent): QWidget(parent), evolutionCours(evolutionCours){
     //installer la serie
     series = new QCandlestickSeries(this);
+<<<<<<< HEAD:source/TradingSimulator/UI/evolutionviewer.cpp
     series->setName(evolutionCours.getPaireDevises()->toString());
+=======
+    //series->setName(evolutionCours.getPaireDevises().toString());
+>>>>>>> ui:source/TradingSimulator/evolutionviewer.cpp
     series->setIncreasingColor(QColor(Qt::green));
     series->setDecreasingColor(QColor(Qt::red));
     //ajouter des bougies
@@ -50,8 +54,6 @@ EvolutionViewer::EvolutionViewer(EvolutionCours& evolutionCours,QWidget *parent)
     fenetre->addWidget(chartView);
     fenetre->addLayout(coucheCours);
     this->setLayout(fenetre);
-
-
 }
 
 void EvolutionViewer::showCoursOHLCV(Bougie* bougie){

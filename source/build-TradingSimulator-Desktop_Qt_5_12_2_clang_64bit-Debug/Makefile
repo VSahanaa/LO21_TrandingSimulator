@@ -52,19 +52,29 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../TradingSimulator/evolutionviewer.cpp \
+SOURCES       = ../TradingSimulator/commande.cpp \
+		../TradingSimulator/evolutionviewer.cpp \
 		../TradingSimulator/main.cpp \
 		../TradingSimulator/mainwindow.cpp \
 		../TradingSimulator/trading.cpp \
-		../TradingSimulator/transaction.cpp moc_evolutionviewer.cpp \
-		moc_mainwindow.cpp
-OBJECTS       = evolutionviewer.o \
+		../TradingSimulator/transaction.cpp \
+		../TradingSimulator/indicateur.cpp \
+		../TradingSimulator/welcome.cpp qrc_resource.cpp \
+		moc_evolutionviewer.cpp \
+		moc_mainwindow.cpp \
+		moc_welcome.cpp
+OBJECTS       = commande.o \
+		evolutionviewer.o \
 		main.o \
 		mainwindow.o \
 		trading.o \
 		transaction.o \
+		indicateur.o \
+		welcome.o \
+		qrc_resource.o \
 		moc_evolutionviewer.o \
-		moc_mainwindow.o
+		moc_mainwindow.o \
+		moc_welcome.o
 DIST          = ../../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/device_config.prf \
@@ -229,6 +239,7 @@ DIST          = ../../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/spec_post.prf \
+		../TradingSimulator/.qmake.stash \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/toolchain.prf \
@@ -256,15 +267,21 @@ DIST          = ../../../Qt/5.12.2/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/exceptions.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/lex.prf \
-		../TradingSimulator/TradingSimulator.pro ../TradingSimulator/evolutionviewer.h \
+		../TradingSimulator/TradingSimulator.pro ../TradingSimulator/commande.h \
+		../TradingSimulator/evolutionviewer.h \
 		../TradingSimulator/mainwindow.h \
 		../TradingSimulator/simulation.h \
 		../TradingSimulator/trading.h \
-		../TradingSimulator/transaction.h ../TradingSimulator/evolutionviewer.cpp \
+		../TradingSimulator/transaction.h \
+		../TradingSimulator/indicateur.h \
+		../TradingSimulator/welcome.h ../TradingSimulator/commande.cpp \
+		../TradingSimulator/evolutionviewer.cpp \
 		../TradingSimulator/main.cpp \
 		../TradingSimulator/mainwindow.cpp \
 		../TradingSimulator/trading.cpp \
-		../TradingSimulator/transaction.cpp
+		../TradingSimulator/transaction.cpp \
+		../TradingSimulator/indicateur.cpp \
+		../TradingSimulator/welcome.cpp
 QMAKE_TARGET  = TradingSimulator
 DESTDIR       = 
 TARGET        = TradingSimulator.app/Contents/MacOS/TradingSimulator
@@ -283,7 +300,7 @@ include /Users/jl-x/Qt/5.12.2/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-TradingSimulator.app/Contents/MacOS/TradingSimulator: ui_mainwindow.h $(OBJECTS)  
+TradingSimulator.app/Contents/MacOS/TradingSimulator: ui_mainwindow.h ui_welcome.h ui_info.h $(OBJECTS)  
 	@test -d TradingSimulator.app/Contents/MacOS/ || mkdir -p TradingSimulator.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -451,6 +468,7 @@ Makefile: ../TradingSimulator/TradingSimulator.pro ../../../Qt/5.12.2/clang_64/m
 		../../../Qt/5.12.2/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/mac/sdk.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/toolchain.prf \
@@ -479,6 +497,7 @@ Makefile: ../TradingSimulator/TradingSimulator.pro ../../../Qt/5.12.2/clang_64/m
 		../../../Qt/5.12.2/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.12.2/clang_64/mkspecs/features/lex.prf \
 		../TradingSimulator/TradingSimulator.pro \
+		../TradingSimulator/resource.qrc \
 		../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/QtCharts.prl \
 		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
 		../../../Qt/5.12.2/clang_64/lib/QtGui.framework/QtGui.prl \
@@ -648,6 +667,7 @@ Makefile: ../TradingSimulator/TradingSimulator.pro ../../../Qt/5.12.2/clang_64/m
 ../../../Qt/5.12.2/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.12.2/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.12.2/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.12.2/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.12.2/clang_64/mkspecs/features/mac/sdk.prf:
 ../../../Qt/5.12.2/clang_64/mkspecs/features/toolchain.prf:
@@ -676,6 +696,7 @@ Makefile: ../TradingSimulator/TradingSimulator.pro ../../../Qt/5.12.2/clang_64/m
 ../../../Qt/5.12.2/clang_64/mkspecs/features/yacc.prf:
 ../../../Qt/5.12.2/clang_64/mkspecs/features/lex.prf:
 ../TradingSimulator/TradingSimulator.pro:
+../TradingSimulator/resource.qrc:
 ../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/QtCharts.prl:
 ../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 ../../../Qt/5.12.2/clang_64/lib/QtGui.framework/QtGui.prl:
@@ -709,10 +730,11 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../TradingSimulator/resource.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TradingSimulator/evolutionviewer.h ../TradingSimulator/mainwindow.h ../TradingSimulator/simulation.h ../TradingSimulator/trading.h ../TradingSimulator/transaction.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TradingSimulator/evolutionviewer.cpp ../TradingSimulator/main.cpp ../TradingSimulator/mainwindow.cpp ../TradingSimulator/trading.cpp ../TradingSimulator/transaction.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TradingSimulator/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../TradingSimulator/commande.h ../TradingSimulator/evolutionviewer.h ../TradingSimulator/mainwindow.h ../TradingSimulator/simulation.h ../TradingSimulator/trading.h ../TradingSimulator/transaction.h ../TradingSimulator/indicateur.h ../TradingSimulator/welcome.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TradingSimulator/commande.cpp ../TradingSimulator/evolutionviewer.cpp ../TradingSimulator/main.cpp ../TradingSimulator/mainwindow.cpp ../TradingSimulator/trading.cpp ../TradingSimulator/transaction.cpp ../TradingSimulator/indicateur.cpp ../TradingSimulator/welcome.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TradingSimulator/mainwindow.ui ../TradingSimulator/welcome.ui ../TradingSimulator/info.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -722,6 +744,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r TradingSimulator.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -738,17 +761,35 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_resource.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_resource.cpp
+qrc_resource.cpp: ../TradingSimulator/resource.qrc \
+		../../../Qt/5.12.2/clang_64/bin/rcc \
+		../TradingSimulator/fichier_OHLCV/TSLA.csv \
+		../TradingSimulator/fichier_OHLCV/AMZN.csv \
+		../TradingSimulator/fichier_OHLCV/TWTR.csv \
+		../TradingSimulator/fichier_OHLCV/FB.csv \
+		../TradingSimulator/fichier_OHLCV/BTC-USD.csv \
+		../TradingSimulator/icons/step.png \
+		../TradingSimulator/icons/auto.png \
+		../TradingSimulator/icons/display.png \
+		../TradingSimulator/icons/welcome.png \
+		../TradingSimulator/icons/back.png \
+		../TradingSimulator/icons/trading.png \
+		../TradingSimulator/icons/quit.png \
+		../TradingSimulator/icons/manuel.png
+	/Users/jl-x/Qt/5.12.2/clang_64/bin/rcc -name resource ../TradingSimulator/resource.qrc -o qrc_resource.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.12 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.12.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_evolutionviewer.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_evolutionviewer.cpp moc_mainwindow.cpp moc_welcome.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_evolutionviewer.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_evolutionviewer.cpp moc_mainwindow.cpp moc_welcome.cpp
 moc_evolutionviewer.cpp: ../TradingSimulator/evolutionviewer.h \
 		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -830,16 +871,40 @@ moc_mainwindow.cpp: ../TradingSimulator/mainwindow.h \
 		../../../Qt/5.12.2/clang_64/bin/moc
 	/Users/jl-x/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/jl-x/LO21_TrandingSimulator/source/build-TradingSimulator-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/jl-x/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/jl-x/LO21_TrandingSimulator/source/TradingSimulator -I/Users/jl-x/Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers -I/Users/jl-x/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/jl-x/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/jl-x/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/jl-x/Qt/5.12.2/clang_64/lib ../TradingSimulator/mainwindow.h -o moc_mainwindow.cpp
 
+moc_welcome.cpp: ../TradingSimulator/welcome.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../TradingSimulator/mainwindow.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		moc_predefs.h \
+		../../../Qt/5.12.2/clang_64/bin/moc
+	/Users/jl-x/Qt/5.12.2/clang_64/bin/moc $(DEFINES) --include /Users/jl-x/LO21_TrandingSimulator/source/build-TradingSimulator-Desktop_Qt_5_12_2_clang_64bit-Debug/moc_predefs.h -I/Users/jl-x/Qt/5.12.2/clang_64/mkspecs/macx-clang -I/Users/jl-x/LO21_TrandingSimulator/source/TradingSimulator -I/Users/jl-x/Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers -I/Users/jl-x/Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/jl-x/Qt/5.12.2/clang_64/lib/QtGui.framework/Headers -I/Users/jl-x/Qt/5.12.2/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.1/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/jl-x/Qt/5.12.2/clang_64/lib ../TradingSimulator/welcome.h -o moc_welcome.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_welcome.h ui_info.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_welcome.h ui_info.h
 ui_mainwindow.h: ../TradingSimulator/mainwindow.ui \
 		../../../Qt/5.12.2/clang_64/bin/uic
 	/Users/jl-x/Qt/5.12.2/clang_64/bin/uic ../TradingSimulator/mainwindow.ui -o ui_mainwindow.h
+
+ui_welcome.h: ../TradingSimulator/welcome.ui \
+		../../../Qt/5.12.2/clang_64/bin/uic
+	/Users/jl-x/Qt/5.12.2/clang_64/bin/uic ../TradingSimulator/welcome.ui -o ui_welcome.h
+
+ui_info.h: ../TradingSimulator/info.ui \
+		../../../Qt/5.12.2/clang_64/bin/uic
+	/Users/jl-x/Qt/5.12.2/clang_64/bin/uic ../TradingSimulator/info.ui -o ui_info.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -849,9 +914,12 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+commande.o: ../TradingSimulator/commande.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o commande.o ../TradingSimulator/commande.cpp
 
 evolutionviewer.o: ../TradingSimulator/evolutionviewer.cpp ../TradingSimulator/evolutionviewer.h \
 		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
@@ -925,7 +993,16 @@ evolutionviewer.o: ../TradingSimulator/evolutionviewer.cpp ../TradingSimulator/e
 		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o evolutionviewer.o ../TradingSimulator/evolutionviewer.cpp
 
-main.o: ../TradingSimulator/main.cpp ../TradingSimulator/mainwindow.h \
+main.o: ../TradingSimulator/main.cpp ../TradingSimulator/welcome.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../TradingSimulator/mainwindow.h \
 		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../TradingSimulator/trading.h \
@@ -940,8 +1017,6 @@ main.o: ../TradingSimulator/main.cpp ../TradingSimulator/mainwindow.h \
 		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../TradingSimulator/evolutionviewer.h \
-		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers/QtCharts \
 		../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers/qchartglobal.h \
 		../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers/chartsnamespace.h \
@@ -997,9 +1072,7 @@ main.o: ../TradingSimulator/main.cpp ../TradingSimulator/mainwindow.h \
 		../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers/qxylegendmarker.h \
 		../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers/qxymodelmapper.h \
 		../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers/qxyseries.h \
-		../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers/qtchartsversion.h \
-		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
+		../../../Qt/5.12.2/clang_64/lib/QtCharts.framework/Headers/qtchartsversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TradingSimulator/main.cpp
 
 mainwindow.o: ../TradingSimulator/mainwindow.cpp ../TradingSimulator/mainwindow.h \
@@ -1035,11 +1108,47 @@ transaction.o: ../TradingSimulator/transaction.cpp ../TradingSimulator/transacti
 		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o transaction.o ../TradingSimulator/transaction.cpp
 
+indicateur.o: ../TradingSimulator/indicateur.cpp ../TradingSimulator/indicateur.h \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../TradingSimulator/trading.h \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QStringList \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qstringlist.h \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.12.2/clang_64/lib/QtCore.framework/Headers/qdebug.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o indicateur.o ../TradingSimulator/indicateur.cpp
+
+welcome.o: ../TradingSimulator/welcome.cpp ../TradingSimulator/welcome.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QFileDialog \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../TradingSimulator/mainwindow.h \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.12.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		ui_welcome.h \
+		ui_info.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o welcome.o ../TradingSimulator/welcome.cpp
+
+qrc_resource.o: qrc_resource.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resource.o qrc_resource.cpp
+
 moc_evolutionviewer.o: moc_evolutionviewer.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_evolutionviewer.o moc_evolutionviewer.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_welcome.o: moc_welcome.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_welcome.o moc_welcome.cpp
 
 ####### Install
 
