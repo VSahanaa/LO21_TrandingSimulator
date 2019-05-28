@@ -187,3 +187,7 @@ QStringList SimulationManager::listSavedSimulation() const {
     setting.endGroup();
     return listeSimulation;
 }
+
+Simulation* SimulationManager::chargeSimulation(QString nom) {
+
+}

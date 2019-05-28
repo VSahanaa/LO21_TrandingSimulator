@@ -107,7 +107,8 @@ public:
         instance = nullptr;
     }
     void addSimulation(Simulation* simulation) { listeSimulation.append(simulation);}
-    //Simulation* chargeSimulation(QString nom);
+
+    Simulation* chargeSimulation(QString nom);
     QStringList listSavedSimulation() const;
     const QString& getNomGroupe() const {return nomGroupe;}
     const QString& getNomApplication() const {return nomApplication;}
