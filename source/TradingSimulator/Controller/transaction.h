@@ -20,6 +20,8 @@ public:
     double montantTotal() const {return montantBase/cours->getClose() + montantContrepartie;}
     double getMontantBase() const {return montantBase;}
     double getMontantContrepartie() const {return montantContrepartie;}
+    CoursOHLCV* getCours() const {return cours;}
+    bool est_achat() const {return achat;}
     Transaction* getLastTransaction() const {return transactionDernier;}
     Transaction* next() const {return getLastTransaction();}
     bool hasNext() const {if (transactionDernier) {return true;} else {return false;}}

@@ -15,8 +15,11 @@ protected:
     TransactionManager transactionManager;
 public:
     Simulation(QString type, QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial):
-        nom(nom), evolutionCours(evolutionCours), currentCours(coursDebut), finishCours(coursFini), type(type),
-        transactionManager(TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantContrepartieInitial + montantContrepartieInitial/coursDebut->getClose())) {}
+        evolutionCours(evolutionCours), currentCours(coursDebut), finishCours(coursFini), type(type),
+        transactionManager(TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantContrepartieInitial + montantContrepartieInitial/coursDebut->getClose())) {
+        if (!verifierNomSimulation(nom)) throw TradingException("Simulation: ce nom est déjà pris");
+            this->nom = nom;
+    }
     ~Simulation();
     void achat(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, true, montant);}
     void vente(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, false, montant);}
@@ -25,7 +28,7 @@ public:
     virtual void saveSimulation() = 0;
     virtual void saveEvolutionCours();
     virtual void saveTransactions();
-    virtual bool verifierNomSimulation(QString nom);
+    bool verifierNomSimulation(QString nom);
     //const TransactionManager* getTransactionManager() const {return &transactionManager;}
 };
 

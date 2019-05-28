@@ -30,8 +30,24 @@ void Simulation::saveTransactions() {
     setting.beginGroup("Simulation");
     setting.beginGroup(nom);
     setting.beginGroup("TransactionManager");
+    setting.setValue("pourcentage", transactionManager.pourcentage);
+    setting.setValue("montantBaseInitial", transactionManager.montantBaseInitial);
+    setting.setValue("montantContrepartieInitial", transactionManager.montantContrepartieInitial);
+    setting.setValue("montantTotalInitial", transactionManager.montantTotalInitial);
+    //save history Transaction
 
-
+    setting.beginWriteArray("Transaction");
+    TransactionManager::iterator transactionIterator = transactionManager.head();
+    int i = 0;
+    while (transactionIterator) {
+        setting.setArrayIndex(i++);
+        setting.setValue("date", transactionIterator->getCours()->getDate().toString("yyyy-MM-dd"));
+        setting.setValue("achat", transactionIterator->est_achat());
+        setting.setValue("montantBase", transactionIterator->getMontantBase());
+        setting.setValue("montantContrepartie", transactionIterator->getMontantContrepartie());
+        transactionIterator->next();
+    }
+    setting.endArray();
     setting.endGroup();
     setting.endGroup();
     setting.endGroup();
