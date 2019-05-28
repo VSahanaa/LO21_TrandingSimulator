@@ -155,6 +155,22 @@ void ModePas_Pas::iteration(){
     currentCours++;
 }
 
+void ModePas_Pas::saveSimulation() const {
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
+    setting.beginGroup("Simulation");
+        setting.beginGroup(nom);
+            setting.setValue("type", type);
+            setting.setValue("currentDate", currentCours->getDate().toString("yyyy-MM-dd"));
+            setting.setValue("finishDate", finishCours->getDate().toString("yyyy-MM-dd"));
+            setting.setValue("timerInterval", timer->interval());
+        setting.endGroup();
+    setting.endGroup();
+
+    saveEvolutionCours();
+    saveTransactions();
+}
+
 /*---------------------------------------------------------- Methodes de Simulation Manager -------------------------------------------------------*/
 SimulationManager* SimulationManager::instance = nullptr;
 SimulationManager::~SimulationManager(){
