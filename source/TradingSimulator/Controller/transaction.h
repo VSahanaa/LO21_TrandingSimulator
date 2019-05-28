@@ -3,6 +3,11 @@
 #include <QDate>
 #include "../Core_Devises/trading.h"
 
+/* * Class Transaction: hold information of each transaction
+ * the constructor and destructor is private, therefore an only be created and deleted by TransactionManager
+ * Each transaction contains the CoursOHLCV where the trading occur, PaireDevises and the montantBase, montantContrepartie of user after the transaction
+ * attribute achat is a boolean to mark wheather the transaction is a purchase of selling
+ */
 class Transaction {
     friend class TransactionManager;
     Transaction* transactionDernier = nullptr;      //organiser comme une liste chainée
@@ -27,7 +32,12 @@ public:
     bool hasNext() const {if (transactionDernier) {return true;} else {return false;}}
 };
 
-
+/* * Class TransactionManager: container of Transaction
+ * the Transactions are organized as a linked list, the head of the list points to the most recent transaction
+ * the constructor and destructor is private, therefore an only be created and deleted by a Simulation
+ * It also contains the the montantBaseInitial, montantContrepartieInitial and montantTotalInitial of user at the beginning of the Simulation
+ * It has an Iterator with 2 operations: next() et hasNext()
+ */
 class TransactionManager {
     friend class Simulation;
     Transaction* listeTransaction = nullptr;    //pointeur vers la transaction le plus current, les transactions se organisent comme une liste chainée

@@ -1,6 +1,6 @@
 #include "transaction.h"
 
-/* * Strategie class: base class of all Strategies
+/* * Class Strategie: base class of all Strategies
  * each Strategie has a name and an evolutionCours
  * The Constructor and Destructor is protected, which can only be accessed by Inherit classes or Strategiefactory
  * Trading algorithm is implemented in operator(), which returns the trading decision for each day
@@ -28,7 +28,6 @@ public:
     virtual void setParameters(QMap<QString, QVariant> parameters) {/*do nothing*/}
     virtual QMap<QString, QVariant> getParameters() const {return QMap<QString, QVariant>(); /*return empty object*/}
     virtual double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours){return 0;  /*do nothing*/}  //implementer algorithme de trading
-    //unsigned int temps; //compteur de jour => faire un evolutioncours->iterator ?
     //int hausse; //PERIODE 5utilisation pour les methodes pendu, marteau... : -1 baissiere, 0 neutre, 1 hausse
 		//hausse
         //void updateHausse(){};
@@ -46,6 +45,10 @@ public:
 		//a faire le doji
 };
 
+/* * Class MA_Strategie: Implement MA Trading Strategy
+ * Parameters of this strategy is a period(int) for an EMA indicator
+ * the parameters is pass to the object is encapsulated in a QMap<QString, QVariant> object
+ */
 class MA_Strategie : public Strategie {
     friend class StrategieFactory;
     EMA* ema=nullptr;
@@ -58,7 +61,10 @@ public:
     double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours);
 };
 
-
+/* * Class RSI_Strategie: Implement RSI Trading Strategy
+ * Parameters of this strategy is a lookbackPeriod(unsigned int), an overboughtBound(double), an oversoldBound(double) for a RSI indicator
+ * the parameters is pass to the object is encapsulated in a QMap<QString, QVariant> object
+ */
 class RSI_Strategie : public Strategie {
     friend class StrategieFactory;
     RSI* rsi=nullptr;
@@ -75,6 +81,7 @@ public:
  * When ever a new Strategie is added to the code base, it's only need to be added here to the strategieDictonary at the constructor in order to be used with other Strategies
  * When ever a strategie is needed, function getStrategie() will create a replicate of the strategie object stored in strategieDictonary and return it with an evolutionCours
  * Strategie objects in strategieDictonary are always prototype of each Strategie with evolutionCours is null
+ * the Strategie returned by getStrategie() need to setParameters() before it can be used
  */
 class StrategieFactory {
     static StrategieFactory* instance;              //singleton

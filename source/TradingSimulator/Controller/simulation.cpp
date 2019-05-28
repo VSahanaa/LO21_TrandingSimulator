@@ -54,7 +54,7 @@ void Simulation::saveTransactions() const {
 
 bool Simulation::verifierNomSimulation(QString nom) const {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
-    return !simulationManager->listSavedSimulation().contains(nom);
+    return !simulationManager->listExistSimulation().contains(nom);
 }
 
 /*---------------------------------------------------------- Methodes de Mode Manuel -------------------------------------------------------*/
@@ -75,7 +75,7 @@ void ModeManuel::saveSimulation() const {
 }
 /*---------------------------------------------------------- Methodes de Mode Automatique -------------------------------------------------------*/
 ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, Strategie* strategie, unsigned int time_interval):
-    Simulation("Automatique", nom, evolutionCours, coursDebut, coursFini, pourcentage, montantBaseInitial, montantContrepartieInitial) {
+    QObject(), Simulation("Automatique", nom, evolutionCours, coursDebut, coursFini, pourcentage, montantBaseInitial, montantContrepartieInitial) {
     if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
     this->strategie = strategie;
     timer = new QTimer(this);
@@ -139,7 +139,7 @@ void ModeAutomatique::saveSimulation() const {
 
 /*---------------------------------------------------------- Methodes de Mode Pas à pas -------------------------------------------------------*/
 ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval):
-    ModeManuel(nom, evolutionCours, coursDebut, coursFini, pourcentage, montantBaseInitial, montantContrepartieInitial) {
+     QObject(), ModeManuel(nom, evolutionCours, coursDebut, coursFini, pourcentage, montantBaseInitial, montantContrepartieInitial) {
     type = "Pas_Pas";
     timer = new QTimer(this);
     timer->setInterval(time_interval);              //set timer interval in ms
@@ -180,14 +180,23 @@ SimulationManager::~SimulationManager(){
     listeSimulation.empty();
 }
 
+QStringList SimulationManager::listExistSimulation() const {
+    QStringList listeNomSimulation = listSavedSimulation();
+    for (int i=0; i<listeSimulation.length(); i++) {
+        listeNomSimulation.append(listeSimulation[i]->getNom());        //list saved Simulation
+    }
+    return listeNomSimulation;
+}
+
 QStringList SimulationManager::listSavedSimulation() const {
     QSettings setting(nomGroupe, nomApplication);
     setting.beginGroup("Simulation");
-    QStringList listeSimulation = setting.childGroups();
+        QStringList listeSavedSimulation = setting.childGroups();         //list saved Simulation
     setting.endGroup();
-    return listeSimulation;
+    return listeSavedSimulation;
 }
 
-Simulation* SimulationManager::chargeSimulation(QString nom) {
+/*Simulation* SimulationManager::chargeSimulation(QString nom) {
 
 }
+*/

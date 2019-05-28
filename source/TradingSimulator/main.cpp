@@ -1,23 +1,20 @@
-<<<<<<< HEAD
 #include "UI/mainwindow.h"
 #include "Core_Devises/trading.h"
 #include "UI/evolutionviewer.h"
-=======
->>>>>>> ui
+
 #include <QApplication>
 #include "welcome.h"
-//#include "trading.h"
-//#include "evolutionviewer.h"
 
 
 int main(int argc, char *argv[])
 {
-    /*DevisesManager& deviseManager=DevisesManager::getManager();
+    DevisesManager& deviseManager=DevisesManager::getManager();
     deviseManager.creationDevise("USD", "Dollar Américain","USA");
     deviseManager.creationDevise("BTC", "BitCoin","monnaie virtuelle");
     const PaireDevises& BTC_USD=deviseManager.getPaireDevises("BTC", "USD");
     //EvolutionCours evolution(BTC_USD);
     // Une bougie = Un mois pour bitcoin entre janvier 2017 et août 2018
+    /*
     evolution.addCours(4261.48000000, 4745.42000000, 3400.00000000, 4724.89000000, 100000, QDate(2017,1,1));
     evolution.addCours(4689.89000000, 4939.19000000, 2817.00000000, 4378.51000000, 102000, QDate(2017,2,1));
     evolution.addCours(4378.49000000, 6498.01000000, 4110.00000000, 6463.00000000, 95200, QDate(2017,3,1));
@@ -38,18 +35,13 @@ int main(int argc, char *argv[])
     evolution.addCours(3701.23000000, 4069.80000000, 3349.92000000, 3434.10000000, 202123, QDate(2018,6,1));
     evolution.addCours(3434.10000000, 4198.00000000, 3373.10000000, 3813.69000000, 321202, QDate(2018,7,1));
     evolution.addCours(3814.26000000, 4140.00000000, 3670.69000000, 4106.65000000, 212313, QDate(2018,8,1));
-<<<<<<< HEAD
     */
     EvolutionCours evolution(BTC_USD, ":/TradingSimulator/evolutionCours/fichier_OHLCV/BTC-USD.csv");
     Indicateur* macd = evolution.getCollection()->getIndicateur("MACD");
     macd->generateIndice();
-=======
-
-    EvolutionCours evolution(BTC_USD, ":/TradingSimulator/evolutionCours/fichier_OHLCV/BTC-USD.csv");*/
     //EvolutionViewer view(evolution);
     //view.show();
 
->>>>>>> ui
     QApplication app(argc, argv);
 
     Welcome win(&app);

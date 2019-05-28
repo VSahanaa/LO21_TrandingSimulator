@@ -5,9 +5,9 @@
 #include <QDialog>
 #include <QFileDialog>
 #include <QMessageBox>
-#include "mainwindow.h"
-//#include "trading.h"
-//#include "evolutionviewer.h"
+#include "UI/mainwindow.h"
+//#include "/Core_Devises/trading.h"
+//#include "/UI/evolutionviewer.h"
 
 enum {
     Home = 0,

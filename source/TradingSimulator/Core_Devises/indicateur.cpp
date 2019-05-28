@@ -18,31 +18,7 @@ IndiceIndicateur* Indicateur::searchIndice(CoursOHLCV* cours) {
     if (indiceIterator == end()) return nullptr;
     return indiceIterator;
 }
-
-/*----------------------------------------------- Methode de classe IndicateurCollection -----------------------------------------------*/
-IndicateurCollection::IndicateurCollection(EvolutionCours* evolutionCours) {
-    indicateurDictionary.empty();
-    //insert empty indicateur to the collection
-    indicateurDictionary.insert("EMA", new EMA(evolutionCours));
-    indicateurDictionary.insert("RSI", new RSI(evolutionCours));
-    indicateurDictionary.insert("MACD", new MACD(evolutionCours));
-}
-
-IndicateurCollection::~IndicateurCollection() {
-    foreach(Indicateur* indicateur, indicateurDictionary.values()) {
-        delete indicateur;
-    }
-    indicateurDictionary.clear();
-}
-
-Indicateur* IndicateurCollection::getIndicateur(QString nom) {
-    if (!indicateurDictionary.contains(nom)) throw TradingException("IndicateurCollection: collection not containing requested item");
-    return indicateurDictionary[nom];
-}
-
 /*----------------------------------------------- Methodes de classe EMA -------------------------------------------------*/
-//information sur EMA (https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp)
-
 void EMA::generateIndice() {
     delete [] indices;
     nbMaxIndicateur = evolutionCours->getNbCours();
@@ -75,12 +51,13 @@ void EMA::generateIndice() {
 
 void EMA::setParameters(QMap<QString, QVariant> parameters) {
     if(!parameters.contains("period")) throw TradingException("EMA: parametres manquants");
-    //refresh array of indice if period is changed
+    //refresh array of indice if period is changed or array of index is empty
     if (this->period != parameters["period"].toInt() || !indices) {
         this->period = parameters["period"].toInt();
         generateIndice();
     }
 }
+
 QMap<QString, QVariant> EMA::getParameters() const {
     QMap<QString, QVariant> parameters;
     parameters["period"] = period;
@@ -88,8 +65,6 @@ QMap<QString, QVariant> EMA::getParameters() const {
 }
 
 /*----------------------------------------------- Methodes de classe RSI -------------------------------------------------*/
- //information sur RSI (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi)
-
 void RSI::generateIndice() {
     //set parameters
     nbMaxIndicateur = evolutionCours->getNbCours();
@@ -115,7 +90,7 @@ void RSI::generateIndice() {
     //il n'y a pas d'indicateur RSI pendant le look back periode
     iterator indiceIterator = begin();
 
-	//element suivant
+    //element suivant
     while(indiceIterator != end()) {
         e = coursIterator->getClose() - (coursIterator-1)->getClose();
         if (e > 0) {
@@ -130,7 +105,15 @@ void RSI::generateIndice() {
         qDebug() << indiceIterator->toString();
         indiceIterator++;
         coursIterator++;
-	}
+    }
+}
+
+void RSI::setLookbackPeriod(unsigned int lookbackPeriod) {
+    //refresh array of indice if look back period is changed
+    if(this->lookbackPeriod != lookbackPeriod || !indices) {
+        this->lookbackPeriod = lookbackPeriod;
+        generateIndice();
+    }
 }
 
 void RSI::setParameters(QMap<QString, QVariant> parameters) {
@@ -150,8 +133,6 @@ QMap<QString, QVariant> RSI::getParameters() const {
 }
 
 /*----------------------------------------------- Methodes de classe MACD -------------------------------------------------*/
-//information sur MACD (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd)
-
 void MACD::generateIndice() {
     delete[] signalLine;
     delete[] histogram;
@@ -181,9 +162,9 @@ void MACD::generateIndice() {
         indiceIterator->setDate(longEMA_Iterator->getDate());
         signalLine_Iterator->setDate(longEMA_Iterator->getDate());
         histogram_Iterator->setDate(longEMA_Iterator->getDate());
-        qDebug() <<"short EMA" << shortEMA_Iterator->toString();
-        qDebug() <<"long EMA" <<longEMA_Iterator->toString();
-        qDebug() <<"signal EMA" <<signalEMA_Iterator->toString();
+        //qDebug() <<"short EMA" << shortEMA_Iterator->toString();
+        //qDebug() <<"long EMA" <<longEMA_Iterator->toString();
+        //qDebug() <<"signal EMA" <<signalEMA_Iterator->toString();
         indiceIterator->setIndice(shortEMA_Iterator++->getIndice() - longEMA_Iterator++->getIndice());
         signalLine_Iterator->setIndice(signalEMA_Iterator++->getIndice());
         histogram_Iterator++->setIndice(indiceIterator++->getIndice() - signalLine_Iterator++->getIndice());
@@ -196,7 +177,8 @@ void MACD::generateIndice() {
 void MACD::setParameters(QMap<QString, QVariant> parameters) {
    if (!parameters.contains("shortPeriod") || !parameters.contains("longPeriod") || !parameters.contains("signalPeriod"))
        throw TradingException("MACD: parametres manquants");
-   if (parameters["longPeriod"].toInt() < parameters["shortPeriod"].toInt() || parameters["longPeriod"].toInt() < parameters["signalPeriod"].toInt()) throw TradingException("MACD: long period doit etre le plus grand");
+   if (parameters["longPeriod"].toInt() < parameters["shortPeriod"].toInt() || parameters["longPeriod"].toInt() < parameters["signalPeriod"].toInt())
+       throw TradingException("MACD: long period doit etre le plus grand");
    if (this->longPeriod!=parameters["longPeriod"].toInt() || this->shortPeriod!=parameters["shortPeriod"].toInt() || this->signalPeriod!=parameters["signalPeriod"].toInt() || !indices) {
        this->longPeriod = parameters["longPeriod"].toInt();
        this->shortPeriod = parameters["shortPeriod"].toInt();
@@ -212,3 +194,25 @@ QMap<QString, QVariant> MACD::getParameters() const {
     parameters["signalPeriod"] = signalPeriod;
     return parameters;
 }
+
+/*----------------------------------------------- Methode de classe IndicateurCollection -----------------------------------------------*/
+IndicateurCollection::IndicateurCollection(EvolutionCours* evolutionCours) {
+    indicateurDictionary.empty();
+    //insert empty indicateur to the collection
+    indicateurDictionary.insert("EMA", new EMA(evolutionCours));
+    indicateurDictionary.insert("RSI", new RSI(evolutionCours));
+    indicateurDictionary.insert("MACD", new MACD(evolutionCours));
+}
+
+IndicateurCollection::~IndicateurCollection() {
+    foreach(Indicateur* indicateur, indicateurDictionary.values()) {
+        delete indicateur;
+    }
+    indicateurDictionary.clear();
+}
+
+Indicateur* IndicateurCollection::getIndicateur(QString nom) {
+    if (!indicateurDictionary.contains(nom)) throw TradingException("IndicateurCollection: collection not containing requested item");
+    return indicateurDictionary[nom];
+}
+

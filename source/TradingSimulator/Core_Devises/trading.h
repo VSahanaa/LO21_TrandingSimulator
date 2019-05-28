@@ -8,7 +8,8 @@
 #include<cmath>
 
 using namespace std;
-
+/* *Class Trading Exception: Contain the error message of the application
+ */
 class TradingException {
 public:
     TradingException(const QString& message) :info(message) {}
@@ -17,6 +18,9 @@ private:
     QString info;
 };
 /*-------------------------------------------------------- Partie Devises ----------------------------------------------------*/
+
+/* * Class Devise: Contains the 3-letter code, the currency and zone of a Currency
+ */
 class Devise {
     QString code;
     QString monnaie, zone;
@@ -29,6 +33,11 @@ public:
     const QString& getZoneGeographique() const { return zone; }
 };
 
+/* * Class PaireDevises: contains info of a pair of currency:
+ * - base, contrepartie are the currecies of the pair
+ * - nom: name of the pair
+ * The constructur and destructor are private => can only created by DevisesManager
+ */
 class PaireDevises {
     const Devise* base;
     const Devise* contrepartie;
@@ -43,17 +52,19 @@ public:
     QString toString() const;
 };
 
+/* * Class DevisesManager: container of Devise and PaireDevises, applies Singleton Pattern
+ * - it contains an array of pointer to Devise objects and an array of pointer to PaireDevises objects
+ */
 class DevisesManager {
-    Devise** devises = nullptr; // tableau de pointeurs sur objets Devise
+    Devise** devises = nullptr;                 // tableau de pointeurs sur objets Devise
     unsigned int nbDevises = 0;
     unsigned int nbMaxDevises = 0;
-    mutable PaireDevises** paires = nullptr; // tableau de pointeurs sur objets PaireDevises
+    mutable PaireDevises** paires = nullptr;    // tableau de pointeurs sur objets PaireDevises
     mutable unsigned int nbPaires = 0;
     mutable unsigned int nbMaxPaires = 0;
     // empêcher la duplication par recopie ou affectation
     DevisesManager(const DevisesManager& deviseManager) = delete;
     DevisesManager& operator=(const DevisesManager& deviseManager) = delete;
-    // pour le singleton
     DevisesManager() {}
     ~DevisesManager();
     struct Handler {
@@ -78,6 +89,9 @@ public:
 
 
 /*------------------------------------------------ Partie EvolutionCours --------------------------------------------*/
+
+/* * Class CoursOHLCV: contains open price, high price, low price, close price and the trading volume of a date
+ */
 class CoursOHLCV {
     double open = 0, high = 0, low = 0, close = 0;
     unsigned int volume = 0;
@@ -96,6 +110,8 @@ public:
     void setDate(const QDate& d) { date=d; }
 };
 
+/* *Class ListEvolutionCours: contains a list of csv file name that can used to charge to EvolutionCours
+ */
 class ListEvolutionCours {
     QStringList filenames;
     int nbFiles;
@@ -107,6 +123,9 @@ public:
 
 class IndicateurCollection;     //forward declaration of IndicateurCollection
 
+/* * Class EvolutionCours: an array of pointer to CoursOHLCV, => the evolution cours of a PaireDevises during a time period
+ * - it can be created by charging a csv file
+ */
 class EvolutionCours {
     const PaireDevises* paire;
     IndicateurCollection* indicateurCollection;
@@ -137,9 +156,8 @@ public:
 
 
 /*-------------------------------------------------- Partie Indicateur ------------------------------------------------------------*/
-/*Information de Indicateurs
- * (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:introduction_to_technical_indicators_and_oscillators#momentum_oscillators)
- */
+//Information de Indicateurs: (https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:introduction_to_technical_indicators_and_oscillators#momentum_oscillators)
+
 
 /* * Class Indiceindicateur: stocks every day data of an Indicateur
  * has a attribute donnee and a date
@@ -158,12 +176,11 @@ public:
         QString toString() const {return date.toString() + " indicateur: " + QString::number(donnee);}
 };
 
-
-/* * Indicateur Class: base class of every Indicateur
+/* * Indicateur Class: abstract base class of every Indicateur
  * has a name and associates with an evolutionCours
  * it contans an array of IndiceIndicateur
  * The constructor and destrcutor is protected therefore can only be used by Inherited classes or IndicateurCollection
- * Each Indicateur is created with an empty array of Indiceindicateur, the array is generate after the call of method generateIndice or setParameters()
+ * Each Indicateur is created with an empty array of Indiceindicateur, the array is generate after the call of method generateIndice() or setParameters()
  */
 class Indicateur {
     friend class IndicateurCollection;
@@ -190,8 +207,11 @@ public:
     virtual QMap<QString, QVariant> getParameters() const = 0;
 };
 
-
-/*-----------------------------------------------------------------Derived classes of Indicateur---------------------------------------------------*/
+/* * class EMA: EMA indicator, derived class of Indicateur
+ * Info on EMA - https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp
+ * The constructor and destrcutor is privated therefore can only be used by MACD class or IndicateurCollection
+ * EMA have only one parameter: period(unsigned int)
+ */
 class EMA : public Indicateur{
     friend class IndicateurCollection;     //can only created by IndicateurCollection
     friend class MACD;
@@ -200,12 +220,15 @@ private:
     EMA(EvolutionCours* evolutionCours, unsigned int period = 10) : Indicateur(evolutionCours, "EMA"), period(period) {}      //create instance with an empty array of indices
 public:
     void generateIndice();        //where array of indice is really instanciate
-
     void setParameters(QMap<QString, QVariant> parameters);
     QMap<QString, QVariant> getParameters() const;
 };
 
-
+/* * Class RSI: RSI indicator, derived class of Indicateur
+ * information on RSI - https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi
+ * The constructor and destrcutor is privated therefore can only be created and destroyed by IndicateurCollection
+ * Parameters of RSI: lookbackPeriod(unsigned int), overboughtBound(double), oversoldBound(double)
+ */
 class RSI : public Indicateur {
     friend class IndicateurCollection;     //can only created by IndicateurCollection
 private:
@@ -217,19 +240,17 @@ public:
     void generateIndice();
     void setOverboughtBound(double overboughtBound=80) {this->overboughtBound = overboughtBound;}
     void setOversoldBound(double oversoldBound=20) {this->oversoldBound = oversoldBound;}
-    void setLookbackPeriod(unsigned int lookbackPeriod=14) {
-        //refresh array of indice if look back period is changed
-        if(this->lookbackPeriod != lookbackPeriod || !indices) {
-            this->lookbackPeriod = lookbackPeriod;
-            generateIndice();
-        }
-    }
+    void setLookbackPeriod(unsigned int lookbackPeriod=14);
     void setParameters(QMap<QString, QVariant> parameters);
     QMap<QString, QVariant> getParameters() const;
 };
 
 
-
+/* * Class MACD: MACD indicator, derived class of Indicateur
+ * information on MACD - https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd
+ * The constructor and destrcutor is privated therefore can only be created and destroyed by IndicateurCollection
+ * Parameters of RSI: longPeriod(unsigned int), shortPeriod(unsigned int), signalPeriod(unsigned int)
+ */
 class MACD : public Indicateur {
     friend class IndicateurCollection;     //can only created by IndicateurCollection
 private:
@@ -249,8 +270,13 @@ public:
     QMap<QString, QVariant> getParameters() const;
 };
 
+/* * Class IndicateurCollection: Collection of Indicateur, it contains a hash table of pointer to Indicateur object
+ * Each IndicateurCollection belongs to a EvolutionCours, it contains all Indicateurs relative to this EvolutionCours
+ * It instanciates empty indicateurs, when is used, an Indicateur is official instanciated with an array of index after the all parameters is set
+ * An old Indicateur can be access from the collection to save the compute time
+ */
 class IndicateurCollection {
-    friend class EvolutionCours;        //can only be created and deleted bt EvolutionCours
+    friend class EvolutionCours;        //can only be created and deleted by EvolutionCours
     QHash<QString, Indicateur*> indicateurDictionary;
     IndicateurCollection(EvolutionCours* evolutionCours);
     ~IndicateurCollection();
