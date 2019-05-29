@@ -16,12 +16,20 @@ StrategieFactory::~StrategieFactory() {
     strategieDictionary.clear();
 }
 
-Strategie* StrategieFactory::getStrategie(QString nom, EvolutionCours *evolutionCours) {
+Strategie* StrategieFactory::getStrategie(QString nom, EvolutionCours *evolutionCours) const {
     Strategie* strategie = strategieDictionary[nom]->clone();       //clone new object
     strategie->setEvolutionCours(evolutionCours);
+    strategie->setParameters(QMap<QString, QVariant>());            //instanciate with default parameters
     return strategie;
 }
 
+const QStringList StrategieFactory::listeStrategie() const {
+    QStringList listeNomStrategie;
+    foreach(QString nom, strategieDictionary.keys()) {
+        listeNomStrategie << nom;
+    }
+    return listeNomStrategie;
+}
 /*--------------------------------------------------- Methodes de classe MA_Strategie ---------------------------------------------------*/
 Strategie* MA_Strategie::clone() {
     MA_Strategie* clone = new MA_Strategie();

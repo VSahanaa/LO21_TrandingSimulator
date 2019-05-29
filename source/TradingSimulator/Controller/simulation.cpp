@@ -66,7 +66,6 @@ void ModeManuel::saveSimulation() const {
         setting.beginGroup(nom);
             setting.setValue("type", type);
             setting.setValue("currentDate", currentCours->getDate().toString("yyyy-MM-dd"));
-            setting.setValue("finishDate", finishCours->getDate().toString("yyyy-MM-dd"));
         setting.endGroup();
     setting.endGroup();
 
@@ -74,17 +73,20 @@ void ModeManuel::saveSimulation() const {
     saveTransactions();
 }
 /*---------------------------------------------------------- Methodes de Mode Automatique -------------------------------------------------------*/
-ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, Strategie* strategie, unsigned int time_interval):
-    QObject(), Simulation("Automatique", nom, evolutionCours, coursDebut, coursFini, pourcentage, montantBaseInitial, montantContrepartieInitial) {
-    if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
-    this->strategie = strategie;
+ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval):
+    QObject(), Simulation("Automatique", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {
     timer = new QTimer(this);
     timer->setInterval(time_interval);              //set timer interval in ms
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(iteration()));
     timer->start();
 }
 
+void ModeAutomatique::setStrategie(Strategie* strategie) {
+    if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
+    this->strategie = strategie;
+}
 void ModeAutomatique::iteration() {
+    if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
     double decision = (*strategie)(&transactionManager, currentCours);
     if (decision > 0) {
         achat(evolutionCours->getPaireDevises(), currentCours, decision);
@@ -92,14 +94,16 @@ void ModeAutomatique::iteration() {
     else if (decision < 0) {
         vente(evolutionCours->getPaireDevises(), currentCours, -decision);
     }
-    if(currentCours == finishCours) {
+    currentCours++;        //move to next day
+    if(currentCours == evolutionCours->end()) {
         timer->stop();
         emit endSimulation();
     }
-    currentCours++;        //move to next day
+
 }
 
 void ModeAutomatique::saveStrategie() const {
+    if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
@@ -126,7 +130,6 @@ void ModeAutomatique::saveSimulation() const {
         setting.beginGroup(nom);
             setting.setValue("type", type);
             setting.setValue("currentDate", currentCours->getDate().toString("yyyy-MM-dd"));
-            setting.setValue("finishDate", finishCours->getDate().toString("yyyy-MM-dd"));
             setting.setValue("timerInterval", timer->interval());
         setting.endGroup();
     setting.endGroup();
@@ -138,8 +141,8 @@ void ModeAutomatique::saveSimulation() const {
 
 
 /*---------------------------------------------------------- Methodes de Mode Pas à pas -------------------------------------------------------*/
-ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval):
-     QObject(), ModeManuel(nom, evolutionCours, coursDebut, coursFini, pourcentage, montantBaseInitial, montantContrepartieInitial) {
+ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval):
+     QObject(), ModeManuel(nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {
     type = "Pas_Pas";
     timer = new QTimer(this);
     timer->setInterval(time_interval);              //set timer interval in ms
@@ -148,11 +151,12 @@ ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionC
 }
 
 void ModePas_Pas::iteration(){
-    if(currentCours == finishCours) {
+    currentCours++;
+    if(currentCours == evolutionCours->end()) {
         timer->stop();
         emit endSimulation();
     }
-    currentCours++;
+
 }
 
 void ModePas_Pas::saveSimulation() const {
@@ -162,7 +166,6 @@ void ModePas_Pas::saveSimulation() const {
         setting.beginGroup(nom);
             setting.setValue("type", type);
             setting.setValue("currentDate", currentCours->getDate().toString("yyyy-MM-dd"));
-            setting.setValue("finishDate", finishCours->getDate().toString("yyyy-MM-dd"));
             setting.setValue("timerInterval", timer->interval());
         setting.endGroup();
     setting.endGroup();

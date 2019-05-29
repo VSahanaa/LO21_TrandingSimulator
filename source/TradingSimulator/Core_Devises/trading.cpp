@@ -64,6 +64,14 @@ const PaireDevises& DevisesManager::getPaireDevises(const QString & code1, const
     return *paires[nbPaires++];
 }
 
+QStringList DevisesManager::getDeviseCodes() const {
+    QStringList listeCodes;
+    for (unsigned int i=0; i<nbDevises; i++) {
+        listeCodes<<devises[i]->getCode();
+    }
+    return listeCodes;
+}
+
 DevisesManager::~DevisesManager() {
     for (unsigned int i = 0; i < nbPaires; i++) delete paires[i];
     for (unsigned int i = 0; i < nbDevises; i++) delete devises[i];
@@ -105,8 +113,9 @@ EvolutionCours::EvolutionCours(const PaireDevises &pair, QString filename) {
         if (!file.open(QIODevice::ReadOnly)) {
             qDebug() << file.errorString();
         }
+        QString line = file.readLine();            //avoid legendre
         while (!file.atEnd()) {
-            QString line = file.readLine();
+            line = file.readLine();
             wordlist = line.split(',');
             //qDebug() << wordlist;
             date = QDate::fromString(wordlist.at(0), "yyyy-MM-dd");

@@ -81,6 +81,7 @@ public:
     static void libererManager() {
         delete handler.instance;  handler.instance = nullptr;
     }
+    QStringList getDeviseCodes() const;
     const Devise& creationDevise(const QString& code, const QString& monnaie, const QString& zone);
     const Devise& getDevise(const QString& code)const;
     const PaireDevises& getPaireDevises(const QString & code1, const QString & code2) const;
@@ -146,8 +147,8 @@ public:
     IndicateurCollection* getCollection() const {return indicateurCollection;}
     const QString& getNomFichier() const {return filen;}
     using iterator = CoursOHLCV*;
-    iterator begin() { return iterator(cours); }
-    iterator end() { return iterator(cours + nbCours); }
+    iterator begin() { return cours; }
+    iterator end() { return cours + nbCours; }
     using const_iterator = const CoursOHLCV*;
     const_iterator cbegin() const { return cours; }
     const_iterator cend() const { return cours + nbCours; }

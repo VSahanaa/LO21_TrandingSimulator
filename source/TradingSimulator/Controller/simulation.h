@@ -15,11 +15,11 @@ protected:
     QString type;
     QString nom;
     EvolutionCours* evolutionCours;
-    EvolutionCours::iterator currentCours, finishCours;
+    EvolutionCours::iterator currentCours = evolutionCours->begin();        //default value
     TransactionManager transactionManager;
 public:
-    Simulation(QString type, QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial):
-        evolutionCours(evolutionCours), currentCours(coursDebut), finishCours(coursFini), type(type),
+    Simulation(QString type, QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial):
+        type(type), evolutionCours(evolutionCours), currentCours(coursDebut),
         transactionManager(TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantContrepartieInitial + montantContrepartieInitial/coursDebut->getClose())) {
         if (!verifierNomSimulation(nom)) throw TradingException("Simulation: ce nom est déjà pris");
             this->nom = nom;
@@ -29,7 +29,6 @@ public:
     void vente(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, false, montant);}
     const QString& getNom() const {return nom;}
     EvolutionCours::iterator getCurrentCours() const {return currentCours;}
-    EvolutionCours::iterator getFinishCours() const {return finishCours;}
     virtual void saveSimulation() const = 0;
     virtual void saveEvolutionCours() const;
     virtual void saveTransactions() const;
@@ -44,8 +43,8 @@ public:
 */
 class ModeManuel : public Simulation {
 public:
-    ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial) :
-        Simulation("Manuel", nom, evolutionCours, coursDebut, coursFini, pourcentage, montantBaseInitial, montantContrepartieInitial) {}
+    ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000) :
+        Simulation("Manuel", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {}
     //~ModeManuel();          //TO IMPLEMENT !!!
     virtual void saveSimulation() const;
     void annule() {transactionManager.deleteLastTransaction();}
@@ -60,7 +59,7 @@ class ModePas_Pas: public QObject, public ModeManuel {
     Q_OBJECT
     QTimer* timer;
 public:
-    ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval=600000);
+    ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000);
     //~ModePas_Pas();                 //TO IMPLEMENT !!!
     void saveSimulation() const;
 signals:
@@ -70,7 +69,7 @@ private slots:
 public slots:
     void setTimer(unsigned int interval) {timer->setInterval(interval);}
     void pause() {timer->stop();}
-    void play() {if (currentCours != finishCours) timer->start();}
+    void play() {if (currentCours != evolutionCours->end()) timer->start();}
     void speedUp() {if(timer->interval() > 10000) timer->setInterval(timer->interval() - 10000);}
     void slowDown() {timer->setInterval(timer->interval() + 10000);}
     void buy_slot(double montant) {achat(evolutionCours->getPaireDevises(), currentCours, montant);}
@@ -84,11 +83,12 @@ public slots:
 */
 class ModeAutomatique : public QObject, public Simulation {
     Q_OBJECT
-    Strategie* strategie;
+    Strategie* strategie = nullptr;
     QTimer* timer;                  //timer of between cours   
 public:
-    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, EvolutionCours::iterator coursFini, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, Strategie* strategie, unsigned int time_interval=600000);
+    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000);
     //~ModeAutomatique();             //TO IMPLEMENT !!!
+    void setStrategie(Strategie* strategie);
     void saveSimulation() const;
     void saveStrategie() const;
 signals:
@@ -98,7 +98,7 @@ private slots:
 public slots:
     void setTimer(unsigned int interval) {timer->setInterval(interval);}
     void pause() {timer->stop();}
-    void play() {if (currentCours != finishCours) timer->start();}
+    void play() {if (currentCours != evolutionCours->end()) timer->start();}
     void speedUp() {if(timer->interval() > 10000) timer->setInterval(timer->interval() - 10000);}
     void slowDown() {timer->setInterval(timer->interval() + 10000);}
 };

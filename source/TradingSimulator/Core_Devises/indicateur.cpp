@@ -26,34 +26,38 @@ void EMA::generateIndice() {
     //EMA initial est SMA pour cette periode
     //il n'y a pas de SMA et EMA pendant la premiere periode
     double sum = 0;
-    nbIndicateur = nbMaxIndicateur - period;
+    nbIndicateur = nbMaxIndicateur - period + 1;
     //qDebug() << nbMaxIndicateur <<" " << nbIndicateur;
     EvolutionCours::iterator coursIterator;
     //cacule premier SMA
-    for(coursIterator = evolutionCours->begin(); coursIterator != evolutionCours->begin() + period+1; coursIterator++) {
+    int i=0;
+    for(coursIterator = evolutionCours->begin(); coursIterator != evolutionCours->begin() + period; coursIterator++) {
+        //qDebug() << i++;
         sum += coursIterator->getClose();
     }
 
     iterator indiceIterator = begin();
     indiceIterator->setDate((coursIterator-1)->getDate());
     indiceIterator->setIndice(sum/period);       //premier SMA
-    qDebug() << indiceIterator->toString();
+    //qDebug() << indiceIterator->toString();
     indiceIterator++;
 
     while(indiceIterator != end()) {
         indiceIterator->setDate(coursIterator->getDate());
         indiceIterator->setIndice((coursIterator->getClose()-(indiceIterator-1)->getIndice())*2/(period+1) + (indiceIterator-1)->getIndice());
-        qDebug() << indiceIterator->toString();
+        //qDebug() << indiceIterator->toString();
         indiceIterator++;
         coursIterator++;
     }
 }
 
 void EMA::setParameters(QMap<QString, QVariant> parameters) {
-    if(!parameters.contains("period")) throw TradingException("EMA: parametres manquants");
     //refresh array of indice if period is changed or array of index is empty
-    if (this->period != parameters["period"].toInt() || !indices) {
-        this->period = parameters["period"].toInt();
+    if (!parameters.contains("period") && !indices){
+        generateIndice();
+    }
+    else if (this->period != static_cast<unsigned int>(parameters["period"].toInt()) || !indices) {
+        this->period = static_cast<unsigned int>(parameters["period"].toInt());
         generateIndice();
     }
 }
@@ -117,11 +121,9 @@ void RSI::setLookbackPeriod(unsigned int lookbackPeriod) {
 }
 
 void RSI::setParameters(QMap<QString, QVariant> parameters) {
-    if (!parameters.contains("lookbackPeriod") || !parameters.contains("overboughtBound") || !parameters.contains("oversoldBound"))
-        throw TradingException("RSI: parametres manquants");
-    setLookbackPeriod(parameters["lookbackPeriod"].toInt());
-    setOverboughtBound(parameters["overboughtBound"].toDouble());
-    setOversoldBound(parameters["oversoldBound"].toDouble());
+    if (parameters.contains("overboughtBound")) setOverboughtBound(parameters["overboughtBound"].toDouble());
+    if (parameters.contains("oversoldBound")) setOversoldBound(parameters["oversoldBound"].toDouble());
+    if (parameters.contains("lookbackPeriod")) setLookbackPeriod(parameters["lookbackPeriod"].toInt());
 }
 
 QMap<QString, QVariant> RSI::getParameters() const {
@@ -142,7 +144,7 @@ void MACD::generateIndice() {
     signalLine = new IndiceIndicateur[nbMaxIndicateur];
     histogram = new IndiceIndicateur[nbMaxIndicateur];
     indices = new IndiceIndicateur[nbMaxIndicateur];
-    nbIndicateur = nbMaxIndicateur - longPeriod + 1;
+    nbIndicateur = nbMaxIndicateur - longPeriod;
 
     EMA* shortEMA = new EMA(evolutionCours, shortPeriod);
     shortEMA->generateIndice();
@@ -162,9 +164,9 @@ void MACD::generateIndice() {
         indiceIterator->setDate(longEMA_Iterator->getDate());
         signalLine_Iterator->setDate(longEMA_Iterator->getDate());
         histogram_Iterator->setDate(longEMA_Iterator->getDate());
-        //qDebug() <<"short EMA" << shortEMA_Iterator->toString();
-        //qDebug() <<"long EMA" <<longEMA_Iterator->toString();
-        //qDebug() <<"signal EMA" <<signalEMA_Iterator->toString();
+        qDebug() <<"short EMA" << shortEMA_Iterator->toString();
+        qDebug() <<"long EMA" <<longEMA_Iterator->toString();
+        qDebug() <<"signal EMA" <<signalEMA_Iterator->toString();
         indiceIterator->setIndice(shortEMA_Iterator++->getIndice() - longEMA_Iterator++->getIndice());
         signalLine_Iterator->setIndice(signalEMA_Iterator++->getIndice());
         histogram_Iterator++->setIndice(indiceIterator++->getIndice() - signalLine_Iterator++->getIndice());
@@ -174,17 +176,23 @@ void MACD::generateIndice() {
     delete signalEMA;
 }
 
-void MACD::setParameters(QMap<QString, QVariant> parameters) {
-   if (!parameters.contains("shortPeriod") || !parameters.contains("longPeriod") || !parameters.contains("signalPeriod"))
-       throw TradingException("MACD: parametres manquants");
-   if (parameters["longPeriod"].toInt() < parameters["shortPeriod"].toInt() || parameters["longPeriod"].toInt() < parameters["signalPeriod"].toInt())
-       throw TradingException("MACD: long period doit etre le plus grand");
-   if (this->longPeriod!=parameters["longPeriod"].toInt() || this->shortPeriod!=parameters["shortPeriod"].toInt() || this->signalPeriod!=parameters["signalPeriod"].toInt() || !indices) {
-       this->longPeriod = parameters["longPeriod"].toInt();
-       this->shortPeriod = parameters["shortPeriod"].toInt();
-       this->signalPeriod = parameters["signalPeriod"].toInt();
-       generateIndice();
+void MACD::setParameters(QMap<QString, QVariant> parameters) {   
+    unsigned int old_longPeriod = longPeriod, old_shortPeriod = shortPeriod, old_signalPeriod = signalPeriod;
+    if (parameters.contains("longPeriod") && static_cast<unsigned int>(parameters["longPeriod"].toInt()) != longPeriod)
+        longPeriod = static_cast<unsigned int>(parameters["longPeriod"].toInt());
+
+    if (parameters.contains("shortPeriod") && static_cast<unsigned int>(parameters["shortPeriod"].toInt()) != shortPeriod)
+        shortPeriod = static_cast<unsigned int>(parameters["shortPeriod"].toInt());
+
+    if (parameters.contains("signalPeriod") && static_cast<unsigned int>(parameters["signalPeriod"].toInt()) != signalPeriod)
+        signalPeriod = static_cast<unsigned int>(parameters["shortPeriod"].toInt());
+
+    if(longPeriod < shortPeriod || longPeriod<signalPeriod) {
+        //roll back
+        longPeriod = old_longPeriod;    shortPeriod= old_shortPeriod;    signalPeriod = old_signalPeriod;
+        throw TradingException("MACD: long period doit etre le plus grand");
     }
+    generateIndice();
 }
 
 QMap<QString, QVariant> MACD::getParameters() const {

@@ -4,7 +4,6 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-
 {
     ui->setupUi(this);
 }
@@ -14,7 +13,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::changeMode(int mode)
+void MainWindow::on_newSimulation_button_clicked()
 {
-    ui->Modes->setCurrentIndex(mode);
+
 }

@@ -31,9 +31,11 @@ SOURCES += \
         Controller/strategie.cpp \
         Controller/simulation.cpp \
         UI/evolutionviewer.cpp \
-        UI/mainwindow.cpp \
-        welcome.cpp \
-        main.cpp
+        UI/welcome.cpp \
+        adddevise_dialog.cpp \
+        configuration.cpp \
+        main.cpp \
+        mainwindow.cpp
 
 HEADERS += \
         Core_Devises/trading.h \
@@ -41,13 +43,17 @@ HEADERS += \
         Controller/strategie.h \
         Controller/simulation.h \
         UI/evolutionviewer.h \
-        UI/mainwindow.h \
-        welcome.h
+        UI/welcome.h \
+        adddevise_dialog.h \
+        configuration.h \
+        mainwindow.h
 
 FORMS += \
-        UI/mainwindow.ui \
-        welcome.ui \
-        info.ui
+        UI/welcome.ui \
+        UI/info.ui \
+        adddevise_dialog.ui \
+        configuration.ui \
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

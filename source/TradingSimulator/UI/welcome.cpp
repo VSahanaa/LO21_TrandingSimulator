@@ -1,12 +1,8 @@
 #include "welcome.h"
 #include "ui_welcome.h"
 #include "ui_info.h"
-
-Welcome::Welcome(QApplication *ap, QWidget *parent) :
-    QWidget(parent),
-    app(ap),
-    ui(new Ui::Welcome)
-{
+/*
+Welcome::Welcome(QApplication *app, QWidget *parent) : QWidget(parent), app(app), ui(new Ui::Welcome) {
     ui->setupUi(this);
     connect(&tSimu, SIGNAL(closed()), this, SLOT(show()));
     this->setFixedSize(360, 360);
@@ -28,64 +24,53 @@ Welcome::Welcome(QApplication *ap, QWidget *parent) :
     ui->Currency2->addItems({"USD", "BTC"});
 }
 
-Welcome::~Welcome()
-{
+Welcome::~Welcome() {
     delete ui;
 }
 
 // Page 0
-void Welcome::on_Continue_clicked()
-{
+void Welcome::on_Continue_clicked() {
     ui->stackedWidget->setCurrentIndex(MainManu);
 }
 
-void Welcome::on_About_clicked()
-{
+void Welcome::on_About_clicked() {
     Info info;
     info.setModal(false);
     info.exec();
 }
 
 //Page 1
-void Welcome::on_Quit_clicked()
-{
+void Welcome::on_Quit_clicked() {
     app->quit();
 }
 
-void Welcome::on_Simulation_clicked()
-{
+void Welcome::on_Simulation_clicked() {
     ui->stackedWidget->setCurrentIndex(Simu);
 }
 
-void Welcome::on_Candlestick_clicked()
-{
+void Welcome::on_Candlestick_clicked() {
     ui->stackedWidget->setCurrentIndex(Display);
 }
-
 //Page 2
-void Welcome::on_Manuel_clicked()
-{
+void Welcome::on_Manuel_clicked() {
     tSimu.show();
     tSimu.changeMode(simuM);
     hide();
 }
 
-void Welcome::on_Step_clicked()
-{
+void Welcome::on_Step_clicked() {
     tSimu.show();
     tSimu.changeMode(simuS);
     hide();
 }
 
-void Welcome::on_Auto_clicked()
-{
+void Welcome::on_Auto_clicked() {
     tSimu.show();
     tSimu.changeMode(simuA);
     hide();
 }
 
-void Welcome::on_Back_clicked()
-{
+void Welcome::on_Back_clicked() {
     ui->stackedWidget->setCurrentIndex(MainManu);
 }
 
@@ -93,13 +78,10 @@ void Welcome::on_Back_clicked()
 void Welcome::on_filePath_clicked()
 {
     QFileDialog fdlg;
-    ui->linePath->setText(fdlg.getOpenFileName(this, tr("Choose csv file"),
-                                               ":/",
-                                               "Document files (*.csv)"));
+    ui->linePath->setText(fdlg.getOpenFileName(this, tr("Choose csv file"), ":/", "Document files (*.csv)"));
 }
 
-void Welcome::on_dispaly_dialog_accepted()
-{
+void Welcome::on_dispaly_dialog_accepted() {
     QString name, fPath = ui->linePath->text();
     QFile check(fPath);
     if (!check.open(QIODevice::ReadOnly))
@@ -120,25 +102,21 @@ void Welcome::on_dispaly_dialog_accepted()
     }
 }
 
-void Welcome::on_dispaly_dialog_rejected()
-{
+void Welcome::on_dispaly_dialog_rejected() {
     ui->stackedWidget->setCurrentIndex(MainManu);
 }
 
-/* Class Info */
 Info::Info(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Info)
-{
+    ui(new Ui::Info) {
     ui->setupUi(this);
 }
 
-Info::~Info()
-{
+Info::~Info() {
     delete ui;
 }
 
-
+*/
 
 
 
