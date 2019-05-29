@@ -154,7 +154,6 @@ void Configuration::on_creatSimul_button_clicked()
 {
     createSimulation();
     Configuration::accept();
-    //Configuration::close();
 }
 
 void Configuration::on_back_button_clicked() {

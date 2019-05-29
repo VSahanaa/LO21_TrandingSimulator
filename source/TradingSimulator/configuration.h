@@ -22,13 +22,16 @@ private slots:
     void on_ModeManule_button_clicked();
     void on_ModePas_Pas_button_clicked();
     void on_ModeAuto_buton_clicked();
-
     void on_listeStrategie_currentTextChanged(const QString &strategieNom);
+    void on_creatSimul_button_clicked();
+
+    void on_back_button_clicked();
 
 private:
     Ui::Configuration *ui;
     AddDevise_Dialog* addDevise_dialog;
     EvolutionCours* evolutionCours = nullptr;
+    Simulation* simulation = nullptr;
     StrategieFactory* strategieFactory = StrategieFactory::getStrategieFactory();
     QString modeSimulation;
     QString nomSimulation;
@@ -38,11 +41,11 @@ private:
     double montantContrepartieInitial = 1000000;
     Strategie* strategie = nullptr;
     QMap<QString, QVariant> parameters;
-    QMap<QString, QLineEdit*> parametersEdit;
     void setListesDevise();
     void setEvolutionCours();
     void finishConfigEvolutionCours();      //set evolutionCours and move to set parameters of simulation
     void refreshStrategieLayout(QString strategieNom);
+    void createSimulation();
 };
 
 #endif // CONFIGURATION_H

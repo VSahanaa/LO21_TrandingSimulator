@@ -86,9 +86,8 @@ class ModeAutomatique : public QObject, public Simulation {
     Strategie* strategie = nullptr;
     QTimer* timer;                  //timer of between cours   
 public:
-    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000);
+    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, Strategie* strategie, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000);
     //~ModeAutomatique();             //TO IMPLEMENT !!!
-    void setStrategie(Strategie* strategie);
     void saveSimulation() const;
     void saveStrategie() const;
 signals:

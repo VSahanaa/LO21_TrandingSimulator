@@ -73,20 +73,17 @@ void ModeManuel::saveSimulation() const {
     saveTransactions();
 }
 /*---------------------------------------------------------- Methodes de Mode Automatique -------------------------------------------------------*/
-ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval):
+ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut,  Strategie* strategie, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval):
     QObject(), Simulation("Automatique", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {
+    if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
+    this->strategie = strategie;
     timer = new QTimer(this);
     timer->setInterval(time_interval);              //set timer interval in ms
     QObject::connect(timer, SIGNAL(timeout()), this, SLOT(iteration()));
     timer->start();
 }
 
-void ModeAutomatique::setStrategie(Strategie* strategie) {
-    if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
-    this->strategie = strategie;
-}
 void ModeAutomatique::iteration() {
-    if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
     double decision = (*strategie)(&transactionManager, currentCours);
     if (decision > 0) {
         achat(evolutionCours->getPaireDevises(), currentCours, decision);
@@ -103,7 +100,6 @@ void ModeAutomatique::iteration() {
 }
 
 void ModeAutomatique::saveStrategie() const {
-    if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");

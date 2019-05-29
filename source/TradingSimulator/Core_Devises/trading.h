@@ -108,7 +108,7 @@ public:
     void setCours(double open, double high, double low, double close);
     void setVolume(unsigned int volume) {this->volume = volume;}
     QDate getDate() const { return date; }
-    void setDate(const QDate& d) { date=d; }
+    void setDate(const QDate& d) { date=d;}
 };
 
 /* *Class ListEvolutionCours: contains a list of csv file name that can used to charge to EvolutionCours
@@ -152,6 +152,7 @@ public:
     using const_iterator = const CoursOHLCV*;
     const_iterator cbegin() const { return cours; }
     const_iterator cend() const { return cours + nbCours; }
+    iterator searchCours(QDate date);
     int saveFile();
 };
 

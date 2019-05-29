@@ -171,6 +171,16 @@ EvolutionCours& EvolutionCours::operator=(const EvolutionCours& evolutionCours) 
     return *this;
 }
 
+EvolutionCours::iterator EvolutionCours::searchCours(QDate date) {
+        iterator coursIterator;
+        for (coursIterator = begin(); coursIterator != end(); coursIterator++) {
+            if(coursIterator->getDate() == date) break;
+            if(coursIterator->getDate() > date) return nullptr;
+        }
+        if (coursIterator == end()) return nullptr;
+        return coursIterator;
+}
+
 int EvolutionCours::saveFile() {
     QFile file(filen);
     if (!file.open(QIODevice::WriteOnly)) {
