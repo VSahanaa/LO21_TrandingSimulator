@@ -79,7 +79,7 @@ public:
         cdStk->setObjectName(QString::fromUtf8("cdStk"));
         csChart = new QWidget(cdStk);
         csChart->setObjectName(QString::fromUtf8("csChart"));
-        csChart->setGeometry(QRect(200, 30, 1200, 600));
+        csChart->setGeometry(QRect(200, 19, 1200, 631));
         csLabel = new QListWidget(cdStk);
         csLabel->setObjectName(QString::fromUtf8("csLabel"));
         csLabel->setGeometry(QRect(30, 30, 111, 541));
