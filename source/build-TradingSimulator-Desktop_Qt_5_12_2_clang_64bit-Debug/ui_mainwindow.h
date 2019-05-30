@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStackedWidget>
@@ -33,7 +34,8 @@ public:
     QWidget *simuS;
     QLabel *label_3;
     QWidget *cdStk;
-    QLabel *label_4;
+    QWidget *csChart;
+    QListWidget *csLabel;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -42,7 +44,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(720, 540);
+        MainWindow->resize(1440, 720);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -54,7 +56,7 @@ public:
         centralWidget->setSizePolicy(sizePolicy);
         Modes = new QStackedWidget(centralWidget);
         Modes->setObjectName(QString::fromUtf8("Modes"));
-        Modes->setGeometry(QRect(0, 0, 720, 478));
+        Modes->setGeometry(QRect(0, 0, 1440, 658));
         simuM = new QWidget();
         simuM->setObjectName(QString::fromUtf8("simuM"));
         label = new QLabel(simuM);
@@ -75,14 +77,18 @@ public:
         Modes->addWidget(simuS);
         cdStk = new QWidget();
         cdStk->setObjectName(QString::fromUtf8("cdStk"));
-        label_4 = new QLabel(cdStk);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(290, 210, 161, 16));
+        csChart = new QWidget(cdStk);
+        csChart->setObjectName(QString::fromUtf8("csChart"));
+        csChart->setGeometry(QRect(200, 30, 1200, 600));
+        csLabel = new QListWidget(cdStk);
+        csLabel->setObjectName(QString::fromUtf8("csLabel"));
+        csLabel->setGeometry(QRect(30, 30, 111, 541));
+        csLabel->setSortingEnabled(false);
         Modes->addWidget(cdStk);
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 720, 22));
+        menuBar->setGeometry(QRect(0, 0, 1440, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -93,6 +99,9 @@ public:
 
         retranslateUi(MainWindow);
 
+        csLabel->setCurrentRow(-1);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
@@ -102,7 +111,6 @@ public:
         label->setText(QApplication::translate("MainWindow", "Here's Manuel Mode", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "Here's Auto Mode", nullptr));
         label_3->setText(QApplication::translate("MainWindow", "Here's step by step mode", nullptr));
-        label_4->setText(QApplication::translate("MainWindow", "Here's candlestick display", nullptr));
     } // retranslateUi
 
 };

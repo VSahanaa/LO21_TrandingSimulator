@@ -108,14 +108,14 @@ void Welcome::on_dispaly_dialog_accepted()
     }
     else
     {
-        //name.append(ui->Currency1->currentText());
-        //name.append("_");
-        //name.append(ui->Currency2->currentText());
-        //evolution = new EvolutionCours(fPath);
-        //view = new EvolutionViewer(*evolution);
-        //view->setname(name);
-        tSimu.show();
+        name.append(ui->Currency1->currentText());
+        name.append("_");
+        name.append(ui->Currency2->currentText());
+        tSimu.cours = new EvolutionCours(fPath);
+        tSimu.cours->setName(name);
+
         tSimu.changeMode(cdStk);
+        tSimu.show();
         hide();
     }
 }

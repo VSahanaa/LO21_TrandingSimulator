@@ -44,7 +44,7 @@ public:
 };
 
 class CoursOHLCV {
-    double open = 0, high = 0, low = 0, close = 0;
+    double open = 0, high = 0, low = 0, close = 0, adjClose = 0;
     unsigned int volume = 0;
     QDate date;
 public:
@@ -54,8 +54,10 @@ public:
     double getHigh() const { return high; }
     double getLow() const { return low; }
     double getClose() const { return close; }
+    double getAdj() const {return adjClose;}
     unsigned getVolume() const {return volume;}
     void setCours(double open, double high, double low, double close);
+    void setAdj(double adj) {adjClose = adj;}
     void setVolume(unsigned int volume) {this->volume = volume;}
     QDate getDate() const { return date; }
     void setDate(const QDate& d) { date=d; }
@@ -72,6 +74,7 @@ public:
 
 class EvolutionCours {
     const PaireDevises* paire;
+    QString name;
     QString filen;
     CoursOHLCV* cours = nullptr;
     unsigned int nbCours = 0;
@@ -83,7 +86,7 @@ public:
     ~EvolutionCours();
     EvolutionCours(const EvolutionCours& evolutionCours);
 
-    void addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date);  
+    void addCours(double open, double high, double low, double close, unsigned int volume, double adj, const QDate& date);
     EvolutionCours& operator=(const EvolutionCours& evolutionCours);
     unsigned int getNbCours() const { return nbCours; }
     const PaireDevises& getPaireDevises() const { return *paire; }
@@ -93,6 +96,8 @@ public:
     using const_iterator = const CoursOHLCV*;
     const_iterator cbegin() const { return cours; }
     const_iterator cend() const { return cours + nbCours; }
+    void setName(QString newName) {name = newName;}
+    QString getName() {return name;}
     void readFile(QString filename);
     int saveFile();
 };

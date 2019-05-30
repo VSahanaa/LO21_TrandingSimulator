@@ -44,8 +44,8 @@ EvolutionCours::EvolutionCours(QString filename) {
     //paire = &pair;
     filen = filename;
     QDate date;
-    double open, high, close, low;
-    unsigned int volume;
+    double open, high, close, low, adj;
+    int volume;
     QFile file(filen);
     QStringList wordlist;
         if (!file.open(QIODevice::ReadOnly)) {
@@ -56,18 +56,20 @@ EvolutionCours::EvolutionCours(QString filename) {
             wordlist = line.split(',');
             //qDebug() << wordlist;
             date = QDate::fromString(wordlist.at(0), "yyyy-MM-dd");
+            if(date.isNull()) {continue;}
             //qDebug() << date.toString();
             open = wordlist.at(1).toDouble();
             high = wordlist.at(2).toDouble();
             low = wordlist.at(3).toDouble();
             close = wordlist.at(4).toDouble();
+            adj = wordlist.at(5).toDouble();
             volume = wordlist.at(6).toInt();
-            addCours(open, high, low, close, static_cast<unsigned>(volume), date);
+            addCours(open, high, low, close, static_cast<unsigned>(volume), adj, date);
         }
         file.close();
 }
 
-void EvolutionCours::addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date) {
+void EvolutionCours::addCours(double open, double high, double low, double close, unsigned int volume, double adj, const QDate& date) {
     if (nbMaxCours == nbCours) { // agrandissement du tableau
         CoursOHLCV* newTable = new CoursOHLCV[nbMaxCours + 100];
         for (unsigned int i = 0; i < nbCours; i++) newTable[i] = cours[i];
@@ -79,6 +81,7 @@ void EvolutionCours::addCours(double open, double high, double low, double close
     }
     // ajout du cours
     cours[nbCours].setCours(open, high, low, close);
+    cours[nbCours].setAdj(adj);
     cours[nbCours].setVolume(volume);
     cours[nbCours].setDate(date);
     nbCours++;
@@ -102,7 +105,13 @@ EvolutionCours& EvolutionCours::operator=(const EvolutionCours& evolutionCours) 
         paire = evolutionCours.paire;
         nbCours = 0;
         for (unsigned int i = 0; i < evolutionCours.nbCours; i++)
-            addCours(evolutionCours.cours[i].getOpen(), evolutionCours.cours[i].getHigh(),evolutionCours.cours[i].getLow(), evolutionCours.cours[i].getClose(), evolutionCours.cours[i].getVolume(), evolutionCours.cours[i].getDate());
+            addCours(evolutionCours.cours[i].getOpen(),
+                     evolutionCours.cours[i].getHigh(),
+                     evolutionCours.cours[i].getLow(),
+                     evolutionCours.cours[i].getClose(),
+                     evolutionCours.cours[i].getVolume(),
+                     evolutionCours.cours[i].getAdj(),
+                     evolutionCours.cours[i].getDate());
     }
     return *this;
 }
@@ -113,14 +122,18 @@ int EvolutionCours::saveFile() {
         qDebug() << file.errorString();
         return 1;
     }
+    QStringList firstLine;
+    firstLine<<"Date"<<"Open"<<"High"<<"Low"<<"Close"<<"Adj Close"<<"Volume\n";
+    file.write(firstLine.join(',').toLocal8Bit());
     for(unsigned int i=0; i<nbCours; i++) {
         QStringList line;
+        line << cours[i].getDate().toString("yyyy-MM-dd");
         line << QString::number(cours[i].getOpen());
         line << QString::number(cours[i].getHigh());
         line << QString::number(cours[i].getLow());
         line << QString::number(cours[i].getClose());
-        line << QString::number(cours[i].getVolume());
-        line << cours[i].getDate().toString("yyyy,M,d\n");
+        line << QString::number(cours[i].getAdj());
+        line << QString::number(cours[i].getVolume()).append("\n");
         file.write(line.join(',').toLocal8Bit());
     }
     return 0;
@@ -128,8 +141,8 @@ int EvolutionCours::saveFile() {
 
 void EvolutionCours::readFile(QString filename) {
     QDate date;
-    double open, high, close, low;
-    unsigned int volume;
+    double open, high, close, low, adj;
+    int volume;
     QFile file(filename);
     QStringList wordlist;
         if (!file.open(QIODevice::ReadOnly)) {
@@ -140,13 +153,15 @@ void EvolutionCours::readFile(QString filename) {
             wordlist = line.split(',');
             //qDebug() << wordlist;
             date = QDate::fromString(wordlist.at(0), "yyyy-MM-dd");
+            if(date.isNull()) {continue;}
             //qDebug() << date.toString();
             open = wordlist.at(1).toDouble();
             high = wordlist.at(2).toDouble();
             low = wordlist.at(3).toDouble();
             close = wordlist.at(4).toDouble();
+            adj = wordlist.at(5).toDouble();
             volume = wordlist.at(6).toInt();
-            addCours(open, high, low, close, static_cast<unsigned>(volume), date);
+            addCours(open, high, low, close, static_cast<unsigned>(volume), adj, date);
         }
         file.close();
 }

@@ -6,20 +6,12 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include "mainwindow.h"
-//#include "trading.h"
-//#include "evolutionviewer.h"
 
 enum {
     Home = 0,
     MainManu,
     Simu,
     Display
-};
-enum {
-    simuM = 0,
-    simuA,
-    simuS,
-    cdStk
 };
 
 namespace Ui {
