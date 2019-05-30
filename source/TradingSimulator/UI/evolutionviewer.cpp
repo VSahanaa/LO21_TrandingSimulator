@@ -1,27 +1,30 @@
 #include "evolutionviewer.h"
 
-EvolutionViewer::EvolutionViewer(EvolutionCours& evolutionCours,QWidget *parent): QWidget(parent), evolutionCours(evolutionCours){
-    //installer la serie
+EvolutionViewer::EvolutionViewer(EvolutionCours& evolutionCours, QWidget *parent): QWidget(parent), evolutionCours(evolutionCours){
+    //installer la serie evolutionCours
     series = new QCandlestickSeries(this);
-    series->setName(evolutionCours.getPaireDevises()->toString());
+    series->setName(evolutionCours.getPaireDevises()->toString());          //name of EvolutionCours
     series->setIncreasingColor(QColor(Qt::green));
     series->setDecreasingColor(QColor(Qt::red));
+
     //ajouter des bougies
-    QStringList categories;
+    QStringList dates;
+    int i = 0;
     for (EvolutionCours::iterator coursIterator=evolutionCours.begin(); coursIterator!=evolutionCours.cend(); coursIterator++){
         Bougie* bougie = new Bougie(coursIterator->getOpen(), coursIterator->getHigh(), coursIterator->getLow(), coursIterator->getClose(), coursIterator);
         QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
         series->append(bougie);
-        categories << coursIterator->getDate().toString("yy.MM");
+        qDebug() << i++;
+        dates << coursIterator->getDate().toString("yy.MM.dd");
     }
-    //installer chart
+  //installer chart
     chart = new QChart();
     chart->addSeries(series);
-    chart->setTitle("Cours OHLC");
+    chart->setTitle("Cours OHLCV");                             // !!! set name tu paire devise
     chart->setAnimationOptions(QChart::SeriesAnimations);
     chart->createDefaultAxes();
     QBarCategoryAxis *axisX = new QBarCategoryAxis;
-    axisX->append(categories);
+    axisX->append(dates);
     chart->setAxisX(axisX,series);
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignBottom);

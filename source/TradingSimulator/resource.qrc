@@ -13,5 +13,6 @@
         <file>icons/step.png</file>
         <file>icons/trading.png</file>
         <file>icons/welcome.png</file>
+        <file>fichier_OHLCV/test.csv</file>
     </qresource>
 </RCC>

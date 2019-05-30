@@ -9,21 +9,22 @@
 
 int main(int argc, char *argv[])
 {
-    /*
+
     DevisesManager& deviseManager=DevisesManager::getManager();
     deviseManager.creationDevise("USD", "Dollar Américain","USA");
     deviseManager.creationDevise("BTC", "BitCoin","monnaie virtuelle");
     const PaireDevises& BTC_USD=deviseManager.getPaireDevises("BTC", "USD");
     EvolutionCours evolution(BTC_USD, ":/TradingSimulator/evolutionCours/fichier_OHLCV/BTC-USD.csv");
-    Indicateur* macd = evolution.getCollection()->getIndicateur("MACD");
-    macd->generateIndice();
-    EvolutionViewer view(evolution);
-    view.show();
-    */
+    //Indicateur* macd = evolution.getCollection()->getIndicateur("MACD");
+    //macd->generateIndice();
+
     QApplication mainApp(argc, argv);
 
+    EvolutionViewer view(evolution);
+    view.show();
+    /*
     Configuration* config = new Configuration();
     config->show();
-
+    */
     return mainApp.exec();
 }

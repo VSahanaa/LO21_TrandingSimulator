@@ -10,7 +10,7 @@ class Bougie : public QCandlestickSet {
     CoursOHLCV* cours;
 public:
     Bougie(qreal open, qreal high, qreal low, qreal close, CoursOHLCV* cours, qreal timestamp = 0.0, QObject *parent = nullptr): QCandlestickSet(open, high, low, close, timestamp, parent), cours(cours){
-        connect(this,SIGNAL(clicked()),this, SLOT( viewCoursOHLCV()));
+        //connect(this,SIGNAL(clicked()),this, SLOT( viewCoursOHLCV()));
     }
     CoursOHLCV& getCoursOHLCV() { return *cours; }
     const CoursOHLCV& getCoursOHLCV() const { return *cours; }
@@ -20,9 +20,13 @@ private slots:
     void viewCoursOHLCV(){ emit clickBougie(this); }
 };
 
+
+
 class EvolutionViewer: public QWidget{
     Q_OBJECT
+    unsigned int limitData = 30;
     EvolutionCours& evolutionCours;
+    EvolutionCours::iterator coursDebut, coursFini = evolutionCours.end();
     Bougie* last_bougie_clicked = nullptr;
     QCandlestickSeries* series; //un ensemble de bougies
     QChart* chart;  //un graphique sur un ensemble de bougies

@@ -124,8 +124,8 @@ EvolutionCours::EvolutionCours(const PaireDevises &pair, QString filename) {
             high = wordlist.at(2).toDouble();
             low = wordlist.at(3).toDouble();
             close = wordlist.at(4).toDouble();
-            volume = wordlist.at(6).toInt();
-            addCours(open, high, low, close, static_cast<unsigned>(volume), date);
+            volume = static_cast<unsigned>(wordlist.at(6).toInt());
+            addCours(open, high, low, close, volume, date);
         }
         file.close();
         indicateurCollection = new IndicateurCollection(this);  //initalize collection
@@ -145,6 +145,7 @@ void EvolutionCours::addCours(double open, double high, double low, double close
     cours[nbCours].setCours(open, high, low, close);
     cours[nbCours].setVolume(volume);
     cours[nbCours].setDate(date);
+    qDebug() << open <<" " <<high<< " "<< low <<" "<<close<<" "<<volume<<date.toString("yyyy-MM-dd");
     nbCours++;
 }
 

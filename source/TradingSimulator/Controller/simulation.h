@@ -4,6 +4,25 @@
 #include <QSettings>
 #include <QTimer>
 #include <QObject>
+#include <QDateTime>
+
+class Note {
+    friend class Simulation;
+    QString nom = "New note";
+    QString note = "";
+    QDateTime dateCreation;
+    QDateTime dernierAcces;
+
+public:
+    Note() {
+        dateCreation = QDateTime::currentDateTime();
+        dernierAcces = dateCreation;
+    }
+    QString& modifierNote() {dernierAcces=QDateTime::currentDateTime(); return note;}
+    QString& modifierNom() {dernierAcces = QDateTime::currentDateTime(); return nom;}
+    QDateTime getDateCreation() const {return dateCreation;}
+    QDateTime getDernierAcces() const {return dernierAcces;}
+};
 
 /* * Class Simulation: abstract class of every Simulation
  * a simulation has a nom, type and associates with an EvolutionCours
@@ -17,6 +36,7 @@ protected:
     EvolutionCours* evolutionCours;
     EvolutionCours::iterator currentCours = evolutionCours->begin();        //default value
     TransactionManager transactionManager;
+    QList<Note> noteManager;
 public:
     Simulation(QString type, QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial):
         type(type), evolutionCours(evolutionCours), currentCours(coursDebut),
@@ -34,7 +54,9 @@ public:
     virtual void saveTransactions() const;
     //virtual void saveNote() const;                                                        TO IMPLEMENT !!!
     bool verifierNomSimulation(QString nom) const;          //verify wheather the name of simulation is already exist
-    //const TransactionManager* getTransactionManager() const {return &transactionManager;}
+    const TransactionManager* getTransactionManager() const {return &transactionManager;}
+    QList<Note>& getNoteManager() {return noteManager;}
+
 };
 
 /* * Class ModeManuel: Derived class of Simulation

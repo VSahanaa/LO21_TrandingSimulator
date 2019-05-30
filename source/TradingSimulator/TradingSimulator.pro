@@ -35,7 +35,8 @@ SOURCES += \
         adddevise_dialog.cpp \
         configuration.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        tradinginterface.cpp
 
 HEADERS += \
         Core_Devises/trading.h \
@@ -46,14 +47,16 @@ HEADERS += \
         UI/welcome.h \
         adddevise_dialog.h \
         configuration.h \
-        mainwindow.h
+        mainwindow.h \
+        tradinginterface.h
 
 FORMS += \
         UI/welcome.ui \
         UI/info.ui \
         adddevise_dialog.ui \
         configuration.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        tradinginterface.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

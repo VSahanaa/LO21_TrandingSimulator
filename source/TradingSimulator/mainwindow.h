@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "configuration.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,6 +17,7 @@ private slots:
     void on_newSimulation_button_clicked();
 private:
     Ui::MainWindow *ui;
+    Configuration* configuration;
 };
 
 #endif // MAINWINDOW_H

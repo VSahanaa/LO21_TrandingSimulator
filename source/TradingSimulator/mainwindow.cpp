@@ -15,5 +15,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_newSimulation_button_clicked()
 {
-
+    configuration = new Configuration(this);
+    configuration->setModal(true);
+    configuration->exec();
+    //add new Simulation
 }
