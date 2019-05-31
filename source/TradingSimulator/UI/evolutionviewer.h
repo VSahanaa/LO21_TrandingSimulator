@@ -2,6 +2,7 @@
 #define EVOLUTIONVIEWER_H
 #include <QWidget>
 #include <QtCharts>
+#include <QScrollBar>
 #include <QDate>
 #include "../Core_Devises/trading.h"
 
@@ -14,6 +15,23 @@ public:
     }
     CoursOHLCV& getCoursOHLCV() { return *cours; }
     const CoursOHLCV& getCoursOHLCV() const { return *cours; }
+    QString forme() const;
+    bool isBigBlackCandle() const;
+    bool isBigWhiteCandle() const;
+    bool isSpinningTop() const;          //a.k.a toupie
+    bool isDoji() const;
+    bool isDragonflyDoji() const;
+    bool isGraveStoneDoji() const;
+    bool isHanngingMan() const;
+    bool isHammer() const;
+    bool isInvertedHammer() const;
+    bool isInvertedBlackHammer() const;
+    bool isLongLowerShadow() const;
+    bool isLongUpperShadow() const;
+    bool isMarubozu() const;
+    bool isShootingStar() const;
+    bool isShavenBottom() const;
+    bool isShavenHead() const;
 signals:
     void clickBougie(Bougie* cours);
 private slots:
@@ -24,14 +42,15 @@ private slots:
 
 class EvolutionViewer: public QWidget{
     Q_OBJECT
-    unsigned int limitData = 30;
-    EvolutionCours& evolutionCours;
-    EvolutionCours::iterator coursDebut, coursFini = evolutionCours.end();
+    unsigned int maxDateShown = 30;
+    EvolutionCours* evolutionCours;
+    //EvolutionCours::iterator coursDebut, coursFini = evolutionCours.end();
     Bougie* last_bougie_clicked = nullptr;
     QCandlestickSeries* series; //un ensemble de bougies
     QChart* chart;  //un graphique sur un ensemble de bougies
     QChartView* chartView;  //un viewer graphique
-
+    QScrollBar* scrollBar;
+/*
     //barre d'edition
     QLineEdit* open;
     QLineEdit* high;
@@ -39,15 +58,19 @@ class EvolutionViewer: public QWidget{
     QLineEdit* close;
     QPushButton* saveButton;
     QFormLayout* formLayout;
-    QVBoxLayout* coucheCours;
-    QHBoxLayout* fenetre;
+    */
+    QVBoxLayout *layout;
+    QDate getoldesDateVisible() const;
+
+
 public:
-    explicit EvolutionViewer(EvolutionCours& evolutionCours, QWidget *parent = nullptr);
+    explicit EvolutionViewer(EvolutionCours* evolutionCours, QWidget *parent = nullptr);
     void setname(QString name) {series->setName(name);}
 signals:
 private slots:
-    void showCoursOHLCV(Bougie *bougie);
-    void saveCoursOHLCV();
+    void updateChart();
+    //void showCoursOHLCV(Bougie *bougie);
+    //void saveCoursOHLCV();
 public slots:
 };
 #endif // EVOLUTIONVIEWER_H

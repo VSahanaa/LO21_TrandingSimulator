@@ -173,13 +173,13 @@ EvolutionCours& EvolutionCours::operator=(const EvolutionCours& evolutionCours) 
 }
 
 EvolutionCours::iterator EvolutionCours::searchCours(QDate date) {
-        iterator coursIterator;
-        for (coursIterator = begin(); coursIterator != end(); coursIterator++) {
-            if(coursIterator->getDate() == date) break;
-            if(coursIterator->getDate() > date) return nullptr;
+        iterator coursIterator = begin();
+        while(coursIterator != end()) {
+            if(coursIterator->getDate() >= date) {
+                return coursIterator;
+            }
         }
-        if (coursIterator == end()) return nullptr;
-        return coursIterator;
+        return nullptr;
 }
 
 int EvolutionCours::saveFile() {
