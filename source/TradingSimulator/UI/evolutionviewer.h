@@ -15,23 +15,6 @@ public:
     }
     CoursOHLCV& getCoursOHLCV() { return *cours; }
     const CoursOHLCV& getCoursOHLCV() const { return *cours; }
-    QString forme() const;
-    bool isBigBlackCandle() const;
-    bool isBigWhiteCandle() const;
-    bool isSpinningTop() const;          //a.k.a toupie
-    bool isDoji() const;
-    bool isDragonflyDoji() const;
-    bool isGraveStoneDoji() const;
-    bool isHanngingMan() const;
-    bool isHammer() const;
-    bool isInvertedHammer() const;
-    bool isInvertedBlackHammer() const;
-    bool isLongLowerShadow() const;
-    bool isLongUpperShadow() const;
-    bool isMarubozu() const;
-    bool isShootingStar() const;
-    bool isShavenBottom() const;
-    bool isShavenHead() const;
 signals:
     void clickBougie(Bougie* cours);
 private slots:
