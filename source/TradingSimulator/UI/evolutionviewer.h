@@ -70,6 +70,8 @@ class EvolutionViewer: public QWidget{
     QLineSeries* EMA_series;
     QLineSeries* MACD_series;
     QBarCategoryAxis *axisX;
+    QValueAxis* axisY;
+    double ymax = 10, ymin = 0;
     QChart* chart;  //un graphique sur un ensemble de bougies
     QChartView* chartView;  //un viewer graphique
     QScrollBar* scrollBar;

@@ -63,6 +63,7 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     //macd->generateIndice();
 
     axisX = new QBarCategoryAxis;
+    axisY= new QValueAxis;
     //binding sigals
     QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
     QObject::connect(this, SIGNAL(currentCours_changed()), this, SLOT(currentCoursChanged_react()));
@@ -88,6 +89,8 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     dates << firstdate.toString("dd/MM");
     int i = 0;
     for (; cours->getDate() <= lastdate; cours++){
+            if (cours->getHigh() > axisY->max()) axisY->setMax(cours->getHigh()*1.3);
+            if (cours->getLow() < axisY->min()) axisY->setMin(cours->getLow()*0.7);
             Bougie* bougie = new Bougie(cours->getOpen(), cours->getHigh(), cours->getLow(), cours->getClose(), cours);
             //QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
             series->append(bougie);
@@ -120,6 +123,7 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     if(EMA_series->isVisible()) chart->addSeries(EMA_series);
     if(MACD_series->isVisible()) chart->addSeries(MACD_series);
     chart->setAxisX(axisX,series);
+    chart->setAxisY(axisY,series);
 }
 
 void EvolutionViewer::updateChart(int value) {
@@ -136,4 +140,3 @@ void EvolutionViewer::currentCoursChanged_react() {
         scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
     }
 }
-
