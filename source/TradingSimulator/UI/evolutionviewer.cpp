@@ -24,6 +24,9 @@ void EvolutionViewer::saveCoursOHLCV(){
 }
 */
 EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget* parent) : QWidget (parent), evolutionCours(evolutionCours), currentCours(currentCours) {
+    ema = static_cast<EMA*>(evolutionCours->getCollection()->getIndicateur("EMA"));
+    macd = static_cast<MACD*>(evolutionCours->getCollection()->getIndicateur("MACD"));
+    if(!ema) qDebug()<< "ema is null";
     //set up chart
     chart = new QChart();
     chart->setAnimationOptions(QChart::SeriesAnimations);
@@ -41,11 +44,24 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     layout->addWidget(scrollBar);
     this->setLayout(layout);
 
-    //set up serie
+    //set up series
     series = new QCandlestickSeries(this);
     series->setName(evolutionCours->getPaireDevises()->toString());          //name of EvolutionCours
     series->setIncreasingColor(QColor(Qt::green));
     series->setDecreasingColor(QColor(Qt::red));
+
+    EMA_series = new QLineSeries();
+    EMA_series->setName("EMA");
+    EMA_series->setColor(Qt::blue);
+    EMA_series->setVisible(false);              //not shown by default
+    //ema->generateIndice();
+
+    MACD_series =  new QLineSeries();
+    MACD_series->setName("MACD");
+    MACD_series->setColor(Qt::black);
+    MACD_series->setVisible(false);              //not shown by default
+    //macd->generateIndice();
+
     axisX = new QBarCategoryAxis;
     //binding sigals
     QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
@@ -56,11 +72,18 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
 
 void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     EvolutionCours::iterator cours = evolutionCours->searchCours(firstdate);
-    if(series->count() > 0) series->clear();
+    series->clear();
+    EMA_series->clear();
+    MACD_series->clear();
     axisX->clear();
     chart->setTitle(evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
-    chart->removeSeries(series);
-    chart->removeAxis(axisX);
+    QList<QAbstractSeries*> liste_series = chart->series();
+    for (int i=0; i<liste_series.count(); i++) {
+        chart->removeSeries(liste_series[i]);
+    }
+
+    //chart->removeAxis(axisX);
+    Indicateur::iterator emaIterator, macdIterator;
     QStringList dates;
     dates << firstdate.toString("dd/MM");
     int i = 0;
@@ -68,20 +91,41 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
             Bougie* bougie = new Bougie(cours->getOpen(), cours->getHigh(), cours->getLow(), cours->getClose(), cours);
             //QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
             series->append(bougie);
-            qDebug() << i++;
+
+            if(EMA_series->isVisible()) {
+                emaIterator = ema->searchIndice(cours);
+                if(!emaIterator) {
+                    EMA_series->append(i, 0);
+                }
+                else {
+                    EMA_series->append(i, emaIterator->getIndice());
+                }
+            }
+            if(MACD_series->isVisible()) {
+                macdIterator = macd->searchIndice(cours);
+                if(!macdIterator) {
+                    MACD_series->append(i, 0);
+                }
+                else {
+                    MACD_series->append(i, macdIterator->getIndice());
+                }
+            }
+            i++;
             dates << cours->getDate().toString("dd/MM");
             if (cours == currentCours) break;       //only show up to current cours
         }
     dates << lastdate.toString("dd/MM");
     axisX->append(dates);
     chart->addSeries(series);
+    if(EMA_series->isVisible()) chart->addSeries(EMA_series);
+    if(MACD_series->isVisible()) chart->addSeries(MACD_series);
     chart->setAxisX(axisX,series);
 }
 
 void EvolutionViewer::updateChart(int value) {
     QDate firstDateShowed = evolutionCours->begin()->getDate().addDays(value);
-    showChart(firstDateShowed, firstDateShowed.addDays(maxDateShown));
     qDebug() << firstDateShowed.toString("yy.MM.dd")<<endl;
+    showChart(firstDateShowed, firstDateShowed.addDays(maxDateShown));
 }
 
 void EvolutionViewer::currentCoursChanged_react() {

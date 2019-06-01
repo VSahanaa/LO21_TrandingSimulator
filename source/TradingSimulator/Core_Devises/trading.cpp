@@ -345,8 +345,7 @@ EvolutionCours::EvolutionCours(const EvolutionCours& evolutionCours) :
     paire(evolutionCours.paire),
     cours(new CoursOHLCV[evolutionCours.nbCours]),
     nbCours(evolutionCours.nbCours),
-    nbMaxCours(evolutionCours.nbCours)
-{
+    nbMaxCours(evolutionCours.nbCours) {
     for (unsigned int i = 0; i < nbCours; i++) cours[i] = evolutionCours.cours[i];
 }
 
@@ -362,7 +361,7 @@ EvolutionCours& EvolutionCours::operator=(const EvolutionCours& evolutionCours) 
 
 EvolutionCours::iterator EvolutionCours::searchCours(QDate date) {
         iterator coursIterator = begin();
-        while(coursIterator != end()) {
+        while(coursIterator && coursIterator != end()) {
             if(coursIterator->getDate() >= date) {
                 return coursIterator;
             }

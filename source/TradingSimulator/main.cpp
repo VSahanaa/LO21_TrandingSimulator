@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     QApplication mainApp(argc, argv);
 
-    EvolutionViewer view(&evolution, evolution.begin()+20);
+    EvolutionViewer view(&evolution, evolution.end()-1);
     view.show();
     /*
     Configuration* config = new Configuration();

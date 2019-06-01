@@ -62,9 +62,13 @@ public slots:
 class EvolutionViewer: public QWidget{
     Q_OBJECT
     EvolutionCours* evolutionCours;
+    EMA* ema;
+    MACD* macd;
     EvolutionCours::iterator currentCours;
     qint64 maxDateShown = 30;
     QCandlestickSeries* series; //un ensemble de bougies
+    QLineSeries* EMA_series;
+    QLineSeries* MACD_series;
     QBarCategoryAxis *axisX;
     QChart* chart;  //un graphique sur un ensemble de bougies
     QChartView* chartView;  //un viewer graphique
@@ -77,6 +81,8 @@ public:
         this->currentCours = currentCours;
         emit currentCours_changed();
     }
+    void activateEMA() {EMA_series->setVisible(true);   emit scrollBar->valueChanged(scrollBar->value());}
+    void activateMACD() {MACD_series->setVisible(true);   emit scrollBar->valueChanged(scrollBar->value());}
 signals:
     void currentCours_changed();
 private slots:

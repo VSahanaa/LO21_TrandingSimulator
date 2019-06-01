@@ -8,15 +8,14 @@ Indicateur::Indicateur(EvolutionCours* evolutionCours, QString nom): nom(nom) {
     nbIndicateur = 0;
 }
 
-IndiceIndicateur* Indicateur::searchIndice(CoursOHLCV* cours) {
+IndiceIndicateur* Indicateur::searchIndice(CoursOHLCV* cours) {     //map indice Indicateur with CoursOHLCV
     QDate date = cours->getDate();
-    iterator indiceIterator;
-    for (indiceIterator = begin(); indiceIterator != end(); indiceIterator++) {
-        if(indiceIterator->getDate() == date) break;
-        if(indiceIterator->getDate() > date) return nullptr;
+    iterator indiceIterator = begin();
+    while(indiceIterator && indiceIterator->getDate() <= date) {
+        if(indiceIterator->getDate() == date) return indiceIterator;
+        indiceIterator++;
     }
-    if (indiceIterator == end()) return nullptr;
-    return indiceIterator;
+    return nullptr;
 }
 /*----------------------------------------------- Methodes de classe EMA -------------------------------------------------*/
 void EMA::generateIndice() {
