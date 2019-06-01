@@ -1,6 +1,11 @@
 #include "mainwindow_modepas.h"
 #include "ui_mainwindow_modepas.h"
 //#include <QMessageBox>
+#include "tab_coursohlcv.h"
+#include "tab_transaction.h"
+#include "tab_ema.h"
+#include "tab_macd.h"
+#include "tab_rsi.h"
 
 MainWindow_modepas::MainWindow_modepas(QWidget *parent) :
     QMainWindow(parent),
@@ -10,7 +15,12 @@ MainWindow_modepas::MainWindow_modepas(QWidget *parent) :
     //ui->label_montantB=
     //ui->label_montantC=
     //ui->label_date = Date;
-    //ui->label_openPrice =
+    //ui->label_openPrice
+
+    /*
+    tabWidget_autres = new QTabWidget;
+    tabWidget_autres->addTab(new tab_RSI(),"RSI");
+    */
 }
 
 MainWindow_modepas::~MainWindow_modepas()
@@ -64,12 +74,12 @@ void MainWindow_modepas::on_pushButton_annulerTransaction_clicked()
 
 void MainWindow_modepas::on_pushButton_tabCoursOHLCV_clicked()
 {
-    //ouvir la fenetre ac le tableau
+    //ui->tabWidget_autres->addTab(new tab_coursohlcv(),"CoursOHLCV");
 }
 
 void MainWindow_modepas::on_pushButton_tabTransaction_clicked()
 {
-    //ouvrire la fenetre de l'historique
+    //ui->tabWidget_autres->addTab(new tab_transaction(),"transactions");
 }
 
 void MainWindow_modepas::on_pushButton_prendreNote_clicked()
@@ -80,15 +90,35 @@ void MainWindow_modepas::on_pushButton_prendreNote_clicked()
 void MainWindow_modepas::on_checkBox_RSI_stateChanged(int arg1)
 {
     //afficher ou cacher la fenetre sur frame_autres
-    //if(this->isChecked())
+    /*if(this->isChecked()){
+        ui->tabWidget_autres->addTab(new tab_RSI(),"RSI");
+        //tableau
+    else {
+        //ui->tabwidget_autres->removeTab(//RSI);
+    }*/
 }
 
 void MainWindow_modepas::on_checkBox_EMA_stateChanged(int arg1)
 {
-    //idem
+    /*if(this->isChecked()){
+        ui->tabWidget_autres->addTab(new tab_EMA(),"EMA");
+        //tableau
+    else {
+        //ui->tabwidget_autres->removeTab(//EMA);
+    }*/
 }
 
 void MainWindow_modepas::on_checkBox_MACD_stateChanged(int arg1)
 {
-    //idem
+    /*if(this->isChecked()){
+        ui->tabWidget_autres->addTab(new tab_MACD(),"MACD");
+        //tableau
+    else {
+        //ui->tabwidget_autres->removeTab(//MACD);
+    }*/
+}
+
+void MainWindow_modepas::on_tabWidget_autres_tabCloseRequested(int index)
+{
+    //ui->tabwidget_autres->removeTab(index);
 }

@@ -36,6 +36,8 @@ private slots:
 
     void on_checkBox_EMA_stateChanged(int arg1);
 
+    void on_tabWidget_autres_tabCloseRequested(int index);
+
 private:
     Ui::MainWindow_modeauto *ui;
 };

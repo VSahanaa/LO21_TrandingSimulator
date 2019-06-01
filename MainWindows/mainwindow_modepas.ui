@@ -30,22 +30,6 @@
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-   <widget class="QFrame" name="frame_autre">
-    <property name="geometry">
-     <rect>
-      <x>179</x>
-      <y>349</y>
-      <width>671</width>
-      <height>151</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
@@ -294,6 +278,38 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget_autres">
+    <property name="geometry">
+     <rect>
+      <x>176</x>
+      <y>349</y>
+      <width>671</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="tabsClosable">
+     <bool>true</bool>
+    </property>
+    <property name="movable">
+     <bool>true</bool>
+    </property>
+    <property name="tabBarAutoHide">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="tab_RSI">
+     <attribute name="title">
+      <string>RSI</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_coursOHLVC">
+     <attribute name="title">
+      <string>coursOHLCV</string>
+     </attribute>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

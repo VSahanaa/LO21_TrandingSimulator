@@ -45,12 +45,12 @@ void MainWindow_modeauto::on_pushButton_aide_clicked()
 
 void MainWindow_modeauto::on_pushButton_tabCoursOHLCV_clicked()
 {
-    //ouverture fenetre2
+   //ui->tabWidget_autres->addTab(new tab_coursohlcv(),"coursOHLCV");
 }
 
 void MainWindow_modeauto::on_pushButton_tabTransaction_clicked()
 {
-    //ouverture fenetre2
+    //ui->tabWidget_autres->addTab(new tab_transaction(),"transactions");
 }
 
 void MainWindow_modeauto::on_pushButton_prendreNote_clicked()
@@ -60,18 +60,36 @@ void MainWindow_modeauto::on_pushButton_prendreNote_clicked()
 
 void MainWindow_modeauto::on_checkBox_MACD_stateChanged(int arg1)
 {
-    /* if (this.isChecked()){
-     * //afficher
-     * }else //cacher
-     * */
+    /*if(this->isChecked()){
+        ui->tabWidget_autres->addTab(new tab_MACD(),"MACD");
+        //tableau
+    else {
+        //ui->tabwidget_autres->removeTab(//MACD);
+    }*/
 }
 
 void MainWindow_modeauto::on_checkBox_RSI_stateChanged(int arg1)
 {
-    //idem
+    //afficher ou cacher la fenetre sur frame_autres
+    /*if(this->isChecked()){
+        ui->tabWidget_autres->addTab(new tab_RSI(),"RSI");
+        //tableau
+    else {
+        //ui->tabwidget_autres->removeTab(//RSI);
+    }*/
 }
 
 void MainWindow_modeauto::on_checkBox_EMA_stateChanged(int arg1)
 {
-    //idem
+    /*if(this->isChecked()){
+        ui->tabWidget_autres->addTab(new tab_EMA(),"EMA");
+        //tableau
+    else {
+        //ui->tabwidget_autres->removeTab(//EMA);
+    }*/
+}
+
+void MainWindow_modeauto::on_tabWidget_autres_tabCloseRequested(int index)
+{
+    //ui->tabwidget_autres->removeTab(index);
 }

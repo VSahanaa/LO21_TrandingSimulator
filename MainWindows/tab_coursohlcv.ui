@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>tab_coursOHLCV</class>
+ <widget class="QWidget" name="tab_coursOHLCV">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>630</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget_coursOHLCV">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>611</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>Date</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Open Price</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Hight Price</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Low Price</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Close Price</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Volume</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
