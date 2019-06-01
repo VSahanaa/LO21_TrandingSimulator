@@ -6,18 +6,21 @@
 #include <QObject>
 #include <QDateTime>
 
+/* * Class Note: Stock the note taken by user
+ * Constructor is private, therefore only Simulation can access it
+ * The notes are organized as a QList in noteManager in class Simulation
+ */
 class Note {
     friend class Simulation;
     QString nom = "New note";
     QString note = "";
     QDateTime dateCreation;
     QDateTime dernierAcces;
-
-public:
     Note() {
         dateCreation = QDateTime::currentDateTime();
         dernierAcces = dateCreation;
     }
+public:
     QString& modifierNote() {dernierAcces=QDateTime::currentDateTime(); return note;}
     QString& modifierNom() {dernierAcces = QDateTime::currentDateTime(); return nom;}
     QDateTime getDateCreation() const {return dateCreation;}
@@ -52,10 +55,12 @@ public:
     virtual void saveSimulation() const = 0;
     virtual void saveEvolutionCours() const;
     virtual void saveTransactions() const;
+    virtual void saveNotes() const;
     //virtual void saveNote() const;                                                        TO IMPLEMENT !!!
     bool verifierNomSimulation(QString nom) const;          //verify wheather the name of simulation is already exist
     const TransactionManager* getTransactionManager() const {return &transactionManager;}
     QList<Note>& getNoteManager() {return noteManager;}
+    Note& addNote();
 
 };
 

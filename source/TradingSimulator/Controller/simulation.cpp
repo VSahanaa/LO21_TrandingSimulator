@@ -52,6 +52,26 @@ void Simulation::saveTransactions() const {
     setting.endGroup();
 }
 
+void Simulation::saveNotes() const {
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
+    setting.beginGroup("Simulation");
+        setting.beginGroup(nom);
+            setting.beginGroup("NoteManager");
+                setting.beginWriteArray("Note");
+                    for (int i=0; i<noteManager.length(); i++){
+                        setting.setArrayIndex(i);
+                        setting.setValue("nom", noteManager[i].nom);
+                        setting.setValue("note", noteManager[i].note);
+                        setting.setValue("dateCreation", noteManager[i].dateCreation);
+                        setting.setValue("dernierAcces", noteManager[i].dernierAcces);
+                    }
+                setting.endArray();
+            setting.endGroup();
+        setting.endGroup();
+    setting.endGroup();
+}
+
 bool Simulation::verifierNomSimulation(QString nom) const {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     return !simulationManager->listExistSimulation().contains(nom);
@@ -60,6 +80,9 @@ bool Simulation::verifierNomSimulation(QString nom) const {
 /*---------------------------------------------------------- Methodes de Mode Manuel -------------------------------------------------------*/
 
 void ModeManuel::saveSimulation() const {
+    saveEvolutionCours();
+    saveTransactions();
+    saveNotes();
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
@@ -69,8 +92,13 @@ void ModeManuel::saveSimulation() const {
         setting.endGroup();
     setting.endGroup();
 
-    saveEvolutionCours();
-    saveTransactions();
+
+}
+
+Note& Simulation::addNote() {
+    Note note;
+    noteManager.append(note);
+    return noteManager[noteManager.length()];
 }
 /*---------------------------------------------------------- Methodes de Mode Automatique -------------------------------------------------------*/
 ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut,  Strategie* strategie, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval):
@@ -120,6 +148,10 @@ void ModeAutomatique::saveStrategie() const {
 }
 
 void ModeAutomatique::saveSimulation() const {
+    saveEvolutionCours();
+    saveTransactions();
+    saveNotes();
+    saveStrategie();
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
@@ -129,10 +161,6 @@ void ModeAutomatique::saveSimulation() const {
             setting.setValue("timerInterval", timer->interval());
         setting.endGroup();
     setting.endGroup();
-
-    saveEvolutionCours();
-    saveTransactions();
-    saveStrategie();
 }
 
 
@@ -156,6 +184,9 @@ void ModePas_Pas::iteration(){
 }
 
 void ModePas_Pas::saveSimulation() const {
+    saveEvolutionCours();
+    saveTransactions();
+    saveNotes();
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
@@ -165,9 +196,6 @@ void ModePas_Pas::saveSimulation() const {
             setting.setValue("timerInterval", timer->interval());
         setting.endGroup();
     setting.endGroup();
-
-    saveEvolutionCours();
-    saveTransactions();
 }
 
 /*---------------------------------------------------------- Methodes de Simulation Manager -------------------------------------------------------*/
