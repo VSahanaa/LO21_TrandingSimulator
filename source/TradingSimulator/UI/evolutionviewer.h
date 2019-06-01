@@ -21,19 +21,20 @@ private slots:
     void viewCoursOHLCV(){ emit clickBougie(this); }
 };
 
-
+/*
 
 class EvolutionViewer: public QWidget{
     Q_OBJECT
-    unsigned int maxDateShown = 30;
+    unsigned int maxDateShown = 60;
     EvolutionCours* evolutionCours;
-    //EvolutionCours::iterator coursDebut, coursFini = evolutionCours.end();
-    Bougie* last_bougie_clicked = nullptr;
-    QCandlestickSeries* series; //un ensemble de bougies
+    EvolutionCours::iterator endData;
+    qint64 nbData;
+    //Bougie* last_bougie_clicked = nullptr;
+    //QCandlestickSeries* series; //un ensemble de bougies
     QChart* chart;  //un graphique sur un ensemble de bougies
     QChartView* chartView;  //un viewer graphique
     QScrollBar* scrollBar;
-/*
+
     //barre d'edition
     QLineEdit* open;
     QLineEdit* high;
@@ -41,19 +42,46 @@ class EvolutionViewer: public QWidget{
     QLineEdit* close;
     QPushButton* saveButton;
     QFormLayout* formLayout;
-    */
+
     QVBoxLayout *layout;
     QDate getoldesDateVisible() const;
 
 
 public:
     explicit EvolutionViewer(EvolutionCours* evolutionCours, QWidget *parent = nullptr);
-    void setname(QString name) {series->setName(name);}
+    //void setname(QString name) {series->setName(name);}
 signals:
 private slots:
-    void updateChart();
+    void updateChart(int position);
     //void showCoursOHLCV(Bougie *bougie);
     //void saveCoursOHLCV();
 public slots:
 };
+    */
+
+class EvolutionViewer: public QWidget{
+    Q_OBJECT
+    EvolutionCours* evolutionCours;
+    EvolutionCours::iterator currentCours;
+    qint64 maxDateShown = 30;
+    QCandlestickSeries* series; //un ensemble de bougies
+    QBarCategoryAxis *axisX;
+    QChart* chart;  //un graphique sur un ensemble de bougies
+    QChartView* chartView;  //un viewer graphique
+    QScrollBar* scrollBar;
+    QVBoxLayout* layout;
+public:
+    EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget *parent = nullptr);
+    void showChart(QDate firstdate, QDate lastdate);
+    void setCurrentCours(EvolutionCours::iterator currentCours) {
+        this->currentCours = currentCours;
+        emit currentCours_changed();
+    }
+signals:
+    void currentCours_changed();
+private slots:
+    void updateChart(int value);
+    void currentCoursChanged_react();
+};
+
 #endif // EVOLUTIONVIEWER_H

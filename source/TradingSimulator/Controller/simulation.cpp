@@ -63,8 +63,8 @@ void Simulation::saveNotes() const {
                         setting.setArrayIndex(i);
                         setting.setValue("nom", noteManager[i].nom);
                         setting.setValue("note", noteManager[i].note);
-                        setting.setValue("dateCreation", noteManager[i].dateCreation);
-                        setting.setValue("dernierAcces", noteManager[i].dernierAcces);
+                        setting.setValue("dateCreation", noteManager[i].dateCreation.toString("yyyy-MM-dd"));
+                        setting.setValue("dernierAcces", noteManager[i].dernierAcces.toString("yyyy-MM-dd"));
                     }
                 setting.endArray();
             setting.endGroup();

@@ -1,95 +1,5 @@
 #include "evolutionviewer.h"
 
-EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, QWidget *parent): QWidget(parent), evolutionCours(evolutionCours){
-    //installer la serie evolutionCours
-
-    series = new QCandlestickSeries(this);
-    series->setName(evolutionCours->getPaireDevises()->toString());          //name of EvolutionCours
-    series->setIncreasingColor(QColor(Qt::green));
-    series->setDecreasingColor(QColor(Qt::red));
-    chart = new QChart();
-    chart->setTitle("Cours OHLCV");                             // !!! set name tu paire devise
-    chart->setAnimationOptions(QChart::SeriesAnimations);
-    chart->createDefaultAxes();
-
-    QStringList dates;
-    QDate oldestDate = evolutionCours->begin()->getDate();
-    dates << oldestDate.toString("yy.MM.dd");
-    series->clear();
-    chart->removeAllSeries();
-    dates.empty();
-
-    EvolutionCours::iterator coursIterator = evolutionCours->begin();
-    while(coursIterator->getDate() < oldestDate.addDays(maxDateShown) ) {
-        Bougie* bougie = new Bougie(coursIterator->getOpen(), coursIterator->getHigh(), coursIterator->getLow(), coursIterator->getClose(), coursIterator);
-        //QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
-        series->append(bougie);
-        dates << coursIterator->getDate().toString("yy.MM.dd");
-        coursIterator++;
-    }
-    dates << oldestDate.addDays(maxDateShown).toString("yy.MM.dd");
-    chart->addSeries(series);
-    QBarCategoryAxis *axisX = new QBarCategoryAxis;
-    axisX->append(dates);
-    chart->setAxisX(axisX,series);
-
-
-    chart->legend()->setVisible(true);
-    chart->legend()->setAlignment(Qt::AlignBottom);
-    chartView = new QChartView(chart, this);
-    scrollBar = new QScrollBar(Qt::Horizontal, this);
-    QObject::connect(scrollBar, SIGNAL(sliderMoved(int)), this, SLOT(updateChart()));
-
-
-    layout = new QVBoxLayout;
-    layout->addWidget(chartView);
-    layout->addWidget(scrollBar);
-    this->setLayout(layout);
-    //ajouter des bougies
-  /*  QStringList dates;
-    int i = 0;
-    for (EvolutionCours::iterator coursIterator=evolutionCours->begin(); coursIterator!=evolutionCours->cend(); coursIterator++){
-        Bougie* bougie = new Bougie(coursIterator->getOpen(), coursIterator->getHigh(), coursIterator->getLow(), coursIterator->getClose(), coursIterator);
-        QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
-        series->append(bougie);
-        qDebug() << i++;
-        dates << coursIterator->getDate().toString("yy.MM.dd");
-    }
-    */
-  //installer chart
-
-   // chart->addSeries(series);
-
-    //QBarCategoryAxis *axisX = new QBarCategoryAxis;
-   // axisX->append(dates);
-   // chart->setAxisX(axisX,series);
-    //installer chartView
-
-    //chartView->setFixedSize(1000, 600);
-/*
-
-    open = new QLineEdit;
-    high = new QLineEdit;
-    low = new QLineEdit;
-    close = new QLineEdit;
-    formLayout = new QFormLayout;
-    formLayout->addRow("&Open", open);
-    formLayout->addRow("&High", high);
-    formLayout->addRow("&Low", low);
-    formLayout->addRow("&Close", close);
-
-    saveButton = new QPushButton("Save", this);
-    saveButton->setStyleSheet("border: 1px solid black; background: white; height: 20px;width: 50px");
-    QObject::connect(saveButton, SIGNAL(clicked()), this, SLOT(saveCoursOHLCV()));
-*/
-   // coucheCours = new QVBoxLayout;
-//    coucheCours->addLayout(formLayout);
-//    coucheCours->addWidget(saveButton);
-   // fenetre = new QHBoxLayout;
-  //  fenetre->addWidget(chartView);
- //   fenetre->addLayout(coucheCours);
-  //  this->setLayout(fenetre);
-}
 /*
 void EvolutionViewer::showCoursOHLCV(Bougie* bougie){
     QString buffer;
@@ -113,33 +23,73 @@ void EvolutionViewer::saveCoursOHLCV(){
     last_bougie_clicked->setClose(c);
 }
 */
-QDate EvolutionViewer::getoldesDateVisible() const {
-    qint64 nb_Days = evolutionCours->begin()->getDate().daysTo((evolutionCours->end()-1)->getDate());
-    qDebug() << nb_Days;
-    qint64 correspond = (nb_Days - maxDateShown)* (scrollBar->value()/(scrollBar->maximum() - scrollBar->minimum())) - maxDateShown;
-    qDebug()<< correspond;
-    return evolutionCours->begin()->getDate().addDays(correspond);
+EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget* parent) : QWidget (parent), evolutionCours(evolutionCours), currentCours(currentCours) {
+    //set up chart
+    chart = new QChart();
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->createDefaultAxes();
+
+    //set up chart view
+    chartView = new QChartView(chart, this);
+    scrollBar = new QScrollBar(Qt::Horizontal, this);
+    scrollBar->setMinimum(0);
+    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));      //sync scroll bar with time range
+    layout = new QVBoxLayout;
+    layout->addWidget(chartView);
+    layout->addWidget(scrollBar);
+    this->setLayout(layout);
+
+    //set up serie
+    series = new QCandlestickSeries(this);
+    series->setName(evolutionCours->getPaireDevises()->toString());          //name of EvolutionCours
+    series->setIncreasingColor(QColor(Qt::green));
+    series->setDecreasingColor(QColor(Qt::red));
+    axisX = new QBarCategoryAxis;
+    //binding sigals
+    QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
+    QObject::connect(this, SIGNAL(currentCours_changed()), this, SLOT(currentCoursChanged_react()));
+
+    showChart(evolutionCours->begin()->getDate(), evolutionCours->begin()->getDate().addDays(maxDateShown));
 }
 
-void EvolutionViewer::updateChart() {
+void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
+    EvolutionCours::iterator cours = evolutionCours->searchCours(firstdate);
+    if(series->count() > 0) series->clear();
+    axisX->clear();
+    chart->setTitle(evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
+    chart->removeSeries(series);
+    chart->removeAxis(axisX);
     QStringList dates;
-    QDate oldestDate = getoldesDateVisible();
-    qDebug() << oldestDate.toString("yy.MM.dd");
-    dates << oldestDate.toString("yy.MM.dd");
-    series->clear();
-
-    dates.empty();
-    EvolutionCours::iterator coursIterator = evolutionCours->searchCours(oldestDate);
-    while(coursIterator->getDate() < oldestDate.addDays(maxDateShown) ) {
-        Bougie* bougie = new Bougie(coursIterator->getOpen(), coursIterator->getHigh(), coursIterator->getLow(), coursIterator->getClose(), coursIterator);
-        //QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
-        series->append(bougie);
-        dates << coursIterator->getDate().toString("yy.MM.dd");
-    }
-    if (series == nullptr) throw qDebug() <<"series is null";
-    dates << oldestDate.addDays(maxDateShown).toString("yy.MM.dd");
-
-    qDebug() << "gethere";
-
-    qDebug() << "gethere";
+    dates << firstdate.toString("dd/MM");
+    int i = 0;
+    for (; cours->getDate() <= lastdate; cours++){
+            Bougie* bougie = new Bougie(cours->getOpen(), cours->getHigh(), cours->getLow(), cours->getClose(), cours);
+            //QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
+            series->append(bougie);
+            qDebug() << i++;
+            dates << cours->getDate().toString("dd/MM");
+            if (cours == currentCours) break;       //only show up to current cours
+        }
+    dates << lastdate.toString("dd/MM");
+    axisX->append(dates);
+    chart->addSeries(series);
+    chart->setAxisX(axisX,series);
 }
+
+void EvolutionViewer::updateChart(int value) {
+    QDate firstDateShowed = evolutionCours->begin()->getDate().addDays(value);
+    showChart(firstDateShowed, firstDateShowed.addDays(maxDateShown));
+    qDebug() << firstDateShowed.toString("yy.MM.dd")<<endl;
+}
+
+void EvolutionViewer::currentCoursChanged_react() {
+    int old_maximum = scrollBar->maximum();
+    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));
+    if(scrollBar->value() == old_maximum) {
+        //if user is navigating  => don't update viewport
+        scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
+    }
+}
+

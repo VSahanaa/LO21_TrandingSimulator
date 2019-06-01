@@ -366,6 +366,7 @@ EvolutionCours::iterator EvolutionCours::searchCours(QDate date) {
             if(coursIterator->getDate() >= date) {
                 return coursIterator;
             }
+            coursIterator++;
         }
         return nullptr;
 }
