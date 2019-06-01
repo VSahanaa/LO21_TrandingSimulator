@@ -52,7 +52,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Qdialog::Indicateur* dialog_ind;
+    QDialog::Indicateur* dialog_ind;
 };
 
 #endif // MAINWINDOW_H
