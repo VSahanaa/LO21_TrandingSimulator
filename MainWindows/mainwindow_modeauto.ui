@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>161</width>
-      <height>491</height>
+      <width>202</width>
+      <height>493</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="VL_menu">
@@ -188,9 +188,9 @@
    <widget class="QFrame" name="frame_chandelier">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>220</x>
       <y>40</y>
-      <width>671</width>
+      <width>631</width>
       <height>301</height>
      </rect>
     </property>
@@ -204,10 +204,10 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>230</x>
       <y>10</y>
-      <width>171</width>
-      <height>19</height>
+      <width>186</width>
+      <height>25</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="HL_indicateur">
@@ -237,9 +237,9 @@
    <widget class="QTabWidget" name="tabWidget_autres">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>220</x>
       <y>350</y>
-      <width>671</width>
+      <width>631</width>
       <height>141</height>
      </rect>
     </property>

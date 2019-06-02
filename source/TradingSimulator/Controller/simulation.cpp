@@ -101,8 +101,8 @@ Note& Simulation::addNote() {
     return noteManager[noteManager.length()];
 }
 /*---------------------------------------------------------- Methodes de Mode Automatique -------------------------------------------------------*/
-ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut,  Strategie* strategie, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval):
-    QObject(), Simulation("Automatique", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {
+ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut,  Strategie* strategie, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval, QObject* parent):
+    QObject(parent), Simulation("Automatique", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {
     if (!strategie) throw TradingException("ModeAutomatique: Strategie is null");
     this->strategie = strategie;
     timer = new QTimer(this);
@@ -165,8 +165,8 @@ void ModeAutomatique::saveSimulation() const {
 
 
 /*---------------------------------------------------------- Methodes de Mode Pas à pas -------------------------------------------------------*/
-ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval):
-     QObject(), ModeManuel(nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {
+ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval, QObject* parent):
+    ModeManuel(nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial, parent) {
     type = "Pas_Pas";
     timer = new QTimer(this);
     timer->setInterval(time_interval);              //set timer interval in ms

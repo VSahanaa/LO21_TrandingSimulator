@@ -36,7 +36,9 @@ SOURCES += \
         configuration.cpp \
         main.cpp \
         mainwindow.cpp \
-        tradinginterface.cpp
+        modeautowidget.cpp \
+        modemanuelwidget.cpp \
+        modepaspaswidget.cpp
 
 HEADERS += \
         Core_Devises/trading.h \
@@ -48,7 +50,9 @@ HEADERS += \
         adddevise_dialog.h \
         configuration.h \
         mainwindow.h \
-        tradinginterface.h
+        modeautowidget.h \
+        modemanuelwidget.h \
+        modepaspaswidget.h
 
 FORMS += \
         UI/welcome.ui \
@@ -56,7 +60,9 @@ FORMS += \
         adddevise_dialog.ui \
         configuration.ui \
         mainwindow.ui \
-        tradinginterface.ui
+        modeautowidget.ui \
+        modemanuelwidget.ui \
+        modepaspaswidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

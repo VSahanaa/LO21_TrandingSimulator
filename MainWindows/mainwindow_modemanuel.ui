@@ -17,9 +17,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>10</y>
-      <width>162</width>
+      <width>202</width>
       <height>492</height>
      </rect>
     </property>
@@ -189,10 +189,10 @@
    <widget class="QWidget" name="layoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>190</x>
+      <x>210</x>
       <y>10</y>
-      <width>171</width>
-      <height>19</height>
+      <width>186</width>
+      <height>25</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="HL_indicateur">
@@ -222,9 +222,9 @@
    <widget class="QFrame" name="frame_chandelier">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>210</x>
       <y>40</y>
-      <width>671</width>
+      <width>641</width>
       <height>301</height>
      </rect>
     </property>
@@ -234,18 +234,271 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QFrame" name="frame_chandelier_2">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>30</y>
+       <width>641</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QTabWidget" name="tabWidget_autres_2">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>340</y>
+       <width>641</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <property name="tabsClosable">
+      <bool>true</bool>
+     </property>
+     <property name="movable">
+      <bool>true</bool>
+     </property>
+     <property name="tabBarAutoHide">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="tab_RSI_2">
+      <attribute name="title">
+       <string>RSI</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_coursOHLVC_2">
+      <attribute name="title">
+       <string>coursOHLCV</string>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>0</y>
+       <width>186</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="HL_indicateur_2">
+      <item>
+       <widget class="QCheckBox" name="checkBox_RSI_2">
+        <property name="text">
+         <string>RSI</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_EMA_2">
+        <property name="text">
+         <string>EMA</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_MACD_2">
+        <property name="text">
+         <string>MACD</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>202</width>
+       <height>492</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="VL_menu_2">
+      <item>
+       <layout class="QVBoxLayout" name="VL_menuFichier_2">
+        <item>
+         <widget class="QPushButton" name="pushButton_retourMenu_2">
+          <property name="text">
+           <string>Retour au menu</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_sauvegarder_2">
+          <property name="text">
+           <string>Sauvegarder</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_parametre_2">
+          <property name="text">
+           <string>Parametres</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_aide_2">
+          <property name="text">
+           <string>Aide</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="VSpacer_menuFichierTimer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>50</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="VL_menuTransaction_2">
+        <item>
+         <layout class="QHBoxLayout" name="HL_infoMontant_2">
+          <item>
+           <widget class="QLabel" name="label_montantBase_2">
+            <property name="text">
+             <string>MontantB</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_montantContrepartie_2">
+            <property name="text">
+             <string>MontantC</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_broker_2">
+            <property name="text">
+             <string>Broker</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="HL_infoDate_2">
+          <item>
+           <widget class="QLabel" name="label_date_2">
+            <property name="text">
+             <string>Date</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="dateEdit_date_2"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_montant_2"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="HL_achatvente_2">
+          <item>
+           <widget class="QPushButton" name="pushButton_achat_2">
+            <property name="text">
+             <string>Achat</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_vente_2">
+            <property name="text">
+             <string>Vente</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_annulerTransaction_2">
+          <property name="text">
+           <string>Annuler transaction</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="VSpacer_menuTransactionMenuOption_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>50</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="VL_menuOptions_2">
+        <item>
+         <widget class="QPushButton" name="pushButton_tabCoursOHLCV_2">
+          <property name="text">
+           <string>Tableau des cours</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_tabTransaction_2">
+          <property name="text">
+           <string>Tableau des transactions</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_prendreNote_2">
+          <property name="text">
+           <string>Prendre des notes</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QTabWidget" name="tabWidget_autres">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>210</x>
       <y>350</y>
-      <width>671</width>
+      <width>641</width>
       <height>141</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="tabsClosable">
      <bool>true</bool>

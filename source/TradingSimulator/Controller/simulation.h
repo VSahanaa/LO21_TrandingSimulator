@@ -27,6 +27,7 @@ public:
     QDateTime getDernierAcces() const {return dernierAcces;}
 };
 
+
 /* * Class Simulation: abstract class of every Simulation
  * a simulation has a nom, type and associates with an EvolutionCours
  * currentCours and finishCours indicate the current date and the final date in the simulation
@@ -41,7 +42,7 @@ protected:
     TransactionManager transactionManager;
     QList<Note> noteManager;
 public:
-    Simulation(QString type, QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial):
+    Simulation(QString type, QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial) :
         type(type), evolutionCours(evolutionCours), currentCours(coursDebut),
         transactionManager(TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantContrepartieInitial + montantContrepartieInitial/coursDebut->getClose())) {
         if (!verifierNomSimulation(nom)) throw TradingException("Simulation: ce nom est déjà pris");
@@ -64,16 +65,22 @@ public:
 
 };
 
+
+
 /* * Class ModeManuel: Derived class of Simulation
  * has 3 operations, achat(), vente() and annule()
  * User can choose any CoursOHLCV to make a Transaction
 */
-class ModeManuel : public Simulation {
+class ModeManuel : public QObject, public Simulation {
+    CoursOHLCV* coursPicked;
 public:
-    ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000) :
-        Simulation("Manuel", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {}
+    ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, QObject* parent=nullptr) :
+        QObject(parent), Simulation("Manuel", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {}
     //~ModeManuel();          //TO IMPLEMENT !!!
     virtual void saveSimulation() const;
+public slots:
+    virtual void buy_slot(double montant) {achat(evolutionCours->getPaireDevises(), coursPicked, montant);}
+    virtual void sell_slot(double montant) {vente(evolutionCours->getPaireDevises(), coursPicked, montant);}
     void annule() {transactionManager.deleteLastTransaction();}
 };
 
@@ -82,11 +89,11 @@ public:
  * This Mode has a QTimer to signal the change of currentCours
  * when currentCours reach finishCours, it emit a signal endSimulation()
 */
-class ModePas_Pas: public QObject, public ModeManuel {
+class ModePas_Pas: public ModeManuel {
     Q_OBJECT
     QTimer* timer;
 public:
-    ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000);
+    ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000, QObject* parent=nullptr);
     //~ModePas_Pas();                 //TO IMPLEMENT !!!
     void saveSimulation() const;
 signals:
@@ -113,7 +120,7 @@ class ModeAutomatique : public QObject, public Simulation {
     Strategie* strategie = nullptr;
     QTimer* timer;                  //timer of between cours   
 public:
-    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, Strategie* strategie, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000);
+    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, Strategie* strategie, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000, QObject* parent=nullptr);
     //~ModeAutomatique();             //TO IMPLEMENT !!!
     void saveSimulation() const;
     void saveStrategie() const;
