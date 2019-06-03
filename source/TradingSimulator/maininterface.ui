@@ -77,16 +77,19 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
+      </property>
+      <property name="tabsClosable">
+       <bool>false</bool>
       </property>
       <widget class="QWidget" name="Chanderlier">
        <attribute name="title">
-        <string>Tab 1</string>
+        <string>Evolution Cours</string>
        </attribute>
       </widget>
       <widget class="QWidget" name="Bargraph">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Volume de trading</string>
        </attribute>
       </widget>
      </widget>

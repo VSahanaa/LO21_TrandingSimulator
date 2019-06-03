@@ -15,6 +15,6 @@ void AddDevise_Dialog::on_AddDevise_Dialog_accepted()
     if (ui->codeEdit->text().isEmpty() || ui->monnaieEdit->text().isEmpty() || ui->zoneEdit->currentText().isEmpty()) throw TradingException("Add Devise Dialog: champs invalid");
     DevisesManager& deviseManager = DevisesManager::getManager();
     //add new devise
-    newDevise = &deviseManager.creationDevise(ui->codeEdit->text(), ui->monnaieEdit->text(), ui->zoneEdit->currentText());
+    newDevise = deviseManager.creationDevise(ui->codeEdit->text(), ui->monnaieEdit->text(), ui->zoneEdit->currentText());
     qDebug() << newDevise->getCode() <<" "<< newDevise->getMonnaie()<<" "<< newDevise->getZoneGeographique();
 }

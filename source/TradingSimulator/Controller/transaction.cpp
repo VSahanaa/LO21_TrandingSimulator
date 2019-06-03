@@ -37,6 +37,10 @@ void TransactionManager::addTransaction(const PaireDevises *paire, CoursOHLCV *c
     listeTransaction = new Transaction(listeTransaction, paire, cours, achat, montantBase, montantContrepartie);    //effectuer la transaction
 }
 
+void TransactionManager::addTransaction(const PaireDevises *paire, CoursOHLCV *cours, bool achat, double montantBase, double montantContrepartie) {
+    listeTransaction = new Transaction(listeTransaction, paire, cours, achat, montantBase, montantContrepartie);
+}
+
 void TransactionManager::deleteLastTransaction() {
     if (listeTransaction == nullptr) throw TradingException("Il n'y a pas transaction à annuler");
     Transaction* transactionCurrent = listeTransaction;

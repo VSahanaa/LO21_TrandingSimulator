@@ -23,7 +23,7 @@ QString PaireDevises::toString() const {
 }
 
 /*------------------------------------------------ Methodes de classe DevisesManager ---------------------------------------------*/
-const Devise& DevisesManager::creationDevise(const QString& code, const QString& monnaie, const QString& zone) {
+Devise* DevisesManager::creationDevise(const QString& code, const QString& monnaie, const QString& zone) {
     if (nbDevises == nbMaxDevises) {
         // agrandissement tableau
         Devise** newTable = new Devise*[nbMaxDevises + 10];
@@ -36,18 +36,18 @@ const Devise& DevisesManager::creationDevise(const QString& code, const QString&
     }
     // cération et ajout de la nouvelle devise...
     devises[nbDevises] = new Devise(code, monnaie, zone);
-    return *devises[nbDevises++];
+    return devises[nbDevises++];
 }
 
-const Devise& DevisesManager::getDevise(const QString& code)const {
+Devise* DevisesManager::getDevise(const QString& code)const {
     for (unsigned int i = 0; i < nbDevises; i++)
-        if (devises[i]->getCode() == code) return *devises[i];
+        if (devises[i]->getCode() == code) return devises[i];
     throw TradingException("devise inexistante");
 }
 
-const PaireDevises& DevisesManager::getPaireDevises(const QString & code1, const QString & code2) const {
-    const Devise& devise1 = getDevise(code1);
-    const Devise& devise2 = getDevise(code2);
+PaireDevises& DevisesManager::getPaireDevises(const QString & code1, const QString & code2) const {
+    const Devise* devise1 = getDevise(code1);
+    const Devise* devise2 = getDevise(code2);
     for (unsigned int i = 0; i < nbPaires; i++)
         if (paires[i]->getBase().getCode() == code1 && paires[i]->getContrepartie().getCode() == code2)
             return *paires[i];
@@ -60,7 +60,7 @@ const PaireDevises& DevisesManager::getPaireDevises(const QString & code1, const
         paires = newTable;
         delete[] old;
     }
-    paires[nbPaires] = new PaireDevises(devise1, devise2);
+    paires[nbPaires] = new PaireDevises(*devise1, *devise2);
     return *paires[nbPaires++];
 }
 

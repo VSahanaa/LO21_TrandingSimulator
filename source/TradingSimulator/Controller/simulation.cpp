@@ -1,6 +1,10 @@
 #include "simulation.h"
 
 /*---------------------------------------------------------- Methodes de classe Simulation -------------------------------------------------------*/
+Simulation::~Simulation() {
+    delete evolutionCours;
+}
+
 void Simulation::saveEvolutionCours() const {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
@@ -52,6 +56,30 @@ void Simulation::saveTransactions() const {
     setting.endGroup();
 }
 
+void Simulation::loadTransactions() {
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
+    setting.beginGroup("Simulation");
+        setting.beginGroup(nom);
+            setting.beginGroup("TransactionManager");
+                double pourcentage = setting.value("pourcentage").toDouble();
+                double montantBaseInitial = setting.value("montantBaseInitial").toDouble();
+                double montantContrepartieInitial = setting.value("montantContrepartieInitial").toDouble();
+                double montantTotalInitial =  setting.value("montantTotalInitial").toDouble();
+                transactionManager = TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantTotalInitial);
+                int size = setting.beginReadArray("Transaction");
+                for (int i=0; i<size; i++) {
+                    setting.setArrayIndex(i);
+                    EvolutionCours::iterator cours = evolutionCours->searchCours(QDate::fromString(setting.value("date").toString(), "yyyy-MM-dd"));
+                    transactionManager.addTransaction(evolutionCours->getPaireDevises(), cours, setting.value("achat").toBool(), setting.value("montantBase").toDouble(), setting.value("montantContrepartie").toDouble());
+                }
+                setting.endArray();
+            setting.endGroup();
+        setting.endGroup();
+    setting.endGroup();
+}
+
+
 void Simulation::saveNotes() const {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
@@ -63,8 +91,7 @@ void Simulation::saveNotes() const {
                         setting.setArrayIndex(i);
                         setting.setValue("nom", noteManager[i].nom);
                         setting.setValue("note", noteManager[i].note);
-                        setting.setValue("dateCreation", noteManager[i].dateCreation.toString("yyyy-MM-dd"));
-                        setting.setValue("dernierAcces", noteManager[i].dernierAcces.toString("yyyy-MM-dd"));
+                        setting.setValue("dateCreation", noteManager[i].dateCreation.toString("yyyy-MM-dd : HH.mm"));
                     }
                 setting.endArray();
             setting.endGroup();
@@ -72,11 +99,40 @@ void Simulation::saveNotes() const {
     setting.endGroup();
 }
 
+
+void Simulation::loadNotes() {
+    noteManager.clear();
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
+    setting.beginGroup("Simulation");
+        setting.beginGroup(nom);
+            setting.beginGroup("NoteManager");
+                int size = setting.beginReadArray("Note");
+                    for (int i=0; i<size; i++){
+                        setting.setArrayIndex(i);
+                        Note& note = addNote();
+                        note.setNom(setting.value("nom").toString());
+                        note.setNote(setting.value("note").toString());
+                        note.setDateCreation(QDateTime::fromString(setting.value("dateCreation").toString(), "yyyy-MM-dd : HH.mm"));
+                    }
+                setting.endArray();
+            setting.endGroup();
+        setting.endGroup();
+    setting.endGroup();
+}
+
+
 bool Simulation::verifierNomSimulation(QString nom) const {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     return !simulationManager->listExistSimulation().contains(nom);
 }
 
+
+Note& Simulation::addNote() {
+    Note note;
+    noteManager.append(note);
+    return noteManager[noteManager.length()];
+}
 /*---------------------------------------------------------- Methodes de Mode Manuel -------------------------------------------------------*/
 
 void ModeManuel::saveSimulation() const {
@@ -95,11 +151,7 @@ void ModeManuel::saveSimulation() const {
 
 }
 
-Note& Simulation::addNote() {
-    Note note;
-    noteManager.append(note);
-    return noteManager[noteManager.length()];
-}
+
 /*---------------------------------------------------------- Methodes de Mode Automatique -------------------------------------------------------*/
 ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut,  Strategie* strategie, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval, QObject* parent):
     QObject(parent), Simulation("Automatique", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {
@@ -136,12 +188,12 @@ void ModeAutomatique::saveStrategie() const {
                 setting.setValue("nom", strategie->getNom());
                 //save parametrer
                 QMap<QString, QVariant> parameters = strategie->getParameters();
-                setting.beginWriteArray("parameters");
+                setting.beginGroup("parameters");
                     QMap<QString, QVariant>::iterator parametersIterator = parameters.begin();
                     while (parametersIterator != parameters.end()) {
                         setting.setValue(parametersIterator.key(), parametersIterator.value());
                     }
-                setting.endArray();
+                setting.endGroup();
             setting.endGroup();
         setting.endGroup();
     setting.endGroup();
@@ -210,7 +262,7 @@ SimulationManager::~SimulationManager(){
 QStringList SimulationManager::listExistSimulation() const {
     QStringList listeNomSimulation = listSavedSimulation();
     for (int i=0; i<listeSimulation.length(); i++) {
-        listeNomSimulation.append(listeSimulation[i]->getNom());        //list saved Simulation
+        listeNomSimulation.append(listeSimulation[i]->getNom());        //list of simulation that already exist in the program
     }
     return listeNomSimulation;
 }
@@ -223,7 +275,85 @@ QStringList SimulationManager::listSavedSimulation() const {
     return listeSavedSimulation;
 }
 
-/*Simulation* SimulationManager::chargeSimulation(QString nom) {
+EvolutionCours* SimulationManager::chargeEvolutionCours(QString nomSimulation) {
+    DevisesManager& deviseManager = DevisesManager::getManager();
+    Devise* base;
+    Devise* contrepartie;
+    QString filename;
+    EvolutionCours* evolutionCours;
+    QSettings setting(nomGroupe, nomApplication);
+    setting.beginGroup("Simulation");
+        setting.beginGroup(nomSimulation);
+            setting.beginGroup("EvolutionCours");
+                setting.beginGroup("paireDevises");     //load paire devises
+                    if(deviseManager.getDeviseCodes().contains(setting.value("base/code").toString())) {
+                        base = deviseManager.getDevise(setting.value("base/code").toString());
+                    }
+                    else {
+                        base = deviseManager.creationDevise(setting.value("base/code").toString(), setting.value("base/monnaie").toString(), setting.value("base/zone").toString());
+                    }
 
+                    if(deviseManager.getDeviseCodes().contains(setting.value("contrepartie/code").toString())) {
+                        contrepartie = deviseManager.getDevise(setting.value("contrepartie/code").toString());
+                    }
+                    else {
+                        contrepartie = deviseManager.creationDevise(setting.value("contrepartie/code").toString(), setting.value("contrepartie/monnaie").toString(), setting.value("contrepartie/zone").toString());
+                    }
+                    PaireDevises& paire =  deviseManager.getPaireDevises(setting.value("base/code").toString(), setting.value("contrepartie/code").toString());
+                    paire.setSurnom(setting.value("surnom").toString());
+                setting.endGroup();
+                filename = setting.value("fichier").toString();
+                evolutionCours = new EvolutionCours(paire, filename);
+            setting.endGroup();
+        setting.endGroup();
+    setting.endGroup();
+    return evolutionCours;
 }
-*/
+
+Simulation* SimulationManager::chargeSimulation(QString nom) {
+    EvolutionCours* evolutionCours = chargeEvolutionCours(nom);
+    Simulation* simulation = nullptr;
+    QString type;
+    EvolutionCours::iterator currentCours;
+    double pourcentage, montantBaseInitial, montantContrepartieInitial;
+    QSettings setting(nomGroupe, nomApplication);
+
+    setting.beginGroup("Simulation");
+        setting.beginGroup(nom);
+            currentCours = evolutionCours->searchCours(QDate::fromString(setting.value("currentDate").toString(), "yyyy-MM-dd"));
+            type = setting.value("type").toString();
+            setting.beginGroup("TransactionManager");
+            pourcentage =  setting.value("TransactionManager/pourcentage").toDouble();
+            montantBaseInitial = setting.value("TransactionManager/montantBaseInitial").toDouble();
+            montantContrepartieInitial = setting.value("TransactionManager/montantContrepartieInitial").toDouble();
+            if(type == "Manuel") {
+                simulation = new ModeManuel(nom, evolutionCours, currentCours, pourcentage, montantBaseInitial, montantContrepartieInitial);
+            }
+            else if (type == "Pas_Pas") {
+                int time_interval = setting.value("timerInterval").toInt();
+                simulation = new ModePas_Pas(nom, evolutionCours, currentCours, pourcentage, montantBaseInitial, montantContrepartieInitial, time_interval);
+            }
+            else if (type == "Automatique"){
+                int time_interval = setting.value("timerInterval").toInt();
+                StrategieFactory* strategieFactory = StrategieFactory::getStrategieFactory();
+                setting.beginGroup("Strategie");
+                Strategie* strategie = strategieFactory->getStrategie( setting.value("nom").toString(), evolutionCours);
+                QMap<QString, QVariant> parameters;
+                    setting.beginGroup("parameters");
+                        QStringList listeParameters = setting.childKeys();
+                        for(int i=0; i<listeParameters.count(); i++) {
+                            parameters[listeParameters[i]] = setting.value(listeParameters[i]);
+                        }
+                    setting.endGroup();
+                setting.endGroup();
+                strategie->setParameters(parameters);
+                simulation = new ModeAutomatique(nom, evolutionCours, currentCours, strategie, pourcentage, montantBaseInitial, montantContrepartieInitial, time_interval);
+            }
+        setting.endGroup();
+    setting.endGroup();
+    simulation->loadTransactions();
+    simulation->loadNotes();
+    addSimulation(simulation);
+    return simulation;
+}
+

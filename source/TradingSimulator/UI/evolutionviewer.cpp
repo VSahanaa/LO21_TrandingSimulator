@@ -77,6 +77,7 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     rsi->generateIndice();
     axisX = new QBarCategoryAxis;
     axisY= new QValueAxis;
+    RSI_axisX = new QBarCategoryAxis;
     RSI_axisY = new QValueAxis;
     RSI_axisY->setRange(0,100);
 
@@ -88,7 +89,6 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
 }
 
 void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
-    qDebug()<< "begin func";
     EvolutionCours::iterator cours = evolutionCours->searchCours(firstdate);
     //clear old data
     series->clear();
@@ -96,6 +96,7 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     MACD_series->clear();
     RSI_series->clear();
     axisX->clear();
+    RSI_axisX->clear();
     chart->setTitle(evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
     chartRSI->setTitle("RSI " + evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
     QList<QAbstractSeries*> liste_series = chart->series();
@@ -151,15 +152,15 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     }
     dates << lastdate.toString("dd/MM");
     axisX->append(dates);
+    RSI_axisX->append(dates);
     axisY->setRange(yMin*0.9, yMax*1.1);
     chart->addSeries(series);
     if(EMA_series->isVisible()) chart->addSeries(EMA_series);
     if(MACD_series->isVisible()) chart->addSeries(MACD_series);
     chart->setAxisX(axisX,series);
     chart->setAxisY(axisY,series);
-    qDebug() << "get here";
     chartRSI->addSeries(RSI_series);
-    chartRSI->setAxisX(axisX,RSI_series);
+    chartRSI->setAxisX(RSI_axisX,RSI_series);
     chartRSI->setAxisY(RSI_axisY,RSI_series);
 }
 

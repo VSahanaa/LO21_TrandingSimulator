@@ -20,15 +20,18 @@ class Note {
         dateCreation = QDateTime::currentDateTime();
         dernierAcces = dateCreation;
     }
+    void setDateCreation(QDateTime dateCreation) {this->dateCreation = dateCreation;}
 public:
     QString& modifierNote() {dernierAcces=QDateTime::currentDateTime(); return note;}
     QString& modifierNom() {dernierAcces = QDateTime::currentDateTime(); return nom;}
     QDateTime getDateCreation() const {return dateCreation;}
     QDateTime getDernierAcces() const {return dernierAcces;}
+    void setNote(QString note) {this->note = note;}
+    void setNom(QString nom) {this->nom = nom;}
 };
 
 
-/* * Class Simulation: abstract class of every Simulation
+/* * Class Simulation: abstract class of every Simulation,
  * a simulation has a nom, type and associates with an EvolutionCours
  * currentCours and finishCours indicate the current date and the final date in the simulation
  * each Simulation has its own Transactionmanager
@@ -48,15 +51,17 @@ public:
         if (!verifierNomSimulation(nom)) throw TradingException("Simulation: ce nom est déjà pris");
             this->nom = nom;
     }
-    //~Simulation();              //TO IMPLEMENT !!!
+    ~Simulation();
     void achat(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, true, montant);}
     void vente(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, false, montant);}
     const QString& getNom() const {return nom;}
     EvolutionCours::iterator getCurrentCours() const {return currentCours;}
     virtual void saveSimulation() const = 0;
-    virtual void saveEvolutionCours() const;
-    virtual void saveTransactions() const;
-    virtual void saveNotes() const;
+    void saveEvolutionCours() const;
+    void saveTransactions() const;
+    void saveNotes() const;
+    void loadTransactions();
+    void loadNotes();
     //virtual void saveNote() const;                                                        TO IMPLEMENT !!!
     bool verifierNomSimulation(QString nom) const;          //verify wheather the name of simulation is already exist
     TransactionManager* getTransactionManager() {return &transactionManager;}
@@ -66,7 +71,7 @@ public:
 
 
 
-/* * Class ModeManuel: Derived class of Simulation
+/* * Class ModeManuel: Derived class of Simulation, is a QObject, coursPicked is the picked cours to make the transaction
  * has 3 operations, achat(), vente() and annule()
  * User can choose any CoursOHLCV to make a Transaction
 */
@@ -76,7 +81,7 @@ class ModeManuel : public QObject, public Simulation {
 public:
     ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, QObject* parent=nullptr) :
         QObject(parent), Simulation("Manuel", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {coursPicked = coursDebut;}
-    //~ModeManuel();          //TO IMPLEMENT !!!
+    ~ModeManuel() = default;
     virtual void saveSimulation() const;
 signals:
     void coursPickedChanged(CoursOHLCV* cours);
@@ -94,7 +99,7 @@ public slots:
     void annule() {transactionManager.deleteLastTransaction();  emit transactionAnnule();}
 };
 
-/* * Class ModeManuel: Derived class of ModeManuel, is a QObject
+/* * Class ModePas_Pas: Derived class of ModeManuel, is a QObject
  * keep track of currentCours, user only know the open price of the currentCours, and can only make transaction in this Cours
  * This Mode has a QTimer to signal the change of currentCours
  * when currentCours reach finishCours, it emit a signal endSimulation()
@@ -104,7 +109,7 @@ class ModePas_Pas: public ModeManuel {
     QTimer* timer;
 public:
     ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000, QObject* parent=nullptr);
-    //~ModePas_Pas();                 //TO IMPLEMENT !!!
+    ~ModePas_Pas() {delete timer;}
     void saveSimulation() const;
 signals:
     void endSimulation();
@@ -120,9 +125,10 @@ public slots:
     void sell_slot(double montant) {vente(evolutionCours->getPaireDevises(), currentCours, montant);}
 };
 
-/* * Class ModeAutomatique: Derived class of Simulation, is a QObject
+/* * Class ModeAutomatique: Derived class of Simulation, is a QObject, applies Strategie pattern
  * This Mode has a QTimer to signal the change of currentCours
- * It has a strategie, in each Iteration, it pass the past information to the strategie to make a trading decision
+ * It stock a strategie pointer, by overloading operator (), strategie can implement object function
+ * in each Iteration, it pass the past information to the strategie to make a trading decision
  * when currentCours reach finishCours, it emit a signal endSimulation()
 */
 class ModeAutomatique : public QObject, public Simulation {
@@ -131,7 +137,7 @@ class ModeAutomatique : public QObject, public Simulation {
     QTimer* timer;                  //timer of between cours   
 public:
     ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, Strategie* strategie, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000, QObject* parent=nullptr);
-    //~ModeAutomatique();             //TO IMPLEMENT !!!
+    ~ModeAutomatique() {delete strategie;   delete timer;}
     void saveSimulation() const;
     void saveStrategie() const;
 signals:
@@ -169,7 +175,7 @@ public:
         instance = nullptr;
     }
     void addSimulation(Simulation* simulation) { listeSimulation.append(simulation);}
-
+    EvolutionCours* chargeEvolutionCours(QString nomSimulation);
     Simulation* chargeSimulation(QString nom);          //TO IMPLEMENT !!!
     QStringList listSavedSimulation() const;
     QStringList listExistSimulation() const;

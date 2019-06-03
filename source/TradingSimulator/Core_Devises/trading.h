@@ -49,6 +49,7 @@ public:
     const Devise& getBase() const { return *base; }
     const Devise& getContrepartie() const { return *contrepartie; }
     const QString& getSurnom() const { return surnom; }
+    void setSurnom(QString surnom) {this->surnom = surnom;}
     QString toString() const;
 };
 
@@ -82,9 +83,9 @@ public:
         delete handler.instance;  handler.instance = nullptr;
     }
     QStringList getDeviseCodes() const;
-    const Devise& creationDevise(const QString& code, const QString& monnaie, const QString& zone);
-    const Devise& getDevise(const QString& code)const;
-    const PaireDevises& getPaireDevises(const QString & code1, const QString & code2) const;
+    Devise* creationDevise(const QString& code, const QString& monnaie, const QString& zone);
+    Devise* getDevise(const QString& code)const;
+    PaireDevises& getPaireDevises(const QString & code1, const QString & code2) const;
 };
 
 

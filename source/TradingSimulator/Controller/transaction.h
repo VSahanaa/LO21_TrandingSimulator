@@ -49,6 +49,7 @@ class TransactionManager {
     ~TransactionManager();
 public:
     void addTransaction(const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
+    void addTransaction(const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montantBase, double montantContrepartie);
     void deleteLastTransaction();
     double solde() const;                       //retourne le solde en devise de contrepartie
     double getMontantBase() const {

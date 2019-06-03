@@ -15,9 +15,12 @@ public:
     ~MainWindow();
 private slots:
     void on_newSimulation_button_clicked();
+
 private:
     Ui::MainWindow *ui;
     Configuration* configuration;
+    QTabWidget* mainInterface;
+    Simulation* simulation;
 };
 
 #endif // MAINWINDOW_H

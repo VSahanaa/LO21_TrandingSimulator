@@ -72,6 +72,7 @@ class EvolutionViewer: public QWidget{
     QLineSeries* MACD_series;
     QLineSeries* RSI_series;
     QBarCategoryAxis *axisX;
+    QBarCategoryAxis *RSI_axisX;
     QValueAxis* axisY;
     QValueAxis* RSI_axisY;
     QChart* chart;  //un graphe sur un ensemble de bougies

@@ -77,7 +77,7 @@ public:
     double operator()(TransactionManager* transactionManager, EvolutionCours::iterator currentCours);
 };
 
-/* * Class StrategieFactory: keeps track only the prototype of Strategie, applies Singleton partern
+/* * Class StrategieFactory: keeps track only the prototype of Strategie, applies Singleton partern and Factory pattern
  * When ever a new Strategie is added to the code base, it's only need to be added here to the strategieDictonary at the constructor in order to be used with other Strategies
  * When ever a strategie is needed, function getStrategie() will create a replicate of the strategie object stored in strategieDictonary and return it with an evolutionCours
  * Strategie objects in strategieDictonary are always prototype of each Strategie with evolutionCours is null
