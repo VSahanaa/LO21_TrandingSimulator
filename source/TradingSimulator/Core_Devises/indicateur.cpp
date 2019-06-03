@@ -184,7 +184,7 @@ void MACD::setParameters(QMap<QString, QVariant> parameters) {
         shortPeriod = static_cast<unsigned int>(parameters["shortPeriod"].toInt());
 
     if (parameters.contains("signalPeriod") && static_cast<unsigned int>(parameters["signalPeriod"].toInt()) != signalPeriod)
-        signalPeriod = static_cast<unsigned int>(parameters["shortPeriod"].toInt());
+        signalPeriod = static_cast<unsigned int>(parameters["signalPeriod"].toInt());
 
     if(longPeriod < shortPeriod || longPeriod<signalPeriod) {
         //roll back

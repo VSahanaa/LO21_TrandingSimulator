@@ -35,6 +35,7 @@ SOURCES += \
         adddevise_dialog.cpp \
         configuration.cpp \
         main.cpp \
+        maininterface.cpp \
         mainwindow.cpp \
         modeautowidget.cpp \
         modemanuelwidget.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
         UI/welcome.h \
         adddevise_dialog.h \
         configuration.h \
+        maininterface.h \
         mainwindow.h \
         modeautowidget.h \
         modemanuelwidget.h \
@@ -59,6 +61,7 @@ FORMS += \
         UI/info.ui \
         adddevise_dialog.ui \
         configuration.ui \
+        maininterface.ui \
         mainwindow.ui \
         modeautowidget.ui \
         modemanuelwidget.ui \

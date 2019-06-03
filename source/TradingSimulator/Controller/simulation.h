@@ -59,10 +59,9 @@ public:
     virtual void saveNotes() const;
     //virtual void saveNote() const;                                                        TO IMPLEMENT !!!
     bool verifierNomSimulation(QString nom) const;          //verify wheather the name of simulation is already exist
-    const TransactionManager* getTransactionManager() const {return &transactionManager;}
+    TransactionManager* getTransactionManager() {return &transactionManager;}
     QList<Note>& getNoteManager() {return noteManager;}
     Note& addNote();
-
 };
 
 
@@ -72,16 +71,27 @@ public:
  * User can choose any CoursOHLCV to make a Transaction
 */
 class ModeManuel : public QObject, public Simulation {
+    Q_OBJECT
     CoursOHLCV* coursPicked;
 public:
     ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, QObject* parent=nullptr) :
-        QObject(parent), Simulation("Manuel", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {}
+        QObject(parent), Simulation("Manuel", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {coursPicked = coursDebut;}
     //~ModeManuel();          //TO IMPLEMENT !!!
     virtual void saveSimulation() const;
+signals:
+    void coursPickedChanged(CoursOHLCV* cours);
+    void transactionAdded();
+    void transactionAnnule();
+private slots:
+    void setCoursPicked(CoursOHLCV* cours) {
+        if(cours->getDate() < currentCours->getDate()) throw TradingException("Mode Manule: Can not pick a past day");
+        coursPicked = cours;
+        emit coursPickedChanged(coursPicked);
+    }
 public slots:
-    virtual void buy_slot(double montant) {achat(evolutionCours->getPaireDevises(), coursPicked, montant);}
-    virtual void sell_slot(double montant) {vente(evolutionCours->getPaireDevises(), coursPicked, montant);}
-    void annule() {transactionManager.deleteLastTransaction();}
+    virtual void buy_slot(double montant) {achat(evolutionCours->getPaireDevises(), coursPicked, montant);  emit transactionAdded();}
+    virtual void sell_slot(double montant) {vente(evolutionCours->getPaireDevises(), coursPicked, montant); emit transactionAdded();}
+    void annule() {transactionManager.deleteLastTransaction();  emit transactionAnnule();}
 };
 
 /* * Class ModeManuel: Derived class of ModeManuel, is a QObject

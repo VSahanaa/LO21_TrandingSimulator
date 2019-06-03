@@ -26,22 +26,30 @@ void EvolutionViewer::saveCoursOHLCV(){
 EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget* parent) : QWidget (parent), evolutionCours(evolutionCours), currentCours(currentCours) {
     ema = static_cast<EMA*>(evolutionCours->getCollection()->getIndicateur("EMA"));
     macd = static_cast<MACD*>(evolutionCours->getCollection()->getIndicateur("MACD"));
-    if(!ema) qDebug()<< "ema is null";
-    //set up chart
+    rsi = static_cast<RSI*>(evolutionCours->getCollection()->getIndicateur("RSI"));
+    //set up chart for EvolutionCours
     chart = new QChart();
     chart->setAnimationOptions(QChart::SeriesAnimations);
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignBottom);
     chart->createDefaultAxes();
-
-    //set up chart view
     chartView = new QChartView(chart, this);
+
+    //setup RSI viewer
+    chartRSI = new QChart();
+    chartRSI->setAnimationOptions(QChart::SeriesAnimations);
+    chartRSI->legend()->setVisible(true);
+    chartRSI->legend()->setAlignment(Qt::AlignBottom);
+    chartRSI->createDefaultAxes();
+    chartViewRSI = new  QChartView(chartRSI, this);
+
     scrollBar = new QScrollBar(Qt::Horizontal, this);
     scrollBar->setMinimum(0);
     scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));      //sync scroll bar with time range
     layout = new QVBoxLayout;
     layout->addWidget(chartView);
     layout->addWidget(scrollBar);
+    layout->addWidget(chartViewRSI);
     this->setLayout(layout);
 
     //set up series
@@ -62,8 +70,16 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     MACD_series->setVisible(false);              //not shown by default
     //macd->generateIndice();
 
+    RSI_series=  new QLineSeries();
+    RSI_series->setName("RSI");
+    RSI_series->setColor(Qt::black);
+    RSI_series->setVisible(true);
+    rsi->generateIndice();
     axisX = new QBarCategoryAxis;
     axisY= new QValueAxis;
+    RSI_axisY = new QValueAxis;
+    RSI_axisY->setRange(0,100);
+
     //binding sigals
     QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
     QObject::connect(this, SIGNAL(currentCours_changed()), this, SLOT(currentCoursChanged_react()));
@@ -72,29 +88,37 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
 }
 
 void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
+    qDebug()<< "begin func";
     EvolutionCours::iterator cours = evolutionCours->searchCours(firstdate);
+    //clear old data
     series->clear();
     EMA_series->clear();
     MACD_series->clear();
+    RSI_series->clear();
     axisX->clear();
     chart->setTitle(evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
+    chartRSI->setTitle("RSI " + evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
     QList<QAbstractSeries*> liste_series = chart->series();
     for (int i=0; i<liste_series.count(); i++) {
         chart->removeSeries(liste_series[i]);
     }
-
-    //chart->removeAxis(axisX);
-    Indicateur::iterator emaIterator, macdIterator;
+    if(chartRSI->series().count() == 1) {
+            chartRSI->removeSeries(RSI_series);
+    }
+    //add new data
+    Indicateur::iterator emaIterator, macdIterator, rsiIterator;
     QStringList dates;
     dates << firstdate.toString("dd/MM");
     int i = 0;
+    double yMin = cours->getLow();
+    double yMax = cours->getHigh();
     for (; cours->getDate() <= lastdate; cours++){
-            if (cours->getHigh() > axisY->max()) axisY->setMax(cours->getHigh()*1.3);
-            if (cours->getLow() < axisY->min()) axisY->setMin(cours->getLow()*0.7);
+            if (cours->getHigh() > yMax) yMax = cours->getHigh();                           //mesure range of y axis
+            if (cours->getLow() < yMin) yMin = cours->getLow();
             Bougie* bougie = new Bougie(cours->getOpen(), cours->getHigh(), cours->getLow(), cours->getClose(), cours);
             //QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
             series->append(bougie);
-
+            //Indicateur series
             if(EMA_series->isVisible()) {
                 emaIterator = ema->searchIndice(cours);
                 if(!emaIterator) {
@@ -113,17 +137,30 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
                     MACD_series->append(i, macdIterator->getIndice());
                 }
             }
+            rsiIterator = rsi->searchIndice(cours);
+            if(!rsiIterator) {
+                RSI_series->append(i, 0);
+            }
+            else {
+                RSI_series->append(i, rsiIterator->getIndice());
+            }
             i++;
+
             dates << cours->getDate().toString("dd/MM");
             if (cours == currentCours) break;       //only show up to current cours
-        }
+    }
     dates << lastdate.toString("dd/MM");
     axisX->append(dates);
+    axisY->setRange(yMin*0.9, yMax*1.1);
     chart->addSeries(series);
     if(EMA_series->isVisible()) chart->addSeries(EMA_series);
     if(MACD_series->isVisible()) chart->addSeries(MACD_series);
     chart->setAxisX(axisX,series);
     chart->setAxisY(axisY,series);
+    qDebug() << "get here";
+    chartRSI->addSeries(RSI_series);
+    chartRSI->setAxisX(axisX,RSI_series);
+    chartRSI->setAxisY(RSI_axisY,RSI_series);
 }
 
 void EvolutionViewer::updateChart(int value) {
@@ -140,3 +177,10 @@ void EvolutionViewer::currentCoursChanged_react() {
         scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
     }
 }
+/*
+void EvolutionViewer::resizeEvent(QResizeEvent *event) {
+    chartView->resize(this->width(), this->height()*7/10);
+    //scrollBar->resize(this->width(), this->height()*1/10);
+    chartViewRSI->resize(this->width(), this->height()*2/10);
+}
+*/

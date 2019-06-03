@@ -64,16 +64,20 @@ class EvolutionViewer: public QWidget{
     EvolutionCours* evolutionCours;
     EMA* ema;
     MACD* macd;
+    RSI* rsi;
     EvolutionCours::iterator currentCours;
     qint64 maxDateShown = 30;
     QCandlestickSeries* series; //un ensemble de bougies
     QLineSeries* EMA_series;
     QLineSeries* MACD_series;
+    QLineSeries* RSI_series;
     QBarCategoryAxis *axisX;
     QValueAxis* axisY;
-    double ymax = 10, ymin = 0;
-    QChart* chart;  //un graphique sur un ensemble de bougies
-    QChartView* chartView;  //un viewer graphique
+    QValueAxis* RSI_axisY;
+    QChart* chart;  //un graphe sur un ensemble de bougies
+    QChartView* chartView;
+    QChart* chartRSI;
+    QChartView* chartViewRSI;       //un graphe pour RSI
     QScrollBar* scrollBar;
     QVBoxLayout* layout;
 public:
@@ -85,6 +89,7 @@ public:
     }
     void activateEMA() {EMA_series->setVisible(true);   emit scrollBar->valueChanged(scrollBar->value());}
     void activateMACD() {MACD_series->setVisible(true);   emit scrollBar->valueChanged(scrollBar->value());}
+    //void resizeEvent(QResizeEvent *event);
 signals:
     void currentCours_changed();
 private slots:

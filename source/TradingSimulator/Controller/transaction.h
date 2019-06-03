@@ -55,6 +55,7 @@ public:
         if (!listeTransaction) {return montantBaseInitial;}
             return listeTransaction->getMontantBase();
     }
+    double getPourcentage() const {return pourcentage;}
     double getMontantContrepartie() const {
         if (!listeTransaction) {return montantContrepartieInitial;}
             return listeTransaction->getMontantContrepartie();
