@@ -55,6 +55,7 @@ class MA_Strategie : public Strategie {
     EMA::iterator ema_Iterator=nullptr;
     MA_Strategie(): Strategie("MA Strategie") {}
 public:
+    ~MA_Strategie() {delete ema;}
     Strategie* clone();
     void setParameters(QMap<QString, QVariant> parameters);
     QMap<QString, QVariant> getParameters() const {return ema->getParameters();}
@@ -71,6 +72,7 @@ class RSI_Strategie : public Strategie {
     RSI::iterator rsi_Iterator=nullptr;
     RSI_Strategie() : Strategie("RSI Strategie") {}
 public:
+    ~RSI_Strategie() {delete rsi;}
     Strategie* clone();
     void setParameters(QMap<QString, QVariant> parameters);
     QMap<QString, QVariant> getParameters() const {return rsi->getParameters();}

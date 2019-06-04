@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>274</width>
+    <width>503</width>
     <height>273</height>
    </rect>
   </property>
@@ -107,11 +107,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_montant">
-        <property name="placeholderText">
-         <string>0</string>
-        </property>
-       </widget>
+       <widget class="QDoubleSpinBox" name="montant_Edit"/>
       </item>
       <item>
        <layout class="QHBoxLayout" name="HL_achatvente">
@@ -141,6 +137,19 @@
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_montant">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>110</y>
+     <width>267</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>0</string>
+   </property>
   </widget>
  </widget>
  <resources/>

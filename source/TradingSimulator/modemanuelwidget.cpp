@@ -7,11 +7,13 @@ modeManuelWidget::modeManuelWidget(ModeManuel* modeManuel, QWidget *parent) : QW
     ui->label_montantBase->setNum(transactionManager->getMontantBase());
     ui->label_montantContrepartie->setNum(transactionManager->getMontantContrepartie());
     ui->label_broker->setNum(transactionManager->getPourcentage());
-    ui->label_date->setText(modeManuel->getCurrentCours()->getDate().toString("dd.MM.yy"));
+    ui->label_date->setText(modeManuel->getCurrentCours()->getDate().toString("dd.MM.yyyy"));
     ui->openPrice->setNum(modeManuel->getCurrentCours()->getOpen());
+    ui->montant_Edit->setMinimum(0);
+    ui->montant_Edit->setMaximum(transactionManager->getMontantContrepartie());
     //connect signals
-    QObject::connect(ui->pushButton_achat, SIGNAL(clicked()), modeManuel, SLOT(buy_slot(montant)));
-    QObject::connect(ui->pushButton_vente, SIGNAL(clicked()), modeManuel, SLOT((sell_slot(montant))));
+    QObject::connect(ui->pushButton_achat, SIGNAL(clicked()), modeManuel, SLOT(buy_slot(i->montant_Edit->value())));
+    QObject::connect(ui->pushButton_vente, SIGNAL(clicked()), modeManuel, SLOT((sell_slot(i->montant_Edit->value()))));
     QObject::connect(ui->pushButton_annulerTransaction, SIGNAL(clicked()), modeManuel, SLOT(annule()));
     QObject::connect(modeManuel, SIGNAL(transactionAdded()), this, SLOT(updateData()));
     QObject::connect(modeManuel, SIGNAL(transactionAnnule()), this, SLOT(updateData()));
@@ -22,14 +24,11 @@ modeManuelWidget::~modeManuelWidget() {
     delete ui;
 }
 
-void modeManuelWidget::on_lineEdit_montant_textChanged(const QString &arg1) {
-    montant = arg1.toDouble();
-}
-
 void modeManuelWidget::updateData() {
     ui->label_montantBase->setNum(transactionManager->getMontantBase());
     ui->label_montantContrepartie->setNum(transactionManager->getMontantContrepartie());
     ui->label_broker->setNum(transactionManager->getPourcentage());
+    ui->montant_Edit->setMaximum(transactionManager->getMontantContrepartie());
 }
 
 void modeManuelWidget::updateCoursPicked(CoursOHLCV* cours) {

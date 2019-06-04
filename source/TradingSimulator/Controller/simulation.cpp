@@ -60,12 +60,14 @@ void Simulation::loadTransactions() {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
+        if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");
         setting.beginGroup(nom);
             setting.beginGroup("TransactionManager");
                 double pourcentage = setting.value("pourcentage").toDouble();
                 double montantBaseInitial = setting.value("montantBaseInitial").toDouble();
                 double montantContrepartieInitial = setting.value("montantContrepartieInitial").toDouble();
                 double montantTotalInitial =  setting.value("montantTotalInitial").toDouble();
+                transactionManager.clearTransactions();
                 transactionManager = TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantTotalInitial);
                 int size = setting.beginReadArray("Transaction");
                 for (int i=0; i<size; i++) {
@@ -105,6 +107,7 @@ void Simulation::loadNotes() {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
+        if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");
         setting.beginGroup(nom);
             setting.beginGroup("NoteManager");
                 int size = setting.beginReadArray("Note");
@@ -147,8 +150,6 @@ void ModeManuel::saveSimulation() const {
             setting.setValue("currentDate", currentCours->getDate().toString("yyyy-MM-dd"));
         setting.endGroup();
     setting.endGroup();
-
-
 }
 
 
@@ -172,6 +173,7 @@ void ModeAutomatique::iteration() {
         vente(evolutionCours->getPaireDevises(), currentCours, -decision);
     }
     currentCours++;        //move to next day
+    dateChanged();
     if(currentCours == evolutionCours->end()) {
         timer->stop();
         emit endSimulation();
@@ -226,13 +228,22 @@ ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionC
     timer->start();
 }
 
+void ModePas_Pas::setCours(QDate date) {
+    if (date > currentCours->getDate()) throw TradingException("date future");
+    currentCours = evolutionCours->searchCours(date);
+    //delete transactions
+    while (transactionManager.head()->getCours()->getDate() > currentCours->getDate()) {
+        transactionManager.deleteLastTransaction();
+    }
+    emit coursPickedChanged(currentCours);
+}
 void ModePas_Pas::iteration(){
     currentCours++;
+    emit coursPickedChanged(currentCours);
     if(currentCours == evolutionCours->end()) {
         timer->stop();
         emit endSimulation();
     }
-
 }
 
 void ModePas_Pas::saveSimulation() const {
@@ -283,6 +294,7 @@ EvolutionCours* SimulationManager::chargeEvolutionCours(QString nomSimulation) {
     EvolutionCours* evolutionCours;
     QSettings setting(nomGroupe, nomApplication);
     setting.beginGroup("Simulation");
+        if(!setting.contains(nomSimulation)) throw TradingException("Simulation have not been saved");
         setting.beginGroup(nomSimulation);
             setting.beginGroup("EvolutionCours");
                 setting.beginGroup("paireDevises");     //load paire devises
@@ -320,6 +332,7 @@ Simulation* SimulationManager::chargeSimulation(QString nom) {
 
     setting.beginGroup("Simulation");
         setting.beginGroup(nom);
+            if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");
             currentCours = evolutionCours->searchCours(QDate::fromString(setting.value("currentDate").toString(), "yyyy-MM-dd"));
             type = setting.value("type").toString();
             setting.beginGroup("TransactionManager");

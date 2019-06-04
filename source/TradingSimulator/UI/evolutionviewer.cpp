@@ -74,13 +74,23 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     RSI_series->setName("RSI");
     RSI_series->setColor(Qt::black);
     RSI_series->setVisible(true);
+
+    RSI_overbought = new QLineSeries();
+    RSI_overbought->setName("over bought");
+    RSI_overbought->setColor(Qt::green);
+    RSI_overbought->setVisible(true);
+
+    RSI_oversold = new QLineSeries();
+    RSI_oversold->setName("over sold");
+    RSI_oversold->setColor(Qt::red);
+    RSI_oversold->setVisible(true);
+
     rsi->generateIndice();
     axisX = new QBarCategoryAxis;
     axisY= new QValueAxis;
     RSI_axisX = new QBarCategoryAxis;
     RSI_axisY = new QValueAxis;
     RSI_axisY->setRange(0,100);
-
     //binding sigals
     QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
     QObject::connect(this, SIGNAL(currentCours_changed()), this, SLOT(currentCoursChanged_react()));
@@ -88,24 +98,33 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     showChart(evolutionCours->begin()->getDate(), evolutionCours->begin()->getDate().addDays(maxDateShown));
 }
 
-void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
-    EvolutionCours::iterator cours = evolutionCours->searchCours(firstdate);
+void EvolutionViewer::clearCharts(){
     //clear old data
     series->clear();
     EMA_series->clear();
     MACD_series->clear();
     RSI_series->clear();
+    RSI_oversold->clear();
+    RSI_overbought->clear();
     axisX->clear();
     RSI_axisX->clear();
-    chart->setTitle(evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
-    chartRSI->setTitle("RSI " + evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
     QList<QAbstractSeries*> liste_series = chart->series();
     for (int i=0; i<liste_series.count(); i++) {
         chart->removeSeries(liste_series[i]);
     }
-    if(chartRSI->series().count() == 1) {
+    if(chartRSI->series().count() == 3) {
             chartRSI->removeSeries(RSI_series);
+            chartRSI->removeSeries(RSI_overbought);
+            chartRSI->removeSeries(RSI_oversold);
     }
+}
+
+void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
+    clearCharts();
+    EvolutionCours::iterator cours = evolutionCours->searchCours(firstdate);
+    chart->setTitle(evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
+    chartRSI->setTitle("RSI " + evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
+
     //add new data
     Indicateur::iterator emaIterator, macdIterator, rsiIterator;
     QStringList dates;
@@ -113,6 +132,7 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     int i = 0;
     double yMin = cours->getLow();
     double yMax = cours->getHigh();
+    QMap<QString, QVariant> RSI_parameters = rsi->getParameters();
     for (; cours->getDate() <= lastdate; cours++){
             if (cours->getHigh() > yMax) yMax = cours->getHigh();                           //mesure range of y axis
             if (cours->getLow() < yMin) yMin = cours->getLow();
@@ -145,6 +165,8 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
             else {
                 RSI_series->append(i, rsiIterator->getIndice());
             }
+            RSI_overbought->append(i, 80/* RSI_parameters["overboughtBound"].toDouble()*/);
+            RSI_oversold->append(i, 20 /*RSI_parameters["oversoldBound"].toDouble()*/);
             i++;
 
             dates << cours->getDate().toString("dd/MM");
@@ -160,6 +182,8 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     chart->setAxisX(axisX,series);
     chart->setAxisY(axisY,series);
     chartRSI->addSeries(RSI_series);
+    chartRSI->addSeries(RSI_overbought);
+    chartRSI->addSeries(RSI_oversold);
     chartRSI->setAxisX(RSI_axisX,RSI_series);
     chartRSI->setAxisY(RSI_axisY,RSI_series);
 }

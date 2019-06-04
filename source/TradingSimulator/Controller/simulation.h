@@ -108,7 +108,7 @@ class ModePas_Pas: public ModeManuel {
     Q_OBJECT
     QTimer* timer;
 public:
-    ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000, QObject* parent=nullptr);
+    ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=30000, QObject* parent=nullptr);
     ~ModePas_Pas() {delete timer;}
     void saveSimulation() const;
 signals:
@@ -117,10 +117,13 @@ private slots:
     void iteration();
 public slots:
     void setTimer(unsigned int interval) {timer->setInterval(interval);}
+    void setCours(QDate date);
+    /*
     void pause() {timer->stop();}
     void play() {if (currentCours != evolutionCours->end()) timer->start();}
     void speedUp() {if(timer->interval() > 10000) timer->setInterval(timer->interval() - 10000);}
     void slowDown() {timer->setInterval(timer->interval() + 10000);}
+    */
     void buy_slot(double montant) {achat(evolutionCours->getPaireDevises(), currentCours, montant);}
     void sell_slot(double montant) {vente(evolutionCours->getPaireDevises(), currentCours, montant);}
 };
@@ -136,20 +139,24 @@ class ModeAutomatique : public QObject, public Simulation {
     Strategie* strategie = nullptr;
     QTimer* timer;                  //timer of between cours   
 public:
-    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, Strategie* strategie, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=600000, QObject* parent=nullptr);
+    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, Strategie* strategie, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=30000, QObject* parent=nullptr);
     ~ModeAutomatique() {delete strategie;   delete timer;}
     void saveSimulation() const;
     void saveStrategie() const;
+    QString getStrategieName() const {return strategie->getNom();}
 signals:
+    void dateChanged();
     void endSimulation();
 private slots:
     void iteration();
 public slots:
     void setTimer(unsigned int interval) {timer->setInterval(interval);}
+    /*
     void pause() {timer->stop();}
     void play() {if (currentCours != evolutionCours->end()) timer->start();}
     void speedUp() {if(timer->interval() > 10000) timer->setInterval(timer->interval() - 10000);}
     void slowDown() {timer->setInterval(timer->interval() + 10000);}
+    */
 };
 
 /* * Class SimulationManager: container on Simulations

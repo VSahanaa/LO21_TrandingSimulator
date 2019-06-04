@@ -1,7 +1,7 @@
 #include "transaction.h"
 
 /*----------------------------------- Methodes de classe TransactionManager --------------------------------------*/
-TransactionManager::~TransactionManager() {
+void TransactionManager::clearTransactions() {
     Transaction* currentTransatction;
     //supprimer tous les transaction
     while (listeTransaction) {
@@ -9,6 +9,9 @@ TransactionManager::~TransactionManager() {
         listeTransaction = currentTransatction->getLastTransaction();
         delete currentTransatction;
     }
+}
+TransactionManager::~TransactionManager() {
+    clearTransactions();
 }
 
 void TransactionManager::addTransaction(const PaireDevises *paire, CoursOHLCV *cours, bool achat, double montant) {

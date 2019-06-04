@@ -70,7 +70,7 @@ class EvolutionViewer: public QWidget{
     QCandlestickSeries* series; //un ensemble de bougies
     QLineSeries* EMA_series;
     QLineSeries* MACD_series;
-    QLineSeries* RSI_series;
+    QLineSeries* RSI_series, *RSI_overbought, *RSI_oversold;
     QBarCategoryAxis *axisX;
     QBarCategoryAxis *RSI_axisX;
     QValueAxis* axisY;
@@ -81,6 +81,7 @@ class EvolutionViewer: public QWidget{
     QChartView* chartViewRSI;       //un graphe pour RSI
     QScrollBar* scrollBar;
     QVBoxLayout* layout;
+    void clearCharts();
 public:
     EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget *parent = nullptr);
     void showChart(QDate firstdate, QDate lastdate);

@@ -14,14 +14,12 @@ public:
     explicit modeManuelWidget(ModeManuel* modeManuel, QWidget *parent = nullptr);
     ~modeManuelWidget();
 private slots:
-    void on_lineEdit_montant_textChanged(const QString &arg1);
     void updateData();
     void updateCoursPicked(CoursOHLCV* cours);
 private:
     Ui::modeManuelWidget *ui;
     ModeManuel* modeManuel;
     TransactionManager* transactionManager;
-    double montant = 0;
 };
 
 #endif // MODEMANUELWIDGET_H

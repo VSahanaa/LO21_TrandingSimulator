@@ -47,6 +47,7 @@ class TransactionManager {
     TransactionManager(double pourcentage, double montantBaseInitial, double montantContrepartieInitial, double montantTotalInitial):
         pourcentage(pourcentage), montantBaseInitial(montantBaseInitial), montantContrepartieInitial(montantContrepartieInitial), montantTotalInitial(montantTotalInitial) {}
     ~TransactionManager();
+    void clearTransactions();
 public:
     void addTransaction(const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
     void addTransaction(const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montantBase, double montantContrepartie);

@@ -6,113 +6,125 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>204</width>
-    <height>303</height>
+    <width>212</width>
+    <height>273</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>202</width>
-     <height>301</height>
+     <width>211</width>
+     <height>271</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="VL_menu">
+   <layout class="QVBoxLayout" name="VL_menu_2">
     <item>
-     <widget class="QComboBox" name="comboBox_timer">
+     <layout class="QVBoxLayout" name="VL_menuTransaction_2">
       <item>
-       <property name="text">
-        <string>Pause</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Avancer</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Reculer</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Défiler</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item>
-     <spacer name="VSpacer_TimerMenuTransaction">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>35</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="VL_menuTransaction">
-      <item>
-       <layout class="QHBoxLayout" name="HL_infoMontant">
+       <layout class="QHBoxLayout" name="HL_infoDate">
         <item>
-         <widget class="QLabel" name="label_montantBase">
-          <property name="text">
-           <string>MontantB</string>
-          </property>
-         </widget>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>interet Broker</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Contre partie</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Devise Base</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="label_broker">
+            <property name="text">
+             <string>Broker</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_montantBase">
+            <property name="text">
+             <string>MontantB</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_montantContrepartie">
+            <property name="text">
+             <string>MontantC</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QDateEdit" name="dateEdit"/>
         </item>
         <item>
-         <widget class="QLabel" name="label_montantContrepartie">
+         <widget class="QPushButton" name="goBack">
           <property name="text">
-           <string>MontantC</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_broker">
-          <property name="text">
-           <string>Broker</string>
+           <string>Go back</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="HL_infoOpen">
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLabel" name="label_date">
-          <property name="text">
-           <string>Date</string>
+         <widget class="QComboBox" name="comboBox_timer">
+          <property name="currentText">
+           <string/>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_openPrice">
+         <widget class="QLabel" name="openPrice">
           <property name="text">
-           <string>OpenPrice</string>
+           <string>Open price</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_montant"/>
+       <widget class="QDoubleSpinBox" name="montant_edit"/>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="HL_achatvente">
+       <layout class="QHBoxLayout" name="HL_achatvente_2">
         <item>
          <widget class="QPushButton" name="pushButton_achat">
           <property name="text">
