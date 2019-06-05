@@ -25,7 +25,6 @@ void EvolutionViewer::saveCoursOHLCV(){
 */
 EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget* parent) : QWidget (parent), evolutionCours(evolutionCours), currentCours(currentCours) {
     setMouseTracking(true);
-    //mouseMoveEvent = new QMouseEvent(QEvent::MouseMove, pos(),  Qt::NoButton, Qt::NoButton, Qt::NoModifier);
     ema = static_cast<EMA*>(evolutionCours->getCollection()->getIndicateur("EMA"));
     macd = static_cast<MACD*>(evolutionCours->getCollection()->getIndicateur("MACD"));
     rsi = static_cast<RSI*>(evolutionCours->getCollection()->getIndicateur("RSI"));
@@ -97,6 +96,24 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
     QObject::connect(this, SIGNAL(currentCours_changed()), this, SLOT(currentCoursChanged_react()));
     showChart(evolutionCours->begin()->getDate(), evolutionCours->begin()->getDate().addDays(maxDateShown));
+}
+
+EvolutionViewer::~EvolutionViewer() {
+    clearCharts();
+    delete EMA_series;
+    delete MACD_series;
+    delete RSI_series;
+    delete RSI_overbought;
+    delete RSI_oversold;
+    delete axisX;
+    delete RSI_axisX;
+    delete axisY;
+    delete RSI_axisY;
+    delete chart;
+    delete chartView;
+    delete chartRSI;
+    delete scrollBar;
+    delete layout;
 }
 
 void EvolutionViewer::clearCharts(){
@@ -215,3 +232,94 @@ void EvolutionViewer::resizeEvent(QResizeEvent *event) {
     chartViewRSI->resize(this->width(), this->height()*2/10);
 }
 */
+
+/* -------------------------------------------------- Methodes de VolumeViewer -------------------------------------------------------------------------------*/
+VolumeViewer::VolumeViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget* parent): QWidget(parent), evolutionCours(evolutionCours), currentCours(currentCours) {
+    chart = new QChart();
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->legend()->setVisible(true);
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->createDefaultAxes();
+    chartView = new QChartView(chart, this);
+
+
+    scrollBar = new QScrollBar(Qt::Horizontal, this);
+    scrollBar->setMinimum(0);
+    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));      //sync scroll bar with time range
+    layout = new QVBoxLayout;
+    layout->addWidget(chartView);
+    layout->addWidget(scrollBar);
+    this->setLayout(layout);
+
+    //set up series
+    series =  new QBarSeries();
+
+    axisX = new QBarCategoryAxis;
+    axisY= new QValueAxis;
+    axisY->setMin(0);
+    //binding sigals
+    QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
+    QObject::connect(this, SIGNAL(currentCours_changed()), this, SLOT(currentCoursChanged_react()));
+    showChart(evolutionCours->begin()->getDate(), evolutionCours->begin()->getDate().addDays(maxDateShown));
+}
+
+VolumeViewer::~VolumeViewer() {
+    clearCharts();
+    delete axisX;
+    delete axisY;
+    delete chart;
+    delete chartView;
+    delete scrollBar;
+    delete layout;
+}
+
+
+void VolumeViewer::clearCharts(){
+    //clear old data
+    series->clear();
+    axisX->clear();
+    if(chart->series().count() == 1) {
+        chart->removeSeries(series);
+    }
+}
+
+
+void VolumeViewer::showChart(QDate firstdate, QDate lastdate) {
+    clearCharts();
+    EvolutionCours::iterator cours = evolutionCours->searchCours(firstdate);
+    chart->setTitle(evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
+    unsigned int max = 0;
+    QStringList dates;
+    QBarSet *volumeSet = new QBarSet("Volume");
+    dates << firstdate.toString("dd/MM");
+    for (; cours->getDate() <= lastdate; cours++){
+        if(max < cours->getVolume()) {
+            max = cours->getVolume();
+        }
+        *volumeSet<<cours->getVolume();
+        dates << cours->getDate().toString("dd/MM");
+        if (cours == currentCours) break;       //only show up to current cours
+    }
+    dates << lastdate.toString("dd/MM");
+    series->append(volumeSet);
+    axisX->append(dates);
+    axisY->setMax(max*1.01);
+    chart->addSeries(series);
+    chart->setAxisX(axisX,series);
+    chart->setAxisY(axisY,series);
+}
+
+void VolumeViewer::updateChart(int value) {
+    QDate firstDateShowed = evolutionCours->begin()->getDate().addDays(value);
+    qDebug() << firstDateShowed.toString("yy.MM.dd")<<endl;
+    showChart(firstDateShowed, firstDateShowed.addDays(maxDateShown));
+}
+
+void VolumeViewer::currentCoursChanged_react() {
+    int old_maximum = scrollBar->maximum();
+    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));
+    if(scrollBar->value() == old_maximum) {
+        //if user is navigating  => don't update viewport
+        scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
+    }
+}

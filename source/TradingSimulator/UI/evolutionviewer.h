@@ -47,10 +47,10 @@ class EvolutionViewer: public QWidget{
     QChartView* chartViewRSI;       //un graphe pour RSI
     QScrollBar* scrollBar;
     QVBoxLayout* layout;
-    QMouseEvent *mouseMoveEvent;
     void clearCharts();
 public:
     EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget *parent = nullptr);
+    ~EvolutionViewer();
     void showChart(QDate firstdate, QDate lastdate);
     void setCurrentCours(EvolutionCours::iterator currentCours) {
         this->currentCours = currentCours;
@@ -66,6 +66,36 @@ private slots:
     void currentCoursChanged_react();
 public slots:
     void analyseForm(QString form);
+};
+
+
+class VolumeViewer: public QWidget {
+    Q_OBJECT
+    EvolutionCours* evolutionCours;
+    EvolutionCours::iterator currentCours;
+    qint64 maxDateShown = 30;
+    QBarSeries *series;
+    QChart *chart;
+    QChartView* chartView;
+    QBarCategoryAxis *axisX;
+    QValueAxis *axisY;
+    QScrollBar* scrollBar;
+    QVBoxLayout* layout;
+    void clearCharts();
+public:
+    VolumeViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget *parent = nullptr);
+    ~VolumeViewer();
+    void showChart(QDate firstdate, QDate lastdate);
+    void setCurrentCours(EvolutionCours::iterator currentCours) {
+        this->currentCours = currentCours;
+        emit currentCours_changed();
+    }
+signals:
+    void currentCours_changed();
+private slots:
+    void updateChart(int value);
+    void currentCoursChanged_react();
+
 };
 
 #endif // EVOLUTIONVIEWER_H

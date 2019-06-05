@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 
     QApplication mainApp(argc, argv);
 
-    EvolutionViewer view(&evolution, evolution.end()-1);
-    view.show();
+    VolumeViewer volumeView(&evolution, evolution.end()-1);
+    volumeView.show();
     /*
     Configuration* config = new Configuration();
     config->show();
