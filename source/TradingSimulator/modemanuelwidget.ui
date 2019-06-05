@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>503</width>
+    <width>222</width>
     <height>273</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>271</width>
+     <width>221</width>
      <height>271</height>
     </rect>
    </property>
@@ -137,19 +137,6 @@
      </layout>
     </item>
    </layout>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_montant">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>110</y>
-     <width>267</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>0</string>
-   </property>
   </widget>
  </widget>
  <resources/>

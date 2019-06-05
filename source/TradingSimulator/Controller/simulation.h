@@ -54,7 +54,9 @@ public:
     ~Simulation();
     void achat(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, true, montant);}
     void vente(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, false, montant);}
+    EvolutionCours* getEvolutionCours() const {return evolutionCours;}
     const QString& getNom() const {return nom;}
+    const QString& getType() const {return type;}
     EvolutionCours::iterator getCurrentCours() const {return currentCours;}
     virtual void saveSimulation() const = 0;
     void saveEvolutionCours() const;

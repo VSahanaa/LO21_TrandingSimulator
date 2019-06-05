@@ -6,6 +6,11 @@
 #include <QDate>
 #include "../Core_Devises/trading.h"
 
+namespace Ui {
+    class Bougie;
+    class EvolutionViewer;
+    class VolumeViewer;
+}
 class Bougie : public QCandlestickSet {
     Q_OBJECT
     CoursOHLCV* cours;
@@ -97,5 +102,7 @@ private slots:
     void currentCoursChanged_react();
 
 };
+
+
 
 #endif // EVOLUTIONVIEWER_H
