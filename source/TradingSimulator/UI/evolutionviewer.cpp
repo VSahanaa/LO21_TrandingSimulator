@@ -24,6 +24,8 @@ void EvolutionViewer::saveCoursOHLCV(){
 }
 */
 EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget* parent) : QWidget (parent), evolutionCours(evolutionCours), currentCours(currentCours) {
+    setMouseTracking(true);
+    //mouseMoveEvent = new QMouseEvent(QEvent::MouseMove, pos(),  Qt::NoButton, Qt::NoButton, Qt::NoModifier);
     ema = static_cast<EMA*>(evolutionCours->getCollection()->getIndicateur("EMA"));
     macd = static_cast<MACD*>(evolutionCours->getCollection()->getIndicateur("MACD"));
     rsi = static_cast<RSI*>(evolutionCours->getCollection()->getIndicateur("RSI"));
@@ -94,7 +96,6 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     //binding sigals
     QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
     QObject::connect(this, SIGNAL(currentCours_changed()), this, SLOT(currentCoursChanged_react()));
-
     showChart(evolutionCours->begin()->getDate(), evolutionCours->begin()->getDate().addDays(maxDateShown));
 }
 
@@ -138,6 +139,7 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
             if (cours->getLow() < yMin) yMin = cours->getLow();
             Bougie* bougie = new Bougie(cours->getOpen(), cours->getHigh(), cours->getLow(), cours->getClose(), cours);
             //QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
+            QObject::connect(bougie, SIGNAL(hoverBougie(QString)), this, SLOT(analyseForm(QString)));
             series->append(bougie);
             //Indicateur series
             if(EMA_series->isVisible()) {
@@ -175,7 +177,7 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     dates << lastdate.toString("dd/MM");
     axisX->append(dates);
     RSI_axisX->append(dates);
-    axisY->setRange(yMin*0.9, yMax*1.1);
+    axisY->setRange(yMin*0.98, yMax*1.02);
     chart->addSeries(series);
     if(EMA_series->isVisible()) chart->addSeries(EMA_series);
     if(MACD_series->isVisible()) chart->addSeries(MACD_series);
@@ -201,6 +203,10 @@ void EvolutionViewer::currentCoursChanged_react() {
         //if user is navigating  => don't update viewport
         scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
     }
+}
+
+void EvolutionViewer::analyseForm(QString form) {
+     QToolTip::showText(mapFromGlobal(QCursor::pos()), form, nullptr, QRect(), 50000);
 }
 /*
 void EvolutionViewer::resizeEvent(QResizeEvent *event) {

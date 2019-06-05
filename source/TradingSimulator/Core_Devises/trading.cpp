@@ -99,21 +99,6 @@ void CoursOHLCV::setCours(double open, double high, double low, double close) {
         this->close = close;
 }
 
-bool CoursOHLCV::isBigBlackCandle() const {
-    /*
-    Big Black Candle Has an unusually long black body with a wide range between high and low. Prices open near the high and close near the low.
-    */
-    if ((open - close) >= 0.8*(high - low)) return true;
-        return false;
-}
-
-bool CoursOHLCV::isBigWhiteCandle() const {
-    /*
-     * Big White Candle Has an unusually long white body with a wide range between high and low of the day. Prices open near the low and close near the high.
-    */
-    if ((close - open) >= 0.8*(high - low)) return true;
-        return false;
-}
 
 bool CoursOHLCV::isSpinningTop() const {
     if(abs(open - close) <= 0.75*abs(high - low)) return true;
@@ -199,12 +184,21 @@ bool CoursOHLCV::isLongUpperShadow() const {
      * Normally considered a bearish signal when it appears around price resistance levels.
      */
     if(open > close) {
-        if(high - open > (2/3)*(high - low)) return true;
+        if(high - open > (high - low)*(2/3)) {
+            return true;
+        }
+        else {
             return false;
+        }
     }
     else {
-        if(high - close > (2/3)*(high - low)) return true;
+        if(high - close > (high - low)*(2/3)) {
+            return true;
+        }
+        else {
             return false;
+        }
+
     }
 }
 
@@ -249,42 +243,46 @@ bool CoursOHLCV::isShavenHead() const {
 }
 
 QString CoursOHLCV::forme() const {
-    QString formeCoursOHLCV = "";
-    if (isBigBlackCandle())  formeCoursOHLCV += "Big Black Candle \n";
-    if (isBigWhiteCandle())  formeCoursOHLCV += "Big White Candle \n";
-    if (isSpinningTop()) formeCoursOHLCV += "Spinning Top \n";
-    if (isDoji()) {
-        if (isDragonflyDoji()) {
-            formeCoursOHLCV += "Dragonfly Doji \n";
+    if (isSpinningTop()) {
+        if (isDoji()) {
+            if (isDragonflyDoji()) {
+                return "Dragonfly Doji";
+            }
+            else if (isGraveStoneDoji()){
+                return "Grave Stone Doji";
+            }
+            else {
+                return "Doji";
+            }
         }
-        else if (isGraveStoneDoji()){
-            formeCoursOHLCV += "Grave Stone Doji \n";
+        else if (isShootingStar()) {
+            return "Shooting Star";
         }
         else {
-            formeCoursOHLCV += "Doji \n";
+            return "Spinning Top \n";
         }
     }
-    if (isHanngingMan()) formeCoursOHLCV += "Hannging Man \n";
+    if (isHanngingMan()) return "Hannging Man";
+    if (isLongLowerShadow()) return "Long Lower Shadow";
+    if (isLongUpperShadow()) return "Long Upper Shadow";
     if (isHammer()) {
         if (isInvertedHammer()) {
             if (isInvertedBlackHammer()) {
-                formeCoursOHLCV += "Inverted Black Hammer \n";
+                return "Inverted Black Hammer";
             }
             else {
-                formeCoursOHLCV += "Inverted Hammer \n";
+                return "Inverted Hammer";
             }
         }
         else {
-            formeCoursOHLCV += "Hammer \n";
+            return "Hammer";
         }
      }
-    if (isLongLowerShadow()) formeCoursOHLCV += "Long Lower Shadow \n";
-    if (isLongUpperShadow()) formeCoursOHLCV += "Long Upper Shadow \n";
-    if (isMarubozu()) formeCoursOHLCV += "Marubozu \n";
-    if (isShootingStar()) formeCoursOHLCV += "Shooting Star \n";
-    if (isShavenBottom()) formeCoursOHLCV += "Shaven Bottom \n";
-    if (isShavenHead()) formeCoursOHLCV += "Shaven Head \n";
-    return formeCoursOHLCV;
+
+    if (isMarubozu()) return "Marubozu";
+    if (isShavenBottom()) return "Shaven Bottom";
+    if (isShavenHead()) return "Shaven Head";
+    return "";
 }
 
 /*---------------------------------------------- Methodes de classe EvolutionCours --------------------------------------------*/

@@ -11,53 +11,19 @@ class Bougie : public QCandlestickSet {
     CoursOHLCV* cours;
 public:
     Bougie(qreal open, qreal high, qreal low, qreal close, CoursOHLCV* cours, qreal timestamp = 0.0, QObject *parent = nullptr): QCandlestickSet(open, high, low, close, timestamp, parent), cours(cours){
-        //connect(this,SIGNAL(clicked()),this, SLOT( viewCoursOHLCV()));
+        connect(this, SIGNAL(pressed()), this, SLOT(viewForm()));
+        connect(this,SIGNAL(clicked()),this, SLOT(pickCours()));
     }
-    CoursOHLCV& getCoursOHLCV() { return *cours; }
-    const CoursOHLCV& getCoursOHLCV() const { return *cours; }
+    const CoursOHLCV& getCoursOHLCV() const { return *cours;}
+
 signals:
-    void clickBougie(Bougie* cours);
+    void clickBougie(CoursOHLCV* cours);
+    void hoverBougie(QString form);
 private slots:
-    void viewCoursOHLCV(){ emit clickBougie(this); }
+    void pickCours(){ emit clickBougie(cours); }
+    void viewForm() { emit hoverBougie(cours->forme());}
 };
 
-/*
-
-class EvolutionViewer: public QWidget{
-    Q_OBJECT
-    unsigned int maxDateShown = 60;
-    EvolutionCours* evolutionCours;
-    EvolutionCours::iterator endData;
-    qint64 nbData;
-    //Bougie* last_bougie_clicked = nullptr;
-    //QCandlestickSeries* series; //un ensemble de bougies
-    QChart* chart;  //un graphique sur un ensemble de bougies
-    QChartView* chartView;  //un viewer graphique
-    QScrollBar* scrollBar;
-
-    //barre d'edition
-    QLineEdit* open;
-    QLineEdit* high;
-    QLineEdit* low;
-    QLineEdit* close;
-    QPushButton* saveButton;
-    QFormLayout* formLayout;
-
-    QVBoxLayout *layout;
-    QDate getoldesDateVisible() const;
-
-
-public:
-    explicit EvolutionViewer(EvolutionCours* evolutionCours, QWidget *parent = nullptr);
-    //void setname(QString name) {series->setName(name);}
-signals:
-private slots:
-    void updateChart(int position);
-    //void showCoursOHLCV(Bougie *bougie);
-    //void saveCoursOHLCV();
-public slots:
-};
-    */
 
 class EvolutionViewer: public QWidget{
     Q_OBJECT
@@ -81,6 +47,7 @@ class EvolutionViewer: public QWidget{
     QChartView* chartViewRSI;       //un graphe pour RSI
     QScrollBar* scrollBar;
     QVBoxLayout* layout;
+    QMouseEvent *mouseMoveEvent;
     void clearCharts();
 public:
     EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget *parent = nullptr);
@@ -97,6 +64,8 @@ signals:
 private slots:
     void updateChart(int value);
     void currentCoursChanged_react();
+public slots:
+    void analyseForm(QString form);
 };
 
 #endif // EVOLUTIONVIEWER_H

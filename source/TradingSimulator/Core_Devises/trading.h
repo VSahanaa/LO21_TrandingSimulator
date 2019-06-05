@@ -111,8 +111,6 @@ public:
     QDate getDate() const { return date; }
     void setDate(const QDate& d) { date=d;}
     QString forme() const;
-    bool isBigBlackCandle() const;
-    bool isBigWhiteCandle() const;
     bool isSpinningTop() const;          //a.k.a toupie
     bool isDoji() const;
     bool isDragonflyDoji() const;
