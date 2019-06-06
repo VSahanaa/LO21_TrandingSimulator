@@ -17,12 +17,15 @@ class MainInterface : public QWidget {
 public:
     explicit MainInterface(Simulation* simulation, QWidget *parent = nullptr);
     ~MainInterface();
+private slots:
+    void on_pushButton_sauvegarder_clicked();
+
 private:
     Ui::MainInterface *ui;
     Simulation* simulation;
     QWidget* controlPanel;
-    QWidget* evolutionViewer;
-    QWidget* volumeViewer;
+    EvolutionViewer* evolutionViewer;
+    VolumeViewer* volumeViewer;
     //QWidget* textEditor;
     //QWidget* listeNote;
     //QWidget* transactionViewer;

@@ -1,28 +1,5 @@
 #include "evolutionviewer.h"
 
-/*
-void EvolutionViewer::showCoursOHLCV(Bougie* bougie){
-    QString buffer;
-    buffer.setNum(bougie->getCoursOHLCV().getOpen());
-    open->setText(buffer);
-    buffer.setNum(bougie->getCoursOHLCV().getHigh());
-    high->setText(buffer);
-    buffer.setNum(bougie->getCoursOHLCV().getLow());
-    low->setText(buffer);
-    buffer.setNum(bougie->getCoursOHLCV().getClose());
-    close->setText(buffer);
-    last_bougie_clicked = bougie;
-}
-
-void EvolutionViewer::saveCoursOHLCV(){
-    double o = open->text().toDouble(), h = high->text().toDouble(), l = low->text().toDouble(), c = close->text().toDouble();
-    last_bougie_clicked->getCoursOHLCV().setCours(o,h,l,c);
-    last_bougie_clicked->setOpen(o);
-    last_bougie_clicked->setHigh(h);
-    last_bougie_clicked->setLow(l);
-    last_bougie_clicked->setClose(c);
-}
-*/
 EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget* parent) : QWidget (parent), evolutionCours(evolutionCours), currentCours(currentCours) {
     setMouseTracking(true);
     ema = static_cast<EMA*>(evolutionCours->getCollection()->getIndicateur("EMA"));
@@ -38,7 +15,6 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
 
     //setup RSI viewer
     chartRSI = new QChart();
-    chartRSI->setAnimationOptions(QChart::SeriesAnimations);
     chartRSI->legend()->setVisible(true);
     chartRSI->legend()->setAlignment(Qt::AlignBottom);
     chartRSI->createDefaultAxes();
@@ -47,6 +23,7 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     scrollBar = new QScrollBar(Qt::Horizontal, this);
     scrollBar->setMinimum(0);
     scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));      //sync scroll bar with time range
+    scrollBar->setValue(scrollBar->maximum());
     layout = new QVBoxLayout;
     layout->addWidget(chartView);
     layout->addWidget(scrollBar);
@@ -62,14 +39,14 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     EMA_series = new QLineSeries();
     EMA_series->setName("EMA");
     EMA_series->setColor(Qt::blue);
-    EMA_series->setVisible(false);              //not shown by default
-    //ema->generateIndice();
+    EMA_series->setVisible(true);              //not shown by default
+    ema->generateIndice();
 
     MACD_series =  new QLineSeries();
     MACD_series->setName("MACD");
     MACD_series->setColor(Qt::black);
-    MACD_series->setVisible(false);              //not shown by default
-    //macd->generateIndice();
+    MACD_series->setVisible(true);              //not shown by default
+    macd->generateIndice();
 
     RSI_series=  new QLineSeries();
     RSI_series->setName("RSI");
@@ -155,7 +132,7 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
             if (cours->getHigh() > yMax) yMax = cours->getHigh();                           //mesure range of y axis
             if (cours->getLow() < yMin) yMin = cours->getLow();
             Bougie* bougie = new Bougie(cours->getOpen(), cours->getHigh(), cours->getLow(), cours->getClose(), cours);
-            //QObject::connect(bougie, SIGNAL(clickBougie(Bougie*)), this, SLOT(showCoursOHLCV(Bougie*)));
+            QObject::connect(bougie, SIGNAL(clickBougie(CoursOHLCV*)), this, SLOT(pickCours(CoursOHLCV*)));
             QObject::connect(bougie, SIGNAL(hoverBougie(QString)), this, SLOT(analyseForm(QString)));
             series->append(bougie);
             //Indicateur series
@@ -225,6 +202,7 @@ void EvolutionViewer::currentCoursChanged_react() {
 void EvolutionViewer::analyseForm(QString form) {
      QToolTip::showText(mapFromGlobal(QCursor::pos()), form, nullptr, QRect(), 50000);
 }
+
 /*
 void EvolutionViewer::resizeEvent(QResizeEvent *event) {
     chartView->resize(this->width(), this->height()*7/10);
@@ -236,7 +214,7 @@ void EvolutionViewer::resizeEvent(QResizeEvent *event) {
 /* -------------------------------------------------- Methodes de VolumeViewer -------------------------------------------------------------------------------*/
 VolumeViewer::VolumeViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget* parent): QWidget(parent), evolutionCours(evolutionCours), currentCours(currentCours) {
     chart = new QChart();
-    chart->setAnimationOptions(QChart::SeriesAnimations);
+    //chart->setAnimationOptions(QChart::SeriesAnimations);
     chart->legend()->setVisible(true);
     chart->legend()->setAlignment(Qt::AlignBottom);
     chart->createDefaultAxes();
@@ -246,6 +224,7 @@ VolumeViewer::VolumeViewer(EvolutionCours* evolutionCours, EvolutionCours::itera
     scrollBar = new QScrollBar(Qt::Horizontal, this);
     scrollBar->setMinimum(0);
     scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));      //sync scroll bar with time range
+    scrollBar->setValue(scrollBar->maximum());
     layout = new QVBoxLayout;
     layout->addWidget(chartView);
     layout->addWidget(scrollBar);

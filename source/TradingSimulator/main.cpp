@@ -19,12 +19,13 @@ int main(int argc, char *argv[])
     //macd->generateIndice();
 
     QApplication mainApp(argc, argv);
+    //MainWindow mainwindow;
+   //mainwindow.show();
+    EvolutionViewer evolutionViewer(&evolution, evolution.end()-1);
+    evolutionViewer.show();
 
-    VolumeViewer volumeView(&evolution, evolution.end()-1);
-    volumeView.show();
-    /*
-    Configuration* config = new Configuration();
-    config->show();
-    */
+    //Configuration* config = new Configuration();
+   //config->show();
+
     return mainApp.exec();
 }

@@ -15,4 +15,7 @@
         <file>icons/welcome.png</file>
         <file>fichier_OHLCV/test.csv</file>
     </qresource>
+    <qresource prefix="/">
+        <file>icons/+.jpeg</file>
+    </qresource>
 </RCC>

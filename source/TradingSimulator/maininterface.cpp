@@ -8,6 +8,7 @@ MainInterface::MainInterface(Simulation* simulation, QWidget *parent) : QWidget(
         controlPanel = new modeManuelWidget(static_cast<ModeManuel*>(simulation), this);
         evolutionViewer = new EvolutionViewer(simulation->getEvolutionCours(), simulation->getEvolutionCours()->end()-1, this);
         volumeViewer = new VolumeViewer(simulation->getEvolutionCours(), simulation->getEvolutionCours()->end()-1, this);
+        QObject::connect(evolutionViewer, SIGNAL(coursPicked(COURSOHLCV*)), static_cast<ModeManuel*>(simulation), SLOT(setCoursPicked(CoursOHLCV*)));
     }
     else if (simulation->getType() == "Pas_Pas") {
         //Specific element for mode Pas à pas
@@ -25,11 +26,17 @@ MainInterface::MainInterface(Simulation* simulation, QWidget *parent) : QWidget(
         throw TradingException("type simulation invalid");
     }
     ui->controlPanel->addWidget(controlPanel);
-    ui->Chanderlier->
-
+    ui->chanderlierLayout->addWidget(evolutionViewer);
+    ui->volumeLayout->addWidget(volumeViewer);
 
 }
 
 MainInterface::~MainInterface() {
     delete ui;
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    simulationManager->removeSimulation(simulation);
+}
+
+void MainInterface::on_pushButton_sauvegarder_clicked() {
+    simulation->saveSimulation();
 }

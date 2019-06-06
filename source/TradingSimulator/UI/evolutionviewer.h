@@ -66,9 +66,11 @@ public:
     //void resizeEvent(QResizeEvent *event);
 signals:
     void currentCours_changed();
+    void coursPicked(CoursOHLCV* cours);
 private slots:
     void updateChart(int value);
     void currentCoursChanged_react();
+    void pickCours(CoursOHLCV* cours) {emit coursPicked(cours);}
 public slots:
     void analyseForm(QString form);
 };

@@ -184,6 +184,12 @@ public:
         instance = nullptr;
     }
     void addSimulation(Simulation* simulation) { listeSimulation.append(simulation);}
+    void removeSimulation(Simulation* simulation) {
+        for (int i=0; i<listeSimulation.count(); i++) {
+            if (listeSimulation[i] == simulation) listeSimulation.removeAt(i);
+            delete simulation;
+        }
+    }
     EvolutionCours* chargeEvolutionCours(QString nomSimulation);
     Simulation* chargeSimulation(QString nom);          //TO IMPLEMENT !!!
     QStringList listSavedSimulation() const;
