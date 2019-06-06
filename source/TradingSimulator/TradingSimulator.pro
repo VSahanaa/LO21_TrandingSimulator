@@ -40,6 +40,8 @@ SOURCES += \
         modeautowidget.cpp \
         modemanuelwidget.cpp \
         modepaspaswidget.cpp
+        transaction.cpp \
+        transactiontab.cpp \
 
 HEADERS += \
         Core_Devises/trading.h \
@@ -55,6 +57,8 @@ HEADERS += \
         modeautowidget.h \
         modemanuelwidget.h \
         modepaspaswidget.h
+        transaction.h \
+        transactiontab.h \
 
 FORMS += \
         UI/welcome.ui \
