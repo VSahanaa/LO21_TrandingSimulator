@@ -2,7 +2,6 @@
 #define TRANSACTION_H
 #include <QDate>
 #include "../Core_Devises/trading.h"
-
 /* * Class Transaction: hold information of each transaction
  * the constructor and destructor is private, therefore an only be created and deleted by TransactionManager
  * Each transaction contains the CoursOHLCV where the trading occur, PaireDevises and the montantBase, montantContrepartie of user after the transaction
@@ -14,15 +13,22 @@ class Transaction {
     const PaireDevises* paire;
     CoursOHLCV* cours;
     bool achat;
+    double montantBaseInitial, montantContrepartieInitial;
     double montantBase;         //montant actuel de devise de base que l'utilisateur possède
     double montantContrepartie; //montant actuel de devise de contre partie que l'utilisateur possède
 
-    Transaction(Transaction* transactionDernier, const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montantBase, double montantContrepartie):
-        transactionDernier(transactionDernier), paire(paire), cours(cours), achat(achat), montantBase(montantBase), montantContrepartie(montantContrepartie) {}
+    Transaction(Transaction* transactionDernier, const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montantBase, double montantContrepartie, double montantBaseInitial, double montantContrepartieInitial):
+        transactionDernier(transactionDernier), paire(paire), cours(cours), achat(achat), montantBase(montantBase), montantContrepartie(montantContrepartie), montantBaseInitial(montantBaseInitial), montantContrepartieInitial(montantContrepartieInitial) {}
 public:
-    double differenceBase() const {return this->montantBase - transactionDernier->montantBase;}
-    double differenceContrepartie() const {return this->montantContrepartie - transactionDernier->montantContrepartie;}
-    double montantTotal() const {return montantBase/cours->getClose() + montantContrepartie;}
+    double differenceBase() const {
+        if(!transactionDernier) return this->montantBase - montantBaseInitial;
+        return this->montantBase - transactionDernier->montantBase;
+    }
+    double differenceContrepartie() const {
+        if(!transactionDernier) return this->montantContrepartie - montantContrepartieInitial;
+        return this->montantContrepartie - transactionDernier->montantContrepartie;
+    }
+    double montantTotal() const {return montantBase*cours->getClose() + montantContrepartie;}
     double getMontantBase() const {return montantBase;}
     double getMontantContrepartie() const {return montantContrepartie;}
     CoursOHLCV* getCours() const {return cours;}

@@ -47,7 +47,7 @@ protected:
 public:
     Simulation(QString type, QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial) :
         type(type), evolutionCours(evolutionCours), currentCours(coursDebut),
-        transactionManager(TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantContrepartieInitial + montantContrepartieInitial/coursDebut->getClose())) {
+        transactionManager(TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantContrepartieInitial + montantBaseInitial*coursDebut->getClose())) {
         if (!verifierNomSimulation(nom)) throw TradingException("Simulation: ce nom est déjà pris");
             this->nom = nom;
     }

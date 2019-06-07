@@ -28,20 +28,20 @@ void TransactionManager::addTransaction(const PaireDevises *paire, CoursOHLCV *c
     }
 
     if (achat) {
-        montantBase = currentMontantBase + montant*cours->getOpen()*(1-pourcentage);
+        montantBase = currentMontantBase + (1-pourcentage)/montant*cours->getOpen();
         montantContrepartie = currentMontantContrepartie - montant;
         if (montantContrepartie < 0) throw TradingException("montant de devise contre partie n'est pas assez");
     }
     else {
         montantBase = currentMontantBase - montant;
-        montantContrepartie = currentMontantContrepartie + montant/cours->getClose()*(1-pourcentage);
+        montantContrepartie = currentMontantContrepartie + (1-pourcentage)*montant*cours->getOpen();
         if (montantBase < 0) throw TradingException("montant de devise de base n'est pas assez");
     }
-    listeTransaction = new Transaction(listeTransaction, paire, cours, achat, montantBase, montantContrepartie);    //effectuer la transaction
+    listeTransaction = new Transaction(listeTransaction, paire, cours, achat, montantBase, montantContrepartie, montantBaseInitial, montantContrepartieInitial);    //effectuer la transaction
 }
 
 void TransactionManager::addTransaction(const PaireDevises *paire, CoursOHLCV *cours, bool achat, double montantBase, double montantContrepartie) {
-    listeTransaction = new Transaction(listeTransaction, paire, cours, achat, montantBase, montantContrepartie);
+    listeTransaction = new Transaction(listeTransaction, paire, cours, achat, montantBase, montantContrepartie, montantBaseInitial, montantContrepartieInitial);
 }
 
 void TransactionManager::deleteLastTransaction() {
