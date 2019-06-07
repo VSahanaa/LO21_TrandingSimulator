@@ -48,6 +48,7 @@ void TransactionManager::deleteLastTransaction() {
     if (listeTransaction == nullptr) return;
     Transaction* transactionCurrent = listeTransaction;
     listeTransaction = transactionCurrent->getLastTransaction();
+    qDebug() << "delete transaction";
     delete transactionCurrent;
 }
 

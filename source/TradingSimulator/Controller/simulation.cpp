@@ -230,11 +230,12 @@ ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionC
 
 void ModePas_Pas::goBack(QDate date) {
     if (date > currentCours->getDate()) throw TradingException("ne peut pas aller à la future");
-    currentCours = evolutionCours->searchCours(date);
     //delete transactions
-    while (transactionManager.head()->getCours()->getDate() > currentCours->getDate()) {
+    while (transactionManager.head() != nullptr &&  transactionManager.head()->getCours()->getDate() > date) {
+        qDebug()<<"1";
         transactionManager.deleteLastTransaction();
-    }
+    };
+    currentCours = evolutionCours->searchCours(date);
     emit coursChanged();
 }
 
