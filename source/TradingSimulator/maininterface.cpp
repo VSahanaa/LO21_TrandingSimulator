@@ -35,6 +35,8 @@ void MainInterface::showSimulation() {
         controlPanel = new ModeAutowidget(static_cast<ModeAutomatique*>(simulation), this);
         evolutionViewer = new EvolutionViewer(simulation->getEvolutionCours(), simulation->getCurrentCours(), this);
         volumeViewer = new VolumeViewer(simulation->getEvolutionCours(), simulation->getCurrentCours(), this);
+        QObject::connect(static_cast<ModeAutomatique*>(simulation), SIGNAL(endSimulation()), this, SLOT(endSimulationMessage()));
+        QObject::connect(static_cast<ModeAutomatique*>(simulation), SIGNAL(coursChanged()), this, SLOT(updateGraph()));
     }
     else {
         throw TradingException("type simulation invalid");

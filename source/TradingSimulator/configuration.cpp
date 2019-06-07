@@ -36,7 +36,7 @@ void Configuration::on_browseButton_clicked() {
 
 void Configuration::setEvolutionCours() {
     DevisesManager& deviseManager = DevisesManager::getManager();
-    const PaireDevises& paire = deviseManager.getPaireDevises(ui->listeContrepartie->currentText(),ui->listeBase->currentText());
+    const PaireDevises& paire = deviseManager.getPaireDevises(ui->listeBase->currentText(), ui->listeContrepartie->currentText());
     QString fPath = ui->browseFile->text();
     evolutionCours =  new EvolutionCours(paire, fPath);
 }

@@ -45,11 +45,11 @@ Devise* DevisesManager::getDevise(const QString& code)const {
     throw TradingException("devise inexistante");
 }
 
-PaireDevises& DevisesManager::getPaireDevises(const QString & code1, const QString & code2) const {
-    const Devise* devise1 = getDevise(code1);
-    const Devise* devise2 = getDevise(code2);
+PaireDevises& DevisesManager::getPaireDevises(const QString & baseCode, const QString & contrepartieCode) const {
+    const Devise* base = getDevise(baseCode);
+    const Devise* contrepartie = getDevise(contrepartieCode);
     for (unsigned int i = 0; i < nbPaires; i++)
-        if (paires[i]->getBase().getCode() == code1 && paires[i]->getContrepartie().getCode() == code2)
+        if (paires[i]->getBase().getCode() == baseCode && paires[i]->getContrepartie().getCode() == contrepartieCode)
             return *paires[i];
     // si la paire de devises n'est pas trouvée, il faut la créer
     if (nbPaires == nbMaxPaires) { // agrandissement du tableau
@@ -60,7 +60,7 @@ PaireDevises& DevisesManager::getPaireDevises(const QString & code1, const QStri
         paires = newTable;
         delete[] old;
     }
-    paires[nbPaires] = new PaireDevises(*devise1, *devise2);
+    paires[nbPaires] = new PaireDevises(*base, *contrepartie);
     return *paires[nbPaires++];
 }
 

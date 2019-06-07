@@ -166,6 +166,7 @@ ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, Ev
 
 void ModeAutomatique::iteration() {
     double decision = (*strategie)(&transactionManager, currentCours);
+    qDebug() << "decision" + QString::number(decision);
     if (decision > 0) {
         achat(currentCours, decision);
     }
@@ -173,12 +174,12 @@ void ModeAutomatique::iteration() {
         vente(currentCours, -decision);
     }
     currentCours++;        //move to next day
-    dateChanged();
+
     if(currentCours == evolutionCours->end()) {
         timer->stop();
         emit endSimulation();
     }
-
+    emit coursChanged();
 }
 
 void ModeAutomatique::saveStrategie() const {

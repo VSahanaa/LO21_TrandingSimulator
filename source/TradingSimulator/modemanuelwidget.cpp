@@ -5,7 +5,8 @@ modeManuelWidget::modeManuelWidget(ModeManuel* modeManuel, QWidget *parent) : QW
     ui->setupUi(this);
     transactionManager = modeManuel->getTransactionManager();
     ui->pairelabel->setText(modeManuel->getEvolutionCours()->getPaireDevises()->toString());
-
+    ui->base->setText(modeManuel->getEvolutionCours()->getPaireDevises()->getBase().getCode());
+    ui->contrepartie->setText(modeManuel->getEvolutionCours()->getPaireDevises()->getContrepartie().getCode());
     ui->label_montantBase->setText(QString::number(transactionManager->getMontantBase()));
     ui->label_montantContrepartie->setText(QString::number(transactionManager->getMontantContrepartie()));
     ui->label_broker->setText(QString::number(transactionManager->getPourcentage()));

@@ -4,6 +4,9 @@
 ModeAutowidget::ModeAutowidget(ModeAutomatique* modeAutomatique, QWidget *parent) : QWidget(parent), ui(new Ui::ModeAutowidget), modeAutomatique(modeAutomatique) {
     ui->setupUi(this);
     transactionManager = modeAutomatique->getTransactionManager();
+    ui->pairelabel->setText(modeAutomatique->getEvolutionCours()->getPaireDevises()->toString());
+    ui->base->setText(modeAutomatique->getEvolutionCours()->getPaireDevises()->getBase().getCode());
+    ui->contrepartie->setText(modeAutomatique->getEvolutionCours()->getPaireDevises()->getContrepartie().getCode());
 
     ui->label_montantBase->setText(QString::number(transactionManager->getMontantBase()));
     ui->label_montantContrepartie->setText(QString::number(transactionManager->getMontantContrepartie()));
@@ -24,7 +27,7 @@ ModeAutowidget::ModeAutowidget(ModeAutomatique* modeAutomatique, QWidget *parent
     ui->comboBox_timer->addItem("12 heures", 43200000);
     ui->comboBox_timer->addItem("1 jour", 86400000);
     ui->comboBox_timer->setCurrentIndex(0);
-    QObject::connect(modeAutomatique, SIGNAL(dateChanged()), this, SLOT(updateData()));
+    QObject::connect(modeAutomatique, SIGNAL(coursChanged()), this, SLOT(updateData()));
 }
 
 ModeAutowidget::~ModeAutowidget() {
@@ -42,7 +45,6 @@ void ModeAutowidget::updateData() {
 }
 
 
-void ModeAutowidget::on_comboBox_timer_currentIndexChanged(int index)
-{
+void ModeAutowidget::on_comboBox_timer_currentIndexChanged(int index){
     modeAutomatique->setTimer(ui->comboBox_timer->currentData().toInt());
 }

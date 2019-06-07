@@ -108,7 +108,6 @@ signals:
 private slots:
     void iteration();
 public slots:
-
     void goBack(QDate date);
     /*
     void pause() {timer->stop();}
@@ -134,13 +133,12 @@ public:
     void saveSimulation() const;
     void saveStrategie() const;
     QString getStrategieName() const {return strategie->getNom();}
+    void setTimer(unsigned int interval) {timer->setInterval(interval);}
 signals:
-    void dateChanged();
+    void coursChanged();
     void endSimulation();
 private slots:
     void iteration();
-public slots:
-    void setTimer(unsigned int interval) {timer->setInterval(interval);}
     /*
     void pause() {timer->stop();}
     void play() {if (currentCours != evolutionCours->end()) timer->start();}

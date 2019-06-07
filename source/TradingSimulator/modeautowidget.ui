@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>276</width>
+    <width>649</width>
     <height>357</height>
    </rect>
   </property>
@@ -29,12 +29,25 @@
     <item>
      <layout class="QVBoxLayout" name="VL_menuTransaction_2">
       <item>
+       <widget class="QLabel" name="pairelabel">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Paire devises</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <layout class="QHBoxLayout" name="HL_infoDate"/>
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="base">
           <property name="text">
            <string>Devise Base</string>
           </property>
@@ -48,7 +61,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="contrepartie">
           <property name="text">
            <string>Contre partie</string>
           </property>
@@ -71,7 +84,7 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>interet Broker</string>
+           <string>Interet Broker</string>
           </property>
          </widget>
         </item>

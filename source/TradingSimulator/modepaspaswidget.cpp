@@ -4,8 +4,9 @@
 ModePasPaswidget::ModePasPaswidget(ModePas_Pas* modePas_Pas, QWidget *parent) : QWidget(parent), ui(new Ui::ModePasPaswidget), modePas_Pas(modePas_Pas) {
     ui->setupUi(this);
     transactionManager = modePas_Pas->getTransactionManager();
-    qDebug() << "get here 1";
     ui->paireLabel->setText(modePas_Pas->getEvolutionCours()->getPaireDevises()->toString());
+    ui->base->setText(modePas_Pas->getEvolutionCours()->getPaireDevises()->getBase().getCode());
+    ui->contrepartie->setText(modePas_Pas->getEvolutionCours()->getPaireDevises()->getContrepartie().getCode());
     ui->label_montantBase->setText(QString::number(transactionManager->getMontantBase()));
     ui->label_montantContrepartie->setText(QString::number(transactionManager->getMontantContrepartie()));
     ui->label_broker->setText(QString::number(transactionManager->getPourcentage()));
@@ -31,7 +32,6 @@ ModePasPaswidget::ModePasPaswidget(ModePas_Pas* modePas_Pas, QWidget *parent) : 
     ui->montant_edit->setMaximum(transactionManager->getMontantContrepartie());
     //connect signals
     QObject::connect(modePas_Pas, SIGNAL(coursChanged()), this, SLOT(updateCurrentCours()));
-    qDebug() << "get here 2";
 }
 
 ModePasPaswidget::~ModePasPaswidget()

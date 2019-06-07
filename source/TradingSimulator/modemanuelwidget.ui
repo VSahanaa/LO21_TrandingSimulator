@@ -54,7 +54,7 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="label">
+         <widget class="QLabel" name="base">
           <property name="text">
            <string>Devise Base</string>
           </property>
@@ -68,7 +68,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_2">
+         <widget class="QLabel" name="contrepartie">
           <property name="text">
            <string>Contre partie</string>
           </property>
@@ -84,7 +84,7 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>interet Broker</string>
+           <string>Interet Broker</string>
           </property>
          </widget>
         </item>

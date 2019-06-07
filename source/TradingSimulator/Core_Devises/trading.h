@@ -209,11 +209,11 @@ public:
 	Devise* getDevise(const QString& code)const;
 	//! méthode getPaireDevises
 	/** 
-	* \param code1 :const QString&
-	* \param code2 :const Qstring&
+    * \param baseCode :const QString&
+    * \param contrepartieCode :const Qstring&
 	* \return PaireDevises& : la valeur de l'adresse de la paire recherchée s'il existe. Sinon elle est créée
 	*/
-    PaireDevises& getPaireDevises(const QString & code1, const QString & code2) const;
+    PaireDevises& getPaireDevises(const QString & baseCode, const QString & contrepartieCode) const;
 };
 
 
