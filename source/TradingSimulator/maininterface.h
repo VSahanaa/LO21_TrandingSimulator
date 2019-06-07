@@ -3,6 +3,7 @@
 
 #include "Controller/simulation.h"
 #include "UI/evolutionviewer.h"
+#include "configuration.h"
 #include "modemanuelwidget.h"
 #include "modepaspaswidget.h"
 #include "modeautowidget.h"
@@ -15,14 +16,18 @@ namespace Ui {
 class MainInterface : public QWidget {
     Q_OBJECT
 public:
-    explicit MainInterface(Simulation* simulation, QWidget *parent = nullptr);
+    explicit MainInterface(QWidget *parent = nullptr);
     ~MainInterface();
 private slots:
+    void showSimulation();
     void on_pushButton_sauvegarder_clicked();
-
+    void on_newSimulation_button_clicked();
+    void endSimulationMessage();
+    void updateGraph();
 private:
     Ui::MainInterface *ui;
-    Simulation* simulation;
+    Simulation* simulation = nullptr;
+    Configuration* configuration;
     QWidget* controlPanel;
     EvolutionViewer* evolutionViewer;
     VolumeViewer* volumeViewer;

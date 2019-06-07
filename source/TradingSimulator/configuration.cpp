@@ -2,8 +2,8 @@
 #include "ui_configuration.h"
 
 Configuration::Configuration(QWidget *parent) : QDialog(parent), ui(new Ui::Configuration) {
-    setListesDevise();
     ui->setupUi(this);
+    setListesDevise();
     ui->strategie_widget->hide();            //hide strategieParameters widget by default, show only if Mode Automatique is chosen
 }
 
@@ -14,8 +14,8 @@ Configuration::~Configuration() {
 void Configuration::setListesDevise() {
     DevisesManager& deviseManager = DevisesManager::getManager();
     QStringList listeDeviseCodes = deviseManager.getDeviseCodes();
-    ui->listeBase->insertItems(0, listeDeviseCodes);
-    ui->listeContrepartie->insertItems(0, listeDeviseCodes);
+    ui->listeBase->addItems(listeDeviseCodes);
+    ui->listeContrepartie->addItems(listeDeviseCodes);
 }
 
 void Configuration::on_addDevise_button_clicked() {
@@ -31,7 +31,7 @@ void Configuration::on_addDevise_button_clicked() {
 
 void Configuration::on_browseButton_clicked() {
     QFileDialog fdlg;
-    ui->browseFile->setText(fdlg.getOpenFileName(this, tr("Choose csv file"), ":/", "Document files (*.csv)"));
+    ui->browseFile->setText(fdlg.getOpenFileName(this, tr("Choose csv file"), "./fichier_OHLCV/", "Document files (*.csv)"));
 }
 
 void Configuration::setEvolutionCours() {
@@ -61,16 +61,22 @@ void Configuration::finishConfigEvolutionCours() {
 }
 
 void Configuration::on_ModeManule_button_clicked() {
+    if(ui->nameSimulation->text().length() == 0) throw TradingException("Nom Simulation est vide.");
+    if(ui->listeBase->count()==0 || ui->listeContrepartie->count()==0) throw TradingException("Devise est vide.");
     modeSimulation = "Manuel";
     finishConfigEvolutionCours();
 }
 
 void Configuration::on_ModePas_Pas_button_clicked() {
+    if(ui->nameSimulation->text().length() == 0) throw TradingException("Nom Simulation est vide.");
+    if(ui->listeBase->count()==0 || ui->listeContrepartie->count()==0) throw TradingException("Devise est vide.");
     modeSimulation = "Pas_Pas";
     finishConfigEvolutionCours();
 }
 
 void Configuration::on_ModeAuto_buton_clicked() {
+    if(ui->nameSimulation->text().length() == 0) throw TradingException("Nom Simulation est vide.");
+    if(ui->listeBase->count()==0 || ui->listeContrepartie->count()==0) throw TradingException("Devise est vide.");
     modeSimulation = "Automatique";
     finishConfigEvolutionCours();
     ui->strategie_widget->show();
@@ -150,8 +156,7 @@ void Configuration::createSimulation() {
     qDebug()<<simulation->getNom();
 }
 
-void Configuration::on_creatSimul_button_clicked()
-{
+void Configuration::on_creatSimul_button_clicked() {
     createSimulation();
     Configuration::accept();
 }

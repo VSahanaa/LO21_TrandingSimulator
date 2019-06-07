@@ -14,18 +14,15 @@ int main(int argc, char *argv[])
     deviseManager.creationDevise("USD", "Dollar Américain","USA");
     deviseManager.creationDevise("BTC", "BitCoin","monnaie virtuelle");
     const PaireDevises& BTC_USD=deviseManager.getPaireDevises("BTC", "USD");
-    EvolutionCours evolution(BTC_USD, ":/TradingSimulator/evolutionCours/fichier_OHLCV/BTC-USD.csv");
+    //EvolutionCours evolution(BTC_USD, ":/TradingSimulator/evolutionCours/fichier_OHLCV/BTC-USD.csv");
     //Indicateur* macd = evolution.getCollection()->getIndicateur("MACD");
     //macd->generateIndice();
 
     QApplication mainApp(argc, argv);
-    //MainWindow mainwindow;
-   //mainwindow.show();
-    EvolutionViewer evolutionViewer(&evolution, evolution.end()-1);
-    evolutionViewer.show();
-
-    //Configuration* config = new Configuration();
-   //config->show();
+    MainInterface mainInterface;
+    mainInterface.show();
+    //EvolutionViewer evolutionViewer(&evolution, evolution.end()-1);
+    //evolutionViewer.show();
 
     return mainApp.exec();
 }

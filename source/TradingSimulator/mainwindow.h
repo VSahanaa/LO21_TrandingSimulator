@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "configuration.h"
-#include "maininterface.h"
+#include "simulationtab.h"
 
 namespace Ui {
     class MainWindow;
@@ -16,12 +16,11 @@ public:
     ~MainWindow();
 private slots:
     void on_newSimulation_button_clicked();
-    void newtab(int index);
-    void closetab(int index);
+    void addSimulation();
 private:
     Ui::MainWindow *ui;
     Configuration* configuration;
-    QTabWidget* tabs;
+    SimulationTab* simulationTabs;
 };
 
 #endif // MAINWINDOW_H

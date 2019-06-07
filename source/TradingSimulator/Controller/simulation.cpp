@@ -167,10 +167,10 @@ ModeAutomatique::ModeAutomatique(QString nom, EvolutionCours* evolutionCours, Ev
 void ModeAutomatique::iteration() {
     double decision = (*strategie)(&transactionManager, currentCours);
     if (decision > 0) {
-        achat(evolutionCours->getPaireDevises(), currentCours, decision);
+        achat(currentCours, decision);
     }
     else if (decision < 0) {
-        vente(evolutionCours->getPaireDevises(), currentCours, -decision);
+        vente(currentCours, -decision);
     }
     currentCours++;        //move to next day
     dateChanged();
@@ -220,7 +220,7 @@ void ModeAutomatique::saveSimulation() const {
 
 /*---------------------------------------------------------- Methodes de Mode Pas à pas -------------------------------------------------------*/
 ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial, unsigned int time_interval, QObject* parent):
-    ModeManuel(nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial, parent) {
+    QObject(parent), ModeManuel(nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {
     type = "Pas_Pas";
     timer = new QTimer(this);
     timer->setInterval(time_interval);              //set timer interval in ms
@@ -228,24 +228,25 @@ ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionC
     timer->start();
 }
 
-void ModePas_Pas::setCours(QDate date) {
-    if (date > currentCours->getDate()) throw TradingException("date future");
+void ModePas_Pas::goBack(QDate date) {
+    if (date > currentCours->getDate()) throw TradingException("ne peut pas aller à la future");
     currentCours = evolutionCours->searchCours(date);
     //delete transactions
     while (transactionManager.head()->getCours()->getDate() > currentCours->getDate()) {
         transactionManager.deleteLastTransaction();
     }
-    emit coursPickedChanged(currentCours);
+    emit coursChanged();
 }
+
+
 void ModePas_Pas::iteration(){
-    currentCours++;
-    emit coursPickedChanged(currentCours);
+    ++currentCours;
     if(currentCours == evolutionCours->end()) {
         timer->stop();
         emit endSimulation();
     }
+    emit coursChanged();
 }
-
 void ModePas_Pas::saveSimulation() const {
     saveEvolutionCours();
     saveTransactions();

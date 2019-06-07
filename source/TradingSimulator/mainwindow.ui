@@ -17,11 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>-1</y>
-      <width>1031</width>
-      <height>651</height>
+      <x>-20</x>
+      <y>0</y>
+      <width>1181</width>
+      <height>761</height>
      </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
     </property>
     <widget class="QWidget" name="landingPage">
      <widget class="QWidget" name="layoutWidget">
@@ -60,17 +63,17 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_2">
+    <widget class="QWidget" name="mainPage">
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>-1</x>
-        <y>-1</y>
-        <width>1061</width>
-        <height>941</height>
+        <x>-18</x>
+        <y>0</y>
+        <width>1121</width>
+        <height>761</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2"/>
+      <layout class="QVBoxLayout" name="mainInterfaceLayout"/>
      </widget>
     </widget>
    </widget>

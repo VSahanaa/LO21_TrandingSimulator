@@ -5,14 +5,14 @@ ModeAutowidget::ModeAutowidget(ModeAutomatique* modeAutomatique, QWidget *parent
     ui->setupUi(this);
     transactionManager = modeAutomatique->getTransactionManager();
 
-    ui->label_montantBase->setNum(transactionManager->getMontantBase());
-    ui->label_montantContrepartie->setNum(transactionManager->getMontantContrepartie());
-    ui->label_broker->setNum(transactionManager->getPourcentage());
+    ui->label_montantBase->setText(QString::number(transactionManager->getMontantBase()));
+    ui->label_montantContrepartie->setText(QString::number(transactionManager->getMontantContrepartie()));
+    ui->label_broker->setText(QString::number(transactionManager->getPourcentage()));
     ui->label_strategie->setText(modeAutomatique->getStrategieName());
     ui->dateEdit->setDate(modeAutomatique->getCurrentCours()->getDate());
     ui->dateEdit->setMaximumDate(modeAutomatique->getCurrentCours()->getDate());
     ui->dateEdit->setMinimumDate(modeAutomatique->getCurrentCours()->getDate());
-    ui->openPrice->setNum(modeAutomatique->getCurrentCours()->getOpen());
+    ui->openPrice->setText(QString::number(modeAutomatique->getCurrentCours()->getOpen()));
     ui->comboBox_timer->addItem("30 seconde", 30000);
     ui->comboBox_timer->addItem("1 min", 60000);
     ui->comboBox_timer->addItem("5 mins", 300000);
@@ -32,13 +32,13 @@ ModeAutowidget::~ModeAutowidget() {
 }
 
 void ModeAutowidget::updateData() {
-    ui->label_montantBase->setNum(transactionManager->getMontantBase());
-    ui->label_montantContrepartie->setNum(transactionManager->getMontantContrepartie());
-    ui->label_broker->setNum(transactionManager->getPourcentage());
+    ui->label_montantBase->setText(QString::number(transactionManager->getMontantBase()));
+    ui->label_montantContrepartie->setText(QString::number(transactionManager->getMontantContrepartie()));
+    ui->label_broker->setText(QString::number(transactionManager->getPourcentage()));
     ui->dateEdit->setDate(modeAutomatique->getCurrentCours()->getDate());
     ui->dateEdit->setMaximumDate(modeAutomatique->getCurrentCours()->getDate());
     ui->dateEdit->setMinimumDate(modeAutomatique->getCurrentCours()->getDate());
-    ui->openPrice->setNum(modeAutomatique->getCurrentCours()->getOpen());
+    ui->openPrice->setText(QString::number(modeAutomatique->getCurrentCours()->getOpen()));
 }
 
 

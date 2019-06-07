@@ -45,7 +45,7 @@ void TransactionManager::addTransaction(const PaireDevises *paire, CoursOHLCV *c
 }
 
 void TransactionManager::deleteLastTransaction() {
-    if (listeTransaction == nullptr) throw TradingException("Il n'y a pas transaction à annuler");
+    if (listeTransaction == nullptr) return;
     Transaction* transactionCurrent = listeTransaction;
     listeTransaction = transactionCurrent->getLastTransaction();
     delete transactionCurrent;

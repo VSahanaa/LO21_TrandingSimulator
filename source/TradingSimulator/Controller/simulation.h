@@ -52,8 +52,8 @@ public:
             this->nom = nom;
     }
     ~Simulation();
-    void achat(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, true, montant);}
-    void vente(const PaireDevises* paire, CoursOHLCV* cours, double montant) {transactionManager.addTransaction(paire, cours, false, montant);}
+    void achat(CoursOHLCV* cours, double montant) {transactionManager.addTransaction(evolutionCours->getPaireDevises(), cours, true, montant);}
+    void vente(CoursOHLCV* cours, double montant) {transactionManager.addTransaction(evolutionCours->getPaireDevises(), cours, false, montant);}
     EvolutionCours* getEvolutionCours() const {return evolutionCours;}
     const QString& getNom() const {return nom;}
     const QString& getType() const {return type;}
@@ -77,28 +77,14 @@ public:
  * has 3 operations, achat(), vente() and annule()
  * User can choose any CoursOHLCV to make a Transaction
 */
-class ModeManuel : public QObject, public Simulation {
-    Q_OBJECT
-    CoursOHLCV* coursPicked;
+class ModeManuel : public Simulation {
+
 public:
-    ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, QObject* parent=nullptr) :
-        QObject(parent), Simulation("Manuel", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {coursPicked = coursDebut;}
+    ModeManuel(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000) :
+        Simulation("Manuel", nom, evolutionCours, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) {}
     ~ModeManuel() = default;
     virtual void saveSimulation() const;
-signals:
-    void coursPickedChanged(CoursOHLCV* cours);
-    void transactionAdded();
-    void transactionAnnule();
-private slots:
-    void setCoursPicked(CoursOHLCV* cours) {
-        if(cours->getDate() < currentCours->getDate()) throw TradingException("Mode Manule: Can not pick a past day");
-        coursPicked = cours;
-        emit coursPickedChanged(coursPicked);
-    }
-public slots:
-    virtual void buy_slot(double montant) {achat(evolutionCours->getPaireDevises(), coursPicked, montant);  emit transactionAdded();}
-    virtual void sell_slot(double montant) {vente(evolutionCours->getPaireDevises(), coursPicked, montant); emit transactionAdded();}
-    void annule() {transactionManager.deleteLastTransaction();  emit transactionAnnule();}
+    void annule() {transactionManager.deleteLastTransaction();}
 };
 
 /* * Class ModePas_Pas: Derived class of ModeManuel, is a QObject
@@ -106,28 +92,30 @@ public slots:
  * This Mode has a QTimer to signal the change of currentCours
  * when currentCours reach finishCours, it emit a signal endSimulation()
 */
-class ModePas_Pas: public ModeManuel {
+class ModePas_Pas: public QObject, public ModeManuel {
     Q_OBJECT
     QTimer* timer;
 public:
     ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=30000, QObject* parent=nullptr);
     ~ModePas_Pas() {delete timer;}
     void saveSimulation() const;
+    void setTimer(unsigned int interval) {timer->setInterval(interval); qDebug() << timer->interval();}
+    void achat(double montant) {transactionManager.addTransaction(evolutionCours->getPaireDevises(), currentCours, true, montant);}
+    void vente(double montant) {transactionManager.addTransaction(evolutionCours->getPaireDevises(), currentCours, false, montant);}
 signals:
+    void coursChanged();
     void endSimulation();
 private slots:
     void iteration();
 public slots:
-    void setTimer(unsigned int interval) {timer->setInterval(interval);}
-    void setCours(QDate date);
+
+    void goBack(QDate date);
     /*
     void pause() {timer->stop();}
     void play() {if (currentCours != evolutionCours->end()) timer->start();}
     void speedUp() {if(timer->interval() > 10000) timer->setInterval(timer->interval() - 10000);}
     void slowDown() {timer->setInterval(timer->interval() + 10000);}
     */
-    void buy_slot(double montant) {achat(evolutionCours->getPaireDevises(), currentCours, montant);}
-    void sell_slot(double montant) {vente(evolutionCours->getPaireDevises(), currentCours, montant);}
 };
 
 /* * Class ModeAutomatique: Derived class of Simulation, is a QObject, applies Strategie pattern
@@ -187,7 +175,7 @@ public:
     void removeSimulation(Simulation* simulation) {
         for (int i=0; i<listeSimulation.count(); i++) {
             if (listeSimulation[i] == simulation) listeSimulation.removeAt(i);
-            delete simulation;
+            break;
         }
     }
     EvolutionCours* chargeEvolutionCours(QString nomSimulation);

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>271</width>
-    <height>273</height>
+    <width>276</width>
+    <height>357</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,59 +19,61 @@
      <x>0</x>
      <y>0</y>
      <width>271</width>
-     <height>271</height>
+     <height>341</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="VL_menu_2">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetNoConstraint</enum>
+    </property>
     <item>
      <layout class="QVBoxLayout" name="VL_menuTransaction_2">
       <item>
-       <layout class="QHBoxLayout" name="HL_infoDate">
+       <layout class="QHBoxLayout" name="HL_infoDate"/>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>interet Broker</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>Contre partie</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>Devise Base</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="label_broker">
-            <property name="text">
-             <string>Broker</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="label_montantBase">
-            <property name="text">
-             <string>MontantB</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="label_montantContrepartie">
-            <property name="text">
-             <string>MontantC</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Devise Base</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_montantBase">
+          <property name="text">
+           <string>MontantB</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Contre partie</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_montantContrepartie">
+          <property name="text">
+           <string>MontantC</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_broker">
+          <property name="text">
+           <string>Broker</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>interet Broker</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

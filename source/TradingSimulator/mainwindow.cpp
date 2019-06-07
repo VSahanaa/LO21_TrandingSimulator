@@ -3,12 +3,9 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
-    tabs = new QTabWidget(this);
-    tabs->setTabsClosable(true);
-    tabs->setMovable(true);
-    tabs->addTab(new QWidget(tabs), QIcon("://icons/+.jpeg"), "");
-    QObject::connect(tabs, SIGNAL(currentChanged(int)), this, SLOT(newtab(int)));
-    QObject::connect(tabs, SIGNAL(tabCloseRequested(int)), this, SLOT(closetab(int)));
+    simulationTabs = new SimulationTab(this);
+    ui->mainInterfaceLayout->addWidget(simulationTabs);
+    QObject::connect(simulationTabs, SIGNAL(newSimulationSignal()), this, SLOT(newtab()));
 }
 
 MainWindow::~MainWindow() {
@@ -20,19 +17,12 @@ void MainWindow::on_newSimulation_button_clicked() {
     configuration->setModal(true);
     configuration->exec();
     //add new Simulation
-    Simulation* newSimulation = configuration->getSimulation();
-    MainInterface* newSimulationWidget = new MainInterface(newSimulation, tabs);
-    tabs->addTab(newSimulationWidget, newSimulation->getNom());
+    simulationTabs->addSimulation(configuration->getSimulation());
     delete configuration;
+    ui->stackedWidget->setCurrentWidget(ui->mainPage);
 }
 
-void MainWindow::newtab(int index) {
-    if (index == tabs->count() -1) {
-        //add new simulation
-
-    }
+void MainWindow::addSimulation() {
+    ui->stackedWidget->setCurrentWidget(ui->landingPage);
 }
 
-void MainWindow::closetab(int index) {
-    tabs->removeTab(index);
-}

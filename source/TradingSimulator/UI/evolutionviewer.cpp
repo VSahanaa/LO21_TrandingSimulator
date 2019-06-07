@@ -12,7 +12,6 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     chart->legend()->setAlignment(Qt::AlignBottom);
     chart->createDefaultAxes();
     chartView = new QChartView(chart, this);
-
     //setup RSI viewer
     chartRSI = new QChart();
     chartRSI->legend()->setVisible(true);
@@ -22,8 +21,15 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
 
     scrollBar = new QScrollBar(Qt::Horizontal, this);
     scrollBar->setMinimum(0);
-    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));      //sync scroll bar with time range
-    scrollBar->setValue(scrollBar->maximum());
+    int i = 0;
+    EvolutionCours::iterator cours = currentCours;
+    while(i < maxDateShown) {
+        if(cours == evolutionCours->begin()) break;
+        i++;
+        cours --;
+    }
+    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo(cours->getDate()));      //sync scroll bar with time range
+
     layout = new QVBoxLayout;
     layout->addWidget(chartView);
     layout->addWidget(scrollBar);
@@ -39,14 +45,14 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     EMA_series = new QLineSeries();
     EMA_series->setName("EMA");
     EMA_series->setColor(Qt::blue);
-    EMA_series->setVisible(true);              //not shown by default
-    ema->generateIndice();
+    EMA_series->setVisible(false);              //not shown by default
+    //ema->generateIndice();
 
     MACD_series =  new QLineSeries();
     MACD_series->setName("MACD");
     MACD_series->setColor(Qt::black);
-    MACD_series->setVisible(true);              //not shown by default
-    macd->generateIndice();
+    MACD_series->setVisible(false);              //not shown by default
+    //macd->generateIndice();
 
     RSI_series=  new QLineSeries();
     RSI_series->setName("RSI");
@@ -72,7 +78,9 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     //binding sigals
     QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
     QObject::connect(this, SIGNAL(currentCours_changed()), this, SLOT(currentCoursChanged_react()));
-    showChart(evolutionCours->begin()->getDate(), evolutionCours->begin()->getDate().addDays(maxDateShown));
+
+    if(scrollBar->maximum() == 0) {updateChart(0);}
+    scrollBar->setValue(scrollBar->maximum());
 }
 
 EvolutionViewer::~EvolutionViewer() {
@@ -117,6 +125,7 @@ void EvolutionViewer::clearCharts(){
 void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     clearCharts();
     EvolutionCours::iterator cours = evolutionCours->searchCours(firstdate);
+    qDebug() << firstdate.toString("yyyy");
     chart->setTitle(evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
     chartRSI->setTitle("RSI " + evolutionCours->getPaireDevises()->toString() + " en " + cours->getDate().toString("yyyy"));
 
@@ -129,46 +138,44 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     double yMax = cours->getHigh();
     QMap<QString, QVariant> RSI_parameters = rsi->getParameters();
     for (; cours->getDate() <= lastdate; cours++){
-            if (cours->getHigh() > yMax) yMax = cours->getHigh();                           //mesure range of y axis
-            if (cours->getLow() < yMin) yMin = cours->getLow();
-            Bougie* bougie = new Bougie(cours->getOpen(), cours->getHigh(), cours->getLow(), cours->getClose(), cours);
-            QObject::connect(bougie, SIGNAL(clickBougie(CoursOHLCV*)), this, SLOT(pickCours(CoursOHLCV*)));
-            QObject::connect(bougie, SIGNAL(hoverBougie(QString)), this, SLOT(analyseForm(QString)));
-            series->append(bougie);
-            //Indicateur series
-            if(EMA_series->isVisible()) {
-                emaIterator = ema->searchIndice(cours);
-                if(!emaIterator) {
-                    EMA_series->append(i, 0);
-                }
-                else {
-                    EMA_series->append(i, emaIterator->getIndice());
-                }
-            }
-            if(MACD_series->isVisible()) {
-                macdIterator = macd->searchIndice(cours);
-                if(!macdIterator) {
-                    MACD_series->append(i, 0);
-                }
-                else {
-                    MACD_series->append(i, macdIterator->getIndice());
-                }
-            }
-            rsiIterator = rsi->searchIndice(cours);
-            if(!rsiIterator) {
-                RSI_series->append(i, 0);
+        if (cours->getHigh() > yMax) yMax = cours->getHigh();                           //mesure range of y axis
+        if (cours->getLow() < yMin) yMin = cours->getLow();
+        Bougie* bougie = new Bougie(cours->getOpen(), cours->getHigh(), cours->getLow(), cours->getClose(), cours);
+        QObject::connect(bougie, SIGNAL(clickBougie(CoursOHLCV*)), this, SLOT(pickCours(CoursOHLCV*)));
+        QObject::connect(bougie, SIGNAL(hoverBougie(QString)), this, SLOT(analyseForm(QString)));
+        series->append(bougie);
+        //Indicateur series
+        if(EMA_series->isVisible()) {
+            emaIterator = ema->searchIndice(cours);
+            if(!emaIterator) {
+                EMA_series->append(i, 0);
             }
             else {
-                RSI_series->append(i, rsiIterator->getIndice());
+                EMA_series->append(i, emaIterator->getIndice());
             }
-            RSI_overbought->append(i, 80/* RSI_parameters["overboughtBound"].toDouble()*/);
-            RSI_oversold->append(i, 20 /*RSI_parameters["oversoldBound"].toDouble()*/);
-            i++;
-
-            dates << cours->getDate().toString("dd/MM");
-            if (cours == currentCours) break;       //only show up to current cours
+        }
+        if(MACD_series->isVisible()) {
+            macdIterator = macd->searchIndice(cours);
+            if(!macdIterator) {
+                MACD_series->append(i, 0);
+            }
+            else {
+                MACD_series->append(i, macdIterator->getIndice());
+            }
+        }
+        rsiIterator = rsi->searchIndice(cours);
+        if(!rsiIterator) {
+            RSI_series->append(i, 0);
+        }
+        else {
+            RSI_series->append(i, rsiIterator->getIndice());
+        }
+        RSI_overbought->append(i, 80/* RSI_parameters["overboughtBound"].toDouble()*/);
+        RSI_oversold->append(i, 20 /*RSI_parameters["oversoldBound"].toDouble()*/);
+        i++;
+        dates << cours->getDate().toString("dd/MM");
+        if (cours == currentCours) break;       //only show up to current cours
     }
-    dates << lastdate.toString("dd/MM");
     axisX->append(dates);
     RSI_axisX->append(dates);
     axisY->setRange(yMin*0.98, yMax*1.02);
@@ -192,9 +199,17 @@ void EvolutionViewer::updateChart(int value) {
 
 void EvolutionViewer::currentCoursChanged_react() {
     int old_maximum = scrollBar->maximum();
-    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));
+    int i = 0;
+    EvolutionCours::iterator cours = currentCours;
+    while(i < maxDateShown) {
+        if(cours == evolutionCours->begin()) break;
+        i++;
+        cours --;
+    }
+    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo(cours->getDate()));
     if(scrollBar->value() == old_maximum) {
         //if user is navigating  => don't update viewport
+        if(scrollBar->maximum() == 0) {updateChart(0);}
         scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
     }
 }
@@ -223,8 +238,15 @@ VolumeViewer::VolumeViewer(EvolutionCours* evolutionCours, EvolutionCours::itera
 
     scrollBar = new QScrollBar(Qt::Horizontal, this);
     scrollBar->setMinimum(0);
-    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));      //sync scroll bar with time range
-    scrollBar->setValue(scrollBar->maximum());
+    int i=0;
+    EvolutionCours::iterator cours = currentCours;
+    while(i < maxDateShown) {
+        if(cours == evolutionCours->begin()) break;
+        i++;
+        cours --;
+    }
+    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((cours)->getDate()));      //sync scroll bar with time range
+
     layout = new QVBoxLayout;
     layout->addWidget(chartView);
     layout->addWidget(scrollBar);
@@ -239,7 +261,8 @@ VolumeViewer::VolumeViewer(EvolutionCours* evolutionCours, EvolutionCours::itera
     //binding sigals
     QObject::connect(scrollBar, SIGNAL(valueChanged(int)), this, SLOT(updateChart(int)));
     QObject::connect(this, SIGNAL(currentCours_changed()), this, SLOT(currentCoursChanged_react()));
-    showChart(evolutionCours->begin()->getDate(), evolutionCours->begin()->getDate().addDays(maxDateShown));
+    if(scrollBar->maximum() == 0) {updateChart(0);}
+    scrollBar->setValue(scrollBar->maximum());
 }
 
 VolumeViewer::~VolumeViewer() {
@@ -279,7 +302,6 @@ void VolumeViewer::showChart(QDate firstdate, QDate lastdate) {
         dates << cours->getDate().toString("dd/MM");
         if (cours == currentCours) break;       //only show up to current cours
     }
-    dates << lastdate.toString("dd/MM");
     series->append(volumeSet);
     axisX->append(dates);
     axisY->setMax(max*1.01);
@@ -296,9 +318,17 @@ void VolumeViewer::updateChart(int value) {
 
 void VolumeViewer::currentCoursChanged_react() {
     int old_maximum = scrollBar->maximum();
-    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((currentCours-maxDateShown)->getDate()));
+    int i=0;
+    EvolutionCours::iterator cours = currentCours;
+    while(i < maxDateShown) {
+        if(cours == evolutionCours->begin()) break;
+        i++;
+        cours --;
+    }
+    scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo(cours->getDate()));
     if(scrollBar->value() == old_maximum) {
         //if user is navigating  => don't update viewport
+        if(scrollBar->maximum() == 0) {updateChart(0);}
         scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
     }
 }

@@ -12,12 +12,18 @@ class ModePasPaswidget : public QWidget {
 public:
     explicit ModePasPaswidget(ModePas_Pas* modePas_Pas, QWidget *parent = nullptr);
     ~ModePasPaswidget();
-private slots:
     void updateData();
-    void updateCurrentCours(CoursOHLCV* cours);
-    void on_goBack_clicked();
+private slots:
 
+    void updateCurrentCours();
+    void on_goBack_clicked();
     void on_comboBox_timer_currentIndexChanged(const QString &arg1);
+
+    void on_pushButton_achat_clicked();
+
+    void on_pushButton_vente_clicked();
+
+    void on_pushButton_annulerTransaction_clicked();
 
 private:
     Ui::ModePasPaswidget *ui;

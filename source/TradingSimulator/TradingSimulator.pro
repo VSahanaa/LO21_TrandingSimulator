@@ -39,6 +39,7 @@ SOURCES += \
         mainwindow.cpp \
         modeautowidget.cpp \
         modemanuelwidget.cpp \
+        simulationtab.cpp \
         modepaspaswidget.cpp
 
 HEADERS += \
@@ -54,7 +55,8 @@ HEADERS += \
         mainwindow.h \
         modeautowidget.h \
         modemanuelwidget.h \
-        modepaspaswidget.h
+        modepaspaswidget.h \
+        simulationtab.h
 
 FORMS += \
         UI/welcome.ui \
