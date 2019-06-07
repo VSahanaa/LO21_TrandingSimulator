@@ -33,6 +33,7 @@ SOURCES += \
         UI/evolutionviewer.cpp \
         UI/welcome.cpp \
         adddevise_dialog.cpp \
+        addindicateurdialog.cpp \
         configuration.cpp \
         main.cpp \
         maininterface.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
         UI/evolutionviewer.h \
         UI/welcome.h \
         adddevise_dialog.h \
+        addindicateurdialog.h \
         configuration.h \
         maininterface.h \
         mainwindow.h \
@@ -62,6 +64,7 @@ FORMS += \
         UI/welcome.ui \
         UI/info.ui \
         adddevise_dialog.ui \
+        addindicateurdialog.ui \
         configuration.ui \
         maininterface.ui \
         mainwindow.ui \

@@ -3,6 +3,7 @@
 
 MainInterface::MainInterface(QWidget *parent) : QWidget(parent), ui(new Ui::MainInterface) {
     ui->setupUi(this);
+    ui->simulationGo->setVisible(false);
 }
 
 MainInterface::~MainInterface() {
@@ -12,8 +13,11 @@ MainInterface::~MainInterface() {
 }
 
 void MainInterface::showSimulation() {
-    delete simulation;
     simulation = configuration->getSimulation();
+    ui->controlPanel->removeWidget(controlPanel);
+    ui->chanderlierLayout->removeWidget(evolutionViewer);
+    ui->volumeLayout->removeWidget(volumeViewer);
+    ui->simulationGo->setVisible(true);
     ui->stackedWidget->setCurrentWidget(ui->SimulationPage);
     if (simulation->getType() == "Manuel") {
         //Specific element for mode Manuel
@@ -71,4 +75,14 @@ void MainInterface::on_newSimulation_button_clicked() {
     configuration->setModal(true);
     configuration->exec();
     delete configuration;
+}
+
+
+
+void MainInterface::on_back_clicked() {
+    ui->stackedWidget->setCurrentWidget(ui->LandingPage);
+}
+
+void MainInterface::on_simulationGo_clicked() {
+    if(simulation)  ui->stackedWidget->setCurrentWidget(ui->SimulationPage);
 }

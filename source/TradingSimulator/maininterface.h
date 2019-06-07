@@ -24,6 +24,11 @@ private slots:
     void on_newSimulation_button_clicked();
     void endSimulationMessage();
     void updateGraph();
+
+    void on_back_clicked();
+
+    void on_simulationGo_clicked();
+
 private:
     Ui::MainInterface *ui;
     Simulation* simulation = nullptr;
