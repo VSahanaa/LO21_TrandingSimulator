@@ -62,8 +62,8 @@ public:
         this->currentCours = currentCours;
         emit currentCours_changed();
     }
-    void activateEMA() {EMA_series->setVisible(true);   emit scrollBar->valueChanged(scrollBar->value());}
-    void activateMACD() {MACD_series->setVisible(true);   emit scrollBar->valueChanged(scrollBar->value());}
+    void activateEMA(bool val) {EMA_series->setVisible(val);   emit scrollBar->valueChanged(scrollBar->value());}
+    void activateMACD(bool val) {MACD_series->setVisible(val);   emit scrollBar->valueChanged(scrollBar->value());}
     //void resizeEvent(QResizeEvent *event);
 signals:
     void currentCours_changed();

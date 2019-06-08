@@ -23,10 +23,6 @@ void MainInterface::newSimulation() {
 
 void MainInterface::showSimulation() {
     emit giveName(simulation->getNom());
-    ui->controlPanel->removeWidget(controlPanel);
-    ui->chanderlierLayout->removeWidget(evolutionViewer);
-    ui->volumeLayout->removeWidget(volumeViewer);
-    ui->transactionTable->setRowCount(0);
 
     ui->stackedWidget->setCurrentWidget(ui->SimulationPage);
     if (simulation->getType() == "Manuel") {
@@ -61,7 +57,7 @@ void MainInterface::showSimulation() {
     ui->controlPanel->addWidget(controlPanel);
     ui->chanderlierLayout->addWidget(evolutionViewer);
     ui->volumeLayout->addWidget(volumeViewer); 
-    ui->tabWidget->setCurrentWidget(evolutionViewer);
+    ui->tabWidget->setCurrentIndex(0);
 
     ui->transactionTable->setColumnCount(4);
     const PaireDevises* paire = simulation->getEvolutionCours()->getPaireDevises();
@@ -105,10 +101,11 @@ void MainInterface::on_newSimulation_button_clicked() {
 void MainInterface::updateTransactionTable() {
     ui->transactionTable->setRowCount(0);        //clear all data
     TransactionManager::iterator transactionIterator = simulation->getTransactionManager()->head();
+    double montantTotalInit = simulation->getTransactionManager()->getMontantTotalInitial();
     int i = 0;
     while(transactionIterator != nullptr) {
         ui->transactionTable->setRowCount(++i);
-        QTableWidgetItem *date, *diffContrepartie, *diffBase;
+        QTableWidgetItem *date, *diffContrepartie, *diffBase, *roi;
         date = new QTableWidgetItem(transactionIterator->getCours()->getDate().toString("dd.MM.yy"), 0);
         if(transactionIterator->differenceBase() > 0) {
             diffBase = new QTableWidgetItem(QIcon(":/TradingSimulator/evolutionCours/icons/up.jpeg"), QString::number(transactionIterator->differenceBase()), 0);
@@ -123,16 +120,13 @@ void MainInterface::updateTransactionTable() {
         else {
             diffContrepartie = new QTableWidgetItem(QIcon(":/TradingSimulator/evolutionCours/icons/down.jpeg"), QString::number(-transactionIterator->differenceContrepartie()), 0);
         }
+        roi = new QTableWidgetItem(QString::number(transactionIterator->roi(montantTotalInit)), 0);
         ui->transactionTable->setItem(i-1, 0, date);
         ui->transactionTable->setItem(i-1, 1, diffContrepartie);
         ui->transactionTable->setItem(i-1, 2, diffBase);
+        ui->transactionTable->setItem(i-1, 3, roi);
         transactionIterator = transactionIterator->next();
-        qDebug() << i;
     }
-}
-
-void MainInterface::on_simulationGo_clicked() {
-    if(simulation)  ui->stackedWidget->setCurrentWidget(ui->SimulationPage);
 }
 
 void MainInterface::on_chargeSimulation_button_clicked() {
@@ -177,8 +171,8 @@ void MainInterface::on_addNote_clicked() {
 
 void MainInterface::on_listNote_itemDoubleClicked(QListWidgetItem *item) {
      Note* note = static_cast<NoteItem*>(item)->getNote();
-    qDebug()<<note->getNote();
-    qDebug()<< note->getNom();
+     qDebug()<<note->getNote();
+     qDebug()<< note->getNom();
      currentNote = static_cast<NoteItem*>(item);
      ui->noteEdit->setEnabled(true);
      ui->nameEdit->setEnabled(true);
@@ -216,3 +210,37 @@ void MainInterface::on_noteEdit_textChanged() {
     if(currentNote) currentNote->getNote()->setNote(ui->noteEdit->toPlainText());
 }
 
+
+void MainInterface::on_ema_stateChanged(int arg1) {
+    if(arg1 == 0) {
+        evolutionViewer->activateEMA(false);
+    }
+    else {
+        //set parameters for EMA
+        AddIndicateurDialog* addIndicateurDialog = new AddIndicateurDialog("EMA", simulation->getEvolutionCours(), this);
+        addIndicateurDialog->exec();
+        evolutionViewer->activateEMA(true);
+        delete addIndicateurDialog;
+    }
+
+}
+
+void MainInterface::on_macd_stateChanged(int arg1) {
+    if(arg1 == 0) {
+        evolutionViewer->activateMACD(false);
+    }
+    else {
+        //set parameters for MACD
+        AddIndicateurDialog* addIndicateurDialog = new AddIndicateurDialog("MACD", simulation->getEvolutionCours(), this);
+        addIndicateurDialog->exec();
+        evolutionViewer->activateMACD(true);
+        delete addIndicateurDialog;
+    }
+}
+
+void MainInterface::on_rsi_clicked() {
+    //set parameters for RSI
+    AddIndicateurDialog* addIndicateurDialog = new AddIndicateurDialog("RSI", simulation->getEvolutionCours(), this);
+    addIndicateurDialog->exec();
+    delete addIndicateurDialog;
+}

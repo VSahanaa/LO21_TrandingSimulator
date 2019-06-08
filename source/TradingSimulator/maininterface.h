@@ -7,6 +7,7 @@
 #include "modemanuelwidget.h"
 #include "modepaspaswidget.h"
 #include "modeautowidget.h"
+#include "addindicateurdialog.h"
 #include <QWidget>
 #include <QListWidgetItem>
 namespace Ui {
@@ -36,7 +37,6 @@ private slots:
     void on_newSimulation_button_clicked();
     void endSimulationMessage();
     void updateGraph();
-    void on_simulationGo_clicked();
     void updateTransactionTable();
     void on_chargeSimulation_button_clicked();
     void on_save_clicked();
@@ -47,6 +47,12 @@ private slots:
     void on_closeNote_clicked();
     void on_noteEdit_textChanged();
     void on_deleteSimulation_clicked();
+    void on_ema_stateChanged(int arg1);
+
+    void on_macd_stateChanged(int arg1);
+
+    void on_rsi_clicked();
+
 private:
     Ui::MainInterface *ui;
     Simulation* simulation = nullptr;

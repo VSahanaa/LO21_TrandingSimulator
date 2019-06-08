@@ -82,24 +82,21 @@
       <rect>
        <x>120</x>
        <y>10</y>
-       <width>1051</width>
-       <height>27</height>
+       <width>1061</width>
+       <height>29</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QComboBox" name="addIndicateur">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <property name="text">
-          <string>EMA</string>
-         </property>
+         <widget class="QPushButton" name="save">
+          <property name="text">
+           <string>Sauvegarder</string>
+          </property>
+         </widget>
         </item>
-        <item>
-         <property name="text">
-          <string>MACD</string>
-         </property>
-        </item>
-       </widget>
+       </layout>
       </item>
       <item>
        <widget class="QPushButton" name="aid">
@@ -109,9 +106,39 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="save">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="ema">
         <property name="text">
-         <string>Sauvegarder</string>
+         <string>EMA</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="macd">
+        <property name="text">
+         <string>MACD</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="rsi">
+        <property name="text">
+         <string>Parametres RSI </string>
         </property>
        </widget>
       </item>

@@ -462,7 +462,7 @@ public:
 	iterator begin() { return cours; }
     //! méthode end 
 	/** 
-	* \return  iterator : la valeur du pointeur du dernier cours
+    * \return  iterator : pointe vers la fin de la table de Cours
 	*/
     iterator end() { return cours + nbCours; }
     using const_iterator = const CoursOHLCV*; /**< const_iterator correspond à const coursOHLCV* */
@@ -473,7 +473,7 @@ public:
 	const_iterator cbegin() const { return cours; }
     //! méthode end
 	/** 
-	* \return  const_iterator : la valeur du pointeur const du dernier cours
+    * \return  const_iterator : pointeur constant vers la fin de la table de Cours
 	*/
     const_iterator cend() const { return cours + nbCours; }
 	//! méthode searchCours
@@ -586,7 +586,7 @@ public:
 	iterator begin(){return indices;}
 	//! méthode end 
 	/** 
-	* \return  iterator : pointe sur le dernier élément du tableau indices
+    * \return  iterator : pointe sur la fin du tableau indices
 	*/
     iterator end(){return indices + nbIndicateur;}
     //! méthode begin 
@@ -596,7 +596,7 @@ public:
 	const_iterator cbegin() const {return indices;}
     //! méthode end
 	/** 
-	* \return  	const_iterator : la valeur du pointeur const sur le dernier élément du tableau indices 
+    * \return  	const_iterator : la valeur du pointeur const sur la fin du tableau indices
 	*/
 	const_iterator cend() const {return indices+ nbIndicateur;}
     //! méthode searchIndice 
@@ -756,6 +756,26 @@ public:
     void setParameters(QMap<QString, QVariant> parameters);
 	//! méthode getParameters ;
     QMap<QString, QVariant> getParameters() const;
+    //! méthode signalLine_begin
+    /**
+    * \return  iterator : pointe sur premier élément du tableau signalLine
+    */
+    iterator signalLine_begin() {return signalLine;}
+    //! méthode signalLine_end
+    /**
+    * \return  iterator : pointe sur la fin du tableau signalLine
+    */
+    iterator signalLine_end() {return signalLine + nbIndicateur;}
+    //! méthode histogramLine_begin
+    /**
+    * \return  iterator : pointe sur premier élément du tableau histogram
+    */
+    iterator histogramLine_begin() {return histogram;}
+    //! méthode histogramLine_end
+    /**
+    * \return  iterator : pointe sur la fin du tableau histogram
+    */
+    iterator histogramLine_end() {return histogram+nbIndicateur;}
 };
 
 /**

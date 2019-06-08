@@ -132,7 +132,7 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
     //add new data
     Indicateur::iterator emaIterator, macdIterator, rsiIterator;
     QStringList dates;
-    dates << firstdate.toString("dd/MM");
+    dates << firstdate.toString("d/M");
     int i = 0;
     double yMin = cours->getLow();
     double yMax = cours->getHigh();
@@ -173,7 +173,7 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
         RSI_overbought->append(i, 80/* RSI_parameters["overboughtBound"].toDouble()*/);
         RSI_oversold->append(i, 20 /*RSI_parameters["oversoldBound"].toDouble()*/);
         i++;
-        dates << cours->getDate().toString("dd/MM");
+        dates << cours->getDate().toString("d/M");
         if (cours == currentCours) break;       //only show up to current cours
     }
     axisX->append(dates);
@@ -293,13 +293,13 @@ void VolumeViewer::showChart(QDate firstdate, QDate lastdate) {
     unsigned int max = 0;
     QStringList dates;
     QBarSet *volumeSet = new QBarSet("Volume");
-    dates << firstdate.toString("dd/MM");
+    dates << firstdate.toString("d/M");
     for (; cours->getDate() <= lastdate; cours++){
         if(max < cours->getVolume()) {
             max = cours->getVolume();
         }
         *volumeSet<<cours->getVolume();
-        dates << cours->getDate().toString("dd/MM");
+        dates << cours->getDate().toString("d/M");
         if (cours == currentCours) break;       //only show up to current cours
     }
     series->append(volumeSet);
