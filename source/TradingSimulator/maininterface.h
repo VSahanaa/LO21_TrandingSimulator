@@ -29,7 +29,6 @@ public:
 private slots:
     void newSimulation();
     void showSimulation();
-    void on_pushButton_sauvegarder_clicked();
     void on_newSimulation_button_clicked();
     void endSimulationMessage();
     void updateGraph();
@@ -48,6 +47,8 @@ private slots:
     void on_closeNote_clicked();
 
     void on_noteEdit_textChanged();
+
+    void on_deleteSimulation_clicked();
 
 private:
     Ui::MainInterface *ui;

@@ -64,8 +64,6 @@ public:
     void saveNotes() const;
     void loadTransactions();
     void loadNotes();
-    //virtual void saveNote() const;                                                        TO IMPLEMENT !!!
-    bool verifierNomSimulation(QString nom) const;          //verify wheather the name of simulation is already exist
     TransactionManager* getTransactionManager() {return &transactionManager;}
     using NoteManager = QList<Note*>;
     NoteManager& getNoteManager() {return noteManager;}
@@ -185,6 +183,8 @@ public:
     QStringList listExistSimulation() const;
     const QString& getNomGroupe() const {return nomGroupe;}
     const QString& getNomApplication() const {return nomApplication;}
+    bool verifierNomSimulation(QString nom) const;                //verify wheather the name of simulation is already exist
+    void deleteSavedSimulation(QString nom);
 };
 
 #endif // SIMULATION_H

@@ -43,21 +43,27 @@ void Configuration::setEvolutionCours() {
 
 void Configuration::finishConfigEvolutionCours() {
     nomSimulation = ui->nameSimulation->text();
-    setEvolutionCours();
-    ui->mainWidget->setCurrentWidget(ui->config_page);
-    qDebug() << (evolutionCours->begin())->getDate().toString("yyyy-MM-dd");
-    qDebug() << (evolutionCours->end()-1)->getDate().toString("yyyy-MM-dd");
-    ui->pickStartDate->setMinimumDate(evolutionCours->begin()->getDate());             //date debut du EvolutionCours
-    ui->pickStartDate->setMaximumDate((evolutionCours->end()-1)->getDate());            //date fini du evolutionCours
-    ui->pickStartDate->setDate(evolutionCours->begin()->getDate());                    //valeur par défault
-    ui->pickPourcentage->setSuffix(" %");
-    ui->pickPourcentage->setMaximum(100);
-    ui->pickPourcentage->setMinimum(0);
-    ui->pickPourcentage->setValue(0.1);
-    ui->pickBase->setMaximum(100000000000000);
-    ui->pickBase->setValue(0);
-    ui->pickContrepartie->setMaximum(100000000000000);
-    ui->pickContrepartie->setValue(1000000);
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    if(!simulationManager->verifierNomSimulation(nomSimulation)) {
+        QMessageBox::warning(this, "Warning", "Nom de simulation est déjà existe");
+    }
+    else {
+        setEvolutionCours();
+        ui->mainWidget->setCurrentWidget(ui->config_page);
+        qDebug() << (evolutionCours->begin())->getDate().toString("yyyy-MM-dd");
+        qDebug() << (evolutionCours->end()-1)->getDate().toString("yyyy-MM-dd");
+        ui->pickStartDate->setMinimumDate(evolutionCours->begin()->getDate());             //date debut du EvolutionCours
+        ui->pickStartDate->setMaximumDate((evolutionCours->end()-1)->getDate());            //date fini du evolutionCours
+        ui->pickStartDate->setDate(evolutionCours->begin()->getDate());                    //valeur par défault
+        ui->pickPourcentage->setSuffix(" %");
+        ui->pickPourcentage->setMaximum(100);
+        ui->pickPourcentage->setMinimum(0);
+        ui->pickPourcentage->setValue(0.1);
+        ui->pickBase->setMaximum(100000000000000);
+        ui->pickBase->setValue(0);
+        ui->pickContrepartie->setMaximum(100000000000000);
+        ui->pickContrepartie->setValue(1000000);
+    }
 }
 
 void Configuration::on_ModeManule_button_clicked() {

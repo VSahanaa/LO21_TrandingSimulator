@@ -91,11 +91,6 @@ void MainInterface::updateGraph() {
     volumeViewer->setCurrentCours(simulation->getCurrentCours());
 }
 
-void MainInterface::on_pushButton_sauvegarder_clicked() {
-    simulation->saveSimulation();
-    QMessageBox::information(this, "Save Simulation", "Saved");
-}
-
 void MainInterface::on_newSimulation_button_clicked() {
     configuration = new Configuration(this);
     QObject::connect(configuration, SIGNAL(accepted()), this, SLOT(newSimulation()));
@@ -144,7 +139,6 @@ void MainInterface::on_simulationGo_clicked() {
 void MainInterface::on_chargeSimulation_button_clicked() {
     //charge simulation
     QString nomSimulation = ui->listSimulation->currentItem()->text();
-    qDebug()<< nomSimulation;
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     simulationManager->removeSimulation(simulation);
     qDebug("Removed old simulation");
@@ -152,8 +146,16 @@ void MainInterface::on_chargeSimulation_button_clicked() {
     showSimulation();
 }
 
+void MainInterface::on_deleteSimulation_clicked() {
+    QString nomSimulation = ui->listSimulation->currentItem()->text();
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    simulationManager->deleteSavedSimulation(nomSimulation);
+    ui->listSimulation->takeItem(ui->listSimulation->currentRow());
+}
+
 void MainInterface::on_save_clicked() {
     simulation->saveSimulation();
+    QMessageBox::information(this, "Save Simulation", "Saved");
 }
 
 
@@ -214,3 +216,4 @@ void MainInterface::on_closeNote_clicked() {
 void MainInterface::on_noteEdit_textChanged() {
     if(currentNote) currentNote->getNote()->setNote(ui->noteEdit->toPlainText());
 }
+

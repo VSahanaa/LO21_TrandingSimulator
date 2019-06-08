@@ -71,6 +71,23 @@
       <string>Simulation</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="deleteSimulation">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>470</y>
+       <width>211</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Supprimer une Simulation</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resource.qrc">
+       <normaloff>:/icons/delete.png</normaloff>:/icons/delete.png</iconset>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="SimulationPage">
     <widget class="QWidget" name="layoutWidget">

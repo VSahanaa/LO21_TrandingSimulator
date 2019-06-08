@@ -131,12 +131,6 @@ void Simulation::loadNotes() {
     setting.endGroup();
 }
 
-
-bool Simulation::verifierNomSimulation(QString nom) const {
-    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
-    return !simulationManager->listExistSimulation().contains(nom);
-}
-
 /*
 int Simulation::searchNote(QString nom) {
     int index;
@@ -313,7 +307,16 @@ QStringList SimulationManager::listSavedSimulation() const {
     return listeSavedSimulation;
 }
 
+bool SimulationManager::verifierNomSimulation(QString nom) const {
+    return !listExistSimulation().contains(nom);
+}
 
+void SimulationManager::deleteSavedSimulation(QString nom) {
+    QSettings setting(nomGroupe, nomApplication);
+    setting.beginGroup("Simulation");
+        setting.remove(nom);
+    setting.endGroup();
+}
 
 
 EvolutionCours* SimulationManager::chargeEvolutionCours(QString nomSimulation) {
@@ -324,9 +327,7 @@ EvolutionCours* SimulationManager::chargeEvolutionCours(QString nomSimulation) {
     EvolutionCours* evolutionCours;
     QSettings setting(nomGroupe, nomApplication);
     setting.beginGroup("Simulation");
-        qDebug("error?");
         //if(!setting.contains(nomSimulation)) throw TradingException("Simulation have not been saved");
-        qDebug("found it");
         setting.beginGroup(nomSimulation);
             setting.beginGroup("EvolutionCours");
                 setting.beginGroup("paireDevises");     //load paire devises
