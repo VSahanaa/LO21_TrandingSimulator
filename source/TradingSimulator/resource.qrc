@@ -16,6 +16,9 @@
         <file>fichier_OHLCV/test.csv</file>
         <file>icons/up.jpeg</file>
         <file>icons/down.jpeg</file>
+        <file>icons/icon.png</file>
+        <file>icons/logo.png</file>
+        <file>icons/close.png</file>
     </qresource>
     <qresource prefix="/">
         <file>icons/+.jpeg</file>

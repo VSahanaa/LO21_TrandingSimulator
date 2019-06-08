@@ -113,10 +113,10 @@ void Simulation::loadNotes() {
                 int size = setting.beginReadArray("Note");
                     for (int i=0; i<size; i++){
                         setting.setArrayIndex(i);
-                        Note& note = addNote();
-                        note.setNom(setting.value("nom").toString());
-                        note.setNote(setting.value("note").toString());
-                        note.setDateCreation(QDateTime::fromString(setting.value("dateCreation").toString(), "yyyy-MM-dd : HH.mm"));
+                        Note* note = addNote();
+                        note->setNom(setting.value("nom").toString());
+                        note->setNote(setting.value("note").toString());
+                        note->setDateCreation(QDateTime::fromString(setting.value("dateCreation").toString(), "yyyy-MM-dd : HH.mm"));
                     }
                 setting.endArray();
             setting.endGroup();
@@ -130,6 +130,7 @@ bool Simulation::verifierNomSimulation(QString nom) const {
     return !simulationManager->listExistSimulation().contains(nom);
 }
 
+/*
 int Simulation::searchNote(QString nom) {
     int index;
     for(index=0; index<noteManager.count(); index++) {
@@ -137,13 +138,12 @@ int Simulation::searchNote(QString nom) {
     }
     return -1;
 }
-
-Note& Simulation::addNote(QString nom) {
-    if(searchNote(nom) != -1) throw TradingException("Ce nom existe déjà");
+*/
+Note* Simulation::addNote() {
     Note note;
-    note.setNom(nom);
+    note.setNom("Note"+ QString::number(noteManager.count()));
     noteManager.append(note);
-    return noteManager[noteManager.count()-1];
+    return &noteManager[noteManager.count()-1];
 }
 
 

@@ -4,6 +4,9 @@
 MainInterface::MainInterface(QWidget *parent) : QWidget(parent), ui(new Ui::MainInterface) {
     ui->setupUi(this);
     ui->simulationGo->setVisible(false);
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    QStringList listSavedSimulation = simulationManager->listSavedSimulation();
+    ui->listSimulation->addItems(listSavedSimulation);
 }
 
 MainInterface::~MainInterface() {
@@ -11,9 +14,15 @@ MainInterface::~MainInterface() {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     simulationManager->removeSimulation(simulation);
 }
+/* --------------------------------------------------------- Create and show simulation ---------------------------------------------------------------------*/
+void MainInterface::newSimulation() {
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    simulationManager->removeSimulation(simulation);
+    simulation = configuration->getSimulation();
+    showSimulation();
+}
 
 void MainInterface::showSimulation() {
-    simulation = configuration->getSimulation();
     ui->controlPanel->removeWidget(controlPanel);
     ui->chanderlierLayout->removeWidget(evolutionViewer);
     ui->volumeLayout->removeWidget(volumeViewer);
@@ -55,11 +64,17 @@ void MainInterface::showSimulation() {
     ui->transactionTable->setColumnCount(3);
     ui->transactionTable->setHorizontalHeaderLabels({ "Date", "Contre partie", "Base" });
     updateTransactionTable();
+    if(!currentNote) {
+        ui->noteEdit->clear();
+        ui->nameEdit->clear();
+        ui->noteEdit->setEnabled(false);
+        ui->nameEdit->setEnabled(false);
+    }
 
     //load Note
     Simulation::NoteManager noteManager = simulation->getNoteManager();
     for(Simulation::NoteManager::iterator noteIterator = noteManager.begin(); noteIterator != noteManager.end(); noteIterator++) {
-        ui->listNote->addItem(noteIterator->getNom() + "\t" + noteIterator->getDernierAcces().toString("dd.MM.yy"));
+        ui->listNote->addItem(noteIterator->getNom());
     }
 }
 
@@ -84,7 +99,7 @@ void MainInterface::on_pushButton_sauvegarder_clicked() {
 
 void MainInterface::on_newSimulation_button_clicked() {
     configuration = new Configuration(this);
-    QObject::connect(configuration, SIGNAL(accepted()), this, SLOT(showSimulation()));
+    QObject::connect(configuration, SIGNAL(accepted()), this, SLOT(newSimulation()));
     configuration->setModal(true);
     configuration->exec();
     delete configuration;
@@ -127,70 +142,72 @@ void MainInterface::on_simulationGo_clicked() {
     if(simulation)  ui->stackedWidget->setCurrentWidget(ui->SimulationPage);
 }
 
+void MainInterface::on_chargeSimulation_button_clicked() {
+    //charge simulation
+    QString nomSimulation = ui->listSimulation->currentItem()->text();
+    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+    simulationManager->removeSimulation(simulation);
+    simulation = simulationManager->chargeSimulation(nomSimulation);
+    showSimulation();
+}
+
+void MainInterface::on_save_clicked() {
+    simulation->saveSimulation();
+}
+/* ------------------------------------------------------Text Editor ----------------------------------------------------------------------------*/
+
+
+
+
+
+
+void MainInterface::on_addNote_clicked() {
+    Note* newNote = simulation->addNote();
+    NoteItem* newNoteItem = new NoteItem(newNote);
+    newNoteItem->setText(newNote->getNom());
+    currentNote = newNoteItem;
+    ui->listNote->addItem(newNoteItem);
+    ui->noteEdit->setEnabled(true);
+    ui->nameEdit->setEnabled(true);
+    ui->noteEdit->setText(newNote->getNote());
+    ui->nameEdit->setText(newNote->getNom());
+}
+
+void MainInterface::on_listNote_itemDoubleClicked(QListWidgetItem *item) {
+     Note* note = static_cast<NoteItem*>(item)->getNote();
+     currentNote = static_cast<NoteItem*>(item);
+     ui->noteEdit->setEnabled(true);
+     ui->nameEdit->setEnabled(true);
+     ui->noteEdit->setText(note->getNote());
+     ui->nameEdit->setText(note->getNom());
+}
+
+void MainInterface::on_noteEdit_editingFinished() {
+    if(currentNote) currentNote->getNote()->setNote(ui->noteEdit->text());
+}
+
 void MainInterface::on_nameEdit_editingFinished() {
-    QString nom = ui->nameEdit->text();
-    if(simulation->searchNote(nom) != -1) {
-        nom = "";
-        QListWidgetItem* item = ui->listNote->currentItem();
-        for (int i=0; i<item->text().length(); i++) {
-            if(item->text()[i] == "\t") break;
-            nom += item->text()[i];
-        }
-        ui->nameEdit->setText(nom);
-        throw TradingException("Ce nom est déjà existe");
+    if(currentNote) {
+        currentNote->getNote()->setNom(ui->nameEdit->text());
+        currentNote->setText(ui->nameEdit->text());
     }
-
-}
-
-void MainInterface::on_saveNote_clicked() {
-    QString nom = "";
-    QListWidgetItem* item = ui->listNote->currentItem();
-    for (int i=0; i<item->text().length(); i++) {
-        if(item->text()[i] == "\t") break;
-        nom += item->text()[i];
-    }
-    Simulation::NoteManager noteManager = simulation->getNoteManager();
-    int index = simulation->searchNote(nom);
-    if (index == -1) throw TradingException("Note n'existe pas");
-    Note note = noteManager[index];
-    note.setNom(ui->nameEdit->text());
-    note.setNote(ui->noteEdit->text());
-    item->setText(note.getNom() + "\t" + note.getDernierAcces().toString("dd.MM.yy"));
-}
-
-void MainInterface::on_listNote_itemDoubleClicked(QListWidgetItem *item){
-    //display note
-    QString nom = "";
-    for (int i=0; i<item->text().length(); i++) {
-        if(item->text()[i] == "\t") break;
-        nom += item->text()[i];
-    }
-    Simulation::NoteManager noteManager = simulation->getNoteManager();
-    int index = simulation->searchNote(nom);
-    if (index == -1) throw TradingException("Note n'existe pas");
-    Note note = noteManager[index];
-    ui->noteEdit->setText(note.getNote());
-    ui->nameEdit->setText(note.getNom());
 }
 
 void MainInterface::on_pushButton_2_clicked() {
-    QString nom = "";
-    QListWidgetItem* item = ui->listNote->currentItem();
-    for (int i=0; i<item->text().length(); i++) {
-        if(item->text()[i] == "\t") break;
-        nom += item->text()[i];
+    NoteItem* item = static_cast<NoteItem*>(ui->listNote->takeItem(ui->listNote->currentRow()));
+    if(item==currentNote) {
+        currentNote=nullptr;
+        ui->noteEdit->clear();
+        ui->nameEdit->clear();
+        ui->noteEdit->setEnabled(false);
+        ui->nameEdit->setEnabled(false);
     }
-    Simulation::NoteManager noteManager = simulation->getNoteManager();
-    int index = simulation->searchNote(nom);
-    if (index == -1) throw TradingException("Note n'existe pas");
-    noteManager.removeAt(index);
-    ui->listNote->removeItemWidget(item);
 }
 
-void MainInterface::on_addNote_clicked() {
-    Simulation::NoteManager noteManager = simulation->getNoteManager();
-    Note& newNote = simulation->addNote();
-    ui->listNote->addItem(newNote.getNom() + "\t" + newNote.getDernierAcces().toString("dd.MM.yy"));
-    ui->noteEdit->setText(newNote.getNote());
-    ui->nameEdit->setText(newNote.getNom());
+void MainInterface::on_closeNote_clicked() {
+    currentNote=nullptr;
+    ui->noteEdit->clear();
+    ui->nameEdit->clear();
+    ui->noteEdit->setEnabled(false);
+    ui->nameEdit->setEnabled(false);
 }

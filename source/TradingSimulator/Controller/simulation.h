@@ -26,8 +26,8 @@ public:
     QString& getNom() {dernierAcces = QDateTime::currentDateTime(); return nom;}
     QDateTime getDateCreation() const {return dateCreation;}
     QDateTime getDernierAcces() const {return dernierAcces;}
-    void setNote(QString note) {this->note = note;}
-    void setNom(QString nom) {this->nom = nom;}
+    void setNote(QString note) {dernierAcces=QDateTime::currentDateTime(); this->note = note;}
+    void setNom(QString nom) {dernierAcces=QDateTime::currentDateTime(); this->nom = nom;}
 };
 
 
@@ -69,8 +69,8 @@ public:
     TransactionManager* getTransactionManager() {return &transactionManager;}
     using NoteManager = QList<Note>;
     NoteManager& getNoteManager() {return noteManager;}
-    Note& addNote(QString nom= "Note"+QDateTime::currentDateTime().toString("dd.MM.yy HH.mm"));
-    int searchNote(QString nom);
+    Note* addNote();
+    //int searchNote(QString nom);
 };
 
 
@@ -173,6 +173,7 @@ public:
     }
     void addSimulation(Simulation* simulation) { listeSimulation.append(simulation);}
     void removeSimulation(Simulation* simulation) {
+        if (!simulation) return;
         for (int i=0; i<listeSimulation.count(); i++) {
             if (listeSimulation[i] == simulation) listeSimulation.removeAt(i);
             break;
