@@ -208,12 +208,14 @@ void ModeAutomatique::saveStrategie() const {
         setting.beginGroup(nom);
             setting.beginGroup("Strategie");
                 setting.setValue("nom", strategie->getNom());
+                qDebug()<< "nom strategie" << setting.value("nom").toString();
                 //save parametrer
                 QMap<QString, QVariant> parameters = strategie->getParameters();
                 setting.beginGroup("parameters");
                     QMap<QString, QVariant>::iterator parametersIterator = parameters.begin();
                     while (parametersIterator != parameters.end()) {
                         setting.setValue(parametersIterator.key(), parametersIterator.value());
+                        parametersIterator++;
                     }
                 setting.endGroup();
             setting.endGroup();
@@ -367,10 +369,11 @@ Simulation* SimulationManager::chargeSimulation(QString nom) {
             type = setting.value("type").toString();
             qDebug() << type;
             setting.beginGroup("TransactionManager");
-            pourcentage =  setting.value("TransactionManager/pourcentage").toDouble();
-            montantBaseInitial = setting.value("TransactionManager/montantBaseInitial").toDouble();
-            montantContrepartieInitial = setting.value("TransactionManager/montantContrepartieInitial").toDouble();
-            qDebug("start loading simulation");
+                pourcentage =  setting.value("TransactionManager/pourcentage").toDouble();
+                montantBaseInitial = setting.value("TransactionManager/montantBaseInitial").toDouble();
+                montantContrepartieInitial = setting.value("TransactionManager/montantContrepartieInitial").toDouble();
+                qDebug("start loading simulation");
+            setting.endGroup();
             if(type == "Manuel") {
                 simulation = new ModeManuel(nom, evolutionCours, currentCours, pourcentage, montantBaseInitial, montantContrepartieInitial);
             }
@@ -382,17 +385,19 @@ Simulation* SimulationManager::chargeSimulation(QString nom) {
                 int time_interval = setting.value("timerInterval").toInt();
                 StrategieFactory* strategieFactory = StrategieFactory::getStrategieFactory();
                 setting.beginGroup("Strategie");
-                Strategie* strategie = strategieFactory->getStrategie( setting.value("nom").toString(), evolutionCours);
-                QMap<QString, QVariant> parameters;
-                    setting.beginGroup("parameters");
-                        QStringList listeParameters = setting.childKeys();
-                        for(int i=0; i<listeParameters.count(); i++) {
-                            parameters[listeParameters[i]] = setting.value(listeParameters[i]);
-                        }
-                    setting.endGroup();
-                setting.endGroup();
-                strategie->setParameters(parameters);
-                simulation = new ModeAutomatique(nom, evolutionCours, currentCours, strategie, pourcentage, montantBaseInitial, montantContrepartieInitial, time_interval);
+                    qDebug() << setting.value("nom").toString();
+                    Strategie* strategie = strategieFactory->getStrategie(setting.value("nom").toString(), evolutionCours);
+                    QMap<QString, QVariant> parameters;
+                        setting.beginGroup("parameters");
+                            QStringList listeParameters = setting.childKeys();
+                            qDebug()<< listeParameters;
+                            for(int i=0; i<listeParameters.count(); i++) {
+                                parameters[listeParameters[i]] = setting.value(listeParameters[i]);
+                            }
+                        setting.endGroup();
+               setting.endGroup();
+               strategie->setParameters(parameters);
+               simulation = new ModeAutomatique(nom, evolutionCours, currentCours, strategie, pourcentage, montantBaseInitial, montantContrepartieInitial, time_interval);
             }
         setting.endGroup();
     setting.endGroup();
