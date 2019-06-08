@@ -29,6 +29,7 @@ public:
         return this->montantContrepartie - transactionDernier->montantContrepartie;
     }
     double montantTotal() const {return montantBase*cours->getClose() + montantContrepartie;}
+    double roi(double montantTotalInitial) const {return montantTotal()/ montantTotalInitial;}
     double getMontantBase() const {return montantBase;}
     double getMontantContrepartie() const {return montantContrepartie;}
     CoursOHLCV* getCours() const {return cours;}
@@ -68,7 +69,7 @@ public:
         if (!listeTransaction) {return montantContrepartieInitial;}
             return listeTransaction->getMontantContrepartie();
     }
-    double roi() const {return solde()/ montantTotalInitial;}
+    double getMontantTotalInitial() const {return montantTotalInitial;}
     using iterator = Transaction*;      //definir iterator avec 2 operations: next() et hasNext()
     iterator head() const {return listeTransaction;}
 };

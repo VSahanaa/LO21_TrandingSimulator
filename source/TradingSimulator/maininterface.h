@@ -21,35 +21,32 @@ public:
     Note* getNote() {return note;}
 };
 
+
+
 class MainInterface : public QWidget {
     Q_OBJECT
 public:
     explicit MainInterface(QWidget *parent = nullptr);
     ~MainInterface();
+signals:
+    void giveName(QString nom);
 private slots:
     void newSimulation();
     void showSimulation();
     void on_newSimulation_button_clicked();
     void endSimulationMessage();
     void updateGraph();
-    void on_back_clicked();
     void on_simulationGo_clicked();
     void updateTransactionTable();
     void on_chargeSimulation_button_clicked();
     void on_save_clicked();
     void on_addNote_clicked();
     void on_listNote_itemDoubleClicked(QListWidgetItem *item);
-
     void on_nameEdit_editingFinished();
-
     void on_pushButton_2_clicked();
-
     void on_closeNote_clicked();
-
     void on_noteEdit_textChanged();
-
     void on_deleteSimulation_clicked();
-
 private:
     Ui::MainInterface *ui;
     Simulation* simulation = nullptr;

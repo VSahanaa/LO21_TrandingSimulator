@@ -58,19 +58,6 @@
       </item>
      </layout>
     </widget>
-    <widget class="QCommandLinkButton" name="simulationGo">
-     <property name="geometry">
-      <rect>
-       <x>1040</x>
-       <y>10</y>
-       <width>177</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Simulation</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="deleteSimulation">
      <property name="geometry">
       <rect>
@@ -100,17 +87,6 @@
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QPushButton" name="back">
-        <property name="text">
-         <string>Back</string>
-        </property>
-        <property name="icon">
-         <iconset resource="resource.qrc">
-          <normaloff>:/TradingSimulator/evolutionCours/icons/back.png</normaloff>:/TradingSimulator/evolutionCours/icons/back.png</iconset>
-        </property>
-       </widget>
-      </item>
       <item>
        <widget class="QComboBox" name="addIndicateur">
         <item>
@@ -146,7 +122,7 @@
       <rect>
        <x>0</x>
        <y>810</y>
-       <width>361</width>
+       <width>411</width>
        <height>521</height>
       </rect>
      </property>
@@ -317,10 +293,10 @@
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>410</x>
+       <x>440</x>
        <y>810</y>
-       <width>1061</width>
-       <height>521</height>
+       <width>1031</width>
+       <height>531</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -367,8 +343,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>1055</width>
-             <height>482</height>
+             <width>1025</width>
+             <height>492</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_7">

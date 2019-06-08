@@ -6,84 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1077</width>
-    <height>676</height>
+    <width>1836</width>
+    <height>1413</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>-20</x>
-      <y>0</y>
-      <width>1181</width>
-      <height>761</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>1</number>
-    </property>
-    <widget class="QWidget" name="landingPage">
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>90</y>
-        <width>258</width>
-        <height>225</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QCommandLinkButton" name="chargeSimulation_button">
-         <property name="text">
-          <string>Charger une simulation</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QListWidget" name="listSimulation"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QCommandLinkButton" name="newSimulation_button">
-      <property name="geometry">
-       <rect>
-        <x>640</x>
-        <y>380</y>
-        <width>201</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Créer nouvelle simulation</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="mainPage">
-     <widget class="QWidget" name="verticalLayoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>-18</x>
-        <y>0</y>
-        <width>1121</width>
-        <height>761</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="mainInterfaceLayout"/>
-     </widget>
-    </widget>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="mainLayout"/>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1077</width>
+     <width>1836</width>
      <height>22</height>
     </rect>
    </property>

@@ -2,24 +2,39 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "configuration.h"
-#include "simulationtab.h"
+#include "maininterface.h"
 
 namespace Ui {
     class MainWindow;
+    class SimulationTab;
 }
+
+class SimulationTab: public QTabWidget{
+    Q_OBJECT
+public:
+    SimulationTab(QWidget* parent);
+signals:
+    void closeWindow_request();
+private slots:
+    void newTab();
+    void closeTab(int index);
+    void setTabName(QString nom) {
+        qDebug() << nom;
+        setTabText(currentIndex(), nom);}
+};
+
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+signals:
+    void stop();
 private slots:
-    void on_newSimulation_button_clicked();
-    void addSimulation();
+    void send_stop() {emit stop();}
 private:
     Ui::MainWindow *ui;
-    Configuration* configuration;
     SimulationTab* simulationTabs;
 };
 

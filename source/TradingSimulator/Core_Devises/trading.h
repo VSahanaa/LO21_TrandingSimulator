@@ -376,30 +376,6 @@ public:
     bool isShavenHead() const;
 };
 
-/**
-* \class ListEvolutionCours
-* \brief liste des fichiers EvolutionCours
-* attributs : filename, nbFiles
-* méthodees : addFile
-*/
-class ListEvolutionCours {
-    QStringList filenames; /**< filenames :QstringList représente la liste des noms des fichiers*/
-    int nbFiles; /**< nbFiles :int représente le nombre de noms de fichiers contenu dans filenames */
-public:
-	//! constructeur
-	/**
-	* \param list :QStringList
-	*/
-    ListEvolutionCours(QStringList list) {filenames = list; nbFiles = list.length();}
-    ~ListEvolutionCours() = default;
-	//! méthode addFile ; ajoute un nouveau nom de fichier à la liste filenames
-	/**
-	* \param file :QString
-	* \return void
-	*/
-    void addFile(QString file) {filenames<<file; nbFiles++;}
-};
-
 class IndicateurCollection;     //forward declaration of IndicateurCollection
 
 /**

@@ -3,7 +3,6 @@
 
 MainInterface::MainInterface(QWidget *parent) : QWidget(parent), ui(new Ui::MainInterface) {
     ui->setupUi(this);
-    ui->simulationGo->setVisible(false);
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QStringList listSavedSimulation = simulationManager->listSavedSimulation();
     ui->listSimulation->addItems(listSavedSimulation);
@@ -23,11 +22,12 @@ void MainInterface::newSimulation() {
 }
 
 void MainInterface::showSimulation() {
+    emit giveName(simulation->getNom());
     ui->controlPanel->removeWidget(controlPanel);
     ui->chanderlierLayout->removeWidget(evolutionViewer);
     ui->volumeLayout->removeWidget(volumeViewer);
     ui->transactionTable->setRowCount(0);
-    ui->simulationGo->setVisible(true);
+
     ui->stackedWidget->setCurrentWidget(ui->SimulationPage);
     if (simulation->getType() == "Manuel") {
         //Specific element for mode Manuel
@@ -63,8 +63,11 @@ void MainInterface::showSimulation() {
     ui->volumeLayout->addWidget(volumeViewer); 
     ui->tabWidget->setCurrentWidget(evolutionViewer);
 
-    ui->transactionTable->setColumnCount(3);
-    ui->transactionTable->setHorizontalHeaderLabels({ "Date", "Contre partie", "Base" });
+    ui->transactionTable->setColumnCount(4);
+    const PaireDevises* paire = simulation->getEvolutionCours()->getPaireDevises();
+    QStringList labels;
+    labels<<"Date" << paire->getContrepartie().getCode() <<paire->getBase().getCode() << "ROI";
+    ui->transactionTable->setHorizontalHeaderLabels(labels);
     updateTransactionTable();
     if(!currentNote) {
         ui->noteEdit->clear();
@@ -126,10 +129,6 @@ void MainInterface::updateTransactionTable() {
         transactionIterator = transactionIterator->next();
         qDebug() << i;
     }
-}
-
-void MainInterface::on_back_clicked() {
-    ui->stackedWidget->setCurrentWidget(ui->LandingPage);
 }
 
 void MainInterface::on_simulationGo_clicked() {
