@@ -20,7 +20,9 @@ int main(int argc, char *argv[])
 
     QApplication mainApp(argc, argv);
     MainInterface mainInterface;
-    mainInterface.show();
+    QScrollArea* scrollArea = new QScrollArea;
+    scrollArea->setWidget(&mainInterface);
+    scrollArea->show();
     //EvolutionViewer evolutionViewer(&evolution, evolution.end()-1);
     //evolutionViewer.show();
 

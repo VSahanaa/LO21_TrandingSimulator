@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1892</width>
-    <height>3099</height>
+    <height>1346</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -73,229 +73,299 @@
     </widget>
    </widget>
    <widget class="QWidget" name="SimulationPage">
-    <widget class="QScrollArea" name="scrollArea">
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>10</y>
+       <width>1051</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="back">
+        <property name="text">
+         <string>Back</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="addIndicateur">
+        <item>
+         <property name="text">
+          <string>EMA</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>MACD</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="aid">
+        <property name="text">
+         <string>Aide</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="save">
+        <property name="text">
+         <string>Sauvegarder</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_10">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>10</y>
-       <width>1891</width>
-       <height>1381</height>
+       <y>680</y>
+       <width>251</width>
+       <height>651</height>
       </rect>
      </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
+     <layout class="QVBoxLayout" name="history_transaction">
+      <item>
+       <widget class="QTableWidget" name="transactionTable"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>650</y>
+       <width>159</width>
+       <height>28</height>
+      </rect>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_4">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>1889</width>
-        <height>1379</height>
-       </rect>
-      </property>
-      <widget class="QWidget" name="verticalLayoutWidget_11">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Histoire de Transaction</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>89</y>
+       <width>251</width>
+       <height>451</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="controlPanel"/>
+    </widget>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="geometry">
+      <rect>
+       <x>272</x>
+       <y>62</y>
+       <width>1631</width>
+       <height>731</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <property name="tabsClosable">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="Chanderlier">
+      <attribute name="title">
+       <string>Evolution Cours</string>
+      </attribute>
+      <widget class="QWidget" name="verticalLayoutWidget_15">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>80</y>
-         <width>301</width>
-         <height>491</height>
+         <x>-10</x>
+         <y>-10</y>
+         <width>1501</width>
+         <height>691</height>
         </rect>
        </property>
-       <layout class="QVBoxLayout" name="controlPanel"/>
+       <layout class="QVBoxLayout" name="chanderlierLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
+       </layout>
       </widget>
-      <widget class="QWidget" name="verticalLayoutWidget_10">
+     </widget>
+     <widget class="QWidget" name="Bargraph">
+      <attribute name="title">
+       <string>Volume de trading</string>
+      </attribute>
+      <widget class="QWidget" name="verticalLayoutWidget_16">
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>630</y>
-         <width>311</width>
-         <height>651</height>
+         <y>0</y>
+         <width>1571</width>
+         <height>691</height>
         </rect>
        </property>
-       <layout class="QVBoxLayout" name="history_transaction">
+       <layout class="QVBoxLayout" name="volumeLayout">
         <item>
-         <widget class="QTableWidget" name="transactionTable"/>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="verticalLayoutWidget_9">
-       <property name="geometry">
-        <rect>
-         <x>320</x>
-         <y>780</y>
-         <width>1171</width>
-         <height>531</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="Editeur_text"/>
-      </widget>
-      <widget class="QWidget" name="verticalLayoutWidget_12">
-       <property name="geometry">
-        <rect>
-         <x>1520</x>
-         <y>780</y>
-         <width>321</width>
-         <height>531</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="listNote"/>
-      </widget>
-      <widget class="QWidget" name="verticalLayoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>320</x>
-         <y>50</y>
-         <width>1521</width>
-         <height>721</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <property name="sizeConstraint">
-         <enum>QLayout::SetMaximumSize</enum>
-        </property>
-        <item>
-         <widget class="QTabWidget" name="tabWidget">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <property name="tabsClosable">
-           <bool>false</bool>
-          </property>
-          <widget class="QWidget" name="Chanderlier">
-           <attribute name="title">
-            <string>Evolution Cours</string>
-           </attribute>
-           <widget class="QWidget" name="verticalLayoutWidget_15">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>1551</width>
-              <height>691</height>
-             </rect>
-            </property>
-            <layout class="QVBoxLayout" name="chanderlierLayout">
-             <property name="sizeConstraint">
-              <enum>QLayout::SetDefaultConstraint</enum>
-             </property>
-            </layout>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="Bargraph">
-           <attribute name="title">
-            <string>Volume de trading</string>
-           </attribute>
-           <widget class="QWidget" name="verticalLayoutWidget_16">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>1571</width>
-              <height>691</height>
-             </rect>
-            </property>
-            <layout class="QVBoxLayout" name="volumeLayout">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout"/>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-          <widget class="QWidget" name="ROI">
-           <attribute name="title">
-            <string>ROI</string>
-           </attribute>
-          </widget>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>10</y>
-         <width>1051</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QPushButton" name="back">
-          <property name="text">
-           <string>Back</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="addIndicateur">
-          <item>
-           <property name="text">
-            <string>EMA</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>MACD</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="aid">
-          <property name="text">
-           <string>Aide</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="save">
-          <property name="text">
-           <string>Sauvegarder</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="">
-       <property name="geometry">
-        <rect>
-         <x>70</x>
-         <y>590</y>
-         <width>159</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Histoire de Transaction</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout"/>
         </item>
        </layout>
       </widget>
      </widget>
+     <widget class="QWidget" name="ROI">
+      <attribute name="title">
+       <string>ROI</string>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>1507</x>
+       <y>810</y>
+       <width>331</width>
+       <height>551</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/icons/delete.png</normaloff>:/icons/delete.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="addNote">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/icons/+.jpeg</normaloff>:/icons/+.jpeg</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QListWidget" name="listNote"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>810</y>
+       <width>1201</width>
+       <height>541</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLineEdit" name="nameEdit"/>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="saveNote">
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QScrollArea" name="scrollArea_2">
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1197</width>
+           <height>504</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLineEdit" name="noteEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

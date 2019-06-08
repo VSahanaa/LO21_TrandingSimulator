@@ -130,12 +130,23 @@ bool Simulation::verifierNomSimulation(QString nom) const {
     return !simulationManager->listExistSimulation().contains(nom);
 }
 
-
-Note& Simulation::addNote() {
-    Note note;
-    noteManager.append(note);
-    return noteManager[noteManager.length()];
+int Simulation::searchNote(QString nom) {
+    int index;
+    for(index=0; index<noteManager.count(); index++) {
+        if(nom == noteManager[index].getNom()) return index;
+    }
+    return -1;
 }
+
+Note& Simulation::addNote(QString nom) {
+    if(searchNote(nom) != -1) throw TradingException("Ce nom existe déjà");
+    Note note;
+    note.setNom(nom);
+    noteManager.append(note);
+    return noteManager[noteManager.count()-1];
+}
+
+
 /*---------------------------------------------------------- Methodes de Mode Manuel -------------------------------------------------------*/
 
 void ModeManuel::saveSimulation() const {

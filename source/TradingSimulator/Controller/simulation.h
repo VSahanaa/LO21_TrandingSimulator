@@ -12,7 +12,7 @@
  */
 class Note {
     friend class Simulation;
-    QString nom = "New note";
+    QString nom = "New note";           //nom is unique
     QString note = "";
     QDateTime dateCreation;
     QDateTime dernierAcces;
@@ -22,8 +22,8 @@ class Note {
     }
     void setDateCreation(QDateTime dateCreation) {this->dateCreation = dateCreation;}
 public:
-    QString& modifierNote() {dernierAcces=QDateTime::currentDateTime(); return note;}
-    QString& modifierNom() {dernierAcces = QDateTime::currentDateTime(); return nom;}
+    QString& getNote() {dernierAcces=QDateTime::currentDateTime(); return note;}
+    QString& getNom() {dernierAcces = QDateTime::currentDateTime(); return nom;}
     QDateTime getDateCreation() const {return dateCreation;}
     QDateTime getDernierAcces() const {return dernierAcces;}
     void setNote(QString note) {this->note = note;}
@@ -67,8 +67,10 @@ public:
     //virtual void saveNote() const;                                                        TO IMPLEMENT !!!
     bool verifierNomSimulation(QString nom) const;          //verify wheather the name of simulation is already exist
     TransactionManager* getTransactionManager() {return &transactionManager;}
-    QList<Note>& getNoteManager() {return noteManager;}
-    Note& addNote();
+    using NoteManager = QList<Note>;
+    NoteManager& getNoteManager() {return noteManager;}
+    Note& addNote(QString nom= "Note"+QDateTime::currentDateTime().toString("dd.MM.yy HH.mm"));
+    int searchNote(QString nom);
 };
 
 

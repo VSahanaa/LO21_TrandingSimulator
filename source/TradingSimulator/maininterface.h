@@ -27,6 +27,17 @@ private slots:
     void on_back_clicked();
     void on_simulationGo_clicked();
     void updateTransactionTable();
+
+    void on_nameEdit_editingFinished();
+
+    void on_saveNote_clicked();
+
+    void on_listNote_itemDoubleClicked(QListWidgetItem *item);
+
+    void on_pushButton_2_clicked();
+
+    void on_addNote_clicked();
+
 private:
     Ui::MainInterface *ui;
     Simulation* simulation = nullptr;
