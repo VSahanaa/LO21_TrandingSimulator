@@ -36,6 +36,7 @@ ModeAutowidget::~ModeAutowidget() {
 
 void ModeAutowidget::updateData() {
     ui->label_montantBase->setText(QString::number(transactionManager->getMontantBase()));
+    if((ui->label_montantContrepartie->text()).toDouble() != transactionManager->getMontantContrepartie()) emit transactionChanged();
     ui->label_montantContrepartie->setText(QString::number(transactionManager->getMontantContrepartie()));
     ui->label_broker->setText(QString::number(transactionManager->getPourcentage()));
     ui->dateEdit->setDate(modeAutomatique->getCurrentCours()->getDate());

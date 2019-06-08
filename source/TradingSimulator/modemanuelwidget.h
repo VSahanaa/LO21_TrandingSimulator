@@ -18,6 +18,8 @@ public:
     explicit modeManuelWidget(ModeManuel* modeManuel, QWidget *parent = nullptr);
     ~modeManuelWidget();
     void updateData();
+signals:
+    void transactionChanged();
 private slots:
     void on_pushButton_achat_clicked();
     void on_pushButton_vente_clicked();

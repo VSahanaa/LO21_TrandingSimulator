@@ -12,6 +12,8 @@ class ModeAutowidget : public QWidget {
 public:
     explicit ModeAutowidget(ModeAutomatique* modeAutomatique, QWidget *parent = nullptr);
     ~ModeAutowidget();
+signals:
+    void transactionChanged();
 private slots:
     void updateData();
     void on_comboBox_timer_currentIndexChanged(int index);

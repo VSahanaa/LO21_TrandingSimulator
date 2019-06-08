@@ -41,6 +41,7 @@ void modeManuelWidget::on_pushButton_achat_clicked() {
     if (montant > 0) {
         modeManuel->achat(coursPicked, montant);
         updateData();
+        emit transactionChanged();
     }
 }
 
@@ -50,10 +51,12 @@ void modeManuelWidget::on_pushButton_vente_clicked() {
     if (montant > 0) {
         modeManuel->vente(coursPicked, montant);
         updateData();
+        emit transactionChanged();
     }
 }
 
 void modeManuelWidget::on_pushButton_annulerTransaction_clicked() {
     modeManuel->annule();
     updateData();
+    emit transactionChanged();
 }

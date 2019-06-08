@@ -14,6 +14,8 @@
         <file>icons/trading.png</file>
         <file>icons/welcome.png</file>
         <file>fichier_OHLCV/test.csv</file>
+        <file>icons/up.jpeg</file>
+        <file>icons/down.jpeg</file>
     </qresource>
     <qresource prefix="/">
         <file>icons/+.jpeg</file>

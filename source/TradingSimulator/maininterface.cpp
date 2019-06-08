@@ -17,6 +17,7 @@ void MainInterface::showSimulation() {
     ui->controlPanel->removeWidget(controlPanel);
     ui->chanderlierLayout->removeWidget(evolutionViewer);
     ui->volumeLayout->removeWidget(volumeViewer);
+    ui->transactionTable->setRowCount(0);
     ui->simulationGo->setVisible(true);
     ui->stackedWidget->setCurrentWidget(ui->SimulationPage);
     if (simulation->getType() == "Manuel") {
@@ -25,6 +26,7 @@ void MainInterface::showSimulation() {
         evolutionViewer = new EvolutionViewer(simulation->getEvolutionCours(), simulation->getEvolutionCours()->end()-1, this);
         volumeViewer = new VolumeViewer(simulation->getEvolutionCours(), simulation->getEvolutionCours()->end()-1, this);
         QObject::connect(evolutionViewer, SIGNAL(coursPicked(CoursOHLCV*)), static_cast<modeManuelWidget*>(controlPanel), SLOT(setCoursPicked(CoursOHLCV*)));
+        QObject::connect(static_cast<modeManuelWidget*>(controlPanel), SIGNAL(transactionChanged()), this, SLOT(updateTransactionTable()));
     }
     else if (simulation->getType() == "Pas_Pas") {
         //Specific element for mode Pas à pas
@@ -33,6 +35,7 @@ void MainInterface::showSimulation() {
         volumeViewer = new VolumeViewer(simulation->getEvolutionCours(), simulation->getCurrentCours(), this);
         QObject::connect(static_cast<ModePas_Pas*>(simulation), SIGNAL(endSimulation()), this, SLOT(endSimulationMessage()));
         QObject::connect(static_cast<ModePas_Pas*>(simulation), SIGNAL(coursChanged()), this, SLOT(updateGraph()));
+        QObject::connect(static_cast<ModePasPaswidget*>(controlPanel), SIGNAL(transactionChanged()), this, SLOT(updateTransactionTable()));
     }
     else if (simulation->getType() == "Automatique") {
         //Specific element for mode Automatique
@@ -41,13 +44,17 @@ void MainInterface::showSimulation() {
         volumeViewer = new VolumeViewer(simulation->getEvolutionCours(), simulation->getCurrentCours(), this);
         QObject::connect(static_cast<ModeAutomatique*>(simulation), SIGNAL(endSimulation()), this, SLOT(endSimulationMessage()));
         QObject::connect(static_cast<ModeAutomatique*>(simulation), SIGNAL(coursChanged()), this, SLOT(updateGraph()));
+        QObject::connect(static_cast<ModeAutowidget*>(controlPanel), SIGNAL(transactionChanged()), this, SLOT(updateTransactionTable()));
     }
     else {
         throw TradingException("type simulation invalid");
     }
     ui->controlPanel->addWidget(controlPanel);
     ui->chanderlierLayout->addWidget(evolutionViewer);
-    ui->volumeLayout->addWidget(volumeViewer);
+    ui->volumeLayout->addWidget(volumeViewer); 
+    ui->transactionTable->setColumnCount(3);
+    ui->transactionTable->setHorizontalHeaderLabels({ "Date", "Contre partie", "Base" });
+
 }
 
 void MainInterface::endSimulationMessage() {
@@ -77,7 +84,34 @@ void MainInterface::on_newSimulation_button_clicked() {
     delete configuration;
 }
 
+void MainInterface::updateTransactionTable() {
+    ui->transactionTable->setRowCount(0);        //clear all data
+    TransactionManager::iterator transactionIterator = simulation->getTransactionManager()->head();
+    int i = 0;
+    while(transactionIterator != nullptr) {
+        ui->transactionTable->setRowCount(++i);
+        QTableWidgetItem *date, *diffContrepartie, *diffBase;
+        date = new QTableWidgetItem(transactionIterator->getCours()->getDate().toString("dd.MM.yy"), 0);
+        if(transactionIterator->differenceBase() > 0) {
+            diffBase = new QTableWidgetItem(QIcon(":/TradingSimulator/evolutionCours/icons/up.jpeg"), QString::number(transactionIterator->differenceBase()), 0);
+        }
+        else {
+            diffBase = new QTableWidgetItem(QIcon(":/TradingSimulator/evolutionCours/icons/down.jpeg"), QString::number(-transactionIterator->differenceBase()), 0);
+        }
 
+        if(transactionIterator->differenceContrepartie() > 0) {
+            diffContrepartie = new QTableWidgetItem(QIcon(":/TradingSimulator/evolutionCours/icons/up.jpeg"), QString::number(transactionIterator->differenceContrepartie()), 0);
+        }
+        else {
+            diffContrepartie = new QTableWidgetItem(QIcon(":/TradingSimulator/evolutionCours/icons/down.jpeg"), QString::number(-transactionIterator->differenceContrepartie()), 0);
+        }
+        ui->transactionTable->setItem(i-1, 0, date);
+        ui->transactionTable->setItem(i-1, 1, diffContrepartie);
+        ui->transactionTable->setItem(i-1, 2, diffBase);
+        transactionIterator = transactionIterator->next();
+        qDebug() << i;
+    }
+}
 
 void MainInterface::on_back_clicked() {
     ui->stackedWidget->setCurrentWidget(ui->LandingPage);

@@ -57,6 +57,7 @@ void ModePasPaswidget::updateCurrentCours() {
 void ModePasPaswidget::on_goBack_clicked() {
     modePas_Pas->goBack(ui->dateEdit->date());
     updateData();
+    emit transactionChanged();
 }
 
 void ModePasPaswidget::on_comboBox_timer_currentIndexChanged(const QString &arg1) {
@@ -68,6 +69,7 @@ void ModePasPaswidget::on_pushButton_achat_clicked() {
     if (montant > 0) {
         modePas_Pas->achat(montant);
         updateData();
+        emit transactionChanged();
     }
 }
 
@@ -76,10 +78,12 @@ void ModePasPaswidget::on_pushButton_vente_clicked() {
     if (montant > 0) {
         modePas_Pas->vente(montant);
         updateData();
+        emit transactionChanged();
     }
 }
 
 void ModePasPaswidget::on_pushButton_annulerTransaction_clicked() {
     modePas_Pas->annule();
     updateData();
+    emit transactionChanged();
 }

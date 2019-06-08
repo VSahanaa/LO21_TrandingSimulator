@@ -79,7 +79,7 @@
        <x>10</x>
        <y>10</y>
        <width>1891</width>
-       <height>1031</height>
+       <height>1381</height>
       </rect>
      </property>
      <property name="widgetResizable">
@@ -91,15 +91,15 @@
         <x>0</x>
         <y>0</y>
         <width>1889</width>
-        <height>1029</height>
+        <height>1379</height>
        </rect>
       </property>
       <widget class="QWidget" name="verticalLayoutWidget_11">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>50</y>
-         <width>261</width>
+         <y>80</y>
+         <width>301</width>
          <height>491</height>
         </rect>
        </property>
@@ -108,20 +108,24 @@
       <widget class="QWidget" name="verticalLayoutWidget_10">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>560</y>
-         <width>261</width>
+         <x>0</x>
+         <y>630</y>
+         <width>311</width>
          <height>651</height>
         </rect>
        </property>
-       <layout class="QVBoxLayout" name="history_transaction"/>
+       <layout class="QVBoxLayout" name="history_transaction">
+        <item>
+         <widget class="QTableWidget" name="transactionTable"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="verticalLayoutWidget_9">
        <property name="geometry">
         <rect>
-         <x>280</x>
+         <x>320</x>
          <y>780</y>
-         <width>1221</width>
+         <width>1171</width>
          <height>531</height>
         </rect>
        </property>
@@ -141,9 +145,9 @@
       <widget class="QWidget" name="verticalLayoutWidget">
        <property name="geometry">
         <rect>
-         <x>280</x>
+         <x>320</x>
          <y>50</y>
-         <width>1561</width>
+         <width>1521</width>
          <height>721</height>
         </rect>
        </property>
@@ -214,10 +218,10 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>40</x>
+         <x>180</x>
          <y>10</y>
          <width>1051</width>
          <height>27</height>
@@ -256,6 +260,32 @@
          <widget class="QPushButton" name="save">
           <property name="text">
            <string>Sauvegarder</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>590</y>
+         <width>159</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Histoire de Transaction</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>

@@ -13,6 +13,8 @@ public:
     explicit ModePasPaswidget(ModePas_Pas* modePas_Pas, QWidget *parent = nullptr);
     ~ModePasPaswidget();
     void updateData();
+signals:
+    void transactionChanged();
 private slots:
 
     void updateCurrentCours();
