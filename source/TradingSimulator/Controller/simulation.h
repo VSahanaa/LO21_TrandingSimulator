@@ -43,13 +43,13 @@ protected:
     EvolutionCours* evolutionCours;
     EvolutionCours::iterator currentCours = evolutionCours->begin();        //default value
     TransactionManager transactionManager;
-    QList<Note> noteManager;
+    QList<Note*> noteManager;
 public:
     Simulation(QString type, QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial) :
         type(type), evolutionCours(evolutionCours), currentCours(coursDebut),
         transactionManager(TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantContrepartieInitial + montantBaseInitial*coursDebut->getClose())) {
-        if (!verifierNomSimulation(nom)) throw TradingException("Simulation: ce nom est déjà pris");
-            this->nom = nom;
+        //if (!verifierNomSimulation(nom)) throw TradingException("Simulation: ce nom est déjà pris");
+        this->nom = nom;
     }
     ~Simulation();
     void achat(CoursOHLCV* cours, double montant) {transactionManager.addTransaction(evolutionCours->getPaireDevises(), cours, true, montant);}
@@ -67,7 +67,7 @@ public:
     //virtual void saveNote() const;                                                        TO IMPLEMENT !!!
     bool verifierNomSimulation(QString nom) const;          //verify wheather the name of simulation is already exist
     TransactionManager* getTransactionManager() {return &transactionManager;}
-    using NoteManager = QList<Note>;
+    using NoteManager = QList<Note*>;
     NoteManager& getNoteManager() {return noteManager;}
     Note* addNote();
     //int searchNote(QString nom);
@@ -180,7 +180,7 @@ public:
         }
     }
     EvolutionCours* chargeEvolutionCours(QString nomSimulation);
-    Simulation* chargeSimulation(QString nom);          //TO IMPLEMENT !!!
+    Simulation* chargeSimulation(QString nom);
     QStringList listSavedSimulation() const;
     QStringList listExistSimulation() const;
     const QString& getNomGroupe() const {return nomGroupe;}

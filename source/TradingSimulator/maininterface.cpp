@@ -61,6 +61,8 @@ void MainInterface::showSimulation() {
     ui->controlPanel->addWidget(controlPanel);
     ui->chanderlierLayout->addWidget(evolutionViewer);
     ui->volumeLayout->addWidget(volumeViewer); 
+    ui->tabWidget->setCurrentWidget(evolutionViewer);
+
     ui->transactionTable->setColumnCount(3);
     ui->transactionTable->setHorizontalHeaderLabels({ "Date", "Contre partie", "Base" });
     updateTransactionTable();
@@ -73,19 +75,15 @@ void MainInterface::showSimulation() {
 
     //load Note
     Simulation::NoteManager noteManager = simulation->getNoteManager();
-    for(Simulation::NoteManager::iterator noteIterator = noteManager.begin(); noteIterator != noteManager.end(); noteIterator++) {
-        ui->listNote->addItem(noteIterator->getNom());
+    for (int i=0; i<noteManager.count(); i++) {
+        NoteItem* newNoteItem = new NoteItem(noteManager[i]);
+        newNoteItem->setText(noteManager[i]->getNom());
+        ui->listNote->addItem(newNoteItem);
     }
 }
 
 void MainInterface::endSimulationMessage() {
-    QDialog* endMessage = new QDialog(this);
-    QHBoxLayout* layout = new QHBoxLayout();
-    QLabel* message = new QLabel(endMessage);
-    message->setText("Fin de la Simulation.");
-    layout->addWidget(message);
-    endMessage->setLayout(layout);
-    endMessage->exec();
+    QMessageBox::information(this, "Message", "Fin de la simulation");
 }
 
 void MainInterface::updateGraph() {
@@ -95,6 +93,7 @@ void MainInterface::updateGraph() {
 
 void MainInterface::on_pushButton_sauvegarder_clicked() {
     simulation->saveSimulation();
+    QMessageBox::information(this, "Save Simulation", "Saved");
 }
 
 void MainInterface::on_newSimulation_button_clicked() {
@@ -145,8 +144,10 @@ void MainInterface::on_simulationGo_clicked() {
 void MainInterface::on_chargeSimulation_button_clicked() {
     //charge simulation
     QString nomSimulation = ui->listSimulation->currentItem()->text();
+    qDebug()<< nomSimulation;
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     simulationManager->removeSimulation(simulation);
+    qDebug("Removed old simulation");
     simulation = simulationManager->chargeSimulation(nomSimulation);
     showSimulation();
 }
@@ -154,10 +155,10 @@ void MainInterface::on_chargeSimulation_button_clicked() {
 void MainInterface::on_save_clicked() {
     simulation->saveSimulation();
 }
+
+
+
 /* ------------------------------------------------------Text Editor ----------------------------------------------------------------------------*/
-
-
-
 
 
 
@@ -169,21 +170,19 @@ void MainInterface::on_addNote_clicked() {
     ui->listNote->addItem(newNoteItem);
     ui->noteEdit->setEnabled(true);
     ui->nameEdit->setEnabled(true);
-    ui->noteEdit->setText(newNote->getNote());
+    ui->noteEdit->setPlainText(newNote->getNote());
     ui->nameEdit->setText(newNote->getNom());
 }
 
 void MainInterface::on_listNote_itemDoubleClicked(QListWidgetItem *item) {
      Note* note = static_cast<NoteItem*>(item)->getNote();
+    qDebug()<<note->getNote();
+    qDebug()<< note->getNom();
      currentNote = static_cast<NoteItem*>(item);
      ui->noteEdit->setEnabled(true);
      ui->nameEdit->setEnabled(true);
-     ui->noteEdit->setText(note->getNote());
+     ui->noteEdit->setPlainText(note->getNote());
      ui->nameEdit->setText(note->getNom());
-}
-
-void MainInterface::on_noteEdit_editingFinished() {
-    if(currentNote) currentNote->getNote()->setNote(ui->noteEdit->text());
 }
 
 void MainInterface::on_nameEdit_editingFinished() {
@@ -210,4 +209,8 @@ void MainInterface::on_closeNote_clicked() {
     ui->nameEdit->clear();
     ui->noteEdit->setEnabled(false);
     ui->nameEdit->setEnabled(false);
+}
+
+void MainInterface::on_noteEdit_textChanged() {
+    if(currentNote) currentNote->getNote()->setNote(ui->noteEdit->toPlainText());
 }

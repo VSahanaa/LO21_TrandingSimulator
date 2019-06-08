@@ -25,6 +25,7 @@ void Simulation::saveEvolutionCours() const {
             setting.endGroup();
         setting.endGroup();
     setting.endGroup();
+    qDebug()<< "evolution saved";
 }
 
 void Simulation::saveTransactions() const {
@@ -48,19 +49,20 @@ void Simulation::saveTransactions() const {
                         setting.setValue("achat", transactionIterator->est_achat());
                         setting.setValue("montantBase", transactionIterator->getMontantBase());
                         setting.setValue("montantContrepartie", transactionIterator->getMontantContrepartie());
-                        transactionIterator->next();
+                        transactionIterator = transactionIterator->next();
                     }
                 setting.endArray();
             setting.endGroup();
         setting.endGroup();
     setting.endGroup();
+    qDebug() << "transaction saved";
 }
 
 void Simulation::loadTransactions() {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
-        if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");
+        //if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");
         setting.beginGroup(nom);
             setting.beginGroup("TransactionManager");
                 double pourcentage = setting.value("pourcentage").toDouble();
@@ -70,7 +72,8 @@ void Simulation::loadTransactions() {
                 transactionManager.clearTransactions();
                 transactionManager = TransactionManager(pourcentage, montantBaseInitial, montantContrepartieInitial, montantTotalInitial);
                 int size = setting.beginReadArray("Transaction");
-                for (int i=0; i<size; i++) {
+                for (int i=size-1; i>=0 ; i--) {
+                    //load in reverse order to Save
                     setting.setArrayIndex(i);
                     EvolutionCours::iterator cours = evolutionCours->searchCours(QDate::fromString(setting.value("date").toString(), "yyyy-MM-dd"));
                     transactionManager.addTransaction(evolutionCours->getPaireDevises(), cours, setting.value("achat").toBool(), setting.value("montantBase").toDouble(), setting.value("montantContrepartie").toDouble());
@@ -91,14 +94,15 @@ void Simulation::saveNotes() const {
                 setting.beginWriteArray("Note");
                     for (int i=0; i<noteManager.length(); i++){
                         setting.setArrayIndex(i);
-                        setting.setValue("nom", noteManager[i].nom);
-                        setting.setValue("note", noteManager[i].note);
-                        setting.setValue("dateCreation", noteManager[i].dateCreation.toString("yyyy-MM-dd : HH.mm"));
+                        setting.setValue("nom", noteManager[i]->nom);
+                        setting.setValue("note", noteManager[i]->note);
+                        setting.setValue("dateCreation", noteManager[i]->dateCreation.toString("yyyy-MM-dd : HH.mm"));
                     }
                 setting.endArray();
             setting.endGroup();
         setting.endGroup();
     setting.endGroup();
+    qDebug() << "note saved";
 }
 
 
@@ -107,7 +111,7 @@ void Simulation::loadNotes() {
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
     QSettings setting(simulationManager->getNomGroupe(), simulationManager->getNomApplication());
     setting.beginGroup("Simulation");
-        if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");
+        //if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");
         setting.beginGroup(nom);
             setting.beginGroup("NoteManager");
                 int size = setting.beginReadArray("Note");
@@ -116,6 +120,9 @@ void Simulation::loadNotes() {
                         Note* note = addNote();
                         note->setNom(setting.value("nom").toString());
                         note->setNote(setting.value("note").toString());
+                        qDebug("note Info");
+                        qDebug() << note->getNom();
+                        qDebug() << note->getNote();
                         note->setDateCreation(QDateTime::fromString(setting.value("dateCreation").toString(), "yyyy-MM-dd : HH.mm"));
                     }
                 setting.endArray();
@@ -140,10 +147,10 @@ int Simulation::searchNote(QString nom) {
 }
 */
 Note* Simulation::addNote() {
-    Note note;
-    note.setNom("Note"+ QString::number(noteManager.count()));
+    Note* note = new Note();
+    note->setNom("Note"+ QString::number(noteManager.count()));
     noteManager.append(note);
-    return &noteManager[noteManager.count()-1];
+    return note;
 }
 
 
@@ -161,6 +168,7 @@ void ModeManuel::saveSimulation() const {
             setting.setValue("currentDate", currentCours->getDate().toString("yyyy-MM-dd"));
         setting.endGroup();
     setting.endGroup();
+    qDebug("Mode Manuel saved");
 }
 
 
@@ -211,6 +219,7 @@ void ModeAutomatique::saveStrategie() const {
             setting.endGroup();
         setting.endGroup();
     setting.endGroup();
+    qDebug("strategie saved");
 }
 
 void ModeAutomatique::saveSimulation() const {
@@ -227,6 +236,7 @@ void ModeAutomatique::saveSimulation() const {
             setting.setValue("timerInterval", timer->interval());
         setting.endGroup();
     setting.endGroup();
+    qDebug("Mode auto saved");
 }
 
 
@@ -273,6 +283,7 @@ void ModePas_Pas::saveSimulation() const {
             setting.setValue("timerInterval", timer->interval());
         setting.endGroup();
     setting.endGroup();
+    qDebug("Mode Pas a pas saved");
 }
 
 /*---------------------------------------------------------- Methodes de Simulation Manager -------------------------------------------------------*/
@@ -300,6 +311,9 @@ QStringList SimulationManager::listSavedSimulation() const {
     return listeSavedSimulation;
 }
 
+
+
+
 EvolutionCours* SimulationManager::chargeEvolutionCours(QString nomSimulation) {
     DevisesManager& deviseManager = DevisesManager::getManager();
     Devise* base;
@@ -308,7 +322,9 @@ EvolutionCours* SimulationManager::chargeEvolutionCours(QString nomSimulation) {
     EvolutionCours* evolutionCours;
     QSettings setting(nomGroupe, nomApplication);
     setting.beginGroup("Simulation");
-        if(!setting.contains(nomSimulation)) throw TradingException("Simulation have not been saved");
+        qDebug("error?");
+        //if(!setting.contains(nomSimulation)) throw TradingException("Simulation have not been saved");
+        qDebug("found it");
         setting.beginGroup(nomSimulation);
             setting.beginGroup("EvolutionCours");
                 setting.beginGroup("paireDevises");     //load paire devises
@@ -346,13 +362,15 @@ Simulation* SimulationManager::chargeSimulation(QString nom) {
 
     setting.beginGroup("Simulation");
         setting.beginGroup(nom);
-            if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");
+            //if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");
             currentCours = evolutionCours->searchCours(QDate::fromString(setting.value("currentDate").toString(), "yyyy-MM-dd"));
             type = setting.value("type").toString();
+            qDebug() << type;
             setting.beginGroup("TransactionManager");
             pourcentage =  setting.value("TransactionManager/pourcentage").toDouble();
             montantBaseInitial = setting.value("TransactionManager/montantBaseInitial").toDouble();
             montantContrepartieInitial = setting.value("TransactionManager/montantContrepartieInitial").toDouble();
+            qDebug("start loading simulation");
             if(type == "Manuel") {
                 simulation = new ModeManuel(nom, evolutionCours, currentCours, pourcentage, montantBaseInitial, montantContrepartieInitial);
             }
@@ -378,6 +396,7 @@ Simulation* SimulationManager::chargeSimulation(QString nom) {
             }
         setting.endGroup();
     setting.endGroup();
+    qDebug("load simulation success");
     simulation->loadTransactions();
     simulation->loadNotes();
     addSimulation(simulation);

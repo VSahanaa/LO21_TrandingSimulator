@@ -41,13 +41,13 @@ private slots:
     void on_addNote_clicked();
     void on_listNote_itemDoubleClicked(QListWidgetItem *item);
 
-    void on_noteEdit_editingFinished();
-
     void on_nameEdit_editingFinished();
 
     void on_pushButton_2_clicked();
 
     void on_closeNote_clicked();
+
+    void on_noteEdit_textChanged();
 
 private:
     Ui::MainInterface *ui;

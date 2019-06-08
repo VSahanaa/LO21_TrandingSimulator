@@ -5,6 +5,7 @@
 #include <QScrollBar>
 #include <QDate>
 #include "../Core_Devises/trading.h"
+#include "../Controller/transaction.h"
 
 namespace Ui {
     class Bougie;
@@ -102,7 +103,6 @@ signals:
 private slots:
     void updateChart(int value);
     void currentCoursChanged_react();
-
 };
 
 

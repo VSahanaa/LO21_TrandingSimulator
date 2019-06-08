@@ -105,7 +105,7 @@ void RSI::generateIndice() {
         RS = avgGain/avgLost;
         indiceIterator->setDate(coursIterator->getDate());
         indiceIterator->setIndice(100 - 100/(1+RS));
-        qDebug() << indiceIterator->toString();
+        //qDebug() << indiceIterator->toString();
         indiceIterator++;
         coursIterator++;
     }
@@ -139,7 +139,7 @@ void MACD::generateIndice() {
     delete[] histogram;
     delete[] indices;
     nbMaxIndicateur = evolutionCours->getNbCours();
-    qDebug() << "nbCOurs" << evolutionCours->getNbCours();
+    //qDebug() << "nbCOurs" << evolutionCours->getNbCours();
     signalLine = new IndiceIndicateur[nbMaxIndicateur];
     histogram = new IndiceIndicateur[nbMaxIndicateur];
     indices = new IndiceIndicateur[nbMaxIndicateur];
