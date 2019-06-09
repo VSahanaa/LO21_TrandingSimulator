@@ -110,7 +110,7 @@ void EvolutionViewer::showChart(QDate firstdate, QDate lastdate) {
         if (cours->getLow() < yMin) yMin = cours->getLow();
         Bougie* bougie = new Bougie(cours->getOpen(), cours->getHigh(), cours->getLow(), cours->getClose(), cours);
         QObject::connect(bougie, SIGNAL(clickBougie(CoursOHLCV*)), this, SLOT(pickCours(CoursOHLCV*)));
-        QObject::connect(bougie, SIGNAL(hoverBougie(QString)), this, SLOT(analyseForm(QString)));
+        QObject::connect(bougie, SIGNAL(hoverBougie(CoursOHLCV*)), this, SLOT(analyseForm(CoursOHLCV*)));
         series->append(bougie);
         //Indicateur series
         if(EMA_series->isVisible()) {
@@ -175,10 +175,13 @@ void EvolutionViewer::currentCoursChanged_react() {
         if(scrollBar->maximum() == 0) {updateChart(0);}
         scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
     }
+    else {
+        updateChart(scrollBar->value());
+    }
 }
 
-void EvolutionViewer::analyseForm(QString form) {
-     QToolTip::showText(QCursor::pos() , form, nullptr, QRect(), 50000);
+void EvolutionViewer::analyseForm(CoursOHLCV* cours) {
+     QToolTip::showText(QCursor::pos() , cours->forme(axisY->min(), axisY->max()), nullptr, QRect(), 50000);
 }
 
 
@@ -329,5 +332,8 @@ void VolumeViewer::currentCoursChanged_react() {
         //if user is navigating  => don't update viewport
         if(scrollBar->maximum() == 0) {updateChart(0);}
         scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
+    }
+    else {
+        updateChart(scrollBar->value());
     }
 }

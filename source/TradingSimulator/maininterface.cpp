@@ -228,6 +228,7 @@ void MainInterface::on_noteEdit_textChanged() {
     if(currentNote) currentNote->getNote()->setNote(ui->noteEdit->toPlainText());
 }
 
+/* -------------------------------------------------------Parametres de simulation --------------------------------------------------------------------------------*/
 
 void MainInterface::on_ema_stateChanged(int arg1) {
     if(arg1 == 0) {
@@ -261,6 +262,12 @@ void MainInterface::on_rsi_clicked() {
     AddIndicateurDialog* addIndicateurDialog = new AddIndicateurDialog("RSI", simulation->getEvolutionCours(), this);
     addIndicateurDialog->exec();
     delete addIndicateurDialog;
+    if(simulation->getType() == "Manuel") {
+        volumeViewer->setCurrentCours(simulation->getEvolutionCours()->end()-1);
+    }
+    else {
+        volumeViewer->setCurrentCours(simulation->getCurrentCours());
+    }
 }
 
 void MainInterface::on_pushButton_clicked() {

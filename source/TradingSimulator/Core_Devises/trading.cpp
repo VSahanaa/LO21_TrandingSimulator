@@ -100,190 +100,178 @@ void CoursOHLCV::setCours(double open, double high, double low, double close) {
 }
 
 
-bool CoursOHLCV::isSpinningTop() const {
+bool CoursOHLCV::isToupie(double minLocal, double maxLocal) const {
     /*
-     * Spinning Top A black or a white candlestick with a small body. The size of shadows can vary.
+     * Toupie - A black or a white candlestick with a small body compaire to the size.
      * Interpreted as a neutral pattern but gains importance when it is part of other formations.
      */
-
     double meche = high - low;
     double corps = abs(open - close);
-    if( corps <= 0.5*meche  &&  corps > 0.2*meche) return true;
+    if( corps <= 0.5*meche) return true;
         return false;
 
 }
 
-bool CoursOHLCV::isDoji() const {
+bool CoursOHLCV::isDoji(double minLocal, double maxLocal) const {
     /*
      * Doji Formed when opening and closing prices are virtually the same. The lengths of shadows can vary.
      */
     //double meche = high - low;
-    //double corps = abs(open - close);
-    if(open == close) return true;
+    double corps = abs(open - close);
+    if(corps < 0.005*(maxLocal-minLocal)) return true;
         return false;
 }
 
-bool CoursOHLCV::isDragonflyDoji() const {
+bool CoursOHLCV::isDragonflyDoji(double minLocal, double maxLocal) const {
     /*
      * Dragonfly Doji Formed when the opening and the closing prices are at the highest of the day.
      * If it has a longer lower shadow it signals a more bullish trend. When appearing at market bottoms it is considered to be a reversal signal.
      */
-    if(isDoji() && open == high) return true;
+    double mecheSup = high - max(open, close);
+    double mecheInf = min(open, close) - low;
+    if(isDoji(minLocal, maxLocal) && mecheSup<0.008*(maxLocal-minLocal) && mecheInf > 0.08*(maxLocal-minLocal)) return true;
         return false;
 }
 
-bool CoursOHLCV::isGraveStoneDoji() const {
+bool CoursOHLCV::isGraveStoneDoji(double minLocal, double maxLocal) const {
     /*
      * Gravestone Doji Formed when the opening and closing prices are at the lowest of the day.
      * If it has a longer upper shadow it signals a bearish trend. When it appears at market top it is considered a reversal signal.
      */
-    if (isDoji() && close == low) return true;
+    double mecheSup = high - max(open, close);
+    double mecheInf = min(open, close) - low;
+    if (isDoji(minLocal, maxLocal) && mecheInf<0.008*(maxLocal-minLocal) && mecheSup > 0.008*(maxLocal-minLocal)) return true;
         return false;
 }
 
-bool CoursOHLCV::isInvertedHammer() const {
+bool CoursOHLCV::isInvertedHammer(double minLocal, double maxLocal) const {
     /*
      * Inverted Hammer A black or a white candlestick in an upside-down hammer position.
      */
     double corps = abs(open - close);
+    double mecheSup = high - max(open, close);
     double mecheInf = min(open, close) - low;
 
-    if(isSpinningTop()  && mecheInf < 0.1*corps) return true;
+    if(corps>0.05*(maxLocal-minLocal) && mecheSup>0.05*(maxLocal-minLocal) && mecheInf < 0.01*(maxLocal-minLocal)) return true;
         return false;
 
 }
 
-bool CoursOHLCV::isHanngingMan() const {
+bool CoursOHLCV::isHanggingMan(double minLocal, double maxLocal) const {
     /*
      * Hanging Man A black or a white candlestick that consists of a small body near the high with a little or no upper shadow and a long lower tail.
      * The lower tail should be two or three times the height of the body. Considered a bearish pattern during an uptrend.
      */
-    double meche = high - low;
     double corps = abs(open - close);
-    double mecheSup = high - max(open, close);
-    if(corps < 0.25*meche && corps > 0.1*meche && mecheSup < 0.1*corps)  return true;
+    double mecheInf = min(open, close) - low;
+    if(isHammer(minLocal, maxLocal) &&  mecheInf > 2*corps)  return true;
         return false;
 }
 
-bool CoursOHLCV::isHammer() const {
+bool CoursOHLCV::isHammer(double minLocal, double maxLocal) const {
     /*
      * Hammer A black or a white candlestick that consists of a small body near the high with a little or no upper shadow and a long lower tail.
      * Considered a bullish pattern during a downtrend.
      */
     double corps = abs(open - close);
+    double mecheInf = min(open, close) - low;
     double mecheSup = high - max(open, close);
-    if(isSpinningTop() && mecheSup < 0.1*corps) return true;
+    if(corps>0.05*(maxLocal-minLocal) && mecheInf>0.05*(maxLocal-minLocal) && mecheSup<0.01*(maxLocal-minLocal)) return true;
         return false;
 }
 
-bool CoursOHLCV::isInvertedBlackHammer() const {
+bool CoursOHLCV::isInvertedBlackHammer(double minLocal, double maxLocal) const {
     /*
      * Inverted Black Hammer A black body in an upside-down hammer position. Usually considered a bottom reversal signal.
      */
-    if (isInvertedHammer() && (open > close)) return true;
+    if (isInvertedHammer(minLocal, maxLocal) && (open > close)) return true;
         return false;
 }
 
-bool CoursOHLCV::isLongLowerShadow() const {
+bool CoursOHLCV::isLongLowerShadow(double minLocal, double maxLocal) const {
     /*
      * Long Lower Shadow A black or a white candlestick is formed with a lower tail that has a length of 2/3 or more of the total range of the candlestick.
      * Normally considered a bullish signal when it appears around price support levels.
      */
+    double corps = abs(open - close);
     double meche = high - low;
     double mecheInf = min(open, close) - low;
-    if(mecheInf/meche > 2/3) return true;
+    if(corps>0.05*(maxLocal-minLocal) && mecheInf/meche > double(2)/3) return true;
         return false;
 }
 
-bool CoursOHLCV::isLongUpperShadow() const {
+bool CoursOHLCV::isLongUpperShadow(double minLocal, double maxLocal) const {
     /*
      * Long Upper Shadow A black or a white candlestick with an upper shadow that has a length of 2/3 or more of the total range of the candlestick.
      * Normally considered a bearish signal when it appears around price resistance levels.
      */
+    double corps = abs(open - close);
     double meche = high - low;
     double mecheSup = high - max(open, close);
-    if(mecheSup/meche > 2/3) return true;
+    qDebug()<< mecheSup/meche;
+    if(corps>0.05*(maxLocal-minLocal) && mecheSup/meche> double(2)/3) {
+        qDebug("true");
+        return true;
+    }
+    else {
         return false;
+    }
+
 }
 
-bool CoursOHLCV::isMarubozu() const {
+bool CoursOHLCV::isMarubozu(double minLocal, double maxLocal) const {
     /*
      * Marubozu A long or a normal candlestick (black or white) with no shadow or tail.
      * The high and the lows represent the opening and the closing prices. Considered a continuation pattern.
      */
-    if(abs(open - close) == abs(high - low)) return true;
+    double mecheSup = high - max(open, close);
+    double mecheInf = min(open, close) - low;
+    if(mecheSup<0.005*(maxLocal-minLocal) && mecheInf<0.005*(maxLocal-minLocal) && (high-low) >= 0.5*(maxLocal-minLocal)) return true;
         return false;
 }
 
-bool CoursOHLCV::isShootingStar() const {
+bool CoursOHLCV::isShootingStar(double minLocal, double maxLocal) const {
     /*
      * Shooting Star A black or a white candlestick that has a small body, a long upper shadow and a little or no lower tail. Considered a bearish pattern in an uptrend
      */
     double corps = abs(open - close);
-    double mecheInf = min(open, close) - low;
-    if(isInvertedHammer() && isLongUpperShadow() && mecheInf < 0.1*corps)  return true;
+    double mecheSup = high - max(open, close);
+    if(corps<0.05*(maxLocal-minLocal) && corps>0.01*(maxLocal-minLocal) && mecheSup>0.05*(maxLocal-minLocal) && ((open-low)<0.005*(maxLocal-minLocal) || (close-low)<0.005*(maxLocal-minLocal)))  return true;
         return false;
 }
 
-bool CoursOHLCV::isShavenBottom() const {
+bool CoursOHLCV::isShavenBottom(double minLocal, double maxLocal) const {
     /*
      * Shaven Bottom A black or a white candlestick with no lower tail. [Compare with Inverted Hammer.]
      */
-    double mecheInf = min(open, close) - low;
-    if(mecheInf == 0) return  true;
+    if(isInvertedHammer(minLocal, maxLocal) && ((open==low) || (close==low))) return true;
         return false;
 }
 
-bool CoursOHLCV::isShavenHead() const {
+bool CoursOHLCV::isShavenHead(double minLocal, double maxLocal) const {
     /*
      * Shaven Head A black or a white candlestick with no upper shadow. [Compared with hammer.]
      */
-    double mecheSup = high - max(open, close);
-    if(mecheSup == 0)    return true;
+    if(isHammer(minLocal, maxLocal) && ((high==open || high==close)))    return true;
         return false;
 }
 
-QString CoursOHLCV::forme() const {
-    if (isSpinningTop()) {
-        if (isDoji()) {
-            if (isDragonflyDoji()) {
-                return "Dragonfly Doji";
-            }
-            else if (isGraveStoneDoji()){
-                return "Grave Stone Doji";
-            }
-            else {
-                return "Doji";
-            }
-        }
-        else if (isShootingStar()) {
-            return "Shooting Star";
-        }
-        else {
-            return "Spinning Top \n";
-        }
-    }
-    if (isHanngingMan()) return "Hannging Man";
-    if (isLongLowerShadow()) return "Long Lower Shadow";
-    if (isLongUpperShadow()) return "Long Upper Shadow";
-    if (isHammer()) {
-        if (isInvertedHammer()) {
-            if (isInvertedBlackHammer()) {
-                return "Inverted Black Hammer";
-            }
-            else {
-                return "Inverted Hammer";
-            }
-        }
-        else {
-            return "Hammer";
-        }
-     }
-
-    if (isMarubozu()) return "Marubozu";
-    if (isShavenBottom()) return "Shaven Bottom";
-    if (isShavenHead()) return "Shaven Head";
-    return "";
+QString CoursOHLCV::forme(double minLocal, double maxLocal) const {
+    if(isMarubozu(minLocal, maxLocal)) return "Marubozu";
+    if(isDragonflyDoji(minLocal, maxLocal)) return "Dragonfly Doji";
+    if(isGraveStoneDoji(minLocal,maxLocal)) return "Grave stone doji";
+    if(isDoji(minLocal, maxLocal)) return "Doji";
+    if(isHanggingMan(minLocal, maxLocal)) return "Hangging man";
+    if(isShavenHead(minLocal, maxLocal)) return "Shaven head";
+    if(isShavenBottom(minLocal, maxLocal)) return "Shaven bottom";
+    if(isShootingStar(minLocal, maxLocal)) return "Shooting star";
+    if(isLongUpperShadow(minLocal, maxLocal)) return "Long upper shadow";
+    if(isLongLowerShadow(minLocal, maxLocal)) return "Long lower shadow";
+    if(isInvertedBlackHammer(minLocal, maxLocal)) return "Inverted black hammer";
+    if(isInvertedHammer(minLocal, maxLocal)) return "Inverted hammer";
+    if(isHammer(minLocal, maxLocal)) return "Hammer";
+    if(isToupie()) return "Toupie";
+    return "Pas trouvé la forme";
 }
 
 /*---------------------------------------------- Methodes de classe EvolutionCours --------------------------------------------*/

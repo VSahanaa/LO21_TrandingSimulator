@@ -71,19 +71,6 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QLabel" name="label">
-      <property name="lineWidth">
-       <number>3</number>
-      </property>
-      <property name="text">
-       <string>Current Version: v0.0.0</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QLabel" name="label_2">
       <property name="text">
        <string>Developers:</string>

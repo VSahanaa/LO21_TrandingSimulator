@@ -305,75 +305,79 @@ public:
     void setDate(const QDate& d) { date=d;}
 	//! méthode form
 	/** 
-	* \return  QString : donne les caractéristiques liées à la forme de la bougie
+    * \return  QString : donne la forme de la bougie
 	*/
-    QString forme() const;
-	bool isSpinningTop() const;          //a.k.a toupie
+    QString forme(double minLocal, double maxLocal) const;
+    //! méthode isToupie
+    /**
+    * \return  bool : true si la bougie est une toupie, false sinon
+    */
+    bool isToupie(double minLocal=0, double maxLocal=0) const;          //a.k.a toupie
 	//! méthode isDoji
 	/** 
 	* \return  bool : true si la bougie est une doji, false sinon
     */
-	bool isDoji() const;
+    bool isDoji(double minLocal, double maxLocal) const;
 	//! méthode isDragonflyDoji
 	/** 
 	* \return  bool : true si la bougie est une doji dragon, false sinon
     */
-	bool isDragonflyDoji() const;
+    bool isDragonflyDoji(double minLocal, double maxLocal) const;
 	//! méthode isGraveStoneDoji
 	/** 
 	* \return  bool : true si la bougie est une doji pierre, false sinon
     */
-	bool isGraveStoneDoji() const;
-	//! méthode isHanngingMan 
+    bool isGraveStoneDoji(double minLocal, double maxLocal) const;
+    //! méthode isHanggingMan
 	/** 
 	* \return  bool : true si la bougie est un pendu, false sinon
 	*/
-    bool isHanngingMan() const;
+    bool isHanggingMan(double minLocal, double maxLocal) const;
 	//! méthode isHammer
 	/** 
 	* \return  bool : true si la bougie est un marteau, false sinon
 	*/
-    bool isHammer() const;
+    bool isHammer(double minLocal, double maxLocal) const;
 	//! méthode isInverteHammer
 	/** 
 	* \return  bool : true si la bougie est un marteau inversé, false sinon
 	*/
-    bool isInvertedHammer() const;
+    bool isInvertedHammer(double minLocal, double maxLocal) const;
 	//! méthode isInvertedBlackHammer
 	/** 
 	* \return  bool : true si la bougie est un marteau noir inversé, false sinon
 	*/
-    bool isInvertedBlackHammer() const;
+    bool isInvertedBlackHammer(double minLocal, double maxLocal) const;
 	//! méthode isLongLowerShadow
 	/** 
 	* \return  bool : true si la bougie a une longue meche en bas, false sinon
 	*/
-    bool isLongLowerShadow() const;
+    bool isLongLowerShadow(double minLocal, double maxLocal) const;
 	//! méthode isLongUpperShadow
 	/** 
 	* \return  bool : true si la bougie a une longue meche en haut, false sinon
 	*/
-    bool isLongUpperShadow() const;
+    bool isLongUpperShadow(double minLocal, double maxLocal) const;
 	//! is Marubozu
 	/** 
 	* \return  bool : true si la bougie est un marubozu, false sinon
 	*/
-    bool isMarubozu() const;
+    bool isMarubozu(double minLocal, double maxLocal) const;
 	//! isShootingStar
 	/** 
 	* \return  bool : true si la bougie est une étoile filante, false sinon
 	*/
-    bool isShootingStar() const;
+    bool isShootingStar(double minLocal, double maxLocal) const;
 	//! méthode isShavenBottom
 	/** 
 	* \return  bool : true si la bougie est un shoven bottom, false sinon
 	*/
-    bool isShavenBottom() const;
+    bool isShavenBottom(double minLocal, double maxLocal) const;
 	//! méthode isShavenHead
 	/** 
 	* \return  bool : true si la bougie est un shaven head, false sinon
 	*/
-    bool isShavenHead() const;
+    bool isShavenHead(double minLocal, double maxLocal) const;
 };
 
 class IndicateurCollection;     //forward declaration of IndicateurCollection

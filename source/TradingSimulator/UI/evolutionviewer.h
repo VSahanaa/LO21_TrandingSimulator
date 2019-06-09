@@ -24,10 +24,10 @@ public:
 
 signals:
     void clickBougie(CoursOHLCV* cours);
-    void hoverBougie(QString form);
+    void hoverBougie(CoursOHLCV* cours);
 private slots:
     void pickCours(){ emit clickBougie(cours); }
-    void viewForm() { emit hoverBougie(cours->forme());}
+    void viewForm() { emit hoverBougie(cours);}
 };
 
 
@@ -72,7 +72,7 @@ private slots:
     void currentCoursChanged_react();
     void pickCours(CoursOHLCV* cours) {emit coursPicked(cours);}
 public slots:
-    void analyseForm(QString form);
+    void analyseForm(CoursOHLCV* cours);
 };
 
 
