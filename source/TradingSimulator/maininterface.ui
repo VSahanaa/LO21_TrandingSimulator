@@ -239,7 +239,7 @@
      </widget>
      <widget class="QWidget" name="Bargraph">
       <attribute name="title">
-       <string>Volume de trading</string>
+       <string>Volume de trading + RSI</string>
       </attribute>
       <widget class="QWidget" name="verticalLayoutWidget_16">
        <property name="geometry">
@@ -256,11 +256,6 @@
         </item>
        </layout>
       </widget>
-     </widget>
-     <widget class="QWidget" name="ROI">
-      <attribute name="title">
-       <string>ROI</string>
-      </attribute>
      </widget>
     </widget>
     <widget class="QWidget" name="layoutWidget">

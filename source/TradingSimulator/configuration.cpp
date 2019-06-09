@@ -3,6 +3,7 @@
 
 Configuration::Configuration(QWidget *parent) : QDialog(parent), ui(new Ui::Configuration) {
     ui->setupUi(this);
+    this->setWindowTitle("Configuration");
     setListesDevise();
     ui->strategie_widget->hide();            //hide strategieParameters widget by default, show only if Mode Automatique is chosen
 }
@@ -38,20 +39,27 @@ void Configuration::setEvolutionCours() {
     DevisesManager& deviseManager = DevisesManager::getManager();
     const PaireDevises& paire = deviseManager.getPaireDevises(ui->listeBase->currentText(), ui->listeContrepartie->currentText());
     QString fPath = ui->browseFile->text();
-    evolutionCours =  new EvolutionCours(paire, fPath);
+    if(fPath.right(4) != ".csv") {
+        QMessageBox::warning(this, "Warning", "Fichier invalid");
+        this->close();
+    }
+    else {
+        evolutionCours =  new EvolutionCours(paire, fPath);
+    }
 }
 
 void Configuration::finishConfigEvolutionCours() {
     nomSimulation = ui->nameSimulation->text();
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
-    if(!simulationManager->verifierNomSimulation(nomSimulation)) {
-        QMessageBox::warning(this, "Warning", "Nom de simulation est déjà existe");
+    if(nomSimulation.length() == 0) {
+        QMessageBox::warning(this, "Warning", "Nom de simulation ne doit pas vide.");
+    }
+    else if(!simulationManager->verifierNomSimulation(nomSimulation)) {
+        QMessageBox::warning(this, "Warning", "Nom de simulation est déjà existe.");
     }
     else {
         setEvolutionCours();
         ui->mainWidget->setCurrentWidget(ui->config_page);
-        qDebug() << (evolutionCours->begin())->getDate().toString("yyyy-MM-dd");
-        qDebug() << (evolutionCours->end()-1)->getDate().toString("yyyy-MM-dd");
         ui->pickStartDate->setMinimumDate(evolutionCours->begin()->getDate());             //date debut du EvolutionCours
         ui->pickStartDate->setMaximumDate((evolutionCours->end()-1)->getDate());            //date fini du evolutionCours
         ui->pickStartDate->setDate(evolutionCours->begin()->getDate());                    //valeur par défault
@@ -67,28 +75,44 @@ void Configuration::finishConfigEvolutionCours() {
 }
 
 void Configuration::on_ModeManule_button_clicked() {
-    if(ui->nameSimulation->text().length() == 0) throw TradingException("Nom Simulation est vide.");
-    if(ui->listeBase->count()==0 || ui->listeContrepartie->count()==0) throw TradingException("Devise est vide.");
-    modeSimulation = "Manuel";
-    finishConfigEvolutionCours();
+    if(ui->nameSimulation->text().length() == 0) QMessageBox::warning(this, "Warning", "Nom de simulation ne doit pas vide.");
+    if(ui->listeBase->count()==0 || ui->listeContrepartie->count()==0) QMessageBox::warning(this, "Warning", "Devise ne doit pas vide.");
+    if(ui->browseFile->text().right(4) != ".csv") {
+        QMessageBox::warning(this, "Warning", "Fichier invalid");
+    }
+    else {
+        modeSimulation = "Manuel";
+        finishConfigEvolutionCours();
+    }
+
 }
 
 void Configuration::on_ModePas_Pas_button_clicked() {
-    if(ui->nameSimulation->text().length() == 0) throw TradingException("Nom Simulation est vide.");
-    if(ui->listeBase->count()==0 || ui->listeContrepartie->count()==0) throw TradingException("Devise est vide.");
-    modeSimulation = "Pas_Pas";
-    finishConfigEvolutionCours();
+    if(ui->nameSimulation->text().length() == 0) QMessageBox::warning(this, "Warning", "Nom de simulation ne doit pas vide.");
+    if(ui->listeBase->count()==0 || ui->listeContrepartie->count()==0)  QMessageBox::warning(this, "Warning", "Devise ne doit pas vide.");
+    if(ui->browseFile->text().right(4) != ".csv") {
+        QMessageBox::warning(this, "Warning", "Fichier invalid");
+    }
+    else {
+        modeSimulation = "Pas_Pas";
+        finishConfigEvolutionCours();
+    }
 }
 
 void Configuration::on_ModeAuto_buton_clicked() {
-    if(ui->nameSimulation->text().length() == 0) throw TradingException("Nom Simulation est vide.");
-    if(ui->listeBase->count()==0 || ui->listeContrepartie->count()==0) throw TradingException("Devise est vide.");
-    modeSimulation = "Automatique";
-    finishConfigEvolutionCours();
-    ui->strategie_widget->show();
-    QStringList nomStrategies = strategieFactory->listeStrategie();
-    ui->listeStrategie->insertItems(0, nomStrategies);
-    refreshStrategieLayout(ui->listeStrategie->currentText());
+    if(ui->nameSimulation->text().length() == 0) QMessageBox::warning(this, "Warning", "Nom de simulation ne doit pas vide.");
+    if(ui->listeBase->count()==0 || ui->listeContrepartie->count()==0)  QMessageBox::warning(this, "Warning", "Devise ne doit pas vide.");
+    if(ui->browseFile->text().right(4) != ".csv") {
+        QMessageBox::warning(this, "Warning", "Fichier invalid");
+    }
+    else {
+        modeSimulation = "Automatique";
+        finishConfigEvolutionCours();
+        ui->strategie_widget->show();
+        QStringList nomStrategies = strategieFactory->listeStrategie();
+        ui->listeStrategie->insertItems(0, nomStrategies);
+        refreshStrategieLayout(ui->listeStrategie->currentText());
+    }
 }
 
 void Configuration::refreshStrategieLayout(QString strategieNom) {

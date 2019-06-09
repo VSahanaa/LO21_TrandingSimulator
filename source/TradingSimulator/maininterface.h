@@ -8,6 +8,7 @@
 #include "modepaspaswidget.h"
 #include "modeautowidget.h"
 #include "addindicateurdialog.h"
+#include "info.h"
 #include <QWidget>
 #include <QListWidgetItem>
 namespace Ui {
@@ -52,6 +53,8 @@ private slots:
     void on_macd_stateChanged(int arg1);
 
     void on_rsi_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainInterface *ui;

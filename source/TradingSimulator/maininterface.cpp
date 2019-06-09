@@ -52,7 +52,7 @@ void MainInterface::showSimulation() {
         QObject::connect(static_cast<ModeAutowidget*>(controlPanel), SIGNAL(transactionChanged()), this, SLOT(updateTransactionTable()));
     }
     else {
-        throw TradingException("type simulation invalid");
+        QMessageBox::information(this, "Info", "Platforme ne supporte pas ce mode de simulation.");
     }
     ui->controlPanel->addWidget(controlPanel);
     ui->chanderlierLayout->addWidget(evolutionViewer);
@@ -133,22 +133,35 @@ void MainInterface::on_chargeSimulation_button_clicked() {
     //charge simulation
     QString nomSimulation = ui->listSimulation->currentItem()->text();
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
-    simulationManager->removeSimulation(simulation);
-    qDebug("Removed old simulation");
-    simulation = simulationManager->chargeSimulation(nomSimulation);
-    showSimulation();
+    try {
+        simulationManager->removeSimulation(simulation);
+        simulation = simulationManager->chargeSimulation(nomSimulation);
+        showSimulation();
+    } catch (TradingException exception) {
+        QMessageBox::warning(this, "Warning", exception.getInfo());
+    }
 }
 
 void MainInterface::on_deleteSimulation_clicked() {
     QString nomSimulation = ui->listSimulation->currentItem()->text();
     SimulationManager* simulationManager = SimulationManager::getSimulationManager();
-    simulationManager->deleteSavedSimulation(nomSimulation);
-    ui->listSimulation->takeItem(ui->listSimulation->currentRow());
+    try {
+        simulationManager->deleteSavedSimulation(nomSimulation);
+        ui->listSimulation->takeItem(ui->listSimulation->currentRow());
+    } catch (TradingException exception) {
+        QMessageBox::warning(this, "Warning", exception.getInfo());
+    }
+
 }
 
 void MainInterface::on_save_clicked() {
-    simulation->saveSimulation();
-    QMessageBox::information(this, "Save Simulation", "Saved");
+    try {
+        simulation->saveSimulation();
+        QMessageBox::information(this, "Save Simulation", "Saved");
+    } catch (TradingException exception) {
+        QMessageBox::warning(this, "Warning", exception.getInfo());
+    }
+
 }
 
 
@@ -243,4 +256,10 @@ void MainInterface::on_rsi_clicked() {
     AddIndicateurDialog* addIndicateurDialog = new AddIndicateurDialog("RSI", simulation->getEvolutionCours(), this);
     addIndicateurDialog->exec();
     delete addIndicateurDialog;
+}
+
+void MainInterface::on_pushButton_clicked() {
+    Info* infoDialog = new Info(this);
+    infoDialog->exec();
+    delete infoDialog;
 }

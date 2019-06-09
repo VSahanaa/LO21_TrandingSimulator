@@ -5,6 +5,7 @@ AddIndicateurDialog::AddIndicateurDialog(QString indicateur, EvolutionCours* evo
     QDialog(parent), ui(new Ui::AddIndicateurDialog), indicateur(indicateur), evolutionCours(evolutionCours) {
     ui->setupUi(this);
     if(indicateur == "EMA") {
+        this->setWindowTitle("EMA Parametre");
         ui->stackedWidget->setCurrentIndex(0);
         ui->pickEmaPeriod->setMaximum(100);
         ui->pickEmaPeriod->setMinimum(0);
@@ -12,6 +13,7 @@ AddIndicateurDialog::AddIndicateurDialog(QString indicateur, EvolutionCours* evo
         ui->pickEmaPeriod->setSuffix(" jours");
     }
     else if(indicateur == "RSI") {
+        this->setWindowTitle("RSI Parametres");
         ui->stackedWidget->setCurrentIndex(1);
         ui->pickLookbackPeriod->setMaximum(100);
         ui->pickLookbackPeriod->setMinimum(0);
@@ -29,6 +31,7 @@ AddIndicateurDialog::AddIndicateurDialog(QString indicateur, EvolutionCours* evo
         ui->pickOversold->setSuffix(" %");
     }
     else if (indicateur == "MACD") {
+        this->setWindowTitle("MACD Parametres");
         ui->stackedWidget->setCurrentIndex(2);
         ui->pickLongPeriod->setMaximum(100);
         ui->pickLongPeriod->setMinimum(0);
@@ -58,18 +61,30 @@ void AddIndicateurDialog::on_AddIndicateurDialog_accepted() {
     QMap<QString, QVariant> parameters;
     if(indicateur == "EMA") {
         parameters["period"] = ui->pickEmaPeriod->value();
-        evolutionCours->getCollection()->getIndicateur("EMA")->setParameters(parameters);
+        try {
+            evolutionCours->getCollection()->getIndicateur("EMA")->setParameters(parameters);
+        } catch (TradingException exception) {
+            QMessageBox::warning(this, "Warning", exception.getInfo());
+        }
     }
     else if (indicateur == "RSI") {
         parameters["lookbackPeriod"] = ui->pickLookbackPeriod->value();
         parameters["overboughtBound"] = ui->pickOverbought->value();
         parameters["oversoldBound"] = ui->pickOversold->value();
-        evolutionCours->getCollection()->getIndicateur("RSI")->setParameters(parameters);
+        try {
+            evolutionCours->getCollection()->getIndicateur("RSI")->setParameters(parameters);
+        } catch (TradingException exception) {
+            QMessageBox::warning(this, "Warning", exception.getInfo());
+        }
     }
     else if (indicateur == "MACD") {
         parameters["longPeriod"] = ui->pickLongPeriod->value();
         parameters["shortPeriod"] = ui->pickShortPeriod->value();
         parameters["signalPeriod"] = ui->pickSignalPeriod->value();
-        evolutionCours->getCollection()->getIndicateur("MACD")->setParameters(parameters);
+        try {
+            evolutionCours->getCollection()->getIndicateur("MACD")->setParameters(parameters);
+        } catch (TradingException exception) {
+            QMessageBox::warning(this, "Warning", exception.getInfo());
+        }
     }
 }

@@ -2,6 +2,7 @@
 #define ADDDEVISE_DIALOG_H
 
 #include <QDialog>
+#include <QMessageBox>
 #include "Core_Devises/trading.h"
 
 namespace Ui {

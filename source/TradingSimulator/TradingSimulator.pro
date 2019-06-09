@@ -52,6 +52,7 @@ HEADERS += \
         adddevise_dialog.h \
         addindicateurdialog.h \
         configuration.h \
+        info.h \
         maininterface.h \
         mainwindow.h \
         modeautowidget.h \
@@ -64,6 +65,7 @@ FORMS += \
         adddevise_dialog.ui \
         addindicateurdialog.ui \
         configuration.ui \
+        info.ui \
         maininterface.ui \
         mainwindow.ui \
         modeautowidget.ui \

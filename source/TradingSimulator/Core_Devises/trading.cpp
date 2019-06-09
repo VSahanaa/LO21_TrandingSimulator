@@ -296,11 +296,8 @@ EvolutionCours::EvolutionCours(const PaireDevises &pair, QString filename) {
     unsigned int volume;
     QFile file(filen);
     QStringList wordlist;
-        if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << file.errorString();
-        }
+        if (!file.open(QIODevice::ReadOnly)) throw TradingException("Fichier invalid");
         QString line = file.readLine();            //avoid legendre
-        //if(wordlist.size() < 5) throw TradingException("File invalid");
         while (!file.atEnd()) {
             line = file.readLine();
             wordlist = line.split(',');

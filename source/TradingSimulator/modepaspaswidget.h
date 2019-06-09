@@ -2,6 +2,7 @@
 #define MODEPASPASWIDGET_H
 #include "Controller/simulation.h"
 #include <QWidget>
+#include <QMessageBox>
 
 namespace Ui {
     class ModePasPaswidget;

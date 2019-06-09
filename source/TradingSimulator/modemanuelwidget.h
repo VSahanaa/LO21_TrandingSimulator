@@ -2,6 +2,7 @@
 #define MODEMANUELWIDGET_H
 
 #include <QWidget>
+#include <QMessageBox>
 #include "Controller/simulation.h"
 
 namespace Ui {

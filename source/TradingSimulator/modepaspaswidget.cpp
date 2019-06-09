@@ -29,7 +29,7 @@ ModePasPaswidget::ModePasPaswidget(ModePas_Pas* modePas_Pas, QWidget *parent) : 
     ui->comboBox_timer->setCurrentIndex(0);
 
     ui->montant_edit->setMinimum(0);
-    ui->montant_edit->setMaximum(transactionManager->getMontantContrepartie());
+    ui->montant_edit->setMaximum(transactionManager->getMontantContrepartie()*1000);
     //connect signals
     QObject::connect(modePas_Pas, SIGNAL(coursChanged()), this, SLOT(updateCurrentCours()));
 }
@@ -55,9 +55,14 @@ void ModePasPaswidget::updateCurrentCours() {
 }
 
 void ModePasPaswidget::on_goBack_clicked() {
-    modePas_Pas->goBack(ui->dateEdit->date());
-    updateData();
-    emit transactionChanged();
+    try {
+         modePas_Pas->goBack(ui->dateEdit->date());
+         updateData();
+         emit transactionChanged();
+    }
+    catch (TradingException exception) {
+        QMessageBox::warning(this, "Warning", exception.getInfo());
+    }
 }
 
 void ModePasPaswidget::on_comboBox_timer_currentIndexChanged(const QString &arg1) {
@@ -67,18 +72,27 @@ void ModePasPaswidget::on_comboBox_timer_currentIndexChanged(const QString &arg1
 void ModePasPaswidget::on_pushButton_achat_clicked() {
     double montant = ui->montant_edit->value();
     if (montant > 0) {
-        modePas_Pas->achat(montant);
-        updateData();
-        emit transactionChanged();
+        try {
+            modePas_Pas->achat(montant);
+            updateData();
+            emit transactionChanged();
+        } catch (TradingException exception) {
+            QMessageBox::warning(this, "Warning", "Montant de contre partie n'est pas assez.");
+        }
+
     }
 }
 
 void ModePasPaswidget::on_pushButton_vente_clicked() {
     double montant = ui->montant_edit->value();
     if (montant > 0) {
-        modePas_Pas->vente(montant);
-        updateData();
-        emit transactionChanged();
+        try {
+            modePas_Pas->vente(montant);
+            updateData();
+            emit transactionChanged();
+        } catch (TradingException exception) {
+            QMessageBox::warning(this, "Warning", "Montant de base n'est pas assez.");
+        }
     }
 }
 

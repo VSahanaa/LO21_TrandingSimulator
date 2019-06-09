@@ -614,6 +614,17 @@ public:
     virtual void setParameters(QMap<QString, QVariant> parameters) = 0;         //encapsulate parameters inside an QMap object and pass it as argument
 	//! méthode virtual pure getParameters ;
     virtual QMap<QString, QVariant> getParameters() const = 0;
+    //! méthode index
+    /**
+    * \param indice : Indicateur::iterator
+    * \return int : position d'un IndiceIndicateur dans la chaine
+    */
+    int index(iterator indice){
+        for (int i=0; i<nbIndicateur; i++) {
+            if(begin()+i == indice) return i;
+        }
+        return -1;
+    }
 };
 
 /**
