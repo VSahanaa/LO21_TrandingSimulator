@@ -131,25 +131,30 @@ void MainInterface::updateTransactionTable() {
 
 void MainInterface::on_chargeSimulation_button_clicked() {
     //charge simulation
-    QString nomSimulation = ui->listSimulation->currentItem()->text();
-    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
-    try {
-        simulationManager->removeSimulation(simulation);
-        simulation = simulationManager->chargeSimulation(nomSimulation);
-        showSimulation();
-    } catch (TradingException exception) {
-        QMessageBox::warning(this, "Warning", exception.getInfo());
+    if(ui->listSimulation->currentItem()) {
+        QString nomSimulation = ui->listSimulation->currentItem()->text();
+        SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+        try {
+            simulationManager->removeSimulation(simulation);
+            simulation = simulationManager->chargeSimulation(nomSimulation);
+            showSimulation();
+        } catch (TradingException exception) {
+            QMessageBox::warning(this, "Warning", exception.getInfo());
+        }
     }
+
 }
 
 void MainInterface::on_deleteSimulation_clicked() {
-    QString nomSimulation = ui->listSimulation->currentItem()->text();
-    SimulationManager* simulationManager = SimulationManager::getSimulationManager();
-    try {
-        simulationManager->deleteSavedSimulation(nomSimulation);
-        ui->listSimulation->takeItem(ui->listSimulation->currentRow());
-    } catch (TradingException exception) {
-        QMessageBox::warning(this, "Warning", exception.getInfo());
+    if(ui->listSimulation->currentItem()){
+        QString nomSimulation = ui->listSimulation->currentItem()->text();
+        SimulationManager* simulationManager = SimulationManager::getSimulationManager();
+        try {
+            simulationManager->deleteSavedSimulation(nomSimulation);
+            ui->listSimulation->takeItem(ui->listSimulation->currentRow());
+        } catch (TradingException exception) {
+            QMessageBox::warning(this, "Warning", exception.getInfo());
+        }
     }
 
 }

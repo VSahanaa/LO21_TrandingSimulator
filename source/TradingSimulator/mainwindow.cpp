@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 SimulationTab::SimulationTab(QWidget* parent): QTabWidget (parent) {
+   // this->setWindowIcon(QIcon(":/TradingSimulator/evolutionCours/icons/logo.png"));
     QTabBar* tabBar = this->tabBar();
     tabBar->setTabsClosable(true);
     tabBar->setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);

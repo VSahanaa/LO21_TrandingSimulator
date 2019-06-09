@@ -138,12 +138,20 @@
           <property name="text">
            <string>Achat</string>
           </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/TradingSimulator/evolutionCours/icons/buy.png</normaloff>:/TradingSimulator/evolutionCours/icons/buy.png</iconset>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_vente">
           <property name="text">
            <string>Vente</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/TradingSimulator/evolutionCours/icons/sell.png</normaloff>:/TradingSimulator/evolutionCours/icons/sell.png</iconset>
           </property>
          </widget>
         </item>
@@ -152,7 +160,11 @@
       <item>
        <widget class="QPushButton" name="pushButton_annulerTransaction">
         <property name="text">
-         <string>Annuler transaction</string>
+         <string>Annuler</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resource.qrc">
+          <normaloff>:/TradingSimulator/evolutionCours/icons/undo.png</normaloff>:/TradingSimulator/evolutionCours/icons/undo.png</iconset>
         </property>
        </widget>
       </item>
@@ -161,6 +173,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

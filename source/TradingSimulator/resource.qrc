@@ -13,12 +13,17 @@
         <file>icons/step.png</file>
         <file>icons/trading.png</file>
         <file>icons/welcome.png</file>
-        <file>fichier_OHLCV/test.csv</file>
         <file>icons/up.jpeg</file>
         <file>icons/down.jpeg</file>
         <file>icons/icon.png</file>
         <file>icons/logo.png</file>
         <file>icons/close.png</file>
+        <file>icons/save.png</file>
+        <file>icons/note.jpeg</file>
+        <file>icons/timer.jpg</file>
+        <file>icons/sell.png</file>
+        <file>icons/buy.png</file>
+        <file>icons/undo.png</file>
     </qresource>
     <qresource prefix="/">
         <file>icons/+.jpeg</file>

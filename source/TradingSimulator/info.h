@@ -12,6 +12,7 @@ class Info : public QDialog {
 public:
     explicit Info(QWidget *parent = nullptr) : QDialog(parent), ui(new Ui::Info) {
         ui->setupUi(this);
+        this->setWindowTitle("About");
     }
     ~Info() {
         delete ui;

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>264</width>
+    <width>265</width>
     <height>464</height>
    </rect>
   </property>
@@ -114,14 +114,44 @@
           <property name="text">
            <string>Go back</string>
           </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/TradingSimulator/evolutionCours/icons/back.png</normaloff>:/TradingSimulator/evolutionCours/icons/back.png</iconset>
+          </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
+       <layout class="QHBoxLayout" name="horizontalLayout"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/TradingSimulator/evolutionCours/icons/timer.jpg</normaloff>:/TradingSimulator/evolutionCours/icons/timer.jpg</iconset>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QComboBox" name="comboBox_timer">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="currentText">
            <string/>
           </property>
@@ -157,12 +187,20 @@
           <property name="text">
            <string>Achat</string>
           </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/TradingSimulator/evolutionCours/icons/buy.png</normaloff>:/TradingSimulator/evolutionCours/icons/buy.png</iconset>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_vente">
           <property name="text">
            <string>Vente</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resource.qrc">
+            <normaloff>:/TradingSimulator/evolutionCours/icons/sell.png</normaloff>:/TradingSimulator/evolutionCours/icons/sell.png</iconset>
           </property>
          </widget>
         </item>
@@ -171,7 +209,11 @@
       <item>
        <widget class="QPushButton" name="pushButton_annulerTransaction">
         <property name="text">
-         <string>Annuler transaction</string>
+         <string>Annuler</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resource.qrc">
+          <normaloff>:/TradingSimulator/evolutionCours/icons/undo.png</normaloff>:/TradingSimulator/evolutionCours/icons/undo.png</iconset>
         </property>
        </widget>
       </item>
@@ -180,6 +222,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>

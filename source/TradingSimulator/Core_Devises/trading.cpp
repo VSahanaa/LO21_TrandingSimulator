@@ -101,13 +101,25 @@ void CoursOHLCV::setCours(double open, double high, double low, double close) {
 
 
 bool CoursOHLCV::isSpinningTop() const {
-    if(abs(open - close) <= 0.75*abs(high - low)) return true;
+    /*
+     * Spinning Top A black or a white candlestick with a small body. The size of shadows can vary.
+     * Interpreted as a neutral pattern but gains importance when it is part of other formations.
+     */
+
+    double meche = high - low;
+    double corps = abs(open - close);
+    if( corps <= 0.5*meche  &&  corps > 0.2*meche) return true;
         return false;
 
 }
 
 bool CoursOHLCV::isDoji() const {
-    if(isSpinningTop() && abs(close - open) <= 0.1 ) return true;
+    /*
+     * Doji Formed when opening and closing prices are virtually the same. The lengths of shadows can vary.
+     */
+    //double meche = high - low;
+    //double corps = abs(open - close);
+    if(open == close) return true;
         return false;
 }
 
@@ -116,7 +128,7 @@ bool CoursOHLCV::isDragonflyDoji() const {
      * Dragonfly Doji Formed when the opening and the closing prices are at the highest of the day.
      * If it has a longer lower shadow it signals a more bullish trend. When appearing at market bottoms it is considered to be a reversal signal.
      */
-    if(isDoji() && open > high) return true;
+    if(isDoji() && open == high) return true;
         return false;
 }
 
@@ -125,8 +137,20 @@ bool CoursOHLCV::isGraveStoneDoji() const {
      * Gravestone Doji Formed when the opening and closing prices are at the lowest of the day.
      * If it has a longer upper shadow it signals a bearish trend. When it appears at market top it is considered a reversal signal.
      */
-    if (isDoji() && open < low) return true;
+    if (isDoji() && close == low) return true;
         return false;
+}
+
+bool CoursOHLCV::isInvertedHammer() const {
+    /*
+     * Inverted Hammer A black or a white candlestick in an upside-down hammer position.
+     */
+    double corps = abs(open - close);
+    double mecheInf = min(open, close) - low;
+
+    if(isSpinningTop()  && mecheInf < 0.1*corps) return true;
+        return false;
+
 }
 
 bool CoursOHLCV::isHanngingMan() const {
@@ -134,7 +158,10 @@ bool CoursOHLCV::isHanngingMan() const {
      * Hanging Man A black or a white candlestick that consists of a small body near the high with a little or no upper shadow and a long lower tail.
      * The lower tail should be two or three times the height of the body. Considered a bearish pattern during an uptrend.
      */
-    if ( ((high - open) < 0.1*(high - low) || (high - close) < 0.1*(high - low)) && abs(open - close) < (1/3)*(high - low)) return true;
+    double meche = high - low;
+    double corps = abs(open - close);
+    double mecheSup = high - max(open, close);
+    if(corps < 0.25*meche && corps > 0.1*meche && mecheSup < 0.1*corps)  return true;
         return false;
 }
 
@@ -143,15 +170,9 @@ bool CoursOHLCV::isHammer() const {
      * Hammer A black or a white candlestick that consists of a small body near the high with a little or no upper shadow and a long lower tail.
      * Considered a bullish pattern during a downtrend.
      */
-    if ( ((high - open) < 0.2*(high - low) || (high - close) < 0.2*(high - low)) &&  abs(open - close) < (1/2)*(high - low)) return true;
-        return false;
-}
-
-bool CoursOHLCV::isInvertedHammer() const {
-    /*
-     * Inverted Hammer A black or a white candlestick in an upside-down hammer position.
-     */
-    if ( ((open - low) < 0.2*(high - low) || (close - low) < 0.2*(high - low)) &&  abs(open - close) < (1/2)*(high - low)) return true;
+    double corps = abs(open - close);
+    double mecheSup = high - max(open, close);
+    if(isSpinningTop() && mecheSup < 0.1*corps) return true;
         return false;
 }
 
@@ -168,14 +189,10 @@ bool CoursOHLCV::isLongLowerShadow() const {
      * Long Lower Shadow A black or a white candlestick is formed with a lower tail that has a length of 2/3 or more of the total range of the candlestick.
      * Normally considered a bullish signal when it appears around price support levels.
      */
-    if(open > close) {
-        if(close - low > (2/3)*(high - low)) return true;
-            return false;
-    }
-    else {
-        if(open - low > (2/3)*(high - low)) return true;
-            return false;
-    }
+    double meche = high - low;
+    double mecheInf = min(open, close) - low;
+    if(mecheInf/meche > 2/3) return true;
+        return false;
 }
 
 bool CoursOHLCV::isLongUpperShadow() const {
@@ -183,23 +200,10 @@ bool CoursOHLCV::isLongUpperShadow() const {
      * Long Upper Shadow A black or a white candlestick with an upper shadow that has a length of 2/3 or more of the total range of the candlestick.
      * Normally considered a bearish signal when it appears around price resistance levels.
      */
-    if(open > close) {
-        if(high - open > (high - low)*(2/3)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    else {
-        if(high - close > (high - low)*(2/3)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-
-    }
+    double meche = high - low;
+    double mecheSup = high - max(open, close);
+    if(mecheSup/meche > 2/3) return true;
+        return false;
 }
 
 bool CoursOHLCV::isMarubozu() const {
@@ -207,7 +211,7 @@ bool CoursOHLCV::isMarubozu() const {
      * Marubozu A long or a normal candlestick (black or white) with no shadow or tail.
      * The high and the lows represent the opening and the closing prices. Considered a continuation pattern.
      */
-    if(abs(open - close) == abs(high - abs(low))) return true;
+    if(abs(open - close) == abs(high - low)) return true;
         return false;
 }
 
@@ -215,14 +219,9 @@ bool CoursOHLCV::isShootingStar() const {
     /*
      * Shooting Star A black or a white candlestick that has a small body, a long upper shadow and a little or no lower tail. Considered a bearish pattern in an uptrend
      */
-    double delta;
-    if ( open > close) {
-        delta = close - low;
-    }
-    else {
-        delta = open - low;
-    }
-    if (isSpinningTop() && delta <= 0.05*abs(open - close) ) return true;
+    double corps = abs(open - close);
+    double mecheInf = min(open, close) - low;
+    if(isInvertedHammer() && isLongUpperShadow() && mecheInf < 0.1*corps)  return true;
         return false;
 }
 
@@ -230,7 +229,8 @@ bool CoursOHLCV::isShavenBottom() const {
     /*
      * Shaven Bottom A black or a white candlestick with no lower tail. [Compare with Inverted Hammer.]
      */
-    if (open == low || close == low) return true;
+    double mecheInf = min(open, close) - low;
+    if(mecheInf == 0) return  true;
         return false;
 }
 
@@ -238,7 +238,8 @@ bool CoursOHLCV::isShavenHead() const {
     /*
      * Shaven Head A black or a white candlestick with no upper shadow. [Compared with hammer.]
      */
-    if (open == high || close == high) return true;
+    double mecheSup = high - max(open, close);
+    if(mecheSup == 0)    return true;
         return false;
 }
 
