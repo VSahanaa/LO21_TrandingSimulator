@@ -14,7 +14,7 @@ modeManuelWidget::modeManuelWidget(ModeManuel* modeManuel, QWidget *parent) : QW
     ui->label_date->setText(modeManuel->getCurrentCours()->getDate().toString("dd.MM.yyyy"));
     ui->openPrice->setText(QString::number(modeManuel->getCurrentCours()->getOpen()));
     ui->montant_Edit->setMinimum(0);
-    ui->montant_Edit->setMaximum(transactionManager->getMontantContrepartie()*1000);
+    ui->montant_Edit->setMaximum(max(transactionManager->getMontantContrepartie(), transactionManager->getMontantBase())*1000);
 }
 
 modeManuelWidget::~modeManuelWidget() {
@@ -25,7 +25,7 @@ void modeManuelWidget::updateData() {
     ui->label_montantBase->setText(QString::number(transactionManager->getMontantBase()));
     ui->label_montantContrepartie->setText(QString::number(transactionManager->getMontantContrepartie()));
     ui->label_broker->setText(QString::number(transactionManager->getPourcentage()));
-    ui->montant_Edit->setMaximum(transactionManager->getMontantContrepartie());
+    ui->montant_Edit->setMaximum(max(transactionManager->getMontantContrepartie(), transactionManager->getMontantBase())*1000);
 }
 
 void modeManuelWidget::setCoursPicked(CoursOHLCV* cours) {

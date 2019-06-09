@@ -29,7 +29,7 @@ ModePasPaswidget::ModePasPaswidget(ModePas_Pas* modePas_Pas, QWidget *parent) : 
     ui->comboBox_timer->setCurrentIndex(0);
 
     ui->montant_edit->setMinimum(0);
-    ui->montant_edit->setMaximum(transactionManager->getMontantContrepartie()*1000);
+    ui->montant_edit->setMaximum(max(transactionManager->getMontantContrepartie(), transactionManager->getMontantBase())*1000);
     //connect signals
     QObject::connect(modePas_Pas, SIGNAL(coursChanged()), this, SLOT(updateCurrentCours()));
 }
@@ -43,7 +43,7 @@ void ModePasPaswidget::updateData() {
     ui->label_montantBase->setText(QString::number(transactionManager->getMontantBase()));
     ui->label_montantContrepartie->setText(QString::number(transactionManager->getMontantContrepartie()));
     ui->label_broker->setText(QString::number(transactionManager->getPourcentage()));
-    ui->montant_edit->setMaximum(transactionManager->getMontantContrepartie());
+    ui->montant_edit->setMaximum(max(transactionManager->getMontantContrepartie(), transactionManager->getMontantBase())*1000);
 }
 
 void ModePasPaswidget::updateCurrentCours() {

@@ -279,9 +279,9 @@
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>300</x>
        <y>10</y>
-       <width>1061</width>
+       <width>881</width>
        <height>29</height>
       </rect>
      </property>
@@ -300,13 +300,6 @@
          </widget>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QPushButton" name="aid">
-        <property name="text">
-         <string>Aide</string>
-        </property>
-       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer_3">
