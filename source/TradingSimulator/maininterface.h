@@ -3,7 +3,7 @@
 
 /**
  * \file 	maininterface.h
- * \brief 	classes NoteItem, MainInterface dans le namespace UI
+ * \brief 	classes NoteItem, MainInterface dans le namespace Ui
  * 	
  * 	Contient le QListWidgetItem pour la prise de note et le QWidget pour l'interface prinicpal
  * 			
