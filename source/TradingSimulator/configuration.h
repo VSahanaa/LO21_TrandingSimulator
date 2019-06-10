@@ -3,7 +3,7 @@
 
 /**
  * \file 	configuration.h
- * \brief 	classe Configuration dans le namespace UI
+ * \brief 	classe Configuration dans le namespace Ui
  * 	
  * 	Contient le QDialog pour le menu principal (lors du lancement de l'application)
  * 			
