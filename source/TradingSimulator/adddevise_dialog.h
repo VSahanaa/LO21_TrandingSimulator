@@ -3,7 +3,7 @@
 
 /**
  * \file 	adddevise_dialog.h
- * \brief 	classe AddDevise_Dialog dans le namespace UI
+ * \brief 	classe AddDevise_Dialog dans le namespace Ui
  * 	
  * 	Contient le QDialog pour ajouter une devise
  * 			
