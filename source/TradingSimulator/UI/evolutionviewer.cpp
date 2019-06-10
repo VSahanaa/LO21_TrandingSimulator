@@ -13,13 +13,7 @@ EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours:
     chartView = new QChartView(chart, this);
     scrollBar = new QScrollBar(Qt::Horizontal, this);
     scrollBar->setMinimum(0);
-    int i = 0;
-    EvolutionCours::iterator cours = currentCours;
-    while(i < maxDateShown) {
-        if(cours == evolutionCours->begin()) break;
-        i++;
-        cours --;
-    }
+    EvolutionCours::iterator cours = evolutionCours->searchCours(currentCours->getDate().addDays(-maxDateShown));
     scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo(cours->getDate()));      //sync scroll bar with time range
 
     layout = new QVBoxLayout;
@@ -162,13 +156,7 @@ void EvolutionViewer::updateChart(int value) {
 
 void EvolutionViewer::currentCoursChanged_react() {
     int old_maximum = scrollBar->maximum();
-    int i = 0;
-    EvolutionCours::iterator cours = currentCours;
-    while(i < maxDateShown) {
-        if(cours == evolutionCours->begin()) break;
-        i++;
-        cours --;
-    }
+    EvolutionCours::iterator cours = evolutionCours->searchCours(currentCours->getDate().addDays(-maxDateShown));
     scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo(cours->getDate()));
     if(scrollBar->value() == old_maximum) {
         //if user is navigating  => don't update viewport
@@ -204,13 +192,7 @@ VolumeViewer::VolumeViewer(EvolutionCours* evolutionCours, EvolutionCours::itera
 
     scrollBar = new QScrollBar(Qt::Horizontal, this);
     scrollBar->setMinimum(0);
-    int i=0;
-    EvolutionCours::iterator cours = currentCours;
-    while(i < maxDateShown) {
-        if(cours == evolutionCours->begin()) break;
-        i++;
-        cours --;
-    }
+    EvolutionCours::iterator cours = evolutionCours->searchCours(currentCours->getDate().addDays(-maxDateShown));
     scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo((cours)->getDate()));      //sync scroll bar with time range
 
     layout = new QVBoxLayout;
@@ -320,13 +302,7 @@ void VolumeViewer::updateChart(int value) {
 
 void VolumeViewer::currentCoursChanged_react() {
     int old_maximum = scrollBar->maximum();
-    int i=0;
-    EvolutionCours::iterator cours = currentCours;
-    while(i < maxDateShown) {
-        if(cours == evolutionCours->begin()) break;
-        i++;
-        cours --;
-    }
+    EvolutionCours::iterator cours = evolutionCours->searchCours(currentCours->getDate().addDays(-maxDateShown));
     scrollBar->setMaximum(evolutionCours->begin()->getDate().daysTo(cours->getDate()));
     if(scrollBar->value() == old_maximum) {
         //if user is navigating  => don't update viewport

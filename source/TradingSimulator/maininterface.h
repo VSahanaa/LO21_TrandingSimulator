@@ -49,13 +49,9 @@ private slots:
     void on_noteEdit_textChanged();
     void on_deleteSimulation_clicked();
     void on_ema_stateChanged(int arg1);
-
     void on_macd_stateChanged(int arg1);
-
     void on_rsi_clicked();
-
     void on_pushButton_clicked();
-
 private:
     Ui::MainInterface *ui;
     Simulation* simulation = nullptr;

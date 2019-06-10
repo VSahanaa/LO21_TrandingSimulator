@@ -259,13 +259,14 @@ void ModePas_Pas::goBack(QDate date) {
 
 
 void ModePas_Pas::iteration(){
-    ++currentCours;
+    currentCours++;
     if(currentCours == evolutionCours->end()) {
         timer->stop();
         emit endSimulation();
     }
     emit coursChanged();
 }
+
 void ModePas_Pas::saveSimulation() const {
     saveEvolutionCours();
     saveTransactions();

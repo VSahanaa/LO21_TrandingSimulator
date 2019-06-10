@@ -86,7 +86,7 @@ void MainInterface::endSimulationMessage() {
 }
 
 void MainInterface::updateGraph() {
-    evolutionViewer->setCurrentCours(simulation->getCurrentCours());      //don't show the current cours
+    evolutionViewer->setCurrentCours(simulation->getCurrentCours());
     volumeViewer->setCurrentCours(simulation->getCurrentCours());
 }
 

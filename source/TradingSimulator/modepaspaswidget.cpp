@@ -27,7 +27,6 @@ ModePasPaswidget::ModePasPaswidget(ModePas_Pas* modePas_Pas, QWidget *parent) : 
     ui->comboBox_timer->addItem("12 heures", 43200000);
     ui->comboBox_timer->addItem("1 jour", 86400000);
     ui->comboBox_timer->setCurrentIndex(0);
-
     ui->montant_edit->setMinimum(0);
     ui->montant_edit->setMaximum(max(transactionManager->getMontantContrepartie(), transactionManager->getMontantBase())*1000);
     //connect signals

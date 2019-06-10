@@ -99,7 +99,7 @@ public:
     ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=30000, QObject* parent=nullptr);
     ~ModePas_Pas() {delete timer;}
     void saveSimulation() const;
-    void setTimer(unsigned int interval) {timer->setInterval(interval); qDebug() << timer->interval();}
+    void setTimer(unsigned int interval) {timer->setInterval(interval);}
     void achat(double montant) {transactionManager.addTransaction(evolutionCours->getPaireDevises(), currentCours, true, montant);}
     void vente(double montant) {transactionManager.addTransaction(evolutionCours->getPaireDevises(), currentCours, false, montant);}
 signals:
