@@ -31,7 +31,6 @@ SOURCES += \
         Controller/strategie.cpp \
         Controller/simulation.cpp \
         UI/evolutionviewer.cpp \
-        UI/welcome.cpp \
         adddevise_dialog.cpp \
         addindicateurdialog.cpp \
         configuration.cpp \
@@ -48,7 +47,6 @@ HEADERS += \
         Controller/strategie.h \
         Controller/simulation.h \
         UI/evolutionviewer.h \
-        UI/welcome.h \
         adddevise_dialog.h \
         addindicateurdialog.h \
         configuration.h \
