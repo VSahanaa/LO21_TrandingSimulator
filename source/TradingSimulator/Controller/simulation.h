@@ -97,7 +97,7 @@ protected:
     EvolutionCours* evolutionCours; /**< evolutionCours :EvolutionCours* pointe sur les cours sur lesquels porte la simulation*/
     EvolutionCours::iterator currentCours = evolutionCours->begin(); /**< currentCours :EvolutionCours::iterator pointe sur le cours OHLCV en cours*/
     TransactionManager transactionManager;/**< transactionManager :TransactionManager représente le manager qui s'occupe des transactions*/
-    QList<Note> noteManager; /**< noteManager :QList<Note> contient les notes prises au cours de la transaction*/
+    QList<Note*> noteManager; /**< noteManager :QList<Note> contient les notes prises au cours de la transaction*/
 public:
 	//! constructeur
 	/**
