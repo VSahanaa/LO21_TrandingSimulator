@@ -3,7 +3,7 @@
 
 /**
  * \file 	info.h
- * \brief 	classe Info dans le namespace UI
+ * \brief 	classe Info dans le namespace Ui
  * 	
  * 	Contient le QDialog pour la fenêtre d'explication (lors du lancement de l'application)
  * 			
