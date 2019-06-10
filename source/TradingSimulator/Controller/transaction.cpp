@@ -28,7 +28,7 @@ void TransactionManager::addTransaction(const PaireDevises *paire, CoursOHLCV *c
     }
 
     if (achat) {
-        montantBase = currentMontantBase + (1-pourcentage)/montant*cours->getOpen();
+        montantBase = currentMontantBase + (1-pourcentage)*montant/cours->getOpen();
         montantContrepartie = currentMontantContrepartie - montant;
         if (montantContrepartie < 0) throw TradingException("montant de devise contre partie n'est pas assez");
     }

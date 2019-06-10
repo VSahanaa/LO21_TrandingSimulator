@@ -4,7 +4,6 @@
 #include "configuration.h"
 #include "maininterface.h"
 #include <QApplication>
-#include "UI/welcome.h"
 
 
 int main(int argc, char *argv[])

@@ -3,6 +3,7 @@
 
 modeManuelWidget::modeManuelWidget(ModeManuel* modeManuel, QWidget *parent) : QWidget(parent), ui(new Ui::modeManuelWidget), modeManuel(modeManuel) {
     ui->setupUi(this);
+    coursPicked = modeManuel->getCurrentCours();
     transactionManager = modeManuel->getTransactionManager();
     ui->pairelabel->setText(modeManuel->getEvolutionCours()->getPaireDevises()->toString());
     ui->base->setText(modeManuel->getEvolutionCours()->getPaireDevises()->getBase().getCode());
@@ -41,8 +42,10 @@ void modeManuelWidget::setCoursPicked(CoursOHLCV* cours) {
 
 void modeManuelWidget::on_pushButton_achat_clicked() {
     double montant = ui->montant_Edit->value();
-    if(!coursPicked) {QMessageBox::warning(this, "Warning", "Date invalide.");}
-    if (montant > 0) {
+    if(!coursPicked) {
+        QMessageBox::warning(this, "Warning", "Date invalide.");
+    }
+    else if (montant > 0) {
         try {
             modeManuel->achat(coursPicked, montant);
             updateData();
@@ -57,8 +60,10 @@ void modeManuelWidget::on_pushButton_achat_clicked() {
 void modeManuelWidget::on_pushButton_vente_clicked() {
     double montant = ui->montant_Edit->value();
     qDebug() << montant;
-    if(!coursPicked) {QMessageBox::warning(this, "Warning", "Date invalide.");}
-    if (montant > 0) {
+    if(!coursPicked) {
+        QMessageBox::warning(this, "Warning", "Date invalide.");
+    }
+    else if (montant > 0) {
         try {
             modeManuel->vente(coursPicked, montant);
             updateData();
