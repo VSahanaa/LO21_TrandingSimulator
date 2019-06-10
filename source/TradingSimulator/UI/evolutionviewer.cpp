@@ -296,7 +296,7 @@ void VolumeViewer::showChart(QDate firstdate, QDate lastdate) {
 
 void VolumeViewer::updateChart(int value) {
     QDate firstDateShowed = evolutionCours->begin()->getDate().addDays(value);
-    qDebug() << firstDateShowed.toString("yy.MM.dd")<<endl;
+    //qDebug() << firstDateShowed.toString("yy.MM.dd")<<endl;
     showChart(firstDateShowed, firstDateShowed.addDays(maxDateShown));
 }
 
@@ -307,9 +307,7 @@ void VolumeViewer::currentCoursChanged_react() {
     if(scrollBar->value() == old_maximum) {
         //if user is navigating  => don't update viewport
         if(scrollBar->maximum() == 0) {updateChart(0);}
-        scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
+        scrollBar->setValue(scrollBar->maximum());
     }
-    else {
-        updateChart(scrollBar->value());
-    }
+    updateChart(scrollBar->value());
 }
