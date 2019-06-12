@@ -192,7 +192,9 @@ void ModeAutomatique::iteration() {
         timer->stop();
         emit endSimulation();
     }
-    emit coursChanged();
+    else {
+        emit coursChanged();
+    }
 }
 
 void ModeAutomatique::saveStrategie() const {
@@ -247,10 +249,9 @@ ModePas_Pas::ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionC
 }
 
 void ModePas_Pas::goBack(QDate date) {
-    if (date > currentCours->getDate()) throw TradingException("ne peut pas aller à la future");
+    if (date > currentCours->getDate()) throw TradingException("Ne peut pas aller à la future");
     //delete transactions
     while (transactionManager.head() != nullptr &&  transactionManager.head()->getCours()->getDate() > date) {
-        qDebug()<<"1";
         transactionManager.deleteLastTransaction();
     };
     currentCours = evolutionCours->searchCours(date);
@@ -264,7 +265,9 @@ void ModePas_Pas::iteration(){
         timer->stop();
         emit endSimulation();
     }
-    emit coursChanged();
+    else {
+        emit coursChanged();
+    }
 }
 
 void ModePas_Pas::saveSimulation() const {

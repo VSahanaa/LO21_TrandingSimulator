@@ -25,50 +25,48 @@ TEMPLATE = app
 CONFIG += c++11
 
 SOURCES += \
+        main.cpp \
         Core_Devises/trading.cpp \
         Core_Devises/indicateur.cpp \
         Controller/transaction.cpp \
         Controller/strategie.cpp \
         Controller/simulation.cpp \
-        UI/evolutionviewer.cpp \
-        adddevise_dialog.cpp \
-        addindicateurdialog.cpp \
-        configuration.cpp \
-        main.cpp \
-        maininterface.cpp \
-        mainwindow.cpp \
-        modeautowidget.cpp \
-        modemanuelwidget.cpp \
-        modepaspaswidget.cpp
+        Chart/evolutionviewer.cpp \
+        Windows/adddevise_dialog.cpp \
+        Windows/addindicateurdialog.cpp \
+        Windows/configuration.cpp \
+        Windows/maininterface.cpp \
+        Windows/mainwindow.cpp \
+        Windows/modeautowidget.cpp \
+        Windows/modemanuelwidget.cpp \
+        Windows/modepaspaswidget.cpp
 
 HEADERS += \
         Core_Devises/trading.h \
         Controller/transaction.h\
         Controller/strategie.h \
         Controller/simulation.h \
-        UI/evolutionviewer.h \
-        adddevise_dialog.h \
-        addindicateurdialog.h \
-        configuration.h \
-        info.h \
-        maininterface.h \
-        mainwindow.h \
-        modeautowidget.h \
-        modemanuelwidget.h \
-        modepaspaswidget.h
+        Chart/evolutionviewer.h \
+        Windows/adddevise_dialog.h \
+        Windows/addindicateurdialog.h \
+        Windows/configuration.h \
+        Windows/info.h \
+        Windows/maininterface.h \
+        Windows/mainwindow.h \
+        Windows/modeautowidget.h \
+        Windows/modemanuelwidget.h \
+        Windows/modepaspaswidget.h
 
 FORMS += \
-        UI/welcome.ui \
-        UI/info.ui \
-        adddevise_dialog.ui \
-        addindicateurdialog.ui \
-        configuration.ui \
-        info.ui \
-        maininterface.ui \
-        mainwindow.ui \
-        modeautowidget.ui \
-        modemanuelwidget.ui \
-        modepaspaswidget.ui
+        Windows/adddevise_dialog.ui \
+        Windows/addindicateurdialog.ui \
+        Windows/configuration.ui \
+        Windows/info.ui \
+        Windows/maininterface.ui \
+        Windows/mainwindow.ui \
+        Windows/modeautowidget.ui \
+        Windows/modemanuelwidget.ui \
+        Windows/modepaspaswidget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

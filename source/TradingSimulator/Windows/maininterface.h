@@ -8,8 +8,8 @@
  * 	Contient le QListWidgetItem pour la prise de note et le QWidget pour l'interface prinicpal
  * 			
  */
-#include "Controller/simulation.h"
-#include "UI/evolutionviewer.h"
+#include "../Controller/simulation.h"
+#include "../Chart/evolutionviewer.h"
 #include "configuration.h"
 #include "modemanuelwidget.h"
 #include "modepaspaswidget.h"

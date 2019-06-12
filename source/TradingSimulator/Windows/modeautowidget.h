@@ -9,7 +9,7 @@
  * 			
  */
 
-#include "Controller/simulation.h"
+#include "../Controller/simulation.h"
 #include <QWidget>
 
 //! Namespace Ui

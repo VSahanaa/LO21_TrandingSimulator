@@ -12,8 +12,8 @@
 #include <QDialog>
 #include <QFileDialog>
 #include "adddevise_dialog.h"
-#include "UI/evolutionviewer.h"
-#include "Controller/simulation.h"
+#include "../Chart/evolutionviewer.h"
+#include "../Controller/simulation.h"
 
 //! Namespace Ui
 /**

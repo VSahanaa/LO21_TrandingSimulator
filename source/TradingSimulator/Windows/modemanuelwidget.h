@@ -11,7 +11,7 @@
 
 #include <QWidget>
 #include <QMessageBox>
-#include "Controller/simulation.h"
+#include "../Controller/simulation.h"
 
 //! Namespace Ui
 /**

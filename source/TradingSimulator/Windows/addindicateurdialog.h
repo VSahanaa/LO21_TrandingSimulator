@@ -11,7 +11,7 @@
 
 #include <QDialog>
 #include <QMessageBox>
-#include "Core_Devises/trading.h"
+#include "../Core_Devises/trading.h"
 
 //! Namespace Ui
 /**

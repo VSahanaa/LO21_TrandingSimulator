@@ -1,8 +1,4 @@
-#include "mainwindow.h"
-#include "Core_Devises/trading.h"
-#include "UI/evolutionviewer.h"
-#include "configuration.h"
-#include "maininterface.h"
+#include "./Windows/mainwindow.h"
 #include <QApplication>
 
 
