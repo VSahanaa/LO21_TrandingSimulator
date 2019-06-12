@@ -16,7 +16,7 @@ ModePasPaswidget::ModePasPaswidget(ModePas_Pas* modePas_Pas, QWidget *parent) : 
     ui->dateEdit->setMinimumDate(modePas_Pas->getCurrentCours()->getDate());
 
     ui->openPrice->setText(QString::number(modePas_Pas->getCurrentCours()->getOpen()));
-    ui->comboBox_timer->addItem("30 seconde", 30000);
+    ui->comboBox_timer->addItem("30 secondes", 30000);
     ui->comboBox_timer->addItem("1 min", 60000);
     ui->comboBox_timer->addItem("5 mins", 300000);
     ui->comboBox_timer->addItem("10 mins", 600000);

@@ -163,9 +163,7 @@ void EvolutionViewer::currentCoursChanged_react() {
         if(scrollBar->maximum() == 0) {updateChart(0);}
         scrollBar->setValue(scrollBar->maximum());      //trigger updateChart()
     }
-    else {
-        updateChart(scrollBar->value());
-    }
+    updateChart(scrollBar->value());
 }
 
 void EvolutionViewer::analyseForm(CoursOHLCV* cours) {

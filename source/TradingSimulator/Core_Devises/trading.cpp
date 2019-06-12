@@ -271,7 +271,7 @@ QString CoursOHLCV::forme(double minLocal, double maxLocal) const {
     if(isInvertedHammer(minLocal, maxLocal)) return "Inverted hammer";
     if(isHammer(minLocal, maxLocal)) return "Hammer";
     if(isToupie()) return "Toupie";
-    return "Pas trouvé la forme";
+    return "Pas de forme particulière";
 }
 
 /*---------------------------------------------- Methodes de classe EvolutionCours --------------------------------------------*/
