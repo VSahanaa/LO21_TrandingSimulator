@@ -167,7 +167,14 @@ void EvolutionViewer::currentCoursChanged_react() {
 }
 
 void EvolutionViewer::analyseForm(CoursOHLCV* cours) {
-     QToolTip::showText(QCursor::pos() , cours->forme(axisY->min(), axisY->max()), nullptr, QRect(), 50000);
+    QString form = cours->forme(axisY->min(), axisY->max());
+    form += "\n Open price: " + QString::number(cours->getOpen());
+    if (cours != currentCours || currentCours == evolutionCours->end()-1) {
+        form += "\n High Price: " + QString::number(cours->getHigh());
+        form += "\n Low Price: " + QString::number(cours->getLow());
+        form += "\n Close Price: " + QString::number(cours->getLow());
+    }
+     QToolTip::showText(QCursor::pos() , form, nullptr, QRect(), 50000);
 }
 
 

@@ -541,7 +541,7 @@ public:
 		/** 
 		* \return  QString : la concaténation <date>.indicateur.<donnee
 		*/
-        QString toString() const {return date.toString() + " indicateur: " + QString::number(donnee);}
+        QString toString() const {return date.toString("dd.MM.yyyy") + " indicateur: " + QString::number(donnee);}
 };
 
 /**
