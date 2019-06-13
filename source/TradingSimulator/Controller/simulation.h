@@ -263,7 +263,7 @@ public:
 	* \param time_interval :unsigned int
 	* \param parent :QObject* 
 	*/
-    ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=30000, QObject* parent=nullptr);
+    ModePas_Pas(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=5000, QObject* parent=nullptr);
     //!Destructeur
 	~ModePas_Pas() {delete timer;}
 	//! Méthode saveSimulation
@@ -346,7 +346,7 @@ public:
 	* \param time_interval :unsigned int
 	* \param parent :QObject* 
 	*/
-    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, Strategie* strategie, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=30000, QObject* parent=nullptr);
+    ModeAutomatique(QString nom, EvolutionCours* evolutionCours, EvolutionCours::iterator coursDebut, Strategie* strategie, double pourcentage=0.001, double montantBaseInitial=0, double montantContrepartieInitial=1000000, unsigned int time_interval=5000, QObject* parent=nullptr);
     //! Destructeur
 	~ModeAutomatique() {delete strategie;   delete timer;}
     //! Méthode saveSimulation

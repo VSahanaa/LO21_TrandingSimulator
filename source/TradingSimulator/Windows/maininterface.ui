@@ -19,7 +19,7 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-10</x>
      <y>0</y>
      <width>1821</width>
      <height>1371</height>
@@ -49,9 +49,9 @@
       <colorrole role="Window">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>46</red>
-         <green>52</green>
-         <blue>54</blue>
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
         </color>
        </brush>
       </colorrole>
@@ -87,9 +87,9 @@
       <colorrole role="Window">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>46</red>
-         <green>52</green>
-         <blue>54</blue>
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
         </color>
        </brush>
       </colorrole>
@@ -116,18 +116,18 @@
       <colorrole role="Base">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>46</red>
-         <green>52</green>
-         <blue>54</blue>
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
         </color>
        </brush>
       </colorrole>
       <colorrole role="Window">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>46</red>
-         <green>52</green>
-         <blue>54</blue>
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
         </color>
        </brush>
       </colorrole>
@@ -157,7 +157,7 @@
       <string>Créer nouvelle simulation</string>
      </property>
      <property name="icon">
-      <iconset resource="resource.qrc">
+      <iconset resource="../resource.qrc">
        <normaloff>:/TradingSimulator/evolutionCours/icons/display.png</normaloff>:/TradingSimulator/evolutionCours/icons/display.png</iconset>
      </property>
      <property name="iconSize">
@@ -183,7 +183,7 @@
          <string>Charger une simulation</string>
         </property>
         <property name="icon">
-         <iconset resource="resource.qrc">
+         <iconset resource="../resource.qrc">
           <normaloff>:/TradingSimulator/evolutionCours/icons/trading.png</normaloff>:/TradingSimulator/evolutionCours/icons/trading.png</iconset>
         </property>
        </widget>
@@ -206,7 +206,7 @@
       <string>Supprimer une Simulation</string>
      </property>
      <property name="icon">
-      <iconset resource="resource.qrc">
+      <iconset resource="../resource.qrc">
        <normaloff>:/icons/delete.png</normaloff>:/icons/delete.png</iconset>
      </property>
     </widget>
@@ -294,7 +294,7 @@
            <string>Sauvegarder</string>
           </property>
           <property name="icon">
-           <iconset resource="resource.qrc">
+           <iconset resource="../resource.qrc">
             <normaloff>:/TradingSimulator/evolutionCours/icons/save.png</normaloff>:/TradingSimulator/evolutionCours/icons/save.png</iconset>
           </property>
          </widget>
@@ -485,7 +485,7 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="resource.qrc">
+           <iconset resource="../resource.qrc">
             <normaloff>:/icons/delete.png</normaloff>:/icons/delete.png</iconset>
           </property>
          </widget>
@@ -496,7 +496,7 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset resource="resource.qrc">
+           <iconset resource="../resource.qrc">
             <normaloff>:/icons/+.jpeg</normaloff>:/icons/+.jpeg</iconset>
           </property>
          </widget>
@@ -528,7 +528,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../resource.qrc">
               <normaloff>:/TradingSimulator/evolutionCours/icons/note.jpeg</normaloff>:/TradingSimulator/evolutionCours/icons/note.jpeg</iconset>
             </property>
            </widget>
@@ -555,7 +555,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="resource.qrc">
+             <iconset resource="../resource.qrc">
               <normaloff>:/TradingSimulator/evolutionCours/icons/close.png</normaloff>:/TradingSimulator/evolutionCours/icons/close.png</iconset>
             </property>
            </widget>
@@ -601,7 +601,7 @@
       <string/>
      </property>
      <property name="icon">
-      <iconset resource="resource.qrc">
+      <iconset resource="../resource.qrc">
        <normaloff>:/TradingSimulator/evolutionCours/icons/logo.png</normaloff>:/TradingSimulator/evolutionCours/icons/logo.png</iconset>
      </property>
      <property name="iconSize">
@@ -615,7 +615,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections/>
 </ui>

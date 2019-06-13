@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resource.qrc">
+   <iconset resource="../resource.qrc">
     <normaloff>:/TradingSimulator/evolutionCours/icons/logo.png</normaloff>:/TradingSimulator/evolutionCours/icons/logo.png</iconset>
   </property>
   <property name="iconSize">
@@ -43,7 +43,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections/>
 </ui>

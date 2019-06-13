@@ -16,6 +16,8 @@ ModeAutowidget::ModeAutowidget(ModeAutomatique* modeAutomatique, QWidget *parent
     ui->dateEdit->setMaximumDate(modeAutomatique->getCurrentCours()->getDate());
     ui->dateEdit->setMinimumDate(modeAutomatique->getCurrentCours()->getDate());
     ui->openPrice->setText(QString::number(modeAutomatique->getCurrentCours()->getOpen()));
+    ui->comboBox_timer->addItem("5 secondes", 5000);
+    ui->comboBox_timer->addItem("10 secondes", 10000);
     ui->comboBox_timer->addItem("30 secondes", 30000);
     ui->comboBox_timer->addItem("1 min", 60000);
     ui->comboBox_timer->addItem("5 mins", 300000);

@@ -139,7 +139,7 @@
            <string>Achat</string>
           </property>
           <property name="icon">
-           <iconset resource="resource.qrc">
+           <iconset resource="../resource.qrc">
             <normaloff>:/TradingSimulator/evolutionCours/icons/buy.png</normaloff>:/TradingSimulator/evolutionCours/icons/buy.png</iconset>
           </property>
          </widget>
@@ -150,7 +150,7 @@
            <string>Vente</string>
           </property>
           <property name="icon">
-           <iconset resource="resource.qrc">
+           <iconset resource="../resource.qrc">
             <normaloff>:/TradingSimulator/evolutionCours/icons/sell.png</normaloff>:/TradingSimulator/evolutionCours/icons/sell.png</iconset>
           </property>
          </widget>
@@ -163,7 +163,7 @@
          <string>Annuler</string>
         </property>
         <property name="icon">
-         <iconset resource="resource.qrc">
+         <iconset resource="../resource.qrc">
           <normaloff>:/TradingSimulator/evolutionCours/icons/undo.png</normaloff>:/TradingSimulator/evolutionCours/icons/undo.png</iconset>
         </property>
        </widget>
@@ -174,7 +174,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections/>
 </ui>
