@@ -24,6 +24,9 @@
         <file>icons/sell.png</file>
         <file>icons/buy.png</file>
         <file>icons/undo.png</file>
+        <file>icons/pause.ico</file>
+        <file>icons/next.png</file>
+        <file>icons/play.png</file>
     </qresource>
     <qresource prefix="/">
         <file>icons/+.jpeg</file>

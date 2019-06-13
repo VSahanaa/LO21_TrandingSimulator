@@ -370,6 +370,11 @@ public:
 	* \return void : permet de modifier le timer
 	*/
     void setTimer(unsigned int interval) {timer->setInterval(interval);}
+    //! Methode isPaused
+    /**
+    * \return bool : retourne l'etat du timer
+    */
+    bool isPaused() const {return !timer->isActive();}
 signals:
 	//! Signal coursChanged
 	/**
@@ -387,13 +392,28 @@ private slots:
 	* \return void : faire passer le message pour itérer les cours et avancer/reculer dans le temps
 	*/
     void iteration();
-    /*
+public slots:
+    //! Slot publique pause
+    /**
+    * \return void : faire une pause sur la simulation
+    */
     void pause() {timer->stop();}
+    //! Slot publique play
+    /**
+    * \return void : reactiver la simulation
+    */
     void play() {if (currentCours != evolutionCours->end()) timer->start();}
+    //! Slot publique nextIteration
+    /**
+    * \return void : accelerer la simulation d'effectuer la prochaine iteration
+    */
+    void nextIteration() {if (currentCours != evolutionCours->end()) iteration();}
+    /*
     void speedUp() {if(timer->interval() > 10000) timer->setInterval(timer->interval() - 10000);}
     void slowDown() {timer->setInterval(timer->interval() + 10000);}
     */
 };
+
 
 /* * Class SimulationManager: container on Simulations
  * it has a nomGroupe and nomApplication for saving and restoring a Simulation

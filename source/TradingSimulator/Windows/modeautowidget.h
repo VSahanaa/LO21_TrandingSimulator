@@ -58,6 +58,10 @@ private slots:
 	*/
     void on_comboBox_timer_currentIndexChanged(int index);
 
+    void on_pause_clicked();
+
+    void on_next_clicked();
+
 private:
     Ui::ModeAutowidget *ui; /**< ui :ModeAutowidget* instance de ModeAutowidget*/
     ModeAutomatique* modeAutomatique; /**< modeAutomatique :ModeAutomatique* pointe sur la classe gérant le mode automatique */

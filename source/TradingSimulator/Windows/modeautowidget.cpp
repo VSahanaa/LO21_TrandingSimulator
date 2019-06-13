@@ -51,3 +51,19 @@ void ModeAutowidget::updateData() {
 void ModeAutowidget::on_comboBox_timer_currentIndexChanged(int index){
     modeAutomatique->setTimer(ui->comboBox_timer->currentData().toInt());
 }
+
+void ModeAutowidget::on_pause_clicked() {
+    if(modeAutomatique->isPaused()) {
+        //reactiver
+        ui->pause->setIcon(QIcon(":/TradingSimulator/evolutionCours/icons/pause.ico"));
+        modeAutomatique->play();
+    }
+    else {
+        ui->pause->setIcon(QIcon(":/TradingSimulator/evolutionCours/icons/play.png"));
+        modeAutomatique->pause();
+    }
+}
+
+void ModeAutowidget::on_next_clicked() {
+    modeAutomatique->nextIteration();
+}
