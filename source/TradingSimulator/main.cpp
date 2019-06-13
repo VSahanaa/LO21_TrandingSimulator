@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     MainWindow* mainWindow = new MainWindow();
     QObject::connect(mainWindow, SIGNAL(stop()), scrollArea, SLOT(close()));
     scrollArea->setWidget(mainWindow);
-    scrollArea->show();
+    scrollArea->showMaximized();
 
     return mainApp.exec();
 }
