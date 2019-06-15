@@ -1,0 +1,691 @@
+\hypertarget{classSimulation}{}\doxysection{Référence de la classe Simulation}
+\label{classSimulation}\index{Simulation@{Simulation}}
+
+
+classe abstraite pour créer toutes les simulations attributs \+: type, nom, evolution\+Cours, current\+Cours, transaction\+Manager, note\+Manager méthodes publiques \+: simulation, $\sim$simulation, achat, vente, get\+Nom, get\+Type, get\+Evolution\+Cours get\+Current\+Cours, save\+Evolution\+Cours, save\+Transactions, save\+Notes, load\+Notes, load\+Transactions, get\+Transaction\+Manager, get\+Note\+Manager, add\+Note methode virtuelle publique \+: save\+Simulation Remarques \+: chaque simulation a son propre \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}}  
+
+
+
+
+{\ttfamily \#include $<$simulation.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Simulation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d1/d7b/classSimulation}
+\end{center}
+\end{figure}
+\doxysubsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classSimulation_aa8ec98a9a16a199a7f7f1273ae1e1439}{Note\+Manager}} = Q\+List$<$ \mbox{\hyperlink{classNote}{Note}} $\ast$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSimulation_aa15c0a3aadb4c0226f1f07195f60ac25}{Simulation}} (Q\+String \mbox{\hyperlink{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}{type}}, Q\+String \mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}}, \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolution\+Cours}}, \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} cours\+Debut, double pourcentage, double montant\+Base\+Initial, double montant\+Contrepartie\+Initial)
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSimulation_a80fad3f57dfaf195a36f7bc49bc88279}{$\sim$\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimulation_a949d38bc4f3eaff5de63cf1e5e2d81f3}{achat}} (\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours, double montant)
+\begin{DoxyCompactList}\small\item\em Méthode achat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimulation_a18edaad62de0c2e3370e609f10923a71}{vente}} (\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours, double montant)
+\begin{DoxyCompactList}\small\item\em Méthode vente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$ \mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{get\+Evolution\+Cours}} () const
+\begin{DoxyCompactList}\small\item\em Méthode get\+Evolution\+Cours. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{classSimulation_aca5b06fcdd1eca7f753fc1e7004c26cd}{get\+Nom}} () const
+\begin{DoxyCompactList}\small\item\em Méthode get\+Nom. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{classSimulation_a2357a8bc9963cca9a3b36f376e04971e}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Méthode get\+Type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{get\+Current\+Cours}} () const
+\begin{DoxyCompactList}\small\item\em Méthode get\+Current\+Cours. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classSimulation_a080f74bf793340e2757e19bd4b595cbc}{save\+Simulation}} () const =0
+\begin{DoxyCompactList}\small\item\em Méthode virtuelle pure save\+Simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimulation_a1650262c3dc5316f3a81d0489fd4f8ef}{save\+Evolution\+Cours}} () const
+\begin{DoxyCompactList}\small\item\em Méthode save\+Evolution\+Cours. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimulation_aecad8b5b6a07b072a0283a55645c5a31}{save\+Transactions}} () const
+\begin{DoxyCompactList}\small\item\em Méthode save\+Transactions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimulation_a77972769aceb06ccc15f1db4789f0601}{save\+Notes}} () const
+\begin{DoxyCompactList}\small\item\em Méthode save\+Notes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimulation_a2d57406836f4f0cede0c054ba406825e}{load\+Transactions}} ()
+\begin{DoxyCompactList}\small\item\em Méthode load\+Transactions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimulation_aba050bcd0360e02faca27632d1b04946}{load\+Notes}} ()
+\begin{DoxyCompactList}\small\item\em Méthode load\+Notes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} $\ast$ \mbox{\hyperlink{classSimulation_ac5a714fd110f5f86427b5f2d1c4f60fe}{get\+Transaction\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Méthode get\+Transaction\+Manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSimulation_aa8ec98a9a16a199a7f7f1273ae1e1439}{Note\+Manager}} \& \mbox{\hyperlink{classSimulation_ad0d0d449e4910d0b6e03ae2319457dd8}{get\+Note\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Méthode get\+Note\+Manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNote}{Note}} $\ast$ \mbox{\hyperlink{classSimulation_a4b07748cd26f13305202c229b18c04e2}{add\+Note}} ()
+\begin{DoxyCompactList}\small\item\em Méthode add\+Note. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \mbox{\hyperlink{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}{type}}
+\item 
+Q\+String \mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}}
+\item 
+\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$ \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolution\+Cours}}
+\item 
+\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{current\+Cours}} = \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolution\+Cours}}-\/$>$begin()
+\item 
+\mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transaction\+Manager}}
+\item 
+Q\+List$<$ \mbox{\hyperlink{classNote}{Note}} $\ast$ $>$ \mbox{\hyperlink{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}{note\+Manager}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+classe abstraite pour créer toutes les simulations attributs \+: type, nom, evolution\+Cours, current\+Cours, transaction\+Manager, note\+Manager méthodes publiques \+: simulation, $\sim$simulation, achat, vente, get\+Nom, get\+Type, get\+Evolution\+Cours get\+Current\+Cours, save\+Evolution\+Cours, save\+Transactions, save\+Notes, load\+Notes, load\+Transactions, get\+Transaction\+Manager, get\+Note\+Manager, add\+Note methode virtuelle publique \+: save\+Simulation Remarques \+: chaque simulation a son propre \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} 
+
+Définition à la ligne 93 du fichier simulation.\+h.
+
+
+
+\doxysubsection{Documentation des définitions de type membres}
+\mbox{\Hypertarget{classSimulation_aa8ec98a9a16a199a7f7f1273ae1e1439}\label{classSimulation_aa8ec98a9a16a199a7f7f1273ae1e1439}} 
+\index{Simulation@{Simulation}!NoteManager@{NoteManager}}
+\index{NoteManager@{NoteManager}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{NoteManager}{NoteManager}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classSimulation_aa8ec98a9a16a199a7f7f1273ae1e1439}{Simulation\+::\+Note\+Manager}} =  Q\+List$<$\mbox{\hyperlink{classNote}{Note}}$\ast$$>$}
+
+declaration Note\+Manager $<$=$>$ Qlist$<$\+Note$\ast$$>$ 
+
+Définition à la ligne 190 du fichier simulation.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classSimulation_aa15c0a3aadb4c0226f1f07195f60ac25}\label{classSimulation_aa15c0a3aadb4c0226f1f07195f60ac25}} 
+\index{Simulation@{Simulation}!Simulation@{Simulation}}
+\index{Simulation@{Simulation}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{Simulation()}{Simulation()}}
+{\footnotesize\ttfamily Simulation\+::\+Simulation (\begin{DoxyParamCaption}\item[{Q\+String}]{type,  }\item[{Q\+String}]{nom,  }\item[{\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$}]{evolution\+Cours,  }\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{cours\+Debut,  }\item[{double}]{pourcentage,  }\item[{double}]{montant\+Base\+Initial,  }\item[{double}]{montant\+Contrepartie\+Initial }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructeur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em type} & \+:Q\+String \\
+\hline
+{\em nom} & \+:Q\+String \\
+\hline
+{\em evolution\+Cours} & \+:Evolution\+Cours$\ast$ \\
+\hline
+{\em cours\+Debut} & \+:\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \\
+\hline
+{\em poucentage} & \+:double \\
+\hline
+{\em montant\+Base\+Initial} & \+:double \\
+\hline
+{\em montant\+Contrepartie\+Initial} & \+:double \\
+\hline
+{\em parent} & \+:Q\+Object$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 113 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113                                                                                                                                                                                                :}
+\DoxyCodeLine{114         \mbox{\hyperlink{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}{type}}(\mbox{\hyperlink{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}{type}}), \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}(\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}), \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}}(coursDebut),}
+\DoxyCodeLine{115         \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}(\mbox{\hyperlink{classTransactionManager}{TransactionManager}}(pourcentage, montantBaseInitial, montantContrepartieInitial, montantContrepartieInitial + montantBaseInitial*coursDebut-\/>\mbox{\hyperlink{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}{getClose}}())) \{}
+\DoxyCodeLine{116         \textcolor{comment}{//if (!verifierNomSimulation(nom)) throw TradingException("Simulation: ce nom est déjà pris");}}
+\DoxyCodeLine{117         this-\/>\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}} = \mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}};}
+\DoxyCodeLine{118     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a80fad3f57dfaf195a36f7bc49bc88279}\label{classSimulation_a80fad3f57dfaf195a36f7bc49bc88279}} 
+\index{Simulation@{Simulation}!````~Simulation@{$\sim$Simulation}}
+\index{````~Simulation@{$\sim$Simulation}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{$\sim$Simulation()}{~Simulation()}}
+{\footnotesize\ttfamily Simulation\+::$\sim$\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 8 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{8                         \{}
+\DoxyCodeLine{9     \textcolor{keyword}{delete} \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}};}
+\DoxyCodeLine{10 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classSimulation_a949d38bc4f3eaff5de63cf1e5e2d81f3}\label{classSimulation_a949d38bc4f3eaff5de63cf1e5e2d81f3}} 
+\index{Simulation@{Simulation}!achat@{achat}}
+\index{achat@{achat}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{achat()}{achat()}}
+{\footnotesize\ttfamily void Simulation\+::achat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours,  }\item[{double}]{montant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode achat. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cours} & \+:Cours\+O\+H\+L\+C\+V$\ast$ \\
+\hline
+{\em montant} & \+:double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ajoute la transaction en achat 
+\end{DoxyReturn}
+
+
+Définition à la ligne 127 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127 \{\mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_ae8116cd4c770ccdfecdb5cbcf677918b}{addTransaction}}(\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}(), cours, \textcolor{keyword}{true}, montant);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a4b07748cd26f13305202c229b18c04e2}\label{classSimulation_a4b07748cd26f13305202c229b18c04e2}} 
+\index{Simulation@{Simulation}!addNote@{addNote}}
+\index{addNote@{addNote}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{addNote()}{addNote()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNote}{Note}} $\ast$ Simulation\+::add\+Note (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode add\+Note. 
+
+\begin{DoxyReturn}{Renvoie}
+\mbox{\hyperlink{classNote}{Note}}\& \+: ajoute la note 
+\end{DoxyReturn}
+
+
+Définition à la ligne 147 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{147                           \{}
+\DoxyCodeLine{148     \mbox{\hyperlink{classNote}{Note}}* note = \textcolor{keyword}{new} \mbox{\hyperlink{classNote}{Note}}();}
+\DoxyCodeLine{149     note-\/>\mbox{\hyperlink{classNote_a4f7b7b9255f518dbecc2db28bd3de7fc}{setNom}}(\textcolor{stringliteral}{"Note"}+ QString::number(\mbox{\hyperlink{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}{noteManager}}.count()));}
+\DoxyCodeLine{150     \mbox{\hyperlink{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}{noteManager}}.append(note);}
+\DoxyCodeLine{151     \textcolor{keywordflow}{return} note;}
+\DoxyCodeLine{152 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}\label{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}} 
+\index{Simulation@{Simulation}!getCurrentCours@{getCurrentCours}}
+\index{getCurrentCours@{getCurrentCours}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{getCurrentCours()}{getCurrentCours()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} Simulation\+::get\+Current\+Cours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode get\+Current\+Cours. 
+
+\begin{DoxyReturn}{Renvoie}
+\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \+: retourne le pointeur Cours\+O\+H\+L\+C\+V$\ast$ vers le cours O\+H\+L\+CV en cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 154 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}\label{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}} 
+\index{Simulation@{Simulation}!getEvolutionCours@{getEvolutionCours}}
+\index{getEvolutionCours@{getEvolutionCours}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{getEvolutionCours()}{getEvolutionCours()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}}$\ast$ Simulation\+::get\+Evolution\+Cours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode get\+Evolution\+Cours. 
+
+\begin{DoxyReturn}{Renvoie}
+const Q\+String\& \+: retourne la valeur de l\textquotesingle{}attribut evolution\+Cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 139 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_aca5b06fcdd1eca7f753fc1e7004c26cd}\label{classSimulation_aca5b06fcdd1eca7f753fc1e7004c26cd}} 
+\index{Simulation@{Simulation}!getNom@{getNom}}
+\index{getNom@{getNom}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{getNom()}{getNom()}}
+{\footnotesize\ttfamily const Q\+String\& Simulation\+::get\+Nom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode get\+Nom. 
+
+\begin{DoxyReturn}{Renvoie}
+const Q\+String\& \+: retourne la valeur de l\textquotesingle{}attribut nom 
+\end{DoxyReturn}
+
+
+Définition à la ligne 144 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_ad0d0d449e4910d0b6e03ae2319457dd8}\label{classSimulation_ad0d0d449e4910d0b6e03ae2319457dd8}} 
+\index{Simulation@{Simulation}!getNoteManager@{getNoteManager}}
+\index{getNoteManager@{getNoteManager}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{getNoteManager()}{getNoteManager()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSimulation_aa8ec98a9a16a199a7f7f1273ae1e1439}{Note\+Manager}}\& Simulation\+::get\+Note\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode get\+Note\+Manager. 
+
+\begin{DoxyReturn}{Renvoie}
+Note\+Manager\& \+: renvoie la valeur de l\textquotesingle{}attribut note\+Manager, c\textquotesingle{}est à dire les notes prises 
+\end{DoxyReturn}
+
+
+Définition à la ligne 195 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{195 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}{noteManager}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_ac5a714fd110f5f86427b5f2d1c4f60fe}\label{classSimulation_ac5a714fd110f5f86427b5f2d1c4f60fe}} 
+\index{Simulation@{Simulation}!getTransactionManager@{getTransactionManager}}
+\index{getTransactionManager@{getTransactionManager}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{getTransactionManager()}{getTransactionManager()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}}$\ast$ Simulation\+::get\+Transaction\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode get\+Transaction\+Manager. 
+
+\begin{DoxyReturn}{Renvoie}
+Transaction\+Manager$\ast$ \+: pointe sur le manager qui gère les transactions 
+\end{DoxyReturn}
+
+
+Définition à la ligne 189 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{189 \{\textcolor{keywordflow}{return} \&\mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a2357a8bc9963cca9a3b36f376e04971e}\label{classSimulation_a2357a8bc9963cca9a3b36f376e04971e}} 
+\index{Simulation@{Simulation}!getType@{getType}}
+\index{getType@{getType}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily const Q\+String\& Simulation\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode get\+Type. 
+
+\begin{DoxyReturn}{Renvoie}
+const Q\+String\& \+: retourne la valeur de l\textquotesingle{}attribut type 
+\end{DoxyReturn}
+
+
+Définition à la ligne 149 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{149 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}{type}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_aba050bcd0360e02faca27632d1b04946}\label{classSimulation_aba050bcd0360e02faca27632d1b04946}} 
+\index{Simulation@{Simulation}!loadNotes@{loadNotes}}
+\index{loadNotes@{loadNotes}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{loadNotes()}{loadNotes()}}
+{\footnotesize\ttfamily void Simulation\+::load\+Notes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode load\+Notes. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: charge les notes 
+\end{DoxyReturn}
+
+
+Définition à la ligne 113 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113                            \{}
+\DoxyCodeLine{114     \mbox{\hyperlink{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}{noteManager}}.clear();}
+\DoxyCodeLine{115     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{116     QSettings setting(simulationManager-\/>\mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{getNomGroupe}}(), simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{getNomApplication}}());}
+\DoxyCodeLine{117     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{118         \textcolor{comment}{//if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");}}
+\DoxyCodeLine{119         setting.beginGroup(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{120             setting.beginGroup(\textcolor{stringliteral}{"NoteManager"});}
+\DoxyCodeLine{121                 \textcolor{keywordtype}{int} size = setting.beginReadArray(\textcolor{stringliteral}{"Note"});}
+\DoxyCodeLine{122                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<size; i++)\{}
+\DoxyCodeLine{123                         setting.setArrayIndex(i);}
+\DoxyCodeLine{124                         \mbox{\hyperlink{classNote}{Note}}* note = \mbox{\hyperlink{classSimulation_a4b07748cd26f13305202c229b18c04e2}{addNote}}();}
+\DoxyCodeLine{125                         note-\/>\mbox{\hyperlink{classNote_a4f7b7b9255f518dbecc2db28bd3de7fc}{setNom}}(setting.value(\textcolor{stringliteral}{"nom"}).toString());}
+\DoxyCodeLine{126                         note-\/>\mbox{\hyperlink{classNote_a3750a7fb6e9d8c8689dd05bb5a8b01d0}{setNote}}(setting.value(\textcolor{stringliteral}{"note"}).toString());}
+\DoxyCodeLine{127                         qDebug(\textcolor{stringliteral}{"note Info"});}
+\DoxyCodeLine{128                         qDebug() << note-\/>\mbox{\hyperlink{classNote_adfee478d4bdbb749ab1d165cb12ba633}{getNom}}();}
+\DoxyCodeLine{129                         qDebug() << note-\/>\mbox{\hyperlink{classNote_a2d88e194039d685d4fe75d1d98b72e70}{getNote}}();}
+\DoxyCodeLine{130                         note-\/>setDateCreation(QDateTime::fromString(setting.value(\textcolor{stringliteral}{"dateCreation"}).toString(), \textcolor{stringliteral}{"yyyy-\/MM-\/dd : HH.mm"}));}
+\DoxyCodeLine{131                     \}}
+\DoxyCodeLine{132                 setting.endArray();}
+\DoxyCodeLine{133             setting.endGroup();}
+\DoxyCodeLine{134         setting.endGroup();}
+\DoxyCodeLine{135     setting.endGroup();}
+\DoxyCodeLine{136 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a2d57406836f4f0cede0c054ba406825e}\label{classSimulation_a2d57406836f4f0cede0c054ba406825e}} 
+\index{Simulation@{Simulation}!loadTransactions@{loadTransactions}}
+\index{loadTransactions@{loadTransactions}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{loadTransactions()}{loadTransactions()}}
+{\footnotesize\ttfamily void Simulation\+::load\+Transactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode load\+Transactions. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: charge les transactions 
+\end{DoxyReturn}
+
+
+Définition à la ligne 65 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                                   \{}
+\DoxyCodeLine{66     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{67     QSettings setting(simulationManager-\/>\mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{getNomGroupe}}(), simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{getNomApplication}}());}
+\DoxyCodeLine{68     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{69         \textcolor{comment}{//if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");}}
+\DoxyCodeLine{70         setting.beginGroup(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{71             setting.beginGroup(\textcolor{stringliteral}{"TransactionManager"});}
+\DoxyCodeLine{72                 \textcolor{keywordtype}{double} pourcentage = setting.value(\textcolor{stringliteral}{"pourcentage"}).toDouble();}
+\DoxyCodeLine{73                 \textcolor{keywordtype}{double} montantBaseInitial = setting.value(\textcolor{stringliteral}{"montantBaseInitial"}).toDouble();}
+\DoxyCodeLine{74                 \textcolor{keywordtype}{double} montantContrepartieInitial = setting.value(\textcolor{stringliteral}{"montantContrepartieInitial"}).toDouble();}
+\DoxyCodeLine{75                 \textcolor{keywordtype}{double} montantTotalInitial =  setting.value(\textcolor{stringliteral}{"montantTotalInitial"}).toDouble();}
+\DoxyCodeLine{76                 \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.clearTransactions();}
+\DoxyCodeLine{77                 \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}} = \mbox{\hyperlink{classTransactionManager}{TransactionManager}}(pourcentage, montantBaseInitial, montantContrepartieInitial, montantTotalInitial);}
+\DoxyCodeLine{78                 \textcolor{keywordtype}{int} size = setting.beginReadArray(\textcolor{stringliteral}{"Transaction"});}
+\DoxyCodeLine{79                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=size-\/1; i>=0 ; i-\/-\/) \{}
+\DoxyCodeLine{80                     \textcolor{comment}{//load in reverse order to Save}}
+\DoxyCodeLine{81                     setting.setArrayIndex(i);}
+\DoxyCodeLine{82                     \mbox{\hyperlink{classCoursOHLCV}{EvolutionCours::iterator}} cours = \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}{searchCours}}(QDate::fromString(setting.value(\textcolor{stringliteral}{"date"}).toString(), \textcolor{stringliteral}{"yyyy-\/MM-\/dd"}));}
+\DoxyCodeLine{83                     \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_ae8116cd4c770ccdfecdb5cbcf677918b}{addTransaction}}(\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}(), cours, setting.value(\textcolor{stringliteral}{"achat"}).toBool(), setting.value(\textcolor{stringliteral}{"montantBase"}).toDouble(), setting.value(\textcolor{stringliteral}{"montantContrepartie"}).toDouble());}
+\DoxyCodeLine{84                 \}}
+\DoxyCodeLine{85                 setting.endArray();}
+\DoxyCodeLine{86             setting.endGroup();}
+\DoxyCodeLine{87         setting.endGroup();}
+\DoxyCodeLine{88     setting.endGroup();}
+\DoxyCodeLine{89 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a1650262c3dc5316f3a81d0489fd4f8ef}\label{classSimulation_a1650262c3dc5316f3a81d0489fd4f8ef}} 
+\index{Simulation@{Simulation}!saveEvolutionCours@{saveEvolutionCours}}
+\index{saveEvolutionCours@{saveEvolutionCours}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{saveEvolutionCours()}{saveEvolutionCours()}}
+{\footnotesize\ttfamily void Simulation\+::save\+Evolution\+Cours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Méthode save\+Evolution\+Cours. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: sauvegarde les cours O\+H\+L\+CV 
+\end{DoxyReturn}
+
+
+Définition à la ligne 12 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12                                           \{}
+\DoxyCodeLine{13     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{14     QSettings setting(simulationManager-\/>\mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{getNomGroupe}}(), simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{getNomApplication}}());}
+\DoxyCodeLine{15     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{16         setting.beginGroup(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{17             setting.beginGroup(\textcolor{stringliteral}{"EvolutionCours"});}
+\DoxyCodeLine{18                 setting.beginGroup(\textcolor{stringliteral}{"paireDevises"});     \textcolor{comment}{//sauvegarde paire devises}}
+\DoxyCodeLine{19                     setting.setValue(\textcolor{stringliteral}{"base/code"}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6878818a7170f53fef760a57341b2216}{getBase}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}());}
+\DoxyCodeLine{20                     setting.setValue(\textcolor{stringliteral}{"base/monnaie"}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6878818a7170f53fef760a57341b2216}{getBase}}().\mbox{\hyperlink{classDevise_aee1c3a78a47e7a59d93097711e8041ee}{getMonnaie}}());}
+\DoxyCodeLine{21                     setting.setValue(\textcolor{stringliteral}{"base/zone"}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6878818a7170f53fef760a57341b2216}{getBase}}().\mbox{\hyperlink{classDevise_a265989ed393c22311d7f57118c358f1e}{getZoneGeographique}}());}
+\DoxyCodeLine{22                     setting.setValue(\textcolor{stringliteral}{"contrepartie/code"}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}{getContrepartie}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}());}
+\DoxyCodeLine{23                     setting.setValue(\textcolor{stringliteral}{"contrepartie/monnaie"}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}{getContrepartie}}().\mbox{\hyperlink{classDevise_aee1c3a78a47e7a59d93097711e8041ee}{getMonnaie}}());}
+\DoxyCodeLine{24                     setting.setValue(\textcolor{stringliteral}{"contrepartie/zone"}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}{getContrepartie}}().\mbox{\hyperlink{classDevise_a265989ed393c22311d7f57118c358f1e}{getZoneGeographique}}());}
+\DoxyCodeLine{25                     setting.setValue(\textcolor{stringliteral}{"surnom"}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_ab71e900ae5692748434143a89beb4761}{getSurnom}}());}
+\DoxyCodeLine{26                 setting.endGroup();}
+\DoxyCodeLine{27                 setting.setValue(\textcolor{stringliteral}{"fichier"}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_af36ff85ab30dc5b7e4b0371d0b0f83e3}{getNomFichier}}());       \textcolor{comment}{//sauvegarde fichier csv}}
+\DoxyCodeLine{28                 \textcolor{comment}{//if (evolutionCours-\/>saveFile()) throw TradingException("error saving csv file");}}
+\DoxyCodeLine{29             setting.endGroup();}
+\DoxyCodeLine{30         setting.endGroup();}
+\DoxyCodeLine{31     setting.endGroup();}
+\DoxyCodeLine{32     qDebug()<< \textcolor{stringliteral}{"evolution saved"};}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a77972769aceb06ccc15f1db4789f0601}\label{classSimulation_a77972769aceb06ccc15f1db4789f0601}} 
+\index{Simulation@{Simulation}!saveNotes@{saveNotes}}
+\index{saveNotes@{saveNotes}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{saveNotes()}{saveNotes()}}
+{\footnotesize\ttfamily void Simulation\+::save\+Notes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Méthode save\+Notes. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: sauvegarde les notes prises 
+\end{DoxyReturn}
+
+
+Définition à la ligne 92 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92                                  \{}
+\DoxyCodeLine{93     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{94     QSettings setting(simulationManager-\/>\mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{getNomGroupe}}(), simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{getNomApplication}}());}
+\DoxyCodeLine{95     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{96         setting.beginGroup(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{97             setting.beginGroup(\textcolor{stringliteral}{"NoteManager"});}
+\DoxyCodeLine{98                 setting.beginWriteArray(\textcolor{stringliteral}{"Note"});}
+\DoxyCodeLine{99                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}{noteManager}}.length(); i++)\{}
+\DoxyCodeLine{100                         setting.setArrayIndex(i);}
+\DoxyCodeLine{101                         setting.setValue(\textcolor{stringliteral}{"nom"}, \mbox{\hyperlink{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}{noteManager}}[i]-\/>\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{102                         setting.setValue(\textcolor{stringliteral}{"note"}, \mbox{\hyperlink{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}{noteManager}}[i]-\/>note);}
+\DoxyCodeLine{103                         setting.setValue(\textcolor{stringliteral}{"dateCreation"}, \mbox{\hyperlink{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}{noteManager}}[i]-\/>dateCreation.toString(\textcolor{stringliteral}{"yyyy-\/MM-\/dd : HH.mm"}));}
+\DoxyCodeLine{104                     \}}
+\DoxyCodeLine{105                 setting.endArray();}
+\DoxyCodeLine{106             setting.endGroup();}
+\DoxyCodeLine{107         setting.endGroup();}
+\DoxyCodeLine{108     setting.endGroup();}
+\DoxyCodeLine{109     qDebug() << \textcolor{stringliteral}{"note saved"};}
+\DoxyCodeLine{110 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a080f74bf793340e2757e19bd4b595cbc}\label{classSimulation_a080f74bf793340e2757e19bd4b595cbc}} 
+\index{Simulation@{Simulation}!saveSimulation@{saveSimulation}}
+\index{saveSimulation@{saveSimulation}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{saveSimulation()}{saveSimulation()}}
+{\footnotesize\ttfamily virtual void Simulation\+::save\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Méthode virtuelle pure save\+Simulation. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: sauvegarde la simulation 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{classModeAutomatique_a55795ff2d1f75f0e58c52cb12df5fc94}{Mode\+Automatique}}, \mbox{\hyperlink{classModePas__Pas_a7b5edab4b1dce6e430f2f26c2fa02052}{Mode\+Pas\+\_\+\+Pas}}, et \mbox{\hyperlink{classModeManuel_a7c2ff5c30ee391fde4f5f40c0a9f4606}{Mode\+Manuel}}.
+
+\mbox{\Hypertarget{classSimulation_aecad8b5b6a07b072a0283a55645c5a31}\label{classSimulation_aecad8b5b6a07b072a0283a55645c5a31}} 
+\index{Simulation@{Simulation}!saveTransactions@{saveTransactions}}
+\index{saveTransactions@{saveTransactions}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{saveTransactions()}{saveTransactions()}}
+{\footnotesize\ttfamily void Simulation\+::save\+Transactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Méthode save\+Transactions. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: sauvegarde les transactions 
+\end{DoxyReturn}
+
+
+Définition à la ligne 35 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35                                         \{}
+\DoxyCodeLine{36     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{37     QSettings setting(simulationManager-\/>\mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{getNomGroupe}}(), simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{getNomApplication}}());}
+\DoxyCodeLine{38     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{39         setting.beginGroup(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{40             setting.beginGroup(\textcolor{stringliteral}{"TransactionManager"});}
+\DoxyCodeLine{41                 setting.setValue(\textcolor{stringliteral}{"pourcentage"}, \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.pourcentage);}
+\DoxyCodeLine{42                 setting.setValue(\textcolor{stringliteral}{"montantBaseInitial"}, \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.montantBaseInitial);}
+\DoxyCodeLine{43                 setting.setValue(\textcolor{stringliteral}{"montantContrepartieInitial"}, \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.montantContrepartieInitial);}
+\DoxyCodeLine{44                 setting.setValue(\textcolor{stringliteral}{"montantTotalInitial"}, \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.montantTotalInitial);}
+\DoxyCodeLine{45                 \textcolor{comment}{//save history Transaction}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47                 setting.beginWriteArray(\textcolor{stringliteral}{"Transaction"});}
+\DoxyCodeLine{48                     \mbox{\hyperlink{classTransaction}{TransactionManager::iterator}} transactionIterator = \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_a09d3f6e2acdb088e89bd78cef666d93f}{head}}();}
+\DoxyCodeLine{49                     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{50                     \textcolor{keywordflow}{while} (transactionIterator) \{}
+\DoxyCodeLine{51                         setting.setArrayIndex(i++);}
+\DoxyCodeLine{52                         setting.setValue(\textcolor{stringliteral}{"date"}, transactionIterator-\/>\mbox{\hyperlink{classTransaction_ab6fcc894f4fb8899e96141a10aa53f6f}{getCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"yyyy-\/MM-\/dd"}));}
+\DoxyCodeLine{53                         setting.setValue(\textcolor{stringliteral}{"achat"}, transactionIterator-\/>\mbox{\hyperlink{classTransaction_ad8c80c4f1bc4d5d569c0bf8c4e56880a}{est\_achat}}());}
+\DoxyCodeLine{54                         setting.setValue(\textcolor{stringliteral}{"montantBase"}, transactionIterator-\/>\mbox{\hyperlink{classTransaction_ac102bb2a4cd8df20d2e8b801c920ce68}{getMontantBase}}());}
+\DoxyCodeLine{55                         setting.setValue(\textcolor{stringliteral}{"montantContrepartie"}, transactionIterator-\/>\mbox{\hyperlink{classTransaction_aaa27d802abc6d8986cdca66d710329f6}{getMontantContrepartie}}());}
+\DoxyCodeLine{56                         transactionIterator = transactionIterator-\/>\mbox{\hyperlink{classTransaction_a518b117dcf5ef9a2d323493a8d4fb922}{next}}();}
+\DoxyCodeLine{57                     \}}
+\DoxyCodeLine{58                 setting.endArray();}
+\DoxyCodeLine{59             setting.endGroup();}
+\DoxyCodeLine{60         setting.endGroup();}
+\DoxyCodeLine{61     setting.endGroup();}
+\DoxyCodeLine{62     qDebug() << \textcolor{stringliteral}{"transaction saved"};}
+\DoxyCodeLine{63 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulation_a18edaad62de0c2e3370e609f10923a71}\label{classSimulation_a18edaad62de0c2e3370e609f10923a71}} 
+\index{Simulation@{Simulation}!vente@{vente}}
+\index{vente@{vente}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{vente()}{vente()}}
+{\footnotesize\ttfamily void Simulation\+::vente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours,  }\item[{double}]{montant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode vente. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cours} & \+:Cours\+O\+H\+L\+C\+V$\ast$ \\
+\hline
+{\em montant} & \+:double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ajoute la transaction en vente 
+\end{DoxyReturn}
+
+
+Définition à la ligne 134 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{134 \{\mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_ae8116cd4c770ccdfecdb5cbcf677918b}{addTransaction}}(\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}(), cours, \textcolor{keyword}{false}, montant);\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{classSimulation_a3e9a823c99919c166db55b78a438e790}\label{classSimulation_a3e9a823c99919c166db55b78a438e790}} 
+\index{Simulation@{Simulation}!currentCours@{currentCours}}
+\index{currentCours@{currentCours}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{currentCours}{currentCours}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} Simulation\+::current\+Cours = \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolution\+Cours}}-\/$>$begin()\hspace{0.3cm}{\ttfamily [protected]}}
+
+current\+Cours \+:\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} pointe sur le cours O\+H\+L\+CV en cours 
+
+Définition à la ligne 98 du fichier simulation.\+h.
+
+\mbox{\Hypertarget{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}\label{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}} 
+\index{Simulation@{Simulation}!evolutionCours@{evolutionCours}}
+\index{evolutionCours@{evolutionCours}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{evolutionCours}{evolutionCours}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}}$\ast$ Simulation\+::evolution\+Cours\hspace{0.3cm}{\ttfamily [protected]}}
+
+evolution\+Cours \+:Evolution\+Cours$\ast$ pointe sur les cours sur lesquels porte la simulation 
+
+Définition à la ligne 97 du fichier simulation.\+h.
+
+\mbox{\Hypertarget{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}\label{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}} 
+\index{Simulation@{Simulation}!nom@{nom}}
+\index{nom@{nom}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{nom}{nom}}
+{\footnotesize\ttfamily Q\+String Simulation\+::nom\hspace{0.3cm}{\ttfamily [protected]}}
+
+nom \+:Q\+String pour identifier la simulation 
+
+Définition à la ligne 96 du fichier simulation.\+h.
+
+\mbox{\Hypertarget{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}\label{classSimulation_a114ef3108f9bb50fd7f6510ea16114a2}} 
+\index{Simulation@{Simulation}!noteManager@{noteManager}}
+\index{noteManager@{noteManager}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{noteManager}{noteManager}}
+{\footnotesize\ttfamily Q\+List$<$\mbox{\hyperlink{classNote}{Note}}$\ast$$>$ Simulation\+::note\+Manager\hspace{0.3cm}{\ttfamily [protected]}}
+
+note\+Manager \+:Q\+List$<$\+Note$>$ contient les notes prises au cours de la transaction 
+
+Définition à la ligne 100 du fichier simulation.\+h.
+
+\mbox{\Hypertarget{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}\label{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}} 
+\index{Simulation@{Simulation}!transactionManager@{transactionManager}}
+\index{transactionManager@{transactionManager}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{transactionManager}{transactionManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} Simulation\+::transaction\+Manager\hspace{0.3cm}{\ttfamily [protected]}}
+
+transaction\+Manager \+:\mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} représente le manager qui s\textquotesingle{}occupe des transactions 
+
+Définition à la ligne 99 du fichier simulation.\+h.
+
+\mbox{\Hypertarget{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}\label{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}} 
+\index{Simulation@{Simulation}!type@{type}}
+\index{type@{type}!Simulation@{Simulation}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily Q\+String Simulation\+::type\hspace{0.3cm}{\ttfamily [protected]}}
+
+type \+:Q\+String type de simulation(lequel) 
+
+Définition à la ligne 95 du fichier simulation.\+h.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{simulation_8h}{simulation.\+h}}\item 
+Controller/\mbox{\hyperlink{simulation_8cpp}{simulation.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,169 @@
+\hypertarget{classModePasPaswidget}{}\doxysection{Référence de la classe Mode\+Pas\+Paswidget}
+\label{classModePasPaswidget}\index{ModePasPaswidget@{ModePasPaswidget}}
+
+
+hérite de Q\+Widget attributs \+: ui, mode\+Manuel, transaction\+Manager méthode publique \+: mode\+Pas\+\_\+\+Pas, $\sim$\+Mode\+Pas\+\_\+\+Pas, update\+Data signal public \+: transaction\+Changed slots privés \+: on\+\_\+combo\+Box\+\_\+timer\+\_\+current\+Index\+Changed, on\+\_\+go\+Back\+\_\+clicked, update\+Current\+Cours, on\+\_\+push\+Button\+\_\+achat\+\_\+clicked, on\+\_\+push\+Button\+\_\+annuler\+Transaction\+\_\+clicked, on\+\_\+push\+Button\+\_\+vente\+\_\+clicked  
+
+
+
+
+{\ttfamily \#include $<$modepaspaswidget.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Mode\+Pas\+Paswidget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{da/d28/classModePasPaswidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classModePasPaswidget_a51027dec265dc2329b452d42e7388005}{transaction\+Changed}} ()
+\begin{DoxyCompactList}\small\item\em signal transaction\+Changed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classModePasPaswidget_ad0c42e3c3ad1904d99e161d07cdbae40}{Mode\+Pas\+Paswidget}} (\mbox{\hyperlink{classModePas__Pas}{Mode\+Pas\+\_\+\+Pas}} $\ast$mode\+Pas\+\_\+\+Pas, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur explicite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classModePasPaswidget_aa0fcdc2261826efe519c2ef04e44ccd9}{$\sim$\+Mode\+Pas\+Paswidget}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModePasPaswidget_a65514abf2f097b6ab169d4f79610fe75}{update\+Data}} ()
+\begin{DoxyCompactList}\small\item\em slot update\+Data \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+hérite de Q\+Widget attributs \+: ui, mode\+Manuel, transaction\+Manager méthode publique \+: mode\+Pas\+\_\+\+Pas, $\sim$\+Mode\+Pas\+\_\+\+Pas, update\+Data signal public \+: transaction\+Changed slots privés \+: on\+\_\+combo\+Box\+\_\+timer\+\_\+current\+Index\+Changed, on\+\_\+go\+Back\+\_\+clicked, update\+Current\+Cours, on\+\_\+push\+Button\+\_\+achat\+\_\+clicked, on\+\_\+push\+Button\+\_\+annuler\+Transaction\+\_\+clicked, on\+\_\+push\+Button\+\_\+vente\+\_\+clicked 
+
+Définition à la ligne 28 du fichier modepaspaswidget.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classModePasPaswidget_ad0c42e3c3ad1904d99e161d07cdbae40}\label{classModePasPaswidget_ad0c42e3c3ad1904d99e161d07cdbae40}} 
+\index{ModePasPaswidget@{ModePasPaswidget}!ModePasPaswidget@{ModePasPaswidget}}
+\index{ModePasPaswidget@{ModePasPaswidget}!ModePasPaswidget@{ModePasPaswidget}}
+\doxysubsubsection{\texorpdfstring{ModePasPaswidget()}{ModePasPaswidget()}}
+{\footnotesize\ttfamily Mode\+Pas\+Paswidget\+::\+Mode\+Pas\+Paswidget (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classModePas__Pas}{Mode\+Pas\+\_\+\+Pas}} $\ast$}]{mode\+Pas\+\_\+\+Pas,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur explicite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mode\+Pas\+\_\+\+Pas} & \+:Mode\+Pas\+\_\+\+Pas$\ast$$\ast$ \\
+\hline
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 4 du fichier modepaspaswidget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                                                                             : QWidget(parent), ui(\textcolor{keyword}{new} Ui::ModePasPaswidget), modePas\_Pas(modePas\_Pas) \{}
+\DoxyCodeLine{5     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{6     transactionManager = modePas\_Pas-\/>\mbox{\hyperlink{classSimulation_ac5a714fd110f5f86427b5f2d1c4f60fe}{getTransactionManager}}();}
+\DoxyCodeLine{7     ui-\/>paireLabel-\/>setText(modePas\_Pas-\/>\mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{getEvolutionCours}}()-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}{toString}}());}
+\DoxyCodeLine{8     ui-\/>base-\/>setText(modePas\_Pas-\/>\mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{getEvolutionCours}}()-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6878818a7170f53fef760a57341b2216}{getBase}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}());}
+\DoxyCodeLine{9     ui-\/>contrepartie-\/>setText(modePas\_Pas-\/>\mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{getEvolutionCours}}()-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}{getContrepartie}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}());}
+\DoxyCodeLine{10     ui-\/>label\_montantBase-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}()));}
+\DoxyCodeLine{11     ui-\/>label\_montantContrepartie-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}()));}
+\DoxyCodeLine{12     ui-\/>label\_broker-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_a8b21012d5c6934c2be7817c3e3dcc28a}{getPourcentage}}()));}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     ui-\/>dateEdit-\/>setDate(modePas\_Pas-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}());}
+\DoxyCodeLine{15     ui-\/>dateEdit-\/>setMaximumDate(modePas\_Pas-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}());}
+\DoxyCodeLine{16     ui-\/>dateEdit-\/>setMinimumDate(modePas\_Pas-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}());}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     ui-\/>openPrice-\/>setText(QString::number(modePas\_Pas-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}()));}
+\DoxyCodeLine{19     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"5 secondes"}, 5000);}
+\DoxyCodeLine{20     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"10 secondes"}, 10000);}
+\DoxyCodeLine{21     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"30 secondes"}, 30000);}
+\DoxyCodeLine{22     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"1 min"}, 60000);}
+\DoxyCodeLine{23     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"5 mins"}, 300000);}
+\DoxyCodeLine{24     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"10 mins"}, 600000);}
+\DoxyCodeLine{25     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"30 mins"}, 1800000);}
+\DoxyCodeLine{26     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"1 heure"}, 3600000);}
+\DoxyCodeLine{27     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"3 heures"}, 10800000);}
+\DoxyCodeLine{28     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"5 heures"}, 18000000);}
+\DoxyCodeLine{29     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"12 heures"}, 43200000);}
+\DoxyCodeLine{30     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"1 jour"}, 86400000);}
+\DoxyCodeLine{31     ui-\/>comboBox\_timer-\/>setCurrentIndex(0);}
+\DoxyCodeLine{32     ui-\/>montant\_edit-\/>setMinimum(0);}
+\DoxyCodeLine{33     ui-\/>montant\_edit-\/>setMaximum(max(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}(), transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}())*1000);}
+\DoxyCodeLine{34     \textcolor{comment}{//connect signals}}
+\DoxyCodeLine{35     QObject::connect(modePas\_Pas, SIGNAL(coursChanged()), \textcolor{keyword}{this}, SLOT(updateCurrentCours()));}
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModePasPaswidget_aa0fcdc2261826efe519c2ef04e44ccd9}\label{classModePasPaswidget_aa0fcdc2261826efe519c2ef04e44ccd9}} 
+\index{ModePasPaswidget@{ModePasPaswidget}!````~ModePasPaswidget@{$\sim$ModePasPaswidget}}
+\index{````~ModePasPaswidget@{$\sim$ModePasPaswidget}!ModePasPaswidget@{ModePasPaswidget}}
+\doxysubsubsection{\texorpdfstring{$\sim$ModePasPaswidget()}{~ModePasPaswidget()}}
+{\footnotesize\ttfamily Mode\+Pas\+Paswidget\+::$\sim$\+Mode\+Pas\+Paswidget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 38 du fichier modepaspaswidget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classModePasPaswidget_a51027dec265dc2329b452d42e7388005}\label{classModePasPaswidget_a51027dec265dc2329b452d42e7388005}} 
+\index{ModePasPaswidget@{ModePasPaswidget}!transactionChanged@{transactionChanged}}
+\index{transactionChanged@{transactionChanged}!ModePasPaswidget@{ModePasPaswidget}}
+\doxysubsubsection{\texorpdfstring{transactionChanged}{transactionChanged}}
+{\footnotesize\ttfamily void Mode\+Pas\+Paswidget\+::transaction\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal transaction\+Changed 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: signale le changement de transaction (précédente à la suivante) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModePasPaswidget_a65514abf2f097b6ab169d4f79610fe75}\label{classModePasPaswidget_a65514abf2f097b6ab169d4f79610fe75}} 
+\index{ModePasPaswidget@{ModePasPaswidget}!updateData@{updateData}}
+\index{updateData@{updateData}!ModePasPaswidget@{ModePasPaswidget}}
+\doxysubsubsection{\texorpdfstring{updateData()}{updateData()}}
+{\footnotesize\ttfamily void Mode\+Pas\+Paswidget\+::update\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+slot update\+Data 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: pour mettre à jour les données 
+\end{DoxyReturn}
+
+
+Définition à la ligne 43 du fichier modepaspaswidget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                   \{}
+\DoxyCodeLine{44     ui-\/>label\_montantBase-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}()));}
+\DoxyCodeLine{45     ui-\/>label\_montantContrepartie-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}()));}
+\DoxyCodeLine{46     ui-\/>label\_broker-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_a8b21012d5c6934c2be7817c3e3dcc28a}{getPourcentage}}()));}
+\DoxyCodeLine{47     ui-\/>montant\_edit-\/>setMaximum(max(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}(), transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}())*1000);}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Windows/\mbox{\hyperlink{modepaspaswidget_8h}{modepaspaswidget.\+h}}\item 
+Windows/modepaspaswidget.\+cpp\end{DoxyCompactItemize}

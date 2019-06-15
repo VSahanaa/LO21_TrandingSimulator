@@ -3,7 +3,7 @@
 
 /**
  * \file 	adddevise_dialog.h
- * \brief 	classe AddDevise_Dialog dans le namespace Ui
+ * \brief 	classe AddDevise_Dialog
  * 	
  * 	Contient le QDialog pour ajouter une devise
  * 			
@@ -13,10 +13,7 @@
 #include <QMessageBox>
 #include "../Core_Devises/trading.h"
 
-//! Namespace UI
-/**
-* classe : AddDevise_Dialog
-*/
+
 namespace Ui {
     class AddDevise_Dialog;
 }
@@ -31,23 +28,23 @@ namespace Ui {
 class AddDevise_Dialog : public QDialog {
     Q_OBJECT
 public:
-	//! Constructeur explicite
-	/**
-	* \param parent :QWidget*
-	*/
+    //! Constructeur explicite
+    /**
+    * \param parent :QWidget*
+    */
     explicit AddDevise_Dialog(QWidget *parent = nullptr);
-	//! Destructeur
+    //! Destructeur
     ~AddDevise_Dialog();
-	//! méthode getNewDevise
-	/**
-	* \return const Devise* : renvoie la valeur de l'attribut newDevise
-	*/
+    //! méthode getNewDevise
+    /**
+    * \return const Devise* : renvoie la valeur de l'attribut newDevise
+    */
     const Devise* getNewDevise() const {return newDevise;}
 private slots:
-	//! slot on_AddDevise_Dialog_accepted
-	/**
-	* \return void : pour l'ajout d'une devise 
-	*/
+    //! slot on_AddDevise_Dialog_accepted
+    /**
+    * \return void : pour l'ajout d'une devise
+    */
     void on_AddDevise_Dialog_accepted();
 private:
     Ui::AddDevise_Dialog *ui; /**< ui :Ui::AddDevise_Dialog* instance de AddDevise_Dialog*/

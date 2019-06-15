@@ -1,0 +1,155 @@
+\hypertarget{classStrategieFactory}{}\doxysection{Référence de la classe Strategie\+Factory}
+\label{classStrategieFactory}\index{StrategieFactory@{StrategieFactory}}
+
+
+se charge du prototype des \mbox{\hyperlink{classStrategie}{Strategie}} attributs \+: rsi, rsi\+\_\+\+Iterator méthodes privées \+: \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}}, $\sim$\+Strategie\+Factory méthodes publiques \+: get\+Strategie\+Factory, liberer\+Factory, get\+Strategie, liste\+Strategie amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} Remarques \+: design pattern singleton, et design pattern factory l\textquotesingle{}ajout d\textquotesingle{}une strategie provoque l\textquotesingle{}ajout de son nom au dictionnaire de stratégie la duplication est supprimée  
+
+
+
+
+{\ttfamily \#include $<$strategie.\+h$>$}
+
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStrategie}{Strategie}} $\ast$ \mbox{\hyperlink{classStrategieFactory_addcf8d47f035caa184abf651a972fdfe}{get\+Strategie}} (Q\+String nom, \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$evolution\+Cours) const
+\begin{DoxyCompactList}\small\item\em Méthode get\+Strategie. \end{DoxyCompactList}\item 
+const Q\+String\+List \mbox{\hyperlink{classStrategieFactory_a14338de7a799a5ee6bed3aee17f66c7f}{liste\+Strategie}} () const
+\begin{DoxyCompactList}\small\item\em Méthode liste\+Strategie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} $\ast$ \mbox{\hyperlink{classStrategieFactory_a77a83ec9c8d8f472590362afdf5dff1f}{get\+Strategie\+Factory}} ()
+\begin{DoxyCompactList}\small\item\em Méthode statique get\+Strategie\+Factory. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classStrategieFactory_aaf07cd7a96cb20998f125b5cd6b095c7}{liberer\+Factory}} ()
+\begin{DoxyCompactList}\small\item\em Méthode liberer\+Factory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+se charge du prototype des \mbox{\hyperlink{classStrategie}{Strategie}} attributs \+: rsi, rsi\+\_\+\+Iterator méthodes privées \+: \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}}, $\sim$\+Strategie\+Factory méthodes publiques \+: get\+Strategie\+Factory, liberer\+Factory, get\+Strategie, liste\+Strategie amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} Remarques \+: design pattern singleton, et design pattern factory l\textquotesingle{}ajout d\textquotesingle{}une strategie provoque l\textquotesingle{}ajout de son nom au dictionnaire de stratégie la duplication est supprimée 
+
+Définition à la ligne 204 du fichier strategie.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classStrategieFactory_addcf8d47f035caa184abf651a972fdfe}\label{classStrategieFactory_addcf8d47f035caa184abf651a972fdfe}} 
+\index{StrategieFactory@{StrategieFactory}!getStrategie@{getStrategie}}
+\index{getStrategie@{getStrategie}!StrategieFactory@{StrategieFactory}}
+\doxysubsubsection{\texorpdfstring{getStrategie()}{getStrategie()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStrategie}{Strategie}} $\ast$ Strategie\+Factory\+::get\+Strategie (\begin{DoxyParamCaption}\item[{Q\+String}]{nom,  }\item[{\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$}]{evolution\+Cours }\end{DoxyParamCaption}) const}
+
+
+
+Méthode get\+Strategie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+{\em evolution\+Cours} & \+:Evolution\+Cours$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Strategie$\ast$ \+: renvoie la valeur du pointeur sur la stratégie demandée sur l\textquotesingle{}\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} souhaité 
+\end{DoxyReturn}
+
+
+Définition à la ligne 24 du fichier strategie.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                                                                                            \{}
+\DoxyCodeLine{25     \mbox{\hyperlink{classStrategie}{Strategie}}* strategie = strategieDictionary[nom]-\/>clone();       \textcolor{comment}{//clone new object}}
+\DoxyCodeLine{26     strategie-\/>\mbox{\hyperlink{classStrategie_a6fbea3f227e66860e7a35d6299c9c8c5}{setEvolutionCours}}(evolutionCours);}
+\DoxyCodeLine{27     strategie-\/>\mbox{\hyperlink{classStrategie_a05c125dd608fca933f4fe4b6cb813207}{setParameters}}(QMap<QString, QVariant>());            \textcolor{comment}{//instanciate with default parameters}}
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} strategie;}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStrategieFactory_a77a83ec9c8d8f472590362afdf5dff1f}\label{classStrategieFactory_a77a83ec9c8d8f472590362afdf5dff1f}} 
+\index{StrategieFactory@{StrategieFactory}!getStrategieFactory@{getStrategieFactory}}
+\index{getStrategieFactory@{getStrategieFactory}!StrategieFactory@{StrategieFactory}}
+\doxysubsubsection{\texorpdfstring{getStrategieFactory()}{getStrategieFactory()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}}$\ast$ Strategie\+Factory\+::get\+Strategie\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Méthode statique get\+Strategie\+Factory. 
+
+\begin{DoxyReturn}{Renvoie}
+Strategie\+Factory$\ast$ \+: renvoie la valeur de l\textquotesingle{}attribut instance si elle existe et nullptr, sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 218 du fichier strategie.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218                                                   \{}
+\DoxyCodeLine{219         \textcolor{keywordflow}{if} (instance == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{220             instance = \textcolor{keyword}{new} \mbox{\hyperlink{classStrategieFactory}{StrategieFactory}}();}
+\DoxyCodeLine{221         \}}
+\DoxyCodeLine{222         \textcolor{keywordflow}{return} instance;}
+\DoxyCodeLine{223     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStrategieFactory_aaf07cd7a96cb20998f125b5cd6b095c7}\label{classStrategieFactory_aaf07cd7a96cb20998f125b5cd6b095c7}} 
+\index{StrategieFactory@{StrategieFactory}!libererFactory@{libererFactory}}
+\index{libererFactory@{libererFactory}!StrategieFactory@{StrategieFactory}}
+\doxysubsubsection{\texorpdfstring{libererFactory()}{libererFactory()}}
+{\footnotesize\ttfamily static void Strategie\+Factory\+::liberer\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Méthode liberer\+Factory. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: libère instance 
+\end{DoxyReturn}
+
+
+Définition à la ligne 228 du fichier strategie.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228                                  \{}
+\DoxyCodeLine{229         \textcolor{keyword}{delete} instance;}
+\DoxyCodeLine{230         instance = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{231     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classStrategieFactory_a14338de7a799a5ee6bed3aee17f66c7f}\label{classStrategieFactory_a14338de7a799a5ee6bed3aee17f66c7f}} 
+\index{StrategieFactory@{StrategieFactory}!listeStrategie@{listeStrategie}}
+\index{listeStrategie@{listeStrategie}!StrategieFactory@{StrategieFactory}}
+\doxysubsubsection{\texorpdfstring{listeStrategie()}{listeStrategie()}}
+{\footnotesize\ttfamily const Q\+String\+List Strategie\+Factory\+::liste\+Strategie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Méthode liste\+Strategie. 
+
+\begin{DoxyReturn}{Renvoie}
+const Q\+String\+List \+: renvoie la liste des stratégies disponibles 
+\end{DoxyReturn}
+
+
+Définition à la ligne 31 du fichier strategie.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                                                          \{}
+\DoxyCodeLine{32     QStringList listeNomStrategie;}
+\DoxyCodeLine{33     \textcolor{keywordflow}{foreach}(QString nom, strategieDictionary.keys()) \{}
+\DoxyCodeLine{34         listeNomStrategie << nom;}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} listeNomStrategie;}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{strategie_8h}{strategie.\+h}}\item 
+Controller/\mbox{\hyperlink{strategie_8cpp}{strategie.\+cpp}}\end{DoxyCompactItemize}

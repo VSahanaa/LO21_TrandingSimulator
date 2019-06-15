@@ -1,0 +1,477 @@
+\hypertarget{classSimulationManager}{}\doxysection{Référence de la classe Simulation\+Manager}
+\label{classSimulationManager}\index{SimulationManager@{SimulationManager}}
+
+
+gère les simulations attributs \+: instance, nom\+Groupe, nom\+Application, liste\+Simulation méthodes privées \+: \mbox{\hyperlink{classSimulationManager}{Simulation\+Manager}}, $\sim$\+Simulation\+Manager méthodes publiques \+: get\+Simulation\+Manager, liberer\+Simulation\+Manager, add\+Simulation, remove\+Simulation charge\+Evolution\+Cours, list\+Exist\+Simulation, list\+Saved\+Simulation, get\+Nom\+Application, get\+Nom\+Groupe Remarques \+: chaque simulation est ajouté à la liste après sa création  
+
+
+
+
+{\ttfamily \#include $<$simulation.\+h$>$}
+
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSimulationManager_a51363f19ac3b8843d8eb065c8e6948a8}{add\+Simulation}} (\mbox{\hyperlink{classSimulation}{Simulation}} $\ast$simulation)
+\begin{DoxyCompactList}\small\item\em Méthode add\+Simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimulationManager_a20d327dbdbfd692c7998742c40437cc5}{remove\+Simulation}} (\mbox{\hyperlink{classSimulation}{Simulation}} $\ast$simulation)
+\begin{DoxyCompactList}\small\item\em Méthode remove\+Simulation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$ \mbox{\hyperlink{classSimulationManager_a00f4a2baccc70491890ca0943584ad2e}{charge\+Evolution\+Cours}} (Q\+String nom\+Simulation)
+\begin{DoxyCompactList}\small\item\em Méthode charge\+Evolution\+Cours. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSimulation}{Simulation}} $\ast$ \mbox{\hyperlink{classSimulationManager_aceaa4ec85c7e00897c8b07ad8662a39c}{charge\+Simulation}} (Q\+String nom)
+\begin{DoxyCompactList}\small\item\em Méthode charge\+Simulation. \end{DoxyCompactList}\item 
+Q\+String\+List \mbox{\hyperlink{classSimulationManager_a402f082a4514f4fdb72ef9dbad65e4c5}{list\+Saved\+Simulation}} () const
+\begin{DoxyCompactList}\small\item\em Méthode list\+Saved\+Simulation. \end{DoxyCompactList}\item 
+Q\+String\+List \mbox{\hyperlink{classSimulationManager_a17b45ddce8897e53df881f03fd774f95}{list\+Exist\+Simulation}} () const
+\begin{DoxyCompactList}\small\item\em Méthode list\+Exist\+Simulation. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{get\+Nom\+Groupe}} () const
+\begin{DoxyCompactList}\small\item\em Méthode get\+Nom\+Groupe. \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{get\+Nom\+Application}} () const
+\begin{DoxyCompactList}\small\item\em Méthode get\+Nom\+Application. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSimulationManager_ae6fa60754800d2167161a316cd0de05c}{verifier\+Nom\+Simulation}} (Q\+String nom) const
+\begin{DoxyCompactList}\small\item\em Méthode verifier\+Nom\+Simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSimulationManager_af88ccf7ce9d2515b03bdc0df4029ed5c}{delete\+Saved\+Simulation}} (Q\+String nom)
+\begin{DoxyCompactList}\small\item\em Méthode delete\+Saved\+Simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classSimulationManager}{Simulation\+Manager}} $\ast$ \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{get\+Simulation\+Manager}} (Q\+String nom\+Groupe=\char`\"{}L\+O21\+\_\+\+T\+D2\+\_\+\+Groupe100\char`\"{}, Q\+String nom\+Application=\char`\"{}Trading Simulator\char`\"{})
+\begin{DoxyCompactList}\small\item\em Méthode get\+Simulation\+Manager. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classSimulationManager_aab09eef3bdab2f5f06c3bd46a07443a4}{liberer\+Simulation\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Méthode liberer\+Simulation\+Manager. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+gère les simulations attributs \+: instance, nom\+Groupe, nom\+Application, liste\+Simulation méthodes privées \+: \mbox{\hyperlink{classSimulationManager}{Simulation\+Manager}}, $\sim$\+Simulation\+Manager méthodes publiques \+: get\+Simulation\+Manager, liberer\+Simulation\+Manager, add\+Simulation, remove\+Simulation charge\+Evolution\+Cours, list\+Exist\+Simulation, list\+Saved\+Simulation, get\+Nom\+Application, get\+Nom\+Groupe Remarques \+: chaque simulation est ajouté à la liste après sa création 
+
+Définition à la ligne 431 du fichier simulation.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classSimulationManager_a51363f19ac3b8843d8eb065c8e6948a8}\label{classSimulationManager_a51363f19ac3b8843d8eb065c8e6948a8}} 
+\index{SimulationManager@{SimulationManager}!addSimulation@{addSimulation}}
+\index{addSimulation@{addSimulation}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{addSimulation()}{addSimulation()}}
+{\footnotesize\ttfamily void Simulation\+Manager\+::add\+Simulation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSimulation}{Simulation}} $\ast$}]{simulation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode add\+Simulation. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em simulation} & \+:Simulation$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ajoute la simulation 
+\end{DoxyReturn}
+
+
+Définition à la ligne 470 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{470 \{ listeSimulation.append(simulation);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_a00f4a2baccc70491890ca0943584ad2e}\label{classSimulationManager_a00f4a2baccc70491890ca0943584ad2e}} 
+\index{SimulationManager@{SimulationManager}!chargeEvolutionCours@{chargeEvolutionCours}}
+\index{chargeEvolutionCours@{chargeEvolutionCours}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{chargeEvolutionCours()}{chargeEvolutionCours()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$ Simulation\+Manager\+::charge\+Evolution\+Cours (\begin{DoxyParamCaption}\item[{Q\+String}]{nom\+Simulation }\end{DoxyParamCaption})}
+
+
+
+Méthode charge\+Evolution\+Cours. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom\+Simulation} & \+:Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Evolution\+Cours$\ast$ \+: renvoie la valeur du pointeur sur l\textquotesingle{}evolution\+Cours associé à la simulation 
+\end{DoxyReturn}
+
+
+Définition à la ligne 330 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{330                                                                              \{}
+\DoxyCodeLine{331     \mbox{\hyperlink{classDevisesManager}{DevisesManager}}\& deviseManager = \mbox{\hyperlink{classDevisesManager_a271ad1137d23b6ef3779110a806af778}{DevisesManager::getManager}}();}
+\DoxyCodeLine{332     \mbox{\hyperlink{classDevise}{Devise}}* base;}
+\DoxyCodeLine{333     \mbox{\hyperlink{classDevise}{Devise}}* contrepartie;}
+\DoxyCodeLine{334     QString filename;}
+\DoxyCodeLine{335     \mbox{\hyperlink{classEvolutionCours}{EvolutionCours}}* evolutionCours;}
+\DoxyCodeLine{336     QSettings setting(nomGroupe, nomApplication);}
+\DoxyCodeLine{337     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{338         \textcolor{comment}{//if(!setting.contains(nomSimulation)) throw TradingException("Simulation have not been saved");}}
+\DoxyCodeLine{339         setting.beginGroup(nomSimulation);}
+\DoxyCodeLine{340             setting.beginGroup(\textcolor{stringliteral}{"EvolutionCours"});}
+\DoxyCodeLine{341                 setting.beginGroup(\textcolor{stringliteral}{"paireDevises"});     \textcolor{comment}{//load paire devises}}
+\DoxyCodeLine{342                     \textcolor{keywordflow}{if}(deviseManager.\mbox{\hyperlink{classDevisesManager_aa0461837aaa23ba84635f4a0b5944cfa}{getDeviseCodes}}().contains(setting.value(\textcolor{stringliteral}{"base/code"}).toString())) \{}
+\DoxyCodeLine{343                         base = deviseManager.\mbox{\hyperlink{classDevisesManager_abc01ef5fd78aa365085884176b5118f0}{getDevise}}(setting.value(\textcolor{stringliteral}{"base/code"}).toString());}
+\DoxyCodeLine{344                     \}}
+\DoxyCodeLine{345                     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{346                         base = deviseManager.\mbox{\hyperlink{classDevisesManager_a19992989951a6ef56bf1f93c56625e36}{creationDevise}}(setting.value(\textcolor{stringliteral}{"base/code"}).toString(), setting.value(\textcolor{stringliteral}{"base/monnaie"}).toString(), setting.value(\textcolor{stringliteral}{"base/zone"}).toString());}
+\DoxyCodeLine{347                     \}}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349                     \textcolor{keywordflow}{if}(deviseManager.\mbox{\hyperlink{classDevisesManager_aa0461837aaa23ba84635f4a0b5944cfa}{getDeviseCodes}}().contains(setting.value(\textcolor{stringliteral}{"contrepartie/code"}).toString())) \{}
+\DoxyCodeLine{350                         contrepartie = deviseManager.\mbox{\hyperlink{classDevisesManager_abc01ef5fd78aa365085884176b5118f0}{getDevise}}(setting.value(\textcolor{stringliteral}{"contrepartie/code"}).toString());}
+\DoxyCodeLine{351                     \}}
+\DoxyCodeLine{352                     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{353                         contrepartie = deviseManager.\mbox{\hyperlink{classDevisesManager_a19992989951a6ef56bf1f93c56625e36}{creationDevise}}(setting.value(\textcolor{stringliteral}{"contrepartie/code"}).toString(), setting.value(\textcolor{stringliteral}{"contrepartie/monnaie"}).toString(), setting.value(\textcolor{stringliteral}{"contrepartie/zone"}).toString());}
+\DoxyCodeLine{354                     \}}
+\DoxyCodeLine{355                     \mbox{\hyperlink{classPaireDevises}{PaireDevises}}\& paire =  deviseManager.\mbox{\hyperlink{classDevisesManager_ac514ec6ce1e1454908b73b1fd87a3c60}{getPaireDevises}}(setting.value(\textcolor{stringliteral}{"base/code"}).toString(), setting.value(\textcolor{stringliteral}{"contrepartie/code"}).toString());}
+\DoxyCodeLine{356                     paire.\mbox{\hyperlink{classPaireDevises_aa4c8a2adeaf0b1ac80eeebb7dc66c16e}{setSurnom}}(setting.value(\textcolor{stringliteral}{"surnom"}).toString());}
+\DoxyCodeLine{357                 setting.endGroup();}
+\DoxyCodeLine{358                 filename = setting.value(\textcolor{stringliteral}{"fichier"}).toString();}
+\DoxyCodeLine{359                 evolutionCours = \textcolor{keyword}{new} \mbox{\hyperlink{classEvolutionCours}{EvolutionCours}}(paire, filename);}
+\DoxyCodeLine{360             setting.endGroup();}
+\DoxyCodeLine{361         setting.endGroup();}
+\DoxyCodeLine{362     setting.endGroup();}
+\DoxyCodeLine{363     \textcolor{keywordflow}{return} evolutionCours;}
+\DoxyCodeLine{364 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_aceaa4ec85c7e00897c8b07ad8662a39c}\label{classSimulationManager_aceaa4ec85c7e00897c8b07ad8662a39c}} 
+\index{SimulationManager@{SimulationManager}!chargeSimulation@{chargeSimulation}}
+\index{chargeSimulation@{chargeSimulation}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{chargeSimulation()}{chargeSimulation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSimulation}{Simulation}} $\ast$ Simulation\+Manager\+::charge\+Simulation (\begin{DoxyParamCaption}\item[{Q\+String}]{nom }\end{DoxyParamCaption})}
+
+
+
+Méthode charge\+Simulation. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Simulation$\ast$ \+: renvoie la simulation dont le nom est donnée en paramètre 
+\end{DoxyReturn}
+
+
+Définition à la ligne 366 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{366                                                            \{}
+\DoxyCodeLine{367     \mbox{\hyperlink{classEvolutionCours}{EvolutionCours}}* evolutionCours = \mbox{\hyperlink{classSimulationManager_a00f4a2baccc70491890ca0943584ad2e}{chargeEvolutionCours}}(nom);}
+\DoxyCodeLine{368     \mbox{\hyperlink{classSimulation}{Simulation}}* simulation = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{369     QString type;}
+\DoxyCodeLine{370     \mbox{\hyperlink{classCoursOHLCV}{EvolutionCours::iterator}} currentCours;}
+\DoxyCodeLine{371     \textcolor{keywordtype}{double} pourcentage, montantBaseInitial, montantContrepartieInitial;}
+\DoxyCodeLine{372     QSettings setting(nomGroupe, nomApplication);}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{375         setting.beginGroup(nom);}
+\DoxyCodeLine{376             \textcolor{comment}{//if(!setting.contains(nom)) throw TradingException("Simulation have not been saved");}}
+\DoxyCodeLine{377             currentCours = evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}{searchCours}}(QDate::fromString(setting.value(\textcolor{stringliteral}{"currentDate"}).toString(), \textcolor{stringliteral}{"yyyy-\/MM-\/dd"}));}
+\DoxyCodeLine{378             type = setting.value(\textcolor{stringliteral}{"type"}).toString();}
+\DoxyCodeLine{379             qDebug() << type;}
+\DoxyCodeLine{380             setting.beginGroup(\textcolor{stringliteral}{"TransactionManager"});}
+\DoxyCodeLine{381                 pourcentage =  setting.value(\textcolor{stringliteral}{"TransactionManager/pourcentage"}).toDouble();}
+\DoxyCodeLine{382                 montantBaseInitial = setting.value(\textcolor{stringliteral}{"TransactionManager/montantBaseInitial"}).toDouble();}
+\DoxyCodeLine{383                 montantContrepartieInitial = setting.value(\textcolor{stringliteral}{"TransactionManager/montantContrepartieInitial"}).toDouble();}
+\DoxyCodeLine{384                 qDebug(\textcolor{stringliteral}{"start loading simulation"});}
+\DoxyCodeLine{385             setting.endGroup();}
+\DoxyCodeLine{386             \textcolor{keywordflow}{if}(type == \textcolor{stringliteral}{"Manuel"}) \{}
+\DoxyCodeLine{387                 simulation = \textcolor{keyword}{new} \mbox{\hyperlink{classModeManuel}{ModeManuel}}(nom, evolutionCours, currentCours, pourcentage, montantBaseInitial, montantContrepartieInitial);}
+\DoxyCodeLine{388             \}}
+\DoxyCodeLine{389             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"Pas\_Pas"}) \{}
+\DoxyCodeLine{390                 \textcolor{keywordtype}{int} time\_interval = setting.value(\textcolor{stringliteral}{"timerInterval"}).toInt();}
+\DoxyCodeLine{391                 simulation = \textcolor{keyword}{new} \mbox{\hyperlink{classModePas__Pas}{ModePas\_Pas}}(nom, evolutionCours, currentCours, pourcentage, montantBaseInitial, montantContrepartieInitial, time\_interval);}
+\DoxyCodeLine{392             \}}
+\DoxyCodeLine{393             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (type == \textcolor{stringliteral}{"Automatique"})\{}
+\DoxyCodeLine{394                 \textcolor{keywordtype}{int} time\_interval = setting.value(\textcolor{stringliteral}{"timerInterval"}).toInt();}
+\DoxyCodeLine{395                 \mbox{\hyperlink{classStrategieFactory}{StrategieFactory}}* strategieFactory = \mbox{\hyperlink{classStrategieFactory_a77a83ec9c8d8f472590362afdf5dff1f}{StrategieFactory::getStrategieFactory}}();}
+\DoxyCodeLine{396                 setting.beginGroup(\textcolor{stringliteral}{"Strategie"});}
+\DoxyCodeLine{397                     qDebug() << setting.value(\textcolor{stringliteral}{"nom"}).toString();}
+\DoxyCodeLine{398                     \mbox{\hyperlink{classStrategie}{Strategie}}* strategie = strategieFactory-\/>\mbox{\hyperlink{classStrategieFactory_addcf8d47f035caa184abf651a972fdfe}{getStrategie}}(setting.value(\textcolor{stringliteral}{"nom"}).toString(), evolutionCours);}
+\DoxyCodeLine{399                     QMap<QString, QVariant> parameters;}
+\DoxyCodeLine{400                         setting.beginGroup(\textcolor{stringliteral}{"parameters"});}
+\DoxyCodeLine{401                             QStringList listeParameters = setting.childKeys();}
+\DoxyCodeLine{402                             qDebug()<< listeParameters;}
+\DoxyCodeLine{403                             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<listeParameters.count(); i++) \{}
+\DoxyCodeLine{404                                 parameters[listeParameters[i]] = setting.value(listeParameters[i]);}
+\DoxyCodeLine{405                             \}}
+\DoxyCodeLine{406                         setting.endGroup();}
+\DoxyCodeLine{407                setting.endGroup();}
+\DoxyCodeLine{408                strategie-\/>\mbox{\hyperlink{classStrategie_a05c125dd608fca933f4fe4b6cb813207}{setParameters}}(parameters);}
+\DoxyCodeLine{409                simulation = \textcolor{keyword}{new} \mbox{\hyperlink{classModeAutomatique}{ModeAutomatique}}(nom, evolutionCours, currentCours, strategie, pourcentage, montantBaseInitial, montantContrepartieInitial, time\_interval);}
+\DoxyCodeLine{410             \}}
+\DoxyCodeLine{411         setting.endGroup();}
+\DoxyCodeLine{412     setting.endGroup();}
+\DoxyCodeLine{413     qDebug(\textcolor{stringliteral}{"load simulation success"});}
+\DoxyCodeLine{414     simulation-\/>\mbox{\hyperlink{classSimulation_a2d57406836f4f0cede0c054ba406825e}{loadTransactions}}();}
+\DoxyCodeLine{415     simulation-\/>\mbox{\hyperlink{classSimulation_aba050bcd0360e02faca27632d1b04946}{loadNotes}}();}
+\DoxyCodeLine{416     \mbox{\hyperlink{classSimulationManager_a51363f19ac3b8843d8eb065c8e6948a8}{addSimulation}}(simulation);}
+\DoxyCodeLine{417     \textcolor{keywordflow}{return} simulation;}
+\DoxyCodeLine{418 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_af88ccf7ce9d2515b03bdc0df4029ed5c}\label{classSimulationManager_af88ccf7ce9d2515b03bdc0df4029ed5c}} 
+\index{SimulationManager@{SimulationManager}!deleteSavedSimulation@{deleteSavedSimulation}}
+\index{deleteSavedSimulation@{deleteSavedSimulation}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{deleteSavedSimulation()}{deleteSavedSimulation()}}
+{\footnotesize\ttfamily void Simulation\+Manager\+::delete\+Saved\+Simulation (\begin{DoxyParamCaption}\item[{Q\+String}]{nom }\end{DoxyParamCaption})}
+
+
+
+Méthode delete\+Saved\+Simulation. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: supprime la simulation qui a nom donné (si elle avait été sauvegardée) 
+\end{DoxyReturn}
+
+
+Définition à la ligne 322 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{322                                                          \{}
+\DoxyCodeLine{323     QSettings setting(nomGroupe, nomApplication);}
+\DoxyCodeLine{324     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{325         setting.remove(nom);}
+\DoxyCodeLine{326     setting.endGroup();}
+\DoxyCodeLine{327 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}\label{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}} 
+\index{SimulationManager@{SimulationManager}!getNomApplication@{getNomApplication}}
+\index{getNomApplication@{getNomApplication}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{getNomApplication()}{getNomApplication()}}
+{\footnotesize\ttfamily const Q\+String\& Simulation\+Manager\+::get\+Nom\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode get\+Nom\+Application. 
+
+\begin{DoxyReturn}{Renvoie}
+const Q\+String\& \+: renvoie la valeur de get\+Nom\+Application 
+\end{DoxyReturn}
+
+
+Définition à la ligne 514 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{514 \{\textcolor{keywordflow}{return} nomApplication;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}\label{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}} 
+\index{SimulationManager@{SimulationManager}!getNomGroupe@{getNomGroupe}}
+\index{getNomGroupe@{getNomGroupe}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{getNomGroupe()}{getNomGroupe()}}
+{\footnotesize\ttfamily const Q\+String\& Simulation\+Manager\+::get\+Nom\+Groupe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode get\+Nom\+Groupe. 
+
+\begin{DoxyReturn}{Renvoie}
+const Q\+String\& \+: renvoie la valeur de get\+Nom\+Groupe 
+\end{DoxyReturn}
+
+
+Définition à la ligne 509 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{509 \{\textcolor{keywordflow}{return} nomGroupe;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}\label{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}} 
+\index{SimulationManager@{SimulationManager}!getSimulationManager@{getSimulationManager}}
+\index{getSimulationManager@{getSimulationManager}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{getSimulationManager()}{getSimulationManager()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classSimulationManager}{Simulation\+Manager}}$\ast$ Simulation\+Manager\+::get\+Simulation\+Manager (\begin{DoxyParamCaption}\item[{Q\+String}]{nom\+Groupe = {\ttfamily \char`\"{}LO21\+\_\+TD2\+\_\+Groupe100\char`\"{}},  }\item[{Q\+String}]{nom\+Application = {\ttfamily \char`\"{}Trading~Simulator\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Méthode get\+Simulation\+Manager. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom\+Groupe} & \+:Q\+String \\
+\hline
+{\em nom\+Application} & \+:Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+static Simulation\+Manager$\ast$ \+: renvoie la valeur de l\textquotesingle{}attribut instance, et la crée si elle est null 
+\end{DoxyReturn}
+
+
+Définition à la ligne 451 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{451                                                                                                                                        \{}
+\DoxyCodeLine{452         \textcolor{keywordflow}{if} (!instance) \{}
+\DoxyCodeLine{453             instance = \textcolor{keyword}{new} \mbox{\hyperlink{classSimulationManager}{SimulationManager}}(nomGroupe, nomApplication);}
+\DoxyCodeLine{454         \}}
+\DoxyCodeLine{455         \textcolor{keywordflow}{return} instance;}
+\DoxyCodeLine{456     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_aab09eef3bdab2f5f06c3bd46a07443a4}\label{classSimulationManager_aab09eef3bdab2f5f06c3bd46a07443a4}} 
+\index{SimulationManager@{SimulationManager}!libererSimulationManager@{libererSimulationManager}}
+\index{libererSimulationManager@{libererSimulationManager}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{libererSimulationManager()}{libererSimulationManager()}}
+{\footnotesize\ttfamily static void Simulation\+Manager\+::liberer\+Simulation\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Méthode liberer\+Simulation\+Manager. 
+
+\begin{DoxyReturn}{Renvoie}
+static void \+: libère l\textquotesingle{}instance 
+\end{DoxyReturn}
+
+
+Définition à la ligne 461 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{461                                            \{}
+\DoxyCodeLine{462         \textcolor{keyword}{delete} instance;}
+\DoxyCodeLine{463         instance = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{464     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_a17b45ddce8897e53df881f03fd774f95}\label{classSimulationManager_a17b45ddce8897e53df881f03fd774f95}} 
+\index{SimulationManager@{SimulationManager}!listExistSimulation@{listExistSimulation}}
+\index{listExistSimulation@{listExistSimulation}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{listExistSimulation()}{listExistSimulation()}}
+{\footnotesize\ttfamily Q\+String\+List Simulation\+Manager\+::list\+Exist\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Méthode list\+Exist\+Simulation. 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String\+List \+: renvoie la liste des noms des simulations existantes 
+\end{DoxyReturn}
+
+
+Définition à la ligne 302 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{302                                                          \{}
+\DoxyCodeLine{303     QStringList listeNomSimulation = \mbox{\hyperlink{classSimulationManager_a402f082a4514f4fdb72ef9dbad65e4c5}{listSavedSimulation}}();}
+\DoxyCodeLine{304     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<listeSimulation.length(); i++) \{}
+\DoxyCodeLine{305         listeNomSimulation.append(listeSimulation[i]-\/>getNom());        \textcolor{comment}{//list of simulation that already exist in the program}}
+\DoxyCodeLine{306     \}}
+\DoxyCodeLine{307     \textcolor{keywordflow}{return} listeNomSimulation;}
+\DoxyCodeLine{308 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_a402f082a4514f4fdb72ef9dbad65e4c5}\label{classSimulationManager_a402f082a4514f4fdb72ef9dbad65e4c5}} 
+\index{SimulationManager@{SimulationManager}!listSavedSimulation@{listSavedSimulation}}
+\index{listSavedSimulation@{listSavedSimulation}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{listSavedSimulation()}{listSavedSimulation()}}
+{\footnotesize\ttfamily Q\+String\+List Simulation\+Manager\+::list\+Saved\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Méthode list\+Saved\+Simulation. 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String\+List \+: renvoie la liste des noms des simulations sauvegardées 
+\end{DoxyReturn}
+
+
+Définition à la ligne 310 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{310                                                          \{}
+\DoxyCodeLine{311     QSettings setting(nomGroupe, nomApplication);}
+\DoxyCodeLine{312     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{313         QStringList listeSavedSimulation = setting.childGroups();         \textcolor{comment}{//list saved Simulation}}
+\DoxyCodeLine{314     setting.endGroup();}
+\DoxyCodeLine{315     \textcolor{keywordflow}{return} listeSavedSimulation;}
+\DoxyCodeLine{316 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_a20d327dbdbfd692c7998742c40437cc5}\label{classSimulationManager_a20d327dbdbfd692c7998742c40437cc5}} 
+\index{SimulationManager@{SimulationManager}!removeSimulation@{removeSimulation}}
+\index{removeSimulation@{removeSimulation}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{removeSimulation()}{removeSimulation()}}
+{\footnotesize\ttfamily void Simulation\+Manager\+::remove\+Simulation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSimulation}{Simulation}} $\ast$}]{simulation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode remove\+Simulation. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em simulation} & \+:void \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: supprime la simulation de la liste des simulation 
+\end{DoxyReturn}
+
+
+Définition à la ligne 476 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{476                                                   \{}
+\DoxyCodeLine{477         \textcolor{keywordflow}{if} (!simulation) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{478         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<listeSimulation.count(); i++) \{}
+\DoxyCodeLine{479             \textcolor{keywordflow}{if} (listeSimulation[i] == simulation) listeSimulation.removeAt(i);}
+\DoxyCodeLine{480             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{481         \}}
+\DoxyCodeLine{482     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classSimulationManager_ae6fa60754800d2167161a316cd0de05c}\label{classSimulationManager_ae6fa60754800d2167161a316cd0de05c}} 
+\index{SimulationManager@{SimulationManager}!verifierNomSimulation@{verifierNomSimulation}}
+\index{verifierNomSimulation@{verifierNomSimulation}!SimulationManager@{SimulationManager}}
+\doxysubsubsection{\texorpdfstring{verifierNomSimulation()}{verifierNomSimulation()}}
+{\footnotesize\ttfamily bool Simulation\+Manager\+::verifier\+Nom\+Simulation (\begin{DoxyParamCaption}\item[{Q\+String}]{nom }\end{DoxyParamCaption}) const}
+
+
+
+Méthode verifier\+Nom\+Simulation. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si une simulation du même nom exist, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 318 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{318                                                                \{}
+\DoxyCodeLine{319     \textcolor{keywordflow}{return} !\mbox{\hyperlink{classSimulationManager_a17b45ddce8897e53df881f03fd774f95}{listExistSimulation}}().contains(nom);}
+\DoxyCodeLine{320 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{simulation_8h}{simulation.\+h}}\item 
+Controller/\mbox{\hyperlink{simulation_8cpp}{simulation.\+cpp}}\end{DoxyCompactItemize}

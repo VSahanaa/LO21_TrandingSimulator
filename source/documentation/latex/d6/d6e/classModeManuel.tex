@@ -1,0 +1,160 @@
+\hypertarget{classModeManuel}{}\doxysection{Référence de la classe Mode\+Manuel}
+\label{classModeManuel}\index{ModeManuel@{ModeManuel}}
+
+
+hérite de la classe \mbox{\hyperlink{classSimulation}{Simulation}} méthodes publiques \+: \mbox{\hyperlink{classModeManuel}{Mode\+Manuel}},$\sim$\+Mode\+Manuel, annule méthodes publiques virtuelles \+: save\+Simulation Remarques \+: l\textquotesingle{}utilisateur peut choisir sur quel cours il souhaite faire la transaction  
+
+
+
+
+{\ttfamily \#include $<$simulation.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Mode\+Manuel\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d6/d6e/classModeManuel}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classModeManuel_aa7788e5cd256f33be877405ce7a495b6}{Mode\+Manuel}} (Q\+String \mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}}, \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolution\+Cours}}, \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} cours\+Debut, double pourcentage=0.\+001, double montant\+Base\+Initial=0, double montant\+Contrepartie\+Initial=1000000)
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classModeManuel_a0298cddeae0c43824af93faf2d012cc9}{$\sim$\+Mode\+Manuel}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classModeManuel_a7c2ff5c30ee391fde4f5f40c0a9f4606}{save\+Simulation}} () const
+\begin{DoxyCompactList}\small\item\em Méthode virtuelle save\+Simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModeManuel_a02a3b64e01ab963409396d080614fdfb}{annule}} ()
+\begin{DoxyCompactList}\small\item\em Méthode annule. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Description détaillée}
+hérite de la classe \mbox{\hyperlink{classSimulation}{Simulation}} méthodes publiques \+: \mbox{\hyperlink{classModeManuel}{Mode\+Manuel}},$\sim$\+Mode\+Manuel, annule méthodes publiques virtuelles \+: save\+Simulation Remarques \+: l\textquotesingle{}utilisateur peut choisir sur quel cours il souhaite faire la transaction 
+
+Définition à la ligne 213 du fichier simulation.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classModeManuel_aa7788e5cd256f33be877405ce7a495b6}\label{classModeManuel_aa7788e5cd256f33be877405ce7a495b6}} 
+\index{ModeManuel@{ModeManuel}!ModeManuel@{ModeManuel}}
+\index{ModeManuel@{ModeManuel}!ModeManuel@{ModeManuel}}
+\doxysubsubsection{\texorpdfstring{ModeManuel()}{ModeManuel()}}
+{\footnotesize\ttfamily Mode\+Manuel\+::\+Mode\+Manuel (\begin{DoxyParamCaption}\item[{Q\+String}]{nom,  }\item[{\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$}]{evolution\+Cours,  }\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{cours\+Debut,  }\item[{double}]{pourcentage = {\ttfamily 0.001},  }\item[{double}]{montant\+Base\+Initial = {\ttfamily 0},  }\item[{double}]{montant\+Contrepartie\+Initial = {\ttfamily 1000000} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructeur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+{\em evolution\+Cours} & \+:Evolution\+Cours$\ast$ \\
+\hline
+{\em cours\+Debut} & \+:\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \\
+\hline
+{\em poucentage} & \+:double \\
+\hline
+{\em montant\+Base\+Initial} & \+: double \\
+\hline
+{\em montant\+Contrepartie\+Initial} & \+: double \\
+\hline
+{\em parent} & \+:Q\+Object$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 226 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{226                                                                                                                                                                                                  :}
+\DoxyCodeLine{227         \mbox{\hyperlink{classSimulation_aa15c0a3aadb4c0226f1f07195f60ac25}{Simulation}}(\textcolor{stringliteral}{"Manuel"}, \mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeManuel_a0298cddeae0c43824af93faf2d012cc9}\label{classModeManuel_a0298cddeae0c43824af93faf2d012cc9}} 
+\index{ModeManuel@{ModeManuel}!````~ModeManuel@{$\sim$ModeManuel}}
+\index{````~ModeManuel@{$\sim$ModeManuel}!ModeManuel@{ModeManuel}}
+\doxysubsubsection{\texorpdfstring{$\sim$ModeManuel()}{~ModeManuel()}}
+{\footnotesize\ttfamily Mode\+Manuel\+::$\sim$\+Mode\+Manuel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructeur. 
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classModeManuel_a02a3b64e01ab963409396d080614fdfb}\label{classModeManuel_a02a3b64e01ab963409396d080614fdfb}} 
+\index{ModeManuel@{ModeManuel}!annule@{annule}}
+\index{annule@{annule}!ModeManuel@{ModeManuel}}
+\doxysubsubsection{\texorpdfstring{annule()}{annule()}}
+{\footnotesize\ttfamily void Mode\+Manuel\+::annule (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode annule. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: pour annuler la dernière transaction 
+\end{DoxyReturn}
+
+
+Définition à la ligne 239 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{239 \{\mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_a90ed8a7471404193e5508f397ae00be6}{deleteLastTransaction}}();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeManuel_a7c2ff5c30ee391fde4f5f40c0a9f4606}\label{classModeManuel_a7c2ff5c30ee391fde4f5f40c0a9f4606}} 
+\index{ModeManuel@{ModeManuel}!saveSimulation@{saveSimulation}}
+\index{saveSimulation@{saveSimulation}!ModeManuel@{ModeManuel}}
+\doxysubsubsection{\texorpdfstring{saveSimulation()}{saveSimulation()}}
+{\footnotesize\ttfamily void Mode\+Manuel\+::save\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Méthode virtuelle save\+Simulation. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: sauvegarde la simulation 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{classSimulation_a080f74bf793340e2757e19bd4b595cbc}{Simulation}}.
+
+
+
+Réimplémentée dans \mbox{\hyperlink{classModePas__Pas_a7b5edab4b1dce6e430f2f26c2fa02052}{Mode\+Pas\+\_\+\+Pas}}.
+
+
+
+Définition à la ligne 157 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{157                                       \{}
+\DoxyCodeLine{158     \mbox{\hyperlink{classSimulation_a1650262c3dc5316f3a81d0489fd4f8ef}{saveEvolutionCours}}();}
+\DoxyCodeLine{159     \mbox{\hyperlink{classSimulation_aecad8b5b6a07b072a0283a55645c5a31}{saveTransactions}}();}
+\DoxyCodeLine{160     \mbox{\hyperlink{classSimulation_a77972769aceb06ccc15f1db4789f0601}{saveNotes}}();}
+\DoxyCodeLine{161     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{162     QSettings setting(simulationManager-\/>\mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{getNomGroupe}}(), simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{getNomApplication}}());}
+\DoxyCodeLine{163     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{164         setting.beginGroup(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{165             setting.setValue(\textcolor{stringliteral}{"type"}, \mbox{\hyperlink{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}{type}});}
+\DoxyCodeLine{166             setting.setValue(\textcolor{stringliteral}{"currentDate"}, \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}}-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"yyyy-\/MM-\/dd"}));}
+\DoxyCodeLine{167         setting.endGroup();}
+\DoxyCodeLine{168     setting.endGroup();}
+\DoxyCodeLine{169     qDebug(\textcolor{stringliteral}{"Mode Manuel saved"});}
+\DoxyCodeLine{170 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{simulation_8h}{simulation.\+h}}\item 
+Controller/\mbox{\hyperlink{simulation_8cpp}{simulation.\+cpp}}\end{DoxyCompactItemize}

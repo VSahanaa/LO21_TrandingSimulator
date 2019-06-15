@@ -1,0 +1,117 @@
+\hypertarget{classConfiguration}{}\doxysection{Référence de la classe Configuration}
+\label{classConfiguration}\index{Configuration@{Configuration}}
+
+
+Q\+Object, hérite de Q\+Dialog, interface représentant le menu principal pour la simulation lors du lancement de l\textquotesingle{}application attributs \+: ui, new\+Devise, add\+Devise\+\_\+dialog, evolution\+Cours, simulation, strategie\+Factory, mode\+Simulation, nom\+Simulation, date\+Debut, pourcentage, montant\+Base\+Initial, montant\+Contrepartie\+Initial, parameters méthodes publiques \+: \mbox{\hyperlink{classConfiguration}{Configuration}}, $\sim$\+Configuration, get\+Simulation méthodes privées \+: set\+Listes\+Devise, set\+Evolution\+Cours, refresh\+Strategie\+Layout, create\+Simulation slots privés \+: on\+\_\+\+Mode\+Auto\+\_\+buton\+\_\+clicked, on\+\_\+\+Mode\+Manule\+\_\+button\+\_\+clicked, on\+\_\+\+Mode\+Pas\+\_\+\+Pas\+\_\+button\+\_\+clicked, on\+\_\+add\+Devise\+\_\+button\+\_\+clicked, on\+\_\+back\+\_\+button\+\_\+clicked, on\+\_\+browse\+Button\+\_\+clicked, on\+\_\+creat\+Simul\+\_\+button\+\_\+clicked, on\+\_\+liste\+Strategie\+\_\+current\+Text\+Changed.  
+
+
+
+
+{\ttfamily \#include $<$configuration.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Configuration\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d4/da7/classConfiguration}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classConfiguration_a2e4474e9c5370084c1b24037b90b9557}{Configuration}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur explicite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classConfiguration_a0dd0fa189e239f4c9a036303f641441e}{$\sim$\+Configuration}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSimulation}{Simulation}} $\ast$ \mbox{\hyperlink{classConfiguration_a89207a50c238fbb895c6d4e51f773d9e}{get\+Simulation}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Simulation \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Q\+Object, hérite de Q\+Dialog, interface représentant le menu principal pour la simulation lors du lancement de l\textquotesingle{}application attributs \+: ui, new\+Devise, add\+Devise\+\_\+dialog, evolution\+Cours, simulation, strategie\+Factory, mode\+Simulation, nom\+Simulation, date\+Debut, pourcentage, montant\+Base\+Initial, montant\+Contrepartie\+Initial, parameters méthodes publiques \+: \mbox{\hyperlink{classConfiguration}{Configuration}}, $\sim$\+Configuration, get\+Simulation méthodes privées \+: set\+Listes\+Devise, set\+Evolution\+Cours, refresh\+Strategie\+Layout, create\+Simulation slots privés \+: on\+\_\+\+Mode\+Auto\+\_\+buton\+\_\+clicked, on\+\_\+\+Mode\+Manule\+\_\+button\+\_\+clicked, on\+\_\+\+Mode\+Pas\+\_\+\+Pas\+\_\+button\+\_\+clicked, on\+\_\+add\+Devise\+\_\+button\+\_\+clicked, on\+\_\+back\+\_\+button\+\_\+clicked, on\+\_\+browse\+Button\+\_\+clicked, on\+\_\+creat\+Simul\+\_\+button\+\_\+clicked, on\+\_\+liste\+Strategie\+\_\+current\+Text\+Changed. 
+
+Définition à la ligne 31 du fichier configuration.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classConfiguration_a2e4474e9c5370084c1b24037b90b9557}\label{classConfiguration_a2e4474e9c5370084c1b24037b90b9557}} 
+\index{Configuration@{Configuration}!Configuration@{Configuration}}
+\index{Configuration@{Configuration}!Configuration@{Configuration}}
+\doxysubsubsection{\texorpdfstring{Configuration()}{Configuration()}}
+{\footnotesize\ttfamily Configuration\+::\+Configuration (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur explicite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 4 du fichier configuration.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                                             : QDialog(parent), ui(\textcolor{keyword}{new} Ui::Configuration) \{}
+\DoxyCodeLine{5     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{6     this-\/>setWindowTitle(\textcolor{stringliteral}{"Configuration"});}
+\DoxyCodeLine{7     setListesDevise();}
+\DoxyCodeLine{8     ui-\/>strategie\_widget-\/>hide();            \textcolor{comment}{//hide strategieParameters widget by default, show only if Mode Automatique is chosen}}
+\DoxyCodeLine{9 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classConfiguration_a0dd0fa189e239f4c9a036303f641441e}\label{classConfiguration_a0dd0fa189e239f4c9a036303f641441e}} 
+\index{Configuration@{Configuration}!````~Configuration@{$\sim$Configuration}}
+\index{````~Configuration@{$\sim$Configuration}!Configuration@{Configuration}}
+\doxysubsubsection{\texorpdfstring{$\sim$Configuration()}{~Configuration()}}
+{\footnotesize\ttfamily Configuration\+::$\sim$\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 11 du fichier configuration.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11                               \{}
+\DoxyCodeLine{12     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{13 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classConfiguration_a89207a50c238fbb895c6d4e51f773d9e}\label{classConfiguration_a89207a50c238fbb895c6d4e51f773d9e}} 
+\index{Configuration@{Configuration}!getSimulation@{getSimulation}}
+\index{getSimulation@{getSimulation}!Configuration@{Configuration}}
+\doxysubsubsection{\texorpdfstring{getSimulation()}{getSimulation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSimulation}{Simulation}}$\ast$ Configuration\+::get\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Simulation 
+
+\begin{DoxyReturn}{Renvoie}
+Simulation$\ast$ \+: renvoie la simulation créée, la valeur de l\textquotesingle{}attrinbut simulation 
+\end{DoxyReturn}
+
+
+Définition à la ligne 45 du fichier configuration.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45 \{\textcolor{keywordflow}{return} simulation;\}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Windows/\mbox{\hyperlink{configuration_8h}{configuration.\+h}}\item 
+Windows/configuration.\+cpp\end{DoxyCompactItemize}

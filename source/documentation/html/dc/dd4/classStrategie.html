@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trading Simulator: Référence de la classe Strategie</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trading Simulator
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="#friends">Amis</a> &#124;
+<a href="../../dc/d97/classStrategie-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence de la classe Strategie</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>classe mère abstraite pour ajouter des stratégies de trading attributs protégés : nom, evolutionCours méthodes virtuelles protégées : setEvolutionCours, <a class="el" href="../../dc/dd4/classStrategie.html" title="classe mère abstraite pour ajouter des stratégies de trading attributs protégés : nom,...">Strategie</a> méthodes virtuelles : ~Strategie, clone, getNom, setParameters, getParameters, operator() amitiéss : class <a class="el" href="../../d3/d70/classStrategieFactory.html" title="se charge du prototype des Strategie attributs : rsi, rsi_Iterator méthodes privées : StrategieFactor...">StrategieFactory</a> Remarques : seules les classes filles ou la classe <a class="el" href="../../d3/d70/classStrategieFactory.html" title="se charge du prototype des Strategie attributs : rsi, rsi_Iterator méthodes privées : StrategieFactor...">StrategieFactory</a> peut créer un objet de la classe duplication par recopie supprimée Fontionnement : le trading se base sur l'operator() qui retourne :  
+ <a href="../../dc/dd4/classStrategie.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe d'héritage de Strategie:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="../../dc/dd4/classStrategie.png" usemap="#Strategie_map" alt=""/>
+  <map id="Strategie_map" name="Strategie_map">
+<area href="../../de/d83/classMA__Strategie.html" title="herite de Strategie, strategie basée sur l&#39;EMA attributs : ema, ema_Iterator méthodes privées : MA_St..." alt="MA_Strategie" shape="rect" coords="0,56,89,80"/>
+<area href="../../de/d37/classRSI__Strategie.html" title="herite de Strategie, strategie basée sur l&#39;RSI attributs : rsi, rsi_Iterator méthodes privées : RSI_S..." alt="RSI_Strategie" shape="rect" coords="99,56,188,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a44ea6051b392ca0490c1b91ad37fe0bb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#a44ea6051b392ca0490c1b91ad37fe0bb">~Strategie</a> ()=default</td></tr>
+<tr class="memdesc:a44ea6051b392ca0490c1b91ad37fe0bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur virtuel.  <a href="../../dc/dd4/classStrategie.html#a44ea6051b392ca0490c1b91ad37fe0bb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a44ea6051b392ca0490c1b91ad37fe0bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cc5ef655c5f3a50b3fb856683dbcaab"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="../../dc/dd4/classStrategie.html">Strategie</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#a9cc5ef655c5f3a50b3fb856683dbcaab">clone</a> ()</td></tr>
+<tr class="memdesc:a9cc5ef655c5f3a50b3fb856683dbcaab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode vituelle clone.  <a href="../../dc/dd4/classStrategie.html#a9cc5ef655c5f3a50b3fb856683dbcaab">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9cc5ef655c5f3a50b3fb856683dbcaab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67c8466719ffa288568f05a8fa14872c"><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#a67c8466719ffa288568f05a8fa14872c">getNom</a> () const</td></tr>
+<tr class="memdesc:a67c8466719ffa288568f05a8fa14872c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method getNom.  <a href="../../dc/dd4/classStrategie.html#a67c8466719ffa288568f05a8fa14872c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a67c8466719ffa288568f05a8fa14872c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c125dd608fca933f4fe4b6cb813207"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#a05c125dd608fca933f4fe4b6cb813207">setParameters</a> (QMap&lt; QString, QVariant &gt; parameters)</td></tr>
+<tr class="memdesc:a05c125dd608fca933f4fe4b6cb813207"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode virtuelle setParameters  <a href="../../dc/dd4/classStrategie.html#a05c125dd608fca933f4fe4b6cb813207">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a05c125dd608fca933f4fe4b6cb813207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae4968364ecffbc4d9f0c20fec34a3f7"><td class="memItemLeft" align="right" valign="top">virtual QMap&lt; QString, QVariant &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#aae4968364ecffbc4d9f0c20fec34a3f7">getParameters</a> () const</td></tr>
+<tr class="memdesc:aae4968364ecffbc4d9f0c20fec34a3f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode virtuelle getParameters  <a href="../../dc/dd4/classStrategie.html#aae4968364ecffbc4d9f0c20fec34a3f7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aae4968364ecffbc4d9f0c20fec34a3f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfb19aa17e97514c7561b35290f0b5cf"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#abfb19aa17e97514c7561b35290f0b5cf">operator()</a> (<a class="el" href="../../de/d3c/classTransactionManager.html">TransactionManager</a> *transactionManager, <a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a> currentCours)</td></tr>
+<tr class="memdesc:abfb19aa17e97514c7561b35290f0b5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode operator()  <a href="../../dc/dd4/classStrategie.html#abfb19aa17e97514c7561b35290f0b5cf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abfb19aa17e97514c7561b35290f0b5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:ad17056b240eb3c02ca269c79eca02041"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#ad17056b240eb3c02ca269c79eca02041">Strategie</a> (QString <a class="el" href="../../dc/dd4/classStrategie.html#a84f893a718d2e9a0b0a15741af29a929">nom</a>)</td></tr>
+<tr class="memdesc:ad17056b240eb3c02ca269c79eca02041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur.  <a href="../../dc/dd4/classStrategie.html#ad17056b240eb3c02ca269c79eca02041">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad17056b240eb3c02ca269c79eca02041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ae84ad717151aef39fc8f7257ce7146"><td class="memItemLeft" align="right" valign="top"><a id="a5ae84ad717151aef39fc8f7257ce7146"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Strategie</b> (<a class="el" href="../../dc/dd4/classStrategie.html">Strategie</a> *strategie)=delete</td></tr>
+<tr class="separator:a5ae84ad717151aef39fc8f7257ce7146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fbea3f227e66860e7a35d6299c9c8c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#a6fbea3f227e66860e7a35d6299c9c8c5">setEvolutionCours</a> (<a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *<a class="el" href="../../dc/dd4/classStrategie.html#a1360218dcc49c85e255dbbe0cde05971">evolutionCours</a>)</td></tr>
+<tr class="memdesc:a6fbea3f227e66860e7a35d6299c9c8c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode setEvolutionCours.  <a href="../../dc/dd4/classStrategie.html#a6fbea3f227e66860e7a35d6299c9c8c5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6fbea3f227e66860e7a35d6299c9c8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a84f893a718d2e9a0b0a15741af29a929"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#a84f893a718d2e9a0b0a15741af29a929">nom</a> = &quot;unnamed strategie&quot;</td></tr>
+<tr class="separator:a84f893a718d2e9a0b0a15741af29a929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1360218dcc49c85e255dbbe0cde05971"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#a1360218dcc49c85e255dbbe0cde05971">evolutionCours</a> = nullptr</td></tr>
+<tr class="separator:a1360218dcc49c85e255dbbe0cde05971"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Amis</h2></td></tr>
+<tr class="memitem:ab9349ac55e42ff567235beef00c69774"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/dd4/classStrategie.html#ab9349ac55e42ff567235beef00c69774">StrategieFactory</a></td></tr>
+<tr class="separator:ab9349ac55e42ff567235beef00c69774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>classe mère abstraite pour ajouter des stratégies de trading attributs protégés : nom, evolutionCours méthodes virtuelles protégées : setEvolutionCours, <a class="el" href="../../dc/dd4/classStrategie.html" title="classe mère abstraite pour ajouter des stratégies de trading attributs protégés : nom,...">Strategie</a> méthodes virtuelles : ~Strategie, clone, getNom, setParameters, getParameters, operator() amitiéss : class <a class="el" href="../../d3/d70/classStrategieFactory.html" title="se charge du prototype des Strategie attributs : rsi, rsi_Iterator méthodes privées : StrategieFactor...">StrategieFactory</a> Remarques : seules les classes filles ou la classe <a class="el" href="../../d3/d70/classStrategieFactory.html" title="se charge du prototype des Strategie attributs : rsi, rsi_Iterator méthodes privées : StrategieFactor...">StrategieFactory</a> peut créer un objet de la classe duplication par recopie supprimée Fontionnement : le trading se base sur l'operator() qui retourne : </p>
+<ul>
+<li>un nombre négatif pour une vente</li>
+<li>un nombre positif pour un achat</li>
+<li>0 pour ne rien faire chaque stratégie charge un <a class="el" href="../../dc/dd4/classStrategie.html#a9cc5ef655c5f3a50b3fb856683dbcaab" title="Méthode vituelle clone.">clone()</a> pour faire une réplique </li>
+</ul>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00027">27</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="ad17056b240eb3c02ca269c79eca02041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad17056b240eb3c02ca269c79eca02041">&#9670;&nbsp;</a></span>Strategie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Strategie::Strategie </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom</td><td>:QString </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00036">36</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;: <a class="code" href="../../dc/dd4/classStrategie.html#a84f893a718d2e9a0b0a15741af29a929">nom</a>(<a class="code" href="../../dc/dd4/classStrategie.html#a84f893a718d2e9a0b0a15741af29a929">nom</a>){}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a44ea6051b392ca0490c1b91ad37fe0bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44ea6051b392ca0490c1b91ad37fe0bb">&#9670;&nbsp;</a></span>~Strategie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Strategie::~Strategie </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructeur virtuel. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a9cc5ef655c5f3a50b3fb856683dbcaab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cc5ef655c5f3a50b3fb856683dbcaab">&#9670;&nbsp;</a></span>clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="../../dc/dd4/classStrategie.html">Strategie</a>* Strategie::clone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode vituelle clone. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Strategie* : revoie une réplique de la stratégie </dd></dl>
+
+<p>Réimplémentée dans <a class="el" href="../../de/d37/classRSI__Strategie.html#abf3597186cbfedaacf053ebc21aec67d">RSI_Strategie</a>, et <a class="el" href="../../de/d83/classMA__Strategie.html#adbdad37efea98c7ca3b495cab005cf24">MA_Strategie</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00051">51</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                               {</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="../../dc/dd4/classStrategie.html">Strategie</a>* <a class="code" href="../../dc/dd4/classStrategie.html#a9cc5ef655c5f3a50b3fb856683dbcaab">clone</a> = <span class="keyword">new</span> <a class="code" href="../../dc/dd4/classStrategie.html#ad17056b240eb3c02ca269c79eca02041">Strategie</a>(<a class="code" href="../../dc/dd4/classStrategie.html#a84f893a718d2e9a0b0a15741af29a929">nom</a>);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="../../dc/dd4/classStrategie.html#a9cc5ef655c5f3a50b3fb856683dbcaab">clone</a>-&gt;<a class="code" href="../../dc/dd4/classStrategie.html#a6fbea3f227e66860e7a35d6299c9c8c5">setEvolutionCours</a>(<a class="code" href="../../dc/dd4/classStrategie.html#a1360218dcc49c85e255dbbe0cde05971">evolutionCours</a>);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="../../dc/dd4/classStrategie.html#a9cc5ef655c5f3a50b3fb856683dbcaab">clone</a>;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a67c8466719ffa288568f05a8fa14872c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67c8466719ffa288568f05a8fa14872c">&#9670;&nbsp;</a></span>getNom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString&amp; Strategie::getNom </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method getNom. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>const QString&amp; : la valeur de l'attribut nom </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00060">60</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../dc/dd4/classStrategie.html#a84f893a718d2e9a0b0a15741af29a929">nom</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aae4968364ecffbc4d9f0c20fec34a3f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae4968364ecffbc4d9f0c20fec34a3f7">&#9670;&nbsp;</a></span>getParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QMap&lt;QString, QVariant&gt; Strategie::getParameters </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode virtuelle getParameters </p>
+<dl class="section return"><dt>Renvoie</dt><dd>QMap&lt;QString,QVariant&gt; : donne les paramatres de la statégie </dd></dl>
+
+<p>Réimplémentée dans <a class="el" href="../../de/d37/classRSI__Strategie.html#a057274b1b19cb005977a2e72e24f0f17">RSI_Strategie</a>, et <a class="el" href="../../de/d83/classMA__Strategie.html#ad4f93f294662976c887ccce2d7103ea8">MA_Strategie</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00071">71</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{<span class="keywordflow">return</span> QMap&lt;QString, QVariant&gt;(); <span class="comment">/*return empty object*/</span>}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="abfb19aa17e97514c7561b35290f0b5cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb19aa17e97514c7561b35290f0b5cf">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double Strategie::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d3c/classTransactionManager.html">TransactionManager</a> *&#160;</td>
+          <td class="paramname"><em>transactionManager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a>&#160;</td>
+          <td class="paramname"><em>currentCours</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode operator() </p>
+<dl class="section return"><dt>Renvoie</dt><dd>double : le montant de la transaction renvoie : - un montant positif si la transaction à faire est un achat<ul>
+<li>un montant négatif si la transaction à faire est une vente</li>
+<li>0 s'il ne faut rien faire </li>
+</ul>
+</dd></dl>
+
+<p>Réimplémentée dans <a class="el" href="../../de/d37/classRSI__Strategie.html#aab559709fc328eadbba49a5b9a486043">RSI_Strategie</a>, et <a class="el" href="../../de/d83/classMA__Strategie.html#a5e94653915bbd5c7c9bd0812f8e4445a">MA_Strategie</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00079">79</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{<span class="keywordflow">return</span> 0;  <span class="comment">/*do nothing*/</span>}  <span class="comment">//implementer algorithme de trading</span></div></div><!-- fragment -->
+</div>
+</div>
+<a id="a6fbea3f227e66860e7a35d6299c9c8c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fbea3f227e66860e7a35d6299c9c8c5">&#9670;&nbsp;</a></span>setEvolutionCours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Strategie::setEvolutionCours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *&#160;</td>
+          <td class="paramname"><em>evolutionCours</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode setEvolutionCours. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">evolutionCours</td><td>:EvolutionCours* </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : modifie la valeur de l'attribut evolutionCours </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00043">43</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{this-&gt;evolutionCours = <a class="code" href="../../dc/dd4/classStrategie.html#a1360218dcc49c85e255dbbe0cde05971">evolutionCours</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a05c125dd608fca933f4fe4b6cb813207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c125dd608fca933f4fe4b6cb813207">&#9670;&nbsp;</a></span>setParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Strategie::setParameters </td>
+          <td>(</td>
+          <td class="paramtype">QMap&lt; QString, QVariant &gt;&#160;</td>
+          <td class="paramname"><em>parameters</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode virtuelle setParameters </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">QMap&lt;QString,QVariant&gt;</td><td>parameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : modifie les paramatres </dd></dl>
+
+<p>Réimplémentée dans <a class="el" href="../../de/d37/classRSI__Strategie.html#ad6cb4ee1996bc674f5c7b06416606b1c">RSI_Strategie</a>, et <a class="el" href="../../de/d83/classMA__Strategie.html#a2590aa56ae2500bb5cc7dcac918f5333">MA_Strategie</a>.</p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00066">66</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{<span class="comment">/*do nothing*/</span>}</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions amies et associées</h2>
+<a id="ab9349ac55e42ff567235beef00c69774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9349ac55e42ff567235beef00c69774">&#9670;&nbsp;</a></span>StrategieFactory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d3/d70/classStrategieFactory.html">StrategieFactory</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>declaration d'amitiés : <a class="el" href="../../d4/d66/classDevisesManager.html">DevisesManager</a> </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00028">28</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="a1360218dcc49c85e255dbbe0cde05971"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1360218dcc49c85e255dbbe0cde05971">&#9670;&nbsp;</a></span>evolutionCours</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a>* Strategie::evolutionCours = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>evolutionCours :EvolutionCours* pointe sur la serie de cours sur laquelle s'appliquera la stratégie </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00031">31</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+
+</div>
+</div>
+<a id="a84f893a718d2e9a0b0a15741af29a929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f893a718d2e9a0b0a15741af29a929">&#9670;&nbsp;</a></span>nom</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Strategie::nom = &quot;unnamed strategie&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>nom :QString nom de la stratégie </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d9/d5c/strategie_8h_source.html#l00030">30</a> du fichier <a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>Controller/<a class="el" href="../../d9/d5c/strategie_8h_source.html">strategie.h</a></li>
+</ul>
+</div><!-- contents -->
+<div class="ttc" id="aclassStrategie_html_a6fbea3f227e66860e7a35d6299c9c8c5"><div class="ttname"><a href="../../dc/dd4/classStrategie.html#a6fbea3f227e66860e7a35d6299c9c8c5">Strategie::setEvolutionCours</a></div><div class="ttdeci">void setEvolutionCours(EvolutionCours *evolutionCours)</div><div class="ttdoc">Méthode setEvolutionCours.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00043">strategie.h:43</a></div></div>
+<div class="ttc" id="aclassStrategie_html_a84f893a718d2e9a0b0a15741af29a929"><div class="ttname"><a href="../../dc/dd4/classStrategie.html#a84f893a718d2e9a0b0a15741af29a929">Strategie::nom</a></div><div class="ttdeci">QString nom</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00030">strategie.h:30</a></div></div>
+<div class="ttc" id="aclassStrategie_html_a9cc5ef655c5f3a50b3fb856683dbcaab"><div class="ttname"><a href="../../dc/dd4/classStrategie.html#a9cc5ef655c5f3a50b3fb856683dbcaab">Strategie::clone</a></div><div class="ttdeci">virtual Strategie * clone()</div><div class="ttdoc">Méthode vituelle clone.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00051">strategie.h:51</a></div></div>
+<div class="ttc" id="aclassStrategie_html_a1360218dcc49c85e255dbbe0cde05971"><div class="ttname"><a href="../../dc/dd4/classStrategie.html#a1360218dcc49c85e255dbbe0cde05971">Strategie::evolutionCours</a></div><div class="ttdeci">EvolutionCours * evolutionCours</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00031">strategie.h:31</a></div></div>
+<div class="ttc" id="aclassStrategie_html_ad17056b240eb3c02ca269c79eca02041"><div class="ttname"><a href="../../dc/dd4/classStrategie.html#ad17056b240eb3c02ca269c79eca02041">Strategie::Strategie</a></div><div class="ttdeci">Strategie(QString nom)</div><div class="ttdoc">Constructeur.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00036">strategie.h:36</a></div></div>
+<div class="ttc" id="aclassStrategie_html"><div class="ttname"><a href="../../dc/dd4/classStrategie.html">Strategie</a></div><div class="ttdoc">classe mère abstraite pour ajouter des stratégies de trading attributs protégés : nom,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00027">strategie.h:27</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

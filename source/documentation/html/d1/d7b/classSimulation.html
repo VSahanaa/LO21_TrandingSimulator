@@ -1,0 +1,931 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trading Simulator: Référence de la classe Simulation</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trading Simulator
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Types publics</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="../../d5/dc5/classSimulation-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence de la classe Simulation<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>classe abstraite pour créer toutes les simulations attributs : type, nom, evolutionCours, currentCours, transactionManager, noteManager méthodes publiques : simulation, ~simulation, achat, vente, getNom, getType, getEvolutionCours getCurrentCours, saveEvolutionCours, saveTransactions, saveNotes, loadNotes, loadTransactions, getTransactionManager, getNoteManager, addNote methode virtuelle publique : saveSimulation Remarques : chaque simulation a son propre <a class="el" href="../../de/d3c/classTransactionManager.html" title="s&#39;occupe de la classe Transaction attributs : listeTransaction, pourcentage, montantBaseInitial,...">TransactionManager</a>  
+ <a href="../../d1/d7b/classSimulation.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe d'héritage de Simulation:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="../../d1/d7b/classSimulation.png" usemap="#Simulation_map" alt=""/>
+  <map id="Simulation_map" name="Simulation_map">
+<area href="../../dc/d89/classModeAutomatique.html" title="hérite de la classe Simulation et de la class QObject attributs : timer, strategie méthodes publiques..." alt="ModeAutomatique" shape="rect" coords="0,56,112,80"/>
+<area href="../../d6/d6e/classModeManuel.html" title="hérite de la classe Simulation méthodes publiques : ModeManuel,~ModeManuel, annule méthodes publiques..." alt="ModeManuel" shape="rect" coords="122,56,234,80"/>
+<area href="../../d2/da3/classModePas__Pas.html" title="hérite de la classe Simulation, de la classe ModeManuel et de la class QObject attributs : timer méth..." alt="ModePas_Pas" shape="rect" coords="122,112,234,136"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:aa8ec98a9a16a199a7f7f1273ae1e1439"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#aa8ec98a9a16a199a7f7f1273ae1e1439">NoteManager</a> = QList&lt; <a class="el" href="../../dc/d2c/classNote.html">Note</a> * &gt;</td></tr>
+<tr class="separator:aa8ec98a9a16a199a7f7f1273ae1e1439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:aa15c0a3aadb4c0226f1f07195f60ac25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#aa15c0a3aadb4c0226f1f07195f60ac25">Simulation</a> (QString <a class="el" href="../../d1/d7b/classSimulation.html#ae43770454b8f8201ef30c830b1bd27e2">type</a>, QString <a class="el" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a>, <a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *<a class="el" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>, <a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a> coursDebut, double pourcentage, double montantBaseInitial, double montantContrepartieInitial)</td></tr>
+<tr class="memdesc:aa15c0a3aadb4c0226f1f07195f60ac25"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur  <a href="../../d1/d7b/classSimulation.html#aa15c0a3aadb4c0226f1f07195f60ac25">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa15c0a3aadb4c0226f1f07195f60ac25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80fad3f57dfaf195a36f7bc49bc88279"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a80fad3f57dfaf195a36f7bc49bc88279">~Simulation</a> ()</td></tr>
+<tr class="memdesc:a80fad3f57dfaf195a36f7bc49bc88279"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructeur.  <a href="../../d1/d7b/classSimulation.html#a80fad3f57dfaf195a36f7bc49bc88279">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a80fad3f57dfaf195a36f7bc49bc88279"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a949d38bc4f3eaff5de63cf1e5e2d81f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a949d38bc4f3eaff5de63cf1e5e2d81f3">achat</a> (<a class="el" href="../../df/d09/classCoursOHLCV.html">CoursOHLCV</a> *cours, double montant)</td></tr>
+<tr class="memdesc:a949d38bc4f3eaff5de63cf1e5e2d81f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode achat.  <a href="../../d1/d7b/classSimulation.html#a949d38bc4f3eaff5de63cf1e5e2d81f3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a949d38bc4f3eaff5de63cf1e5e2d81f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18edaad62de0c2e3370e609f10923a71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a18edaad62de0c2e3370e609f10923a71">vente</a> (<a class="el" href="../../df/d09/classCoursOHLCV.html">CoursOHLCV</a> *cours, double montant)</td></tr>
+<tr class="memdesc:a18edaad62de0c2e3370e609f10923a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode vente.  <a href="../../d1/d7b/classSimulation.html#a18edaad62de0c2e3370e609f10923a71">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a18edaad62de0c2e3370e609f10923a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6530918faa7f5e62631edf23dd6d8aef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a6530918faa7f5e62631edf23dd6d8aef">getEvolutionCours</a> () const</td></tr>
+<tr class="memdesc:a6530918faa7f5e62631edf23dd6d8aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode getEvolutionCours.  <a href="../../d1/d7b/classSimulation.html#a6530918faa7f5e62631edf23dd6d8aef">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6530918faa7f5e62631edf23dd6d8aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5b06fcdd1eca7f753fc1e7004c26cd"><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#aca5b06fcdd1eca7f753fc1e7004c26cd">getNom</a> () const</td></tr>
+<tr class="memdesc:aca5b06fcdd1eca7f753fc1e7004c26cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode getNom.  <a href="../../d1/d7b/classSimulation.html#aca5b06fcdd1eca7f753fc1e7004c26cd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aca5b06fcdd1eca7f753fc1e7004c26cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2357a8bc9963cca9a3b36f376e04971e"><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a2357a8bc9963cca9a3b36f376e04971e">getType</a> () const</td></tr>
+<tr class="memdesc:a2357a8bc9963cca9a3b36f376e04971e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode getType.  <a href="../../d1/d7b/classSimulation.html#a2357a8bc9963cca9a3b36f376e04971e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2357a8bc9963cca9a3b36f376e04971e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac896b3a7b7040449d0375b3bad42bf2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#ac896b3a7b7040449d0375b3bad42bf2e">getCurrentCours</a> () const</td></tr>
+<tr class="memdesc:ac896b3a7b7040449d0375b3bad42bf2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode getCurrentCours.  <a href="../../d1/d7b/classSimulation.html#ac896b3a7b7040449d0375b3bad42bf2e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac896b3a7b7040449d0375b3bad42bf2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a080f74bf793340e2757e19bd4b595cbc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a080f74bf793340e2757e19bd4b595cbc">saveSimulation</a> () const =0</td></tr>
+<tr class="memdesc:a080f74bf793340e2757e19bd4b595cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode virtuelle pure saveSimulation.  <a href="../../d1/d7b/classSimulation.html#a080f74bf793340e2757e19bd4b595cbc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a080f74bf793340e2757e19bd4b595cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1650262c3dc5316f3a81d0489fd4f8ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a1650262c3dc5316f3a81d0489fd4f8ef">saveEvolutionCours</a> () const</td></tr>
+<tr class="memdesc:a1650262c3dc5316f3a81d0489fd4f8ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode saveEvolutionCours.  <a href="../../d1/d7b/classSimulation.html#a1650262c3dc5316f3a81d0489fd4f8ef">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1650262c3dc5316f3a81d0489fd4f8ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecad8b5b6a07b072a0283a55645c5a31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#aecad8b5b6a07b072a0283a55645c5a31">saveTransactions</a> () const</td></tr>
+<tr class="memdesc:aecad8b5b6a07b072a0283a55645c5a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode saveTransactions.  <a href="../../d1/d7b/classSimulation.html#aecad8b5b6a07b072a0283a55645c5a31">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aecad8b5b6a07b072a0283a55645c5a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77972769aceb06ccc15f1db4789f0601"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a77972769aceb06ccc15f1db4789f0601">saveNotes</a> () const</td></tr>
+<tr class="memdesc:a77972769aceb06ccc15f1db4789f0601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode saveNotes.  <a href="../../d1/d7b/classSimulation.html#a77972769aceb06ccc15f1db4789f0601">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a77972769aceb06ccc15f1db4789f0601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d57406836f4f0cede0c054ba406825e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a2d57406836f4f0cede0c054ba406825e">loadTransactions</a> ()</td></tr>
+<tr class="memdesc:a2d57406836f4f0cede0c054ba406825e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode loadTransactions.  <a href="../../d1/d7b/classSimulation.html#a2d57406836f4f0cede0c054ba406825e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2d57406836f4f0cede0c054ba406825e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba050bcd0360e02faca27632d1b04946"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#aba050bcd0360e02faca27632d1b04946">loadNotes</a> ()</td></tr>
+<tr class="memdesc:aba050bcd0360e02faca27632d1b04946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode loadNotes.  <a href="../../d1/d7b/classSimulation.html#aba050bcd0360e02faca27632d1b04946">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aba050bcd0360e02faca27632d1b04946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a714fd110f5f86427b5f2d1c4f60fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d3c/classTransactionManager.html">TransactionManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#ac5a714fd110f5f86427b5f2d1c4f60fe">getTransactionManager</a> ()</td></tr>
+<tr class="memdesc:ac5a714fd110f5f86427b5f2d1c4f60fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode getTransactionManager.  <a href="../../d1/d7b/classSimulation.html#ac5a714fd110f5f86427b5f2d1c4f60fe">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac5a714fd110f5f86427b5f2d1c4f60fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0d0d449e4910d0b6e03ae2319457dd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d7b/classSimulation.html#aa8ec98a9a16a199a7f7f1273ae1e1439">NoteManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#ad0d0d449e4910d0b6e03ae2319457dd8">getNoteManager</a> ()</td></tr>
+<tr class="memdesc:ad0d0d449e4910d0b6e03ae2319457dd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode getNoteManager.  <a href="../../d1/d7b/classSimulation.html#ad0d0d449e4910d0b6e03ae2319457dd8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad0d0d449e4910d0b6e03ae2319457dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b07748cd26f13305202c229b18c04e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/d2c/classNote.html">Note</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a4b07748cd26f13305202c229b18c04e2">addNote</a> ()</td></tr>
+<tr class="memdesc:a4b07748cd26f13305202c229b18c04e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode addNote.  <a href="../../d1/d7b/classSimulation.html#a4b07748cd26f13305202c229b18c04e2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4b07748cd26f13305202c229b18c04e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:ae43770454b8f8201ef30c830b1bd27e2"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#ae43770454b8f8201ef30c830b1bd27e2">type</a></td></tr>
+<tr class="separator:ae43770454b8f8201ef30c830b1bd27e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a427d95b2aa2370c2eb401c01d0da8d9d"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a></td></tr>
+<tr class="separator:a427d95b2aa2370c2eb401c01d0da8d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a48b4f7999b7b7204a05fd96f1ae6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a></td></tr>
+<tr class="separator:ad9a48b4f7999b7b7204a05fd96f1ae6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e9a823c99919c166db55b78a438e790"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a3e9a823c99919c166db55b78a438e790">currentCours</a> = <a class="el" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;begin()</td></tr>
+<tr class="separator:a3e9a823c99919c166db55b78a438e790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0580f87a96d8c3b9ec3b160fdf97bd11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d3c/classTransactionManager.html">TransactionManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a></td></tr>
+<tr class="separator:a0580f87a96d8c3b9ec3b160fdf97bd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114ef3108f9bb50fd7f6510ea16114a2"><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="../../dc/d2c/classNote.html">Note</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">noteManager</a></td></tr>
+<tr class="separator:a114ef3108f9bb50fd7f6510ea16114a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>classe abstraite pour créer toutes les simulations attributs : type, nom, evolutionCours, currentCours, transactionManager, noteManager méthodes publiques : simulation, ~simulation, achat, vente, getNom, getType, getEvolutionCours getCurrentCours, saveEvolutionCours, saveTransactions, saveNotes, loadNotes, loadTransactions, getTransactionManager, getNoteManager, addNote methode virtuelle publique : saveSimulation Remarques : chaque simulation a son propre <a class="el" href="../../de/d3c/classTransactionManager.html" title="s&#39;occupe de la classe Transaction attributs : listeTransaction, pourcentage, montantBaseInitial,...">TransactionManager</a> </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00093">93</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+</div><h2 class="groupheader">Documentation des définitions de type membres</h2>
+<a id="aa8ec98a9a16a199a7f7f1273ae1e1439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8ec98a9a16a199a7f7f1273ae1e1439">&#9670;&nbsp;</a></span>NoteManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d1/d7b/classSimulation.html#aa8ec98a9a16a199a7f7f1273ae1e1439">Simulation::NoteManager</a> =  QList&lt;<a class="el" href="../../dc/d2c/classNote.html">Note</a>*&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>declaration NoteManager &lt;=&gt; Qlist&lt;Note*&gt; </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00190">190</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="aa15c0a3aadb4c0226f1f07195f60ac25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa15c0a3aadb4c0226f1f07195f60ac25">&#9670;&nbsp;</a></span>Simulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Simulation::Simulation </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *&#160;</td>
+          <td class="paramname"><em>evolutionCours</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a>&#160;</td>
+          <td class="paramname"><em>coursDebut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>pourcentage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>montantBaseInitial</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>montantContrepartieInitial</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructeur </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>:QString </td></tr>
+    <tr><td class="paramname">nom</td><td>:QString </td></tr>
+    <tr><td class="paramname">evolutionCours</td><td>:EvolutionCours* </td></tr>
+    <tr><td class="paramname">coursDebut</td><td>:<a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a> </td></tr>
+    <tr><td class="paramname">poucentage</td><td>:double </td></tr>
+    <tr><td class="paramname">montantBaseInitial</td><td>:double </td></tr>
+    <tr><td class="paramname">montantContrepartieInitial</td><td>:double </td></tr>
+    <tr><td class="paramname">parent</td><td>:QObject* </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00113">113</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                                                                                                                                                                                               :</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="../../d1/d7b/classSimulation.html#ae43770454b8f8201ef30c830b1bd27e2">type</a>(<a class="code" href="../../d1/d7b/classSimulation.html#ae43770454b8f8201ef30c830b1bd27e2">type</a>), <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>(<a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>), <a class="code" href="../../d1/d7b/classSimulation.html#a3e9a823c99919c166db55b78a438e790">currentCours</a>(coursDebut),</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>(<a class="code" href="../../de/d3c/classTransactionManager.html">TransactionManager</a>(pourcentage, montantBaseInitial, montantContrepartieInitial, montantContrepartieInitial + montantBaseInitial*coursDebut-&gt;<a class="code" href="../../df/d09/classCoursOHLCV.html#aeff7d29932b6008cff7d938992a2c3a0">getClose</a>())) {</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="comment">//if (!verifierNomSimulation(nom)) throw TradingException(&quot;Simulation: ce nom est déjà pris&quot;);</span></div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        this-&gt;<a class="code" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a> = <a class="code" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a>;</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a80fad3f57dfaf195a36f7bc49bc88279"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80fad3f57dfaf195a36f7bc49bc88279">&#9670;&nbsp;</a></span>~Simulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Simulation::~Simulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructeur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00008">8</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                        {</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a949d38bc4f3eaff5de63cf1e5e2d81f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a949d38bc4f3eaff5de63cf1e5e2d81f3">&#9670;&nbsp;</a></span>achat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Simulation::achat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d09/classCoursOHLCV.html">CoursOHLCV</a> *&#160;</td>
+          <td class="paramname"><em>cours</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>montant</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode achat. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cours</td><td>:CoursOHLCV* </td></tr>
+    <tr><td class="paramname">montant</td><td>:double </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : ajoute la transaction en achat </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00127">127</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;{<a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>.<a class="code" href="../../de/d3c/classTransactionManager.html#ae8116cd4c770ccdfecdb5cbcf677918b">addTransaction</a>(<a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>(), cours, <span class="keyword">true</span>, montant);}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a4b07748cd26f13305202c229b18c04e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b07748cd26f13305202c229b18c04e2">&#9670;&nbsp;</a></span>addNote()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d2c/classNote.html">Note</a> * Simulation::addNote </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode addNote. </p>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="../../dc/d2c/classNote.html" title="stock les notes prises par l&#39;utilisateur attributs : nom, note, dateCreation, dernierAcces méthodes p...">Note</a>&amp; : ajoute la note </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00147">147</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                          {</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <a class="code" href="../../dc/d2c/classNote.html">Note</a>* note = <span class="keyword">new</span> <a class="code" href="../../dc/d2c/classNote.html">Note</a>();</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    note-&gt;<a class="code" href="../../dc/d2c/classNote.html#a4f7b7b9255f518dbecc2db28bd3de7fc">setNom</a>(<span class="stringliteral">&quot;Note&quot;</span>+ QString::number(<a class="code" href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">noteManager</a>.count()));</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">noteManager</a>.append(note);</div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> note;</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="ac896b3a7b7040449d0375b3bad42bf2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac896b3a7b7040449d0375b3bad42bf2e">&#9670;&nbsp;</a></span>getCurrentCours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a> Simulation::getCurrentCours </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode getCurrentCours. </p>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a> : retourne le pointeur CoursOHLCV* vers le cours OHLCV en cours </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00154">154</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../d1/d7b/classSimulation.html#a3e9a823c99919c166db55b78a438e790">currentCours</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a6530918faa7f5e62631edf23dd6d8aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6530918faa7f5e62631edf23dd6d8aef">&#9670;&nbsp;</a></span>getEvolutionCours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a>* Simulation::getEvolutionCours </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode getEvolutionCours. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>const QString&amp; : retourne la valeur de l'attribut evolutionCours </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00139">139</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aca5b06fcdd1eca7f753fc1e7004c26cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca5b06fcdd1eca7f753fc1e7004c26cd">&#9670;&nbsp;</a></span>getNom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString&amp; Simulation::getNom </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode getNom. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>const QString&amp; : retourne la valeur de l'attribut nom </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00144">144</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="ad0d0d449e4910d0b6e03ae2319457dd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0d0d449e4910d0b6e03ae2319457dd8">&#9670;&nbsp;</a></span>getNoteManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d7b/classSimulation.html#aa8ec98a9a16a199a7f7f1273ae1e1439">NoteManager</a>&amp; Simulation::getNoteManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode getNoteManager. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>NoteManager&amp; : renvoie la valeur de l'attribut noteManager, c'est à dire les notes prises </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00195">195</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">noteManager</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="ac5a714fd110f5f86427b5f2d1c4f60fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5a714fd110f5f86427b5f2d1c4f60fe">&#9670;&nbsp;</a></span>getTransactionManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d3c/classTransactionManager.html">TransactionManager</a>* Simulation::getTransactionManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode getTransactionManager. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>TransactionManager* : pointe sur le manager qui gère les transactions </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00189">189</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;{<span class="keywordflow">return</span> &amp;<a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a2357a8bc9963cca9a3b36f376e04971e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2357a8bc9963cca9a3b36f376e04971e">&#9670;&nbsp;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString&amp; Simulation::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode getType. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>const QString&amp; : retourne la valeur de l'attribut type </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00149">149</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../d1/d7b/classSimulation.html#ae43770454b8f8201ef30c830b1bd27e2">type</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aba050bcd0360e02faca27632d1b04946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba050bcd0360e02faca27632d1b04946">&#9670;&nbsp;</a></span>loadNotes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Simulation::loadNotes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode loadNotes. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>void : charge les notes </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00113">113</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                           {</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">noteManager</a>.clear();</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="../../d9/dbb/classSimulationManager.html">SimulationManager</a>* simulationManager = <a class="code" href="../../d9/dbb/classSimulationManager.html#a622edd593a785f5d45ab1c079ebc1887">SimulationManager::getSimulationManager</a>();</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    QSettings setting(simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#aab8a6e873d581d98e31e2ce8866307be">getNomGroupe</a>(), simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#a44227e7a21ff392a8596d7ff528c2cf1">getNomApplication</a>());</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    setting.beginGroup(<span class="stringliteral">&quot;Simulation&quot;</span>);</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="comment">//if(!setting.contains(nom)) throw TradingException(&quot;Simulation have not been saved&quot;);</span></div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        setting.beginGroup(<a class="code" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a>);</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            setting.beginGroup(<span class="stringliteral">&quot;NoteManager&quot;</span>);</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                <span class="keywordtype">int</span> size = setting.beginReadArray(<span class="stringliteral">&quot;Note&quot;</span>);</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;size; i++){</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        setting.setArrayIndex(i);</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        <a class="code" href="../../dc/d2c/classNote.html">Note</a>* note = <a class="code" href="../../d1/d7b/classSimulation.html#a4b07748cd26f13305202c229b18c04e2">addNote</a>();</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                        note-&gt;<a class="code" href="../../dc/d2c/classNote.html#a4f7b7b9255f518dbecc2db28bd3de7fc">setNom</a>(setting.value(<span class="stringliteral">&quot;nom&quot;</span>).toString());</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                        note-&gt;<a class="code" href="../../dc/d2c/classNote.html#a3750a7fb6e9d8c8689dd05bb5a8b01d0">setNote</a>(setting.value(<span class="stringliteral">&quot;note&quot;</span>).toString());</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                        qDebug(<span class="stringliteral">&quot;note Info&quot;</span>);</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        qDebug() &lt;&lt; note-&gt;<a class="code" href="../../dc/d2c/classNote.html#adfee478d4bdbb749ab1d165cb12ba633">getNom</a>();</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                        qDebug() &lt;&lt; note-&gt;<a class="code" href="../../dc/d2c/classNote.html#a2d88e194039d685d4fe75d1d98b72e70">getNote</a>();</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                        note-&gt;setDateCreation(QDateTime::fromString(setting.value(<span class="stringliteral">&quot;dateCreation&quot;</span>).toString(), <span class="stringliteral">&quot;yyyy-MM-dd : HH.mm&quot;</span>));</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                    }</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                setting.endArray();</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            setting.endGroup();</div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        setting.endGroup();</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    setting.endGroup();</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a2d57406836f4f0cede0c054ba406825e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d57406836f4f0cede0c054ba406825e">&#9670;&nbsp;</a></span>loadTransactions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Simulation::loadTransactions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode loadTransactions. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>void : charge les transactions </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00065">65</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                  {</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="../../d9/dbb/classSimulationManager.html">SimulationManager</a>* simulationManager = <a class="code" href="../../d9/dbb/classSimulationManager.html#a622edd593a785f5d45ab1c079ebc1887">SimulationManager::getSimulationManager</a>();</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    QSettings setting(simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#aab8a6e873d581d98e31e2ce8866307be">getNomGroupe</a>(), simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#a44227e7a21ff392a8596d7ff528c2cf1">getNomApplication</a>());</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    setting.beginGroup(<span class="stringliteral">&quot;Simulation&quot;</span>);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">//if(!setting.contains(nom)) throw TradingException(&quot;Simulation have not been saved&quot;);</span></div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        setting.beginGroup(<a class="code" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a>);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            setting.beginGroup(<span class="stringliteral">&quot;TransactionManager&quot;</span>);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordtype">double</span> pourcentage = setting.value(<span class="stringliteral">&quot;pourcentage&quot;</span>).toDouble();</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordtype">double</span> montantBaseInitial = setting.value(<span class="stringliteral">&quot;montantBaseInitial&quot;</span>).toDouble();</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordtype">double</span> montantContrepartieInitial = setting.value(<span class="stringliteral">&quot;montantContrepartieInitial&quot;</span>).toDouble();</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keywordtype">double</span> montantTotalInitial =  setting.value(<span class="stringliteral">&quot;montantTotalInitial&quot;</span>).toDouble();</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>.clearTransactions();</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a> = <a class="code" href="../../de/d3c/classTransactionManager.html">TransactionManager</a>(pourcentage, montantBaseInitial, montantContrepartieInitial, montantTotalInitial);</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordtype">int</span> size = setting.beginReadArray(<span class="stringliteral">&quot;Transaction&quot;</span>);</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=size-1; i&gt;=0 ; i--) {</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    <span class="comment">//load in reverse order to Save</span></div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    setting.setArrayIndex(i);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <a class="code" href="../../df/d09/classCoursOHLCV.html">EvolutionCours::iterator</a> cours = <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#a64d7a97b6ef6f8a0cf9f3b8cd44da35c">searchCours</a>(QDate::fromString(setting.value(<span class="stringliteral">&quot;date&quot;</span>).toString(), <span class="stringliteral">&quot;yyyy-MM-dd&quot;</span>));</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    <a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>.<a class="code" href="../../de/d3c/classTransactionManager.html#ae8116cd4c770ccdfecdb5cbcf677918b">addTransaction</a>(<a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>(), cours, setting.value(<span class="stringliteral">&quot;achat&quot;</span>).toBool(), setting.value(<span class="stringliteral">&quot;montantBase&quot;</span>).toDouble(), setting.value(<span class="stringliteral">&quot;montantContrepartie&quot;</span>).toDouble());</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                }</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                setting.endArray();</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            setting.endGroup();</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        setting.endGroup();</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    setting.endGroup();</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a1650262c3dc5316f3a81d0489fd4f8ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1650262c3dc5316f3a81d0489fd4f8ef">&#9670;&nbsp;</a></span>saveEvolutionCours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Simulation::saveEvolutionCours </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode saveEvolutionCours. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>void : sauvegarde les cours OHLCV </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00012">12</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                                          {</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../d9/dbb/classSimulationManager.html">SimulationManager</a>* simulationManager = <a class="code" href="../../d9/dbb/classSimulationManager.html#a622edd593a785f5d45ab1c079ebc1887">SimulationManager::getSimulationManager</a>();</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    QSettings setting(simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#aab8a6e873d581d98e31e2ce8866307be">getNomGroupe</a>(), simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#a44227e7a21ff392a8596d7ff528c2cf1">getNomApplication</a>());</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    setting.beginGroup(<span class="stringliteral">&quot;Simulation&quot;</span>);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        setting.beginGroup(<a class="code" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a>);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            setting.beginGroup(<span class="stringliteral">&quot;EvolutionCours&quot;</span>);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                setting.beginGroup(<span class="stringliteral">&quot;paireDevises&quot;</span>);     <span class="comment">//sauvegarde paire devises</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                    setting.setValue(<span class="stringliteral">&quot;base/code&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>()-&gt;<a class="code" href="../../dd/d44/classPaireDevises.html#a6878818a7170f53fef760a57341b2216">getBase</a>().<a class="code" href="../../d7/d47/classDevise.html#a65c5b31c2e59217f55adf2fd75719150">getCode</a>());</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                    setting.setValue(<span class="stringliteral">&quot;base/monnaie&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>()-&gt;<a class="code" href="../../dd/d44/classPaireDevises.html#a6878818a7170f53fef760a57341b2216">getBase</a>().<a class="code" href="../../d7/d47/classDevise.html#aee1c3a78a47e7a59d93097711e8041ee">getMonnaie</a>());</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                    setting.setValue(<span class="stringliteral">&quot;base/zone&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>()-&gt;<a class="code" href="../../dd/d44/classPaireDevises.html#a6878818a7170f53fef760a57341b2216">getBase</a>().<a class="code" href="../../d7/d47/classDevise.html#a265989ed393c22311d7f57118c358f1e">getZoneGeographique</a>());</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                    setting.setValue(<span class="stringliteral">&quot;contrepartie/code&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>()-&gt;<a class="code" href="../../dd/d44/classPaireDevises.html#a57f9fdb0cb7ec461f2448babfdebfd65">getContrepartie</a>().<a class="code" href="../../d7/d47/classDevise.html#a65c5b31c2e59217f55adf2fd75719150">getCode</a>());</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                    setting.setValue(<span class="stringliteral">&quot;contrepartie/monnaie&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>()-&gt;<a class="code" href="../../dd/d44/classPaireDevises.html#a57f9fdb0cb7ec461f2448babfdebfd65">getContrepartie</a>().<a class="code" href="../../d7/d47/classDevise.html#aee1c3a78a47e7a59d93097711e8041ee">getMonnaie</a>());</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                    setting.setValue(<span class="stringliteral">&quot;contrepartie/zone&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>()-&gt;<a class="code" href="../../dd/d44/classPaireDevises.html#a57f9fdb0cb7ec461f2448babfdebfd65">getContrepartie</a>().<a class="code" href="../../d7/d47/classDevise.html#a265989ed393c22311d7f57118c358f1e">getZoneGeographique</a>());</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    setting.setValue(<span class="stringliteral">&quot;surnom&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>()-&gt;<a class="code" href="../../dd/d44/classPaireDevises.html#ab71e900ae5692748434143a89beb4761">getSurnom</a>());</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                setting.endGroup();</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                setting.setValue(<span class="stringliteral">&quot;fichier&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#af36ff85ab30dc5b7e4b0371d0b0f83e3">getNomFichier</a>());       <span class="comment">//sauvegarde fichier csv</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="comment">//if (evolutionCours-&gt;saveFile()) throw TradingException(&quot;error saving csv file&quot;);</span></div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            setting.endGroup();</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        setting.endGroup();</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    setting.endGroup();</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    qDebug()&lt;&lt; <span class="stringliteral">&quot;evolution saved&quot;</span>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a77972769aceb06ccc15f1db4789f0601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77972769aceb06ccc15f1db4789f0601">&#9670;&nbsp;</a></span>saveNotes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Simulation::saveNotes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode saveNotes. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>void : sauvegarde les notes prises </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00092">92</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                                 {</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="../../d9/dbb/classSimulationManager.html">SimulationManager</a>* simulationManager = <a class="code" href="../../d9/dbb/classSimulationManager.html#a622edd593a785f5d45ab1c079ebc1887">SimulationManager::getSimulationManager</a>();</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    QSettings setting(simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#aab8a6e873d581d98e31e2ce8866307be">getNomGroupe</a>(), simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#a44227e7a21ff392a8596d7ff528c2cf1">getNomApplication</a>());</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    setting.beginGroup(<span class="stringliteral">&quot;Simulation&quot;</span>);</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        setting.beginGroup(<a class="code" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a>);</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            setting.beginGroup(<span class="stringliteral">&quot;NoteManager&quot;</span>);</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                setting.beginWriteArray(<span class="stringliteral">&quot;Note&quot;</span>);</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">noteManager</a>.length(); i++){</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        setting.setArrayIndex(i);</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        setting.setValue(<span class="stringliteral">&quot;nom&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">noteManager</a>[i]-&gt;<a class="code" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a>);</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        setting.setValue(<span class="stringliteral">&quot;note&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">noteManager</a>[i]-&gt;note);</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        setting.setValue(<span class="stringliteral">&quot;dateCreation&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">noteManager</a>[i]-&gt;dateCreation.toString(<span class="stringliteral">&quot;yyyy-MM-dd : HH.mm&quot;</span>));</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    }</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                setting.endArray();</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            setting.endGroup();</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        setting.endGroup();</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    setting.endGroup();</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;note saved&quot;</span>;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a080f74bf793340e2757e19bd4b595cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a080f74bf793340e2757e19bd4b595cbc">&#9670;&nbsp;</a></span>saveSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Simulation::saveSimulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode virtuelle pure saveSimulation. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>void : sauvegarde la simulation </dd></dl>
+
+<p>Implémenté dans <a class="el" href="../../dc/d89/classModeAutomatique.html#a55795ff2d1f75f0e58c52cb12df5fc94">ModeAutomatique</a>, <a class="el" href="../../d2/da3/classModePas__Pas.html#a7b5edab4b1dce6e430f2f26c2fa02052">ModePas_Pas</a>, et <a class="el" href="../../d6/d6e/classModeManuel.html#a7c2ff5c30ee391fde4f5f40c0a9f4606">ModeManuel</a>.</p>
+
+</div>
+</div>
+<a id="aecad8b5b6a07b072a0283a55645c5a31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecad8b5b6a07b072a0283a55645c5a31">&#9670;&nbsp;</a></span>saveTransactions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Simulation::saveTransactions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode saveTransactions. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>void : sauvegarde les transactions </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00035">35</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                        {</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="../../d9/dbb/classSimulationManager.html">SimulationManager</a>* simulationManager = <a class="code" href="../../d9/dbb/classSimulationManager.html#a622edd593a785f5d45ab1c079ebc1887">SimulationManager::getSimulationManager</a>();</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    QSettings setting(simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#aab8a6e873d581d98e31e2ce8866307be">getNomGroupe</a>(), simulationManager-&gt;<a class="code" href="../../d9/dbb/classSimulationManager.html#a44227e7a21ff392a8596d7ff528c2cf1">getNomApplication</a>());</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    setting.beginGroup(<span class="stringliteral">&quot;Simulation&quot;</span>);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        setting.beginGroup(<a class="code" href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">nom</a>);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            setting.beginGroup(<span class="stringliteral">&quot;TransactionManager&quot;</span>);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                setting.setValue(<span class="stringliteral">&quot;pourcentage&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>.pourcentage);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                setting.setValue(<span class="stringliteral">&quot;montantBaseInitial&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>.montantBaseInitial);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                setting.setValue(<span class="stringliteral">&quot;montantContrepartieInitial&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>.montantContrepartieInitial);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                setting.setValue(<span class="stringliteral">&quot;montantTotalInitial&quot;</span>, <a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>.montantTotalInitial);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                <span class="comment">//save history Transaction</span></div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                setting.beginWriteArray(<span class="stringliteral">&quot;Transaction&quot;</span>);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <a class="code" href="../../df/d28/classTransaction.html">TransactionManager::iterator</a> transactionIterator = <a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>.<a class="code" href="../../de/d3c/classTransactionManager.html#a09d3f6e2acdb088e89bd78cef666d93f">head</a>();</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <span class="keywordtype">int</span> i = 0;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="keywordflow">while</span> (transactionIterator) {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        setting.setArrayIndex(i++);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        setting.setValue(<span class="stringliteral">&quot;date&quot;</span>, transactionIterator-&gt;<a class="code" href="../../df/d28/classTransaction.html#ab6fcc894f4fb8899e96141a10aa53f6f">getCours</a>()-&gt;<a class="code" href="../../df/d09/classCoursOHLCV.html#a8f0c96eabbe5fe9d36f9eb4ffa20d260">getDate</a>().toString(<span class="stringliteral">&quot;yyyy-MM-dd&quot;</span>));</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        setting.setValue(<span class="stringliteral">&quot;achat&quot;</span>, transactionIterator-&gt;<a class="code" href="../../df/d28/classTransaction.html#ad8c80c4f1bc4d5d569c0bf8c4e56880a">est_achat</a>());</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                        setting.setValue(<span class="stringliteral">&quot;montantBase&quot;</span>, transactionIterator-&gt;<a class="code" href="../../df/d28/classTransaction.html#ac102bb2a4cd8df20d2e8b801c920ce68">getMontantBase</a>());</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        setting.setValue(<span class="stringliteral">&quot;montantContrepartie&quot;</span>, transactionIterator-&gt;<a class="code" href="../../df/d28/classTransaction.html#aaa27d802abc6d8986cdca66d710329f6">getMontantContrepartie</a>());</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                        transactionIterator = transactionIterator-&gt;<a class="code" href="../../df/d28/classTransaction.html#a518b117dcf5ef9a2d323493a8d4fb922">next</a>();</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    }</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                setting.endArray();</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            setting.endGroup();</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        setting.endGroup();</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    setting.endGroup();</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    qDebug() &lt;&lt; <span class="stringliteral">&quot;transaction saved&quot;</span>;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a18edaad62de0c2e3370e609f10923a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18edaad62de0c2e3370e609f10923a71">&#9670;&nbsp;</a></span>vente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Simulation::vente </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d09/classCoursOHLCV.html">CoursOHLCV</a> *&#160;</td>
+          <td class="paramname"><em>cours</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>montant</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode vente. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cours</td><td>:CoursOHLCV* </td></tr>
+    <tr><td class="paramname">montant</td><td>:double </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : ajoute la transaction en vente </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00134">134</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{<a class="code" href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">transactionManager</a>.<a class="code" href="../../de/d3c/classTransactionManager.html#ae8116cd4c770ccdfecdb5cbcf677918b">addTransaction</a>(<a class="code" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">getPaireDevises</a>(), cours, <span class="keyword">false</span>, montant);}</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="a3e9a823c99919c166db55b78a438e790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e9a823c99919c166db55b78a438e790">&#9670;&nbsp;</a></span>currentCours</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a> Simulation::currentCours = <a class="el" href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">evolutionCours</a>-&gt;begin()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>currentCours :<a class="el" href="../../d0/de6/classEvolutionCours.html#a9b9e9eb8eb12c2939d3693ca188cd302">EvolutionCours::iterator</a> pointe sur le cours OHLCV en cours </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00098">98</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+
+</div>
+</div>
+<a id="ad9a48b4f7999b7b7204a05fd96f1ae6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9a48b4f7999b7b7204a05fd96f1ae6a">&#9670;&nbsp;</a></span>evolutionCours</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a>* Simulation::evolutionCours</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>evolutionCours :EvolutionCours* pointe sur les cours sur lesquels porte la simulation </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00097">97</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+
+</div>
+</div>
+<a id="a427d95b2aa2370c2eb401c01d0da8d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a427d95b2aa2370c2eb401c01d0da8d9d">&#9670;&nbsp;</a></span>nom</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Simulation::nom</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>nom :QString pour identifier la simulation </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00096">96</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+
+</div>
+</div>
+<a id="a114ef3108f9bb50fd7f6510ea16114a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a114ef3108f9bb50fd7f6510ea16114a2">&#9670;&nbsp;</a></span>noteManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="../../dc/d2c/classNote.html">Note</a>*&gt; Simulation::noteManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>noteManager :QList&lt;Note&gt; contient les notes prises au cours de la transaction </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00100">100</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+
+</div>
+</div>
+<a id="a0580f87a96d8c3b9ec3b160fdf97bd11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0580f87a96d8c3b9ec3b160fdf97bd11">&#9670;&nbsp;</a></span>transactionManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d3c/classTransactionManager.html">TransactionManager</a> Simulation::transactionManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>transactionManager :<a class="el" href="../../de/d3c/classTransactionManager.html" title="s&#39;occupe de la classe Transaction attributs : listeTransaction, pourcentage, montantBaseInitial,...">TransactionManager</a> représente le manager qui s'occupe des transactions </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00099">99</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+
+</div>
+</div>
+<a id="ae43770454b8f8201ef30c830b1bd27e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae43770454b8f8201ef30c830b1bd27e2">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Simulation::type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>type :QString type de simulation(lequel) </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00095">95</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>Controller/<a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a></li>
+<li>Controller/<a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<div class="ttc" id="aclassEvolutionCours_html_a64d7a97b6ef6f8a0cf9f3b8cd44da35c"><div class="ttname"><a href="../../d0/de6/classEvolutionCours.html#a64d7a97b6ef6f8a0cf9f3b8cd44da35c">EvolutionCours::searchCours</a></div><div class="ttdeci">iterator searchCours(QDate date)</div><div class="ttdoc">méthode searchCours</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d13/trading_8cpp_source.html#l00352">trading.cpp:352</a></div></div>
+<div class="ttc" id="aclassTransaction_html_aaa27d802abc6d8986cdca66d710329f6"><div class="ttname"><a href="../../df/d28/classTransaction.html#aaa27d802abc6d8986cdca66d710329f6">Transaction::getMontantContrepartie</a></div><div class="ttdeci">double getMontantContrepartie() const</div><div class="ttdoc">méthode getMontantContrepartie</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db6/transaction_8h_source.html#l00085">transaction.h:85</a></div></div>
+<div class="ttc" id="aclassTransaction_html"><div class="ttname"><a href="../../df/d28/classTransaction.html">Transaction</a></div><div class="ttdoc">contient les informations de chaque transaction attributs privés : transactionDernier,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db6/transaction_8h_source.html#l00026">transaction.h:26</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a4b07748cd26f13305202c229b18c04e2"><div class="ttname"><a href="../../d1/d7b/classSimulation.html#a4b07748cd26f13305202c229b18c04e2">Simulation::addNote</a></div><div class="ttdeci">Note * addNote()</div><div class="ttdoc">Méthode addNote.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d93/simulation_8cpp_source.html#l00147">simulation.cpp:147</a></div></div>
+<div class="ttc" id="aclassPaireDevises_html_ab71e900ae5692748434143a89beb4761"><div class="ttname"><a href="../../dd/d44/classPaireDevises.html#ab71e900ae5692748434143a89beb4761">PaireDevises::getSurnom</a></div><div class="ttdeci">const QString &amp; getSurnom() const</div><div class="ttdoc">méthode getSurnom</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00122">trading.h:122</a></div></div>
+<div class="ttc" id="aclassNote_html_a4f7b7b9255f518dbecc2db28bd3de7fc"><div class="ttname"><a href="../../dc/d2c/classNote.html#a4f7b7b9255f518dbecc2db28bd3de7fc">Note::setNom</a></div><div class="ttdeci">void setNom(QString nom)</div><div class="ttdoc">méthode setNom</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00081">simulation.h:81</a></div></div>
+<div class="ttc" id="aclassTransaction_html_a518b117dcf5ef9a2d323493a8d4fb922"><div class="ttname"><a href="../../df/d28/classTransaction.html#a518b117dcf5ef9a2d323493a8d4fb922">Transaction::next</a></div><div class="ttdeci">Transaction * next() const</div><div class="ttdoc">méthode next</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db6/transaction_8h_source.html#l00105">transaction.h:105</a></div></div>
+<div class="ttc" id="aclassEvolutionCours_html_ad0e0d9c17e20efc9f8c4661c5eadc947"><div class="ttname"><a href="../../d0/de6/classEvolutionCours.html#ad0e0d9c17e20efc9f8c4661c5eadc947">EvolutionCours::getPaireDevises</a></div><div class="ttdeci">const PaireDevises * getPaireDevises() const</div><div class="ttdoc">méthode getPaireDevises</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00450">trading.h:450</a></div></div>
+<div class="ttc" id="aclassTransaction_html_ab6fcc894f4fb8899e96141a10aa53f6f"><div class="ttname"><a href="../../df/d28/classTransaction.html#ab6fcc894f4fb8899e96141a10aa53f6f">Transaction::getCours</a></div><div class="ttdeci">CoursOHLCV * getCours() const</div><div class="ttdoc">méthode getCours</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db6/transaction_8h_source.html#l00090">transaction.h:90</a></div></div>
+<div class="ttc" id="aclassTransactionManager_html_ae8116cd4c770ccdfecdb5cbcf677918b"><div class="ttname"><a href="../../de/d3c/classTransactionManager.html#ae8116cd4c770ccdfecdb5cbcf677918b">TransactionManager::addTransaction</a></div><div class="ttdeci">void addTransaction(const PaireDevises *paire, CoursOHLCV *cours, bool achat, double montant)</div><div class="ttdoc">méthode addTransaction</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/df2/transaction_8cpp_source.html#l00022">transaction.cpp:22</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a427d95b2aa2370c2eb401c01d0da8d9d"><div class="ttname"><a href="../../d1/d7b/classSimulation.html#a427d95b2aa2370c2eb401c01d0da8d9d">Simulation::nom</a></div><div class="ttdeci">QString nom</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00096">simulation.h:96</a></div></div>
+<div class="ttc" id="aclassSimulationManager_html_a622edd593a785f5d45ab1c079ebc1887"><div class="ttname"><a href="../../d9/dbb/classSimulationManager.html#a622edd593a785f5d45ab1c079ebc1887">SimulationManager::getSimulationManager</a></div><div class="ttdeci">static SimulationManager * getSimulationManager(QString nomGroupe=&quot;LO21_TD2_Groupe100&quot;, QString nomApplication=&quot;Trading Simulator&quot;)</div><div class="ttdoc">Méthode getSimulationManager.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00451">simulation.h:451</a></div></div>
+<div class="ttc" id="aclassNote_html_a3750a7fb6e9d8c8689dd05bb5a8b01d0"><div class="ttname"><a href="../../dc/d2c/classNote.html#a3750a7fb6e9d8c8689dd05bb5a8b01d0">Note::setNote</a></div><div class="ttdeci">void setNote(QString note)</div><div class="ttdoc">méthode setNote</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00075">simulation.h:75</a></div></div>
+<div class="ttc" id="aclassSimulation_html_ae43770454b8f8201ef30c830b1bd27e2"><div class="ttname"><a href="../../d1/d7b/classSimulation.html#ae43770454b8f8201ef30c830b1bd27e2">Simulation::type</a></div><div class="ttdeci">QString type</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00095">simulation.h:95</a></div></div>
+<div class="ttc" id="aclassTransaction_html_ac102bb2a4cd8df20d2e8b801c920ce68"><div class="ttname"><a href="../../df/d28/classTransaction.html#ac102bb2a4cd8df20d2e8b801c920ce68">Transaction::getMontantBase</a></div><div class="ttdeci">double getMontantBase() const</div><div class="ttdoc">méthode getMontantBase</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db6/transaction_8h_source.html#l00080">transaction.h:80</a></div></div>
+<div class="ttc" id="aclassSimulationManager_html"><div class="ttname"><a href="../../d9/dbb/classSimulationManager.html">SimulationManager</a></div><div class="ttdoc">gère les simulations attributs : instance, nomGroupe, nomApplication, listeSimulation méthodes privée...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00431">simulation.h:431</a></div></div>
+<div class="ttc" id="aclassTransaction_html_ad8c80c4f1bc4d5d569c0bf8c4e56880a"><div class="ttname"><a href="../../df/d28/classTransaction.html#ad8c80c4f1bc4d5d569c0bf8c4e56880a">Transaction::est_achat</a></div><div class="ttdeci">bool est_achat() const</div><div class="ttdoc">méthode est_achat</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db6/transaction_8h_source.html#l00095">transaction.h:95</a></div></div>
+<div class="ttc" id="aclassTransactionManager_html_a09d3f6e2acdb088e89bd78cef666d93f"><div class="ttname"><a href="../../de/d3c/classTransactionManager.html#a09d3f6e2acdb088e89bd78cef666d93f">TransactionManager::head</a></div><div class="ttdeci">iterator head() const</div><div class="ttdoc">méthode head</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db6/transaction_8h_source.html#l00212">transaction.h:212</a></div></div>
+<div class="ttc" id="aclassSimulationManager_html_aab8a6e873d581d98e31e2ce8866307be"><div class="ttname"><a href="../../d9/dbb/classSimulationManager.html#aab8a6e873d581d98e31e2ce8866307be">SimulationManager::getNomGroupe</a></div><div class="ttdeci">const QString &amp; getNomGroupe() const</div><div class="ttdoc">Méthode getNomGroupe.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00509">simulation.h:509</a></div></div>
+<div class="ttc" id="aclassDevise_html_a265989ed393c22311d7f57118c358f1e"><div class="ttname"><a href="../../d7/d47/classDevise.html#a265989ed393c22311d7f57118c358f1e">Devise::getZoneGeographique</a></div><div class="ttdeci">const QString &amp; getZoneGeographique() const</div><div class="ttdoc">méthode getZoneGeographique</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00081">trading.h:81</a></div></div>
+<div class="ttc" id="aclassEvolutionCours_html_af36ff85ab30dc5b7e4b0371d0b0f83e3"><div class="ttname"><a href="../../d0/de6/classEvolutionCours.html#af36ff85ab30dc5b7e4b0371d0b0f83e3">EvolutionCours::getNomFichier</a></div><div class="ttdeci">const QString &amp; getNomFichier() const</div><div class="ttdoc">méthode getNomFichier</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00460">trading.h:460</a></div></div>
+<div class="ttc" id="aclassSimulationManager_html_a44227e7a21ff392a8596d7ff528c2cf1"><div class="ttname"><a href="../../d9/dbb/classSimulationManager.html#a44227e7a21ff392a8596d7ff528c2cf1">SimulationManager::getNomApplication</a></div><div class="ttdeci">const QString &amp; getNomApplication() const</div><div class="ttdoc">Méthode getNomApplication.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00514">simulation.h:514</a></div></div>
+<div class="ttc" id="aclassDevise_html_a65c5b31c2e59217f55adf2fd75719150"><div class="ttname"><a href="../../d7/d47/classDevise.html#a65c5b31c2e59217f55adf2fd75719150">Devise::getCode</a></div><div class="ttdeci">QString getCode() const</div><div class="ttdoc">méthode getCode</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00071">trading.h:71</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a114ef3108f9bb50fd7f6510ea16114a2"><div class="ttname"><a href="../../d1/d7b/classSimulation.html#a114ef3108f9bb50fd7f6510ea16114a2">Simulation::noteManager</a></div><div class="ttdeci">QList&lt; Note * &gt; noteManager</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00100">simulation.h:100</a></div></div>
+<div class="ttc" id="aclassDevise_html_aee1c3a78a47e7a59d93097711e8041ee"><div class="ttname"><a href="../../d7/d47/classDevise.html#aee1c3a78a47e7a59d93097711e8041ee">Devise::getMonnaie</a></div><div class="ttdeci">const QString &amp; getMonnaie() const</div><div class="ttdoc">méthode getMonnaie</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00076">trading.h:76</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a0580f87a96d8c3b9ec3b160fdf97bd11"><div class="ttname"><a href="../../d1/d7b/classSimulation.html#a0580f87a96d8c3b9ec3b160fdf97bd11">Simulation::transactionManager</a></div><div class="ttdeci">TransactionManager transactionManager</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00099">simulation.h:99</a></div></div>
+<div class="ttc" id="aclassPaireDevises_html_a57f9fdb0cb7ec461f2448babfdebfd65"><div class="ttname"><a href="../../dd/d44/classPaireDevises.html#a57f9fdb0cb7ec461f2448babfdebfd65">PaireDevises::getContrepartie</a></div><div class="ttdeci">const Devise &amp; getContrepartie() const</div><div class="ttdoc">méthode getContrepartie</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00117">trading.h:117</a></div></div>
+<div class="ttc" id="aclassCoursOHLCV_html"><div class="ttname"><a href="../../df/d09/classCoursOHLCV.html">CoursOHLCV</a></div><div class="ttdoc">CoursOHLCV est la classe qui gère les cours d'une paire de devise sur un jour attributs : open,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00234">trading.h:234</a></div></div>
+<div class="ttc" id="aclassNote_html"><div class="ttname"><a href="../../dc/d2c/classNote.html">Note</a></div><div class="ttdoc">stock les notes prises par l'utilisateur attributs : nom, note, dateCreation, dernierAcces méthodes p...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00028">simulation.h:28</a></div></div>
+<div class="ttc" id="aclassCoursOHLCV_html_a8f0c96eabbe5fe9d36f9eb4ffa20d260"><div class="ttname"><a href="../../df/d09/classCoursOHLCV.html#a8f0c96eabbe5fe9d36f9eb4ffa20d260">CoursOHLCV::getDate</a></div><div class="ttdeci">QDate getDate() const</div><div class="ttdoc">méthode getDate</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00300">trading.h:300</a></div></div>
+<div class="ttc" id="aclassNote_html_a2d88e194039d685d4fe75d1d98b72e70"><div class="ttname"><a href="../../dc/d2c/classNote.html#a2d88e194039d685d4fe75d1d98b72e70">Note::getNote</a></div><div class="ttdeci">QString &amp; getNote()</div><div class="ttdoc">méthode getNote</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00054">simulation.h:54</a></div></div>
+<div class="ttc" id="aclassNote_html_adfee478d4bdbb749ab1d165cb12ba633"><div class="ttname"><a href="../../dc/d2c/classNote.html#adfee478d4bdbb749ab1d165cb12ba633">Note::getNom</a></div><div class="ttdeci">QString &amp; getNom()</div><div class="ttdoc">méthode getNote</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00059">simulation.h:59</a></div></div>
+<div class="ttc" id="aclassCoursOHLCV_html_aeff7d29932b6008cff7d938992a2c3a0"><div class="ttname"><a href="../../df/d09/classCoursOHLCV.html#aeff7d29932b6008cff7d938992a2c3a0">CoursOHLCV::getClose</a></div><div class="ttdeci">double getClose() const</div><div class="ttdoc">méthode getClos</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00275">trading.h:275</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a3e9a823c99919c166db55b78a438e790"><div class="ttname"><a href="../../d1/d7b/classSimulation.html#a3e9a823c99919c166db55b78a438e790">Simulation::currentCours</a></div><div class="ttdeci">EvolutionCours::iterator currentCours</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00098">simulation.h:98</a></div></div>
+<div class="ttc" id="aclassPaireDevises_html_a6878818a7170f53fef760a57341b2216"><div class="ttname"><a href="../../dd/d44/classPaireDevises.html#a6878818a7170f53fef760a57341b2216">PaireDevises::getBase</a></div><div class="ttdeci">const Devise &amp; getBase() const</div><div class="ttdoc">méthode getBase</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00112">trading.h:112</a></div></div>
+<div class="ttc" id="aclassTransactionManager_html"><div class="ttname"><a href="../../de/d3c/classTransactionManager.html">TransactionManager</a></div><div class="ttdoc">s'occupe de la classe Transaction attributs : listeTransaction, pourcentage, montantBaseInitial,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db6/transaction_8h_source.html#l00129">transaction.h:129</a></div></div>
+<div class="ttc" id="aclassSimulation_html_ad9a48b4f7999b7b7204a05fd96f1ae6a"><div class="ttname"><a href="../../d1/d7b/classSimulation.html#ad9a48b4f7999b7b7204a05fd96f1ae6a">Simulation::evolutionCours</a></div><div class="ttdeci">EvolutionCours * evolutionCours</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00097">simulation.h:97</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

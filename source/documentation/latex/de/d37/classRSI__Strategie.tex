@@ -1,0 +1,233 @@
+\hypertarget{classRSI__Strategie}{}\doxysection{Référence de la classe R\+S\+I\+\_\+\+Strategie}
+\label{classRSI__Strategie}\index{RSI\_Strategie@{RSI\_Strategie}}
+
+
+herite de \mbox{\hyperlink{classStrategie}{Strategie}}, strategie basée sur l\textquotesingle{}\mbox{\hyperlink{classRSI}{R\+SI}} attributs \+: rsi, rsi\+\_\+\+Iterator méthodes privées \+: \mbox{\hyperlink{classRSI__Strategie}{R\+S\+I\+\_\+\+Strategie}} méthodes publiques \+: $\sim$\+R\+S\+I\+\_\+\+Strategie, clone, set\+Parameters, get\+Parameters, operator() amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}}  
+
+
+
+
+{\ttfamily \#include $<$strategie.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de R\+S\+I\+\_\+\+Strategie\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/d37/classRSI__Strategie}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRSI__Strategie_ad66a6d9869cf05dc93d7138304a07fa3}{$\sim$\+R\+S\+I\+\_\+\+Strategie}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStrategie}{Strategie}} $\ast$ \mbox{\hyperlink{classRSI__Strategie_abf3597186cbfedaacf053ebc21aec67d}{clone}} ()
+\begin{DoxyCompactList}\small\item\em méthode clone \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRSI__Strategie_ad6cb4ee1996bc674f5c7b06416606b1c}{set\+Parameters}} (Q\+Map$<$ Q\+String, Q\+Variant $>$ parameters)
+\begin{DoxyCompactList}\small\item\em méthode virtuelle set\+Parameters \end{DoxyCompactList}\item 
+Q\+Map$<$ Q\+String, Q\+Variant $>$ \mbox{\hyperlink{classRSI__Strategie_a057274b1b19cb005977a2e72e24f0f17}{get\+Parameters}} () const
+\begin{DoxyCompactList}\small\item\em méthode virtuelle get\+Parameters \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classRSI__Strategie_aab559709fc328eadbba49a5b9a486043}{operator()}} (\mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} $\ast$transaction\+Manager, \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} current\+Cours)
+\begin{DoxyCompactList}\small\item\em méthode operator() \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classRSI__Strategie_ab9349ac55e42ff567235beef00c69774}{Strategie\+Factory}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Description détaillée}
+herite de \mbox{\hyperlink{classStrategie}{Strategie}}, strategie basée sur l\textquotesingle{}\mbox{\hyperlink{classRSI}{R\+SI}} attributs \+: rsi, rsi\+\_\+\+Iterator méthodes privées \+: \mbox{\hyperlink{classRSI__Strategie}{R\+S\+I\+\_\+\+Strategie}} méthodes publiques \+: $\sim$\+R\+S\+I\+\_\+\+Strategie, clone, set\+Parameters, get\+Parameters, operator() amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} 
+
+Définition à la ligne 152 du fichier strategie.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classRSI__Strategie_ad66a6d9869cf05dc93d7138304a07fa3}\label{classRSI__Strategie_ad66a6d9869cf05dc93d7138304a07fa3}} 
+\index{RSI\_Strategie@{RSI\_Strategie}!````~RSI\_Strategie@{$\sim$RSI\_Strategie}}
+\index{````~RSI\_Strategie@{$\sim$RSI\_Strategie}!RSI\_Strategie@{RSI\_Strategie}}
+\doxysubsubsection{\texorpdfstring{$\sim$RSI\_Strategie()}{~RSI\_Strategie()}}
+{\footnotesize\ttfamily R\+S\+I\+\_\+\+Strategie\+::$\sim$\+R\+S\+I\+\_\+\+Strategie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 160 du fichier strategie.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{160 \{\textcolor{keyword}{delete} rsi;\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classRSI__Strategie_abf3597186cbfedaacf053ebc21aec67d}\label{classRSI__Strategie_abf3597186cbfedaacf053ebc21aec67d}} 
+\index{RSI\_Strategie@{RSI\_Strategie}!clone@{clone}}
+\index{clone@{clone}!RSI\_Strategie@{RSI\_Strategie}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStrategie}{Strategie}} $\ast$ R\+S\+I\+\_\+\+Strategie\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode clone 
+
+\begin{DoxyReturn}{Renvoie}
+Strategie$\ast$ \+: renvoie une réplique de la stratégie 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classStrategie_a9cc5ef655c5f3a50b3fb856683dbcaab}{Strategie}}.
+
+
+
+Définition à la ligne 80 du fichier strategie.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80                                 \{}
+\DoxyCodeLine{81     \mbox{\hyperlink{classRSI__Strategie}{RSI\_Strategie}}* \mbox{\hyperlink{classRSI__Strategie_abf3597186cbfedaacf053ebc21aec67d}{clone}} = \textcolor{keyword}{new} \mbox{\hyperlink{classRSI__Strategie}{RSI\_Strategie}}();}
+\DoxyCodeLine{82     \mbox{\hyperlink{classRSI__Strategie_abf3597186cbfedaacf053ebc21aec67d}{clone}}-\/>rsi = this-\/>rsi;}
+\DoxyCodeLine{83     \mbox{\hyperlink{classRSI__Strategie_abf3597186cbfedaacf053ebc21aec67d}{clone}}-\/>rsi\_Iterator = this-\/>rsi\_Iterator;}
+\DoxyCodeLine{84     \textcolor{keywordflow}{return} \mbox{\hyperlink{classRSI__Strategie_abf3597186cbfedaacf053ebc21aec67d}{clone}};}
+\DoxyCodeLine{85 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRSI__Strategie_a057274b1b19cb005977a2e72e24f0f17}\label{classRSI__Strategie_a057274b1b19cb005977a2e72e24f0f17}} 
+\index{RSI\_Strategie@{RSI\_Strategie}!getParameters@{getParameters}}
+\index{getParameters@{getParameters}!RSI\_Strategie@{RSI\_Strategie}}
+\doxysubsubsection{\texorpdfstring{getParameters()}{getParameters()}}
+{\footnotesize\ttfamily Q\+Map$<$Q\+String, Q\+Variant$>$ R\+S\+I\+\_\+\+Strategie\+::get\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+méthode virtuelle get\+Parameters 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+Map$<$\+Q\+String,\+Q\+Variant$>$ \+: donne les paramatres de la statégie 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classStrategie_aae4968364ecffbc4d9f0c20fec34a3f7}{Strategie}}.
+
+
+
+Définition à la ligne 176 du fichier strategie.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{176 \{\textcolor{keywordflow}{return} rsi-\/>\mbox{\hyperlink{classRSI_a51ae2c173b2d2d58a9f58429739e8509}{getParameters}}();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRSI__Strategie_aab559709fc328eadbba49a5b9a486043}\label{classRSI__Strategie_aab559709fc328eadbba49a5b9a486043}} 
+\index{RSI\_Strategie@{RSI\_Strategie}!operator()@{operator()}}
+\index{operator()@{operator()}!RSI\_Strategie@{RSI\_Strategie}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily double R\+S\+I\+\_\+\+Strategie\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} $\ast$}]{transaction\+Manager,  }\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{current\+Cours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode operator() 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: le montant de la transaction renvoie \+: -\/ un montant positif si la transaction à faire est un achat
+\begin{DoxyItemize}
+\item un montant négatif si la transaction à faire est une vente
+\item 0 s\textquotesingle{}il ne faut rien faire 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classStrategie_abfb19aa17e97514c7561b35290f0b5cf}{Strategie}}.
+
+
+
+Définition à la ligne 94 du fichier strategie.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94                                                                                                             \{}
+\DoxyCodeLine{95     \textcolor{keywordtype}{double} montantBase = transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}();}
+\DoxyCodeLine{96     \textcolor{keywordtype}{double} montantContrepartie = transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}();}
+\DoxyCodeLine{97     \textcolor{comment}{// move rsi\_Iterator to current date}}
+\DoxyCodeLine{98     \textcolor{keywordflow}{while}(rsi\_Iterator-\/>\mbox{\hyperlink{classIndiceIndicateur_a4542a6895a475ef3b9ba35c9c4dfb91c}{getDate}}() < currentCours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}()) \{}
+\DoxyCodeLine{99         rsi\_Iterator++;}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101     \textcolor{keywordflow}{if}(rsi\_Iterator-\/>\mbox{\hyperlink{classIndiceIndicateur_a4542a6895a475ef3b9ba35c9c4dfb91c}{getDate}}() > currentCours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}()) \{}
+\DoxyCodeLine{102         \textcolor{comment}{//hold until has enough indicateur data}}
+\DoxyCodeLine{103         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     \textcolor{keywordflow}{if} (rsi\_Iterator-\/>\mbox{\hyperlink{classIndiceIndicateur_ac8cb8f95d4647f942a6c928f4921bdbd}{getIndice}}() <= rsi-\/>\mbox{\hyperlink{classRSI_a51ae2c173b2d2d58a9f58429739e8509}{getParameters}}()[\textcolor{stringliteral}{"oversoldBound"}].toDouble() \&\& montantContrepartie > 0) \{}
+\DoxyCodeLine{107         \textcolor{comment}{//buy signal}}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} montantContrepartie;}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (rsi\_Iterator-\/>\mbox{\hyperlink{classIndiceIndicateur_ac8cb8f95d4647f942a6c928f4921bdbd}{getIndice}}() >= rsi-\/>\mbox{\hyperlink{classRSI_a51ae2c173b2d2d58a9f58429739e8509}{getParameters}}()[\textcolor{stringliteral}{"overboughtBound"}].toDouble() \&\& montantBase > 0) \{}
+\DoxyCodeLine{111         \textcolor{comment}{//sell signal}}
+\DoxyCodeLine{112         \textcolor{keywordflow}{return} -\/ montantBase;}
+\DoxyCodeLine{113     \}}
+\DoxyCodeLine{114     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{115         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{116     \}}
+\DoxyCodeLine{117 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRSI__Strategie_ad6cb4ee1996bc674f5c7b06416606b1c}\label{classRSI__Strategie_ad6cb4ee1996bc674f5c7b06416606b1c}} 
+\index{RSI\_Strategie@{RSI\_Strategie}!setParameters@{setParameters}}
+\index{setParameters@{setParameters}!RSI\_Strategie@{RSI\_Strategie}}
+\doxysubsubsection{\texorpdfstring{setParameters()}{setParameters()}}
+{\footnotesize\ttfamily void R\+S\+I\+\_\+\+Strategie\+::set\+Parameters (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, Q\+Variant $>$}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode virtuelle set\+Parameters 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Q\+Map$<$\+Q\+String,Q\+Variant$>$} & parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: modifie les paramatres 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classStrategie_a05c125dd608fca933f4fe4b6cb813207}{Strategie}}.
+
+
+
+Définition à la ligne 87 du fichier strategie.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87                                                                     \{}
+\DoxyCodeLine{88     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classStrategie_a1360218dcc49c85e255dbbe0cde05971}{evolutionCours}}) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"Strategie: Can not set parameters when evolutionCours is null"});}
+\DoxyCodeLine{89     rsi = dynamic\_cast<RSI*>(\mbox{\hyperlink{classStrategie_a1360218dcc49c85e255dbbe0cde05971}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_a58d3d38badd602231b2d33f5cb38312f}{getCollection}}()-\/>\mbox{\hyperlink{classIndicateurCollection_a5bfad05cff39a29f70127a4db89fc0ff}{getIndicateur}}(\textcolor{stringliteral}{"RSI"}));}
+\DoxyCodeLine{90     rsi-\/>\mbox{\hyperlink{classRSI_a24819034d38a313fc98e74510b56e7cf}{setParameters}}(parameters);}
+\DoxyCodeLine{91     rsi\_Iterator = rsi-\/>\mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}();}
+\DoxyCodeLine{92 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions amies et associées}
+\mbox{\Hypertarget{classRSI__Strategie_ab9349ac55e42ff567235beef00c69774}\label{classRSI__Strategie_ab9349ac55e42ff567235beef00c69774}} 
+\index{RSI\_Strategie@{RSI\_Strategie}!StrategieFactory@{StrategieFactory}}
+\index{StrategieFactory@{StrategieFactory}!RSI\_Strategie@{RSI\_Strategie}}
+\doxysubsubsection{\texorpdfstring{StrategieFactory}{StrategieFactory}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+Déclaration d\textquotesingle{}amitié \+: \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} 
+
+Définition à la ligne 153 du fichier strategie.\+h.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{strategie_8h}{strategie.\+h}}\item 
+Controller/\mbox{\hyperlink{strategie_8cpp}{strategie.\+cpp}}\end{DoxyCompactItemize}

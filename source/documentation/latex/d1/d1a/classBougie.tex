@@ -1,0 +1,146 @@
+\hypertarget{classBougie}{}\doxysection{Référence de la classe Bougie}
+\label{classBougie}\index{Bougie@{Bougie}}
+
+
+Q\+Object, hérite de Q\+Candlestick\+Set, interface des \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} sous forme de bougies attributs \+: cours méthodes publiques \+: \mbox{\hyperlink{classBougie}{Bougie}}, get\+Cours\+O\+H\+L\+CV signals publics \+: click\+Bougie; hover\+Bougie slots privés \+: pick\+Cours, view\+Form.  
+
+
+
+
+{\ttfamily \#include $<$evolutionviewer.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Bougie\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d1/d1a/classBougie}
+\end{center}
+\end{figure}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBougie_a58ac4f28b592aaad7e74e9704d808afe}{click\+Bougie}} (\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours)
+\begin{DoxyCompactList}\small\item\em signal click\+Bougie \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBougie_ac5370a99329261d96f537715de4481d0}{hover\+Bougie}} (\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours)
+\begin{DoxyCompactList}\small\item\em signal hover\+Bougie \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBougie_aa5f6444f8777637b37f1d5a028635913}{Bougie}} (qreal open, qreal high, qreal low, qreal close, \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours, qreal timestamp=0.\+0, Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Contructeur. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} \& \mbox{\hyperlink{classBougie_a2bf5d643f3a11b5661d66ae43fd62b54}{get\+Cours\+O\+H\+L\+CV}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Cours\+O\+H\+L\+CV \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Q\+Object, hérite de Q\+Candlestick\+Set, interface des \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} sous forme de bougies attributs \+: cours méthodes publiques \+: \mbox{\hyperlink{classBougie}{Bougie}}, get\+Cours\+O\+H\+L\+CV signals publics \+: click\+Bougie; hover\+Bougie slots privés \+: pick\+Cours, view\+Form. 
+
+Définition à la ligne 22 du fichier evolutionviewer.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classBougie_aa5f6444f8777637b37f1d5a028635913}\label{classBougie_aa5f6444f8777637b37f1d5a028635913}} 
+\index{Bougie@{Bougie}!Bougie@{Bougie}}
+\index{Bougie@{Bougie}!Bougie@{Bougie}}
+\doxysubsubsection{\texorpdfstring{Bougie()}{Bougie()}}
+{\footnotesize\ttfamily Bougie\+::\+Bougie (\begin{DoxyParamCaption}\item[{qreal}]{open,  }\item[{qreal}]{high,  }\item[{qreal}]{low,  }\item[{qreal}]{close,  }\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours,  }\item[{qreal}]{timestamp = {\ttfamily 0.0},  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Contructeur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em open} & \+:qreal \\
+\hline
+{\em high} & \+:qreal \\
+\hline
+{\em low} & \+:qreal \\
+\hline
+{\em close} & \+:qreal \\
+\hline
+{\em cours} & \+:Cours\+O\+H\+L\+C\+V$\ast$ \\
+\hline
+{\em timestamp} & \+:qreal \\
+\hline
+{\em parent} & \+:Q\+Object$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 36 du fichier evolutionviewer.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36                                                                                                                                : QCandlestickSet(open, high, low, close, timestamp, parent), cours(cours)\{}
+\DoxyCodeLine{37         connect(\textcolor{keyword}{this}, SIGNAL(pressed()), \textcolor{keyword}{this}, SLOT(viewForm()));}
+\DoxyCodeLine{38         connect(\textcolor{keyword}{this},SIGNAL(clicked()),\textcolor{keyword}{this}, SLOT(pickCours()));}
+\DoxyCodeLine{39     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classBougie_a58ac4f28b592aaad7e74e9704d808afe}\label{classBougie_a58ac4f28b592aaad7e74e9704d808afe}} 
+\index{Bougie@{Bougie}!clickBougie@{clickBougie}}
+\index{clickBougie@{clickBougie}!Bougie@{Bougie}}
+\doxysubsubsection{\texorpdfstring{clickBougie}{clickBougie}}
+{\footnotesize\ttfamily void Bougie\+::click\+Bougie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal click\+Bougie 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cours} & Cours\+O\+H\+L\+C\+V$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBougie_a2bf5d643f3a11b5661d66ae43fd62b54}\label{classBougie_a2bf5d643f3a11b5661d66ae43fd62b54}} 
+\index{Bougie@{Bougie}!getCoursOHLCV@{getCoursOHLCV}}
+\index{getCoursOHLCV@{getCoursOHLCV}!Bougie@{Bougie}}
+\doxysubsubsection{\texorpdfstring{getCoursOHLCV()}{getCoursOHLCV()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}}\& Bougie\+::get\+Cours\+O\+H\+L\+CV (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Cours\+O\+H\+L\+CV 
+
+\begin{DoxyReturn}{Renvoie}
+const \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}}\& \+: retourne le cours associé à la bougie 
+\end{DoxyReturn}
+
+
+Définition à la ligne 44 du fichier evolutionviewer.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44 \{ \textcolor{keywordflow}{return} *cours;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classBougie_ac5370a99329261d96f537715de4481d0}\label{classBougie_ac5370a99329261d96f537715de4481d0}} 
+\index{Bougie@{Bougie}!hoverBougie@{hoverBougie}}
+\index{hoverBougie@{hoverBougie}!Bougie@{Bougie}}
+\doxysubsubsection{\texorpdfstring{hoverBougie}{hoverBougie}}
+{\footnotesize\ttfamily void Bougie\+::hover\+Bougie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal hover\+Bougie 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cours} & Cours\+O\+H\+L\+C\+V$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+Chart/\mbox{\hyperlink{evolutionviewer_8h}{evolutionviewer.\+h}}\end{DoxyCompactItemize}

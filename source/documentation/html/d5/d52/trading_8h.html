@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trading Simulator: Référence du fichier Core_Devises/trading.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trading Simulator
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_e2a376874a2ff989e3395c0b56bae55c.html">Core_Devises</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier trading.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contient le noyau de l'application.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;QString&gt;</code><br />
+<code>#include &lt;QDate&gt;</code><br />
+<code>#include &lt;QStringList&gt;</code><br />
+<code>#include &lt;QFile&gt;</code><br />
+<code>#include &lt;QDebug&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+</div>
+<p><a href="../../d5/d52/trading_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d7d/classTradingException.html">TradingException</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contient le message d'erreur.  <a href="../../d2/d7d/classTradingException.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d47/classDevise.html">Devise</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente une devise attributs : code, monnaie, zone méthodees : getCode, getMonnaie, getZoneGeographique amitiéss : class <a class="el" href="../../dd/d92/classDeviseManager.html" title="DeviseManager est la classe qui permet de gérer les devises et les paires attributs : devises,...">DeviseManager</a> Remarques : constructeur privé et destructeur privé  <a href="../../d7/d47/classDevise.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d44/classPaireDevises.html">PaireDevises</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Représente une paire de devise attributs : base, contrepartie, surnom méthodees : getBase, getContrepartie, getSurnom amitiéss : class <a class="el" href="../../dd/d92/classDeviseManager.html" title="DeviseManager est la classe qui permet de gérer les devises et les paires attributs : devises,...">DeviseManager</a> Remarques : constructeur privé et destructeur privé  <a href="../../dd/d44/classPaireDevises.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d66/classDevisesManager.html">DevisesManager</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d09/classCoursOHLCV.html">CoursOHLCV</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/d09/classCoursOHLCV.html" title="CoursOHLCV est la classe qui gère les cours d&#39;une paire de devise sur un jour attributs : open,...">CoursOHLCV</a> est la classe qui gère les cours d'une paire de devise sur un jour attributs : open, high, low, close, volume, date méthodees : getOpen, getLow, getHigh, getClose, getVolume, getDate méthodees : setCours, setVolume, setDate, forme, isBigBlackCandle, isBigWhiteCandle, isSpinningTop, isDoji, isDragonflyDoji, isGraveStoneDoji, isHanngingMan, isHammer, isInvertedHammer, isInvertedBlackHammer, isLongLowerShadow, isLongUpperShadow, isMarubozu, isShootingStar, isShavenBottom, isShavenHead.  <a href="../../df/d09/classCoursOHLCV.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">associé à une paire de devises et composé de ses cours, elle représente l'éevolution de la paire sur une période attributs : paire, indicateurCollection, filen, cours, nbCours, nbMaxCours méthodees : addCours, operator=, getNbCours, getPaireDevises, getCollection, getNomFichier, saveFile Remarques : possède un iterateur  <a href="../../d0/de6/classEvolutionCours.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/db0/classIndiceIndicateur.html">IndiceIndicateur</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">contient la valeure d'un indicateur sur une journée attributs : donnee, date méthodees : getIndice, getDate, setIndice, setDate, toString remarques : <a href="https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:introduction_to_technical_indicators_and_oscillators#momentum_oscillators">https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:introduction_to_technical_indicators_and_oscillators#momentum_oscillators</a>  <a href="../../d7/db0/classIndiceIndicateur.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html">Indicateur</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">classe abstraite pour les indicateurs attributs protégés : nom, evolutionCours, indices, nbIndicateur, nbMaxIndicateur méthodees : searchIndice méthodees virtuelles pures : generateIndice, setParameters, getParameters amitiés : <a class="el" href="../../d0/dc2/classIndicateurCollection.html" title="collection des indicateurs, ils appartiennent à un objet EvolutionCours méthodes : getIndicateur amit...">IndicateurCollection</a> Remarques : possède un iterateur  <a href="../../d9/d5b/classIndicateur.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d40/classEMA.html">EMA</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">l'indicateur <a class="el" href="../../d7/d40/classEMA.html" title="l&#39;indicateur EMA : Exponential Moving Average attributs : period méthodees : generateIndice,...">EMA</a> : Exponential Moving Average attributs : period méthodees : generateIndice, setParameters, getParameters amitiés : <a class="el" href="../../d0/dc2/classIndicateurCollection.html" title="collection des indicateurs, ils appartiennent à un objet EvolutionCours méthodes : getIndicateur amit...">IndicateurCollection</a>, <a class="el" href="../../de/dc7/classMACD.html" title="l&#39;indicateur MACD : Moving Average Convergence Divergence attributs : longPeriod, shortPeriod,...">MACD</a> Remarques : hérite de la classe <a class="el" href="../../d9/d5b/classIndicateur.html" title="classe abstraite pour les indicateurs attributs protégés : nom, evolutionCours, indices,...">Indicateur</a> <a href="https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp">https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp</a>  <a href="../../d7/d40/classEMA.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/dd4/classRSI.html">RSI</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">l'indicateur <a class="el" href="../../d2/dd4/classRSI.html" title="l&#39;indicateur RSI : Relative Strength Index attributs : lookbackPeriod, overboughtBound,...">RSI</a> : Relative Strength Index attributs : lookbackPeriod, overboughtBound, oversoldBound méthodees : generateIndice, setParameters, getParameters, setOverboughtBound, setOversoldBound, setLookbackPeriod amitiés : <a class="el" href="../../d0/dc2/classIndicateurCollection.html" title="collection des indicateurs, ils appartiennent à un objet EvolutionCours méthodes : getIndicateur amit...">IndicateurCollection</a> Remarques : hérite de la classe <a class="el" href="../../d9/d5b/classIndicateur.html" title="classe abstraite pour les indicateurs attributs protégés : nom, evolutionCours, indices,...">Indicateur</a> <a href="https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi">https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi</a>  <a href="../../d2/dd4/classRSI.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dc7/classMACD.html">MACD</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">l'indicateur <a class="el" href="../../de/dc7/classMACD.html" title="l&#39;indicateur MACD : Moving Average Convergence Divergence attributs : longPeriod, shortPeriod,...">MACD</a> : Moving Average Convergence Divergence attributs : longPeriod, shortPeriod, signalPeriod, signalLine, histogram méthodees : generateIndice, setParameters, getParameters amitiés : <a class="el" href="../../d0/dc2/classIndicateurCollection.html" title="collection des indicateurs, ils appartiennent à un objet EvolutionCours méthodes : getIndicateur amit...">IndicateurCollection</a> Remarques : hérite de la classe <a class="el" href="../../d9/d5b/classIndicateur.html" title="classe abstraite pour les indicateurs attributs protégés : nom, evolutionCours, indices,...">Indicateur</a> <a href="https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd">https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd</a>  <a href="../../de/dc7/classMACD.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc2/classIndicateurCollection.html">IndicateurCollection</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">collection des indicateurs, ils appartiennent à un objet <a class="el" href="../../d0/de6/classEvolutionCours.html" title="associé à une paire de devises et composé de ses cours, elle représente l&#39;éevolution de la paire sur ...">EvolutionCours</a> méthodes : getIndicateur amitiés : <a class="el" href="../../d0/de6/classEvolutionCours.html" title="associé à une paire de devises et composé de ses cours, elle représente l&#39;éevolution de la paire sur ...">EvolutionCours</a> Remarques : hérite de la classe <a class="el" href="../../d9/d5b/classIndicateur.html" title="classe abstraite pour les indicateurs attributs protégés : nom, evolutionCours, indices,...">Indicateur</a>  <a href="../../d0/dc2/classIndicateurCollection.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient le noyau de l'application. </p>
+<pre class="fragment">Contient les classes concernant les Devises : TradingException, Devise, PaireDevises, DevisesManager
+Contient les classes concernant les Cours : coursOHLCV, ListEvolutionCours, EvolutionCours
+Contient les classes concernant les Indicateurs : Indicateur, IndicateurCollection, IndiceIndicateur, EMA, MACD, RSI
+</pre> 
+<p class="definition">Définition dans le fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

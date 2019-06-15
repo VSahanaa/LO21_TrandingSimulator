@@ -1,0 +1,139 @@
+\hypertarget{classAddIndicateurDialog}{}\doxysection{Référence de la classe Add\+Indicateur\+Dialog}
+\label{classAddIndicateurDialog}\index{AddIndicateurDialog@{AddIndicateurDialog}}
+
+
+Q\+Object, hérite de Q\+Dialog, interface d\textquotesingle{}ajout d\textquotesingle{}indicateur attributs \+: ui, indicateur, evolution\+Cours méthodes publiques \+: \mbox{\hyperlink{classAddIndicateurDialog}{Add\+Indicateur\+Dialog}}, $\sim$\+Add\+Indicateur\+Dialog slots privés \+: on\+\_\+\+Add\+Indicateur\+Dialog\+\_\+accepted.  
+
+
+
+
+{\ttfamily \#include $<$addindicateurdialog.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Add\+Indicateur\+Dialog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/dc7/classAddIndicateurDialog}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAddIndicateurDialog_aed6362927d10886a53e38670f207c106}{Add\+Indicateur\+Dialog}} (Q\+String indicateur, \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$evolution\+Cours, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur explicite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAddIndicateurDialog_a184f0cf201289eb9d6a5896b3638e3bd}{$\sim$\+Add\+Indicateur\+Dialog}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Q\+Object, hérite de Q\+Dialog, interface d\textquotesingle{}ajout d\textquotesingle{}indicateur attributs \+: ui, indicateur, evolution\+Cours méthodes publiques \+: \mbox{\hyperlink{classAddIndicateurDialog}{Add\+Indicateur\+Dialog}}, $\sim$\+Add\+Indicateur\+Dialog slots privés \+: on\+\_\+\+Add\+Indicateur\+Dialog\+\_\+accepted. 
+
+Définition à la ligne 27 du fichier addindicateurdialog.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classAddIndicateurDialog_aed6362927d10886a53e38670f207c106}\label{classAddIndicateurDialog_aed6362927d10886a53e38670f207c106}} 
+\index{AddIndicateurDialog@{AddIndicateurDialog}!AddIndicateurDialog@{AddIndicateurDialog}}
+\index{AddIndicateurDialog@{AddIndicateurDialog}!AddIndicateurDialog@{AddIndicateurDialog}}
+\doxysubsubsection{\texorpdfstring{AddIndicateurDialog()}{AddIndicateurDialog()}}
+{\footnotesize\ttfamily Add\+Indicateur\+Dialog\+::\+Add\+Indicateur\+Dialog (\begin{DoxyParamCaption}\item[{Q\+String}]{indicateur,  }\item[{\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$}]{evolution\+Cours,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur explicite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em indicateur} & \+:Q\+String \\
+\hline
+{\em evolution\+Cours} & \+:Evolution\+Cours$\ast$ \\
+\hline
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 4 du fichier addindicateurdialog.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                                                                                                             :}
+\DoxyCodeLine{5     QDialog(parent), ui(\textcolor{keyword}{new} Ui::AddIndicateurDialog), indicateur(indicateur), evolutionCours(evolutionCours) \{}
+\DoxyCodeLine{6     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{7     \textcolor{keywordflow}{if}(indicateur == \textcolor{stringliteral}{"EMA"}) \{}
+\DoxyCodeLine{8         this-\/>setWindowTitle(\textcolor{stringliteral}{"EMA Parametre"});}
+\DoxyCodeLine{9         ui-\/>stackedWidget-\/>setCurrentIndex(0);}
+\DoxyCodeLine{10         ui-\/>pickEmaPeriod-\/>setMaximum(100);}
+\DoxyCodeLine{11         ui-\/>pickEmaPeriod-\/>setMinimum(0);}
+\DoxyCodeLine{12         ui-\/>pickEmaPeriod-\/>setValue(10);}
+\DoxyCodeLine{13         ui-\/>pickEmaPeriod-\/>setSuffix(\textcolor{stringliteral}{" jours"});}
+\DoxyCodeLine{14     \}}
+\DoxyCodeLine{15     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(indicateur == \textcolor{stringliteral}{"RSI"}) \{}
+\DoxyCodeLine{16         this-\/>setWindowTitle(\textcolor{stringliteral}{"RSI Parametres"});}
+\DoxyCodeLine{17         ui-\/>stackedWidget-\/>setCurrentIndex(1);}
+\DoxyCodeLine{18         ui-\/>pickLookbackPeriod-\/>setMaximum(100);}
+\DoxyCodeLine{19         ui-\/>pickLookbackPeriod-\/>setMinimum(0);}
+\DoxyCodeLine{20         ui-\/>pickLookbackPeriod-\/>setValue(10);}
+\DoxyCodeLine{21         ui-\/>pickLookbackPeriod-\/>setSuffix(\textcolor{stringliteral}{" jours"});}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         ui-\/>pickOverbought-\/>setMaximum(100);}
+\DoxyCodeLine{24         ui-\/>pickOverbought-\/>setMinimum(0);}
+\DoxyCodeLine{25         ui-\/>pickOverbought-\/>setValue(80);}
+\DoxyCodeLine{26         ui-\/>pickOverbought-\/>setSuffix(\textcolor{stringliteral}{" \%"});}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         ui-\/>pickOversold-\/>setMaximum(100);}
+\DoxyCodeLine{29         ui-\/>pickOversold-\/>setMinimum(0);}
+\DoxyCodeLine{30         ui-\/>pickOversold-\/>setValue(20);}
+\DoxyCodeLine{31         ui-\/>pickOversold-\/>setSuffix(\textcolor{stringliteral}{" \%"});}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (indicateur == \textcolor{stringliteral}{"MACD"}) \{}
+\DoxyCodeLine{34         this-\/>setWindowTitle(\textcolor{stringliteral}{"MACD Parametres"});}
+\DoxyCodeLine{35         ui-\/>stackedWidget-\/>setCurrentIndex(2);}
+\DoxyCodeLine{36         ui-\/>pickLongPeriod-\/>setMaximum(100);}
+\DoxyCodeLine{37         ui-\/>pickLongPeriod-\/>setMinimum(0);}
+\DoxyCodeLine{38         ui-\/>pickLongPeriod-\/>setValue(26);}
+\DoxyCodeLine{39         ui-\/>pickLongPeriod-\/>setSuffix(\textcolor{stringliteral}{" jours"});}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         ui-\/>pickShortPeriod-\/>setMaximum(100);}
+\DoxyCodeLine{42         ui-\/>pickShortPeriod-\/>setMinimum(0);}
+\DoxyCodeLine{43         ui-\/>pickShortPeriod-\/>setValue(12);}
+\DoxyCodeLine{44         ui-\/>pickShortPeriod-\/>setSuffix(\textcolor{stringliteral}{" jours"});}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         ui-\/>pickSignalPeriod-\/>setMaximum(100);}
+\DoxyCodeLine{47         ui-\/>pickSignalPeriod-\/>setMinimum(0);}
+\DoxyCodeLine{48         ui-\/>pickSignalPeriod-\/>setValue(9);}
+\DoxyCodeLine{49         ui-\/>pickSignalPeriod-\/>setSuffix(\textcolor{stringliteral}{" jours"});}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{52         QMessageBox::warning(\textcolor{keyword}{this}, \textcolor{stringliteral}{"Warning"}, \textcolor{stringliteral}{"Indicateur n'est pas encores implémenté"});}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAddIndicateurDialog_a184f0cf201289eb9d6a5896b3638e3bd}\label{classAddIndicateurDialog_a184f0cf201289eb9d6a5896b3638e3bd}} 
+\index{AddIndicateurDialog@{AddIndicateurDialog}!````~AddIndicateurDialog@{$\sim$AddIndicateurDialog}}
+\index{````~AddIndicateurDialog@{$\sim$AddIndicateurDialog}!AddIndicateurDialog@{AddIndicateurDialog}}
+\doxysubsubsection{\texorpdfstring{$\sim$AddIndicateurDialog()}{~AddIndicateurDialog()}}
+{\footnotesize\ttfamily Add\+Indicateur\+Dialog\+::$\sim$\+Add\+Indicateur\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 56 du fichier addindicateurdialog.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56                                           \{}
+\DoxyCodeLine{57     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{58 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Windows/addindicateurdialog.\+h\item 
+Windows/addindicateurdialog.\+cpp\end{DoxyCompactItemize}

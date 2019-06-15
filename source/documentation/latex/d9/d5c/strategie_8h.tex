@@ -1,0 +1,27 @@
+\hypertarget{strategie_8h}{}\doxysection{Référence du fichier Controller/strategie.h}
+\label{strategie_8h}\index{Controller/strategie.h@{Controller/strategie.h}}
+
+
+Contient les stratégies de trading.  
+
+
+{\ttfamily \#include \char`\"{}transaction.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classStrategie}{Strategie}}
+\begin{DoxyCompactList}\small\item\em classe mère abstraite pour ajouter des stratégies de trading attributs protégés \+: nom, evolution\+Cours méthodes virtuelles protégées \+: set\+Evolution\+Cours, \mbox{\hyperlink{classStrategie}{Strategie}} méthodes virtuelles \+: $\sim$\+Strategie, clone, get\+Nom, set\+Parameters, get\+Parameters, operator() amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} Remarques \+: seules les classes filles ou la classe \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} peut créer un objet de la classe duplication par recopie supprimée Fontionnement \+: le trading se base sur l\textquotesingle{}operator() qui retourne \+: \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMA__Strategie}{M\+A\+\_\+\+Strategie}}
+\begin{DoxyCompactList}\small\item\em herite de \mbox{\hyperlink{classStrategie}{Strategie}}, strategie basée sur l\textquotesingle{}\mbox{\hyperlink{classEMA}{E\+MA}} attributs \+: ema, ema\+\_\+\+Iterator méthodes privées \+: \mbox{\hyperlink{classMA__Strategie}{M\+A\+\_\+\+Strategie}} méthodes publiques \+: $\sim$\+M\+A\+\_\+\+Strategie clone, set\+Parameters, get\+Parameters, operator() amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classRSI__Strategie}{R\+S\+I\+\_\+\+Strategie}}
+\begin{DoxyCompactList}\small\item\em herite de \mbox{\hyperlink{classStrategie}{Strategie}}, strategie basée sur l\textquotesingle{}\mbox{\hyperlink{classRSI}{R\+SI}} attributs \+: rsi, rsi\+\_\+\+Iterator méthodes privées \+: \mbox{\hyperlink{classRSI__Strategie}{R\+S\+I\+\_\+\+Strategie}} méthodes publiques \+: $\sim$\+R\+S\+I\+\_\+\+Strategie, clone, set\+Parameters, get\+Parameters, operator() amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}}
+\begin{DoxyCompactList}\small\item\em se charge du prototype des \mbox{\hyperlink{classStrategie}{Strategie}} attributs \+: rsi, rsi\+\_\+\+Iterator méthodes privées \+: \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}}, $\sim$\+Strategie\+Factory méthodes publiques \+: get\+Strategie\+Factory, liberer\+Factory, get\+Strategie, liste\+Strategie amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} Remarques \+: design pattern singleton, et design pattern factory l\textquotesingle{}ajout d\textquotesingle{}une strategie provoque l\textquotesingle{}ajout de son nom au dictionnaire de stratégie la duplication est supprimée \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les stratégies de trading. 
+
+\begin{DoxyVerb}Contient les classes concernant les strategies
+\end{DoxyVerb}
+ 

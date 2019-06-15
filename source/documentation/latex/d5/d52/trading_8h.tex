@@ -1,0 +1,50 @@
+\hypertarget{trading_8h}{}\doxysection{Référence du fichier Core\+\_\+\+Devises/trading.h}
+\label{trading_8h}\index{Core\_Devises/trading.h@{Core\_Devises/trading.h}}
+
+
+Contient le noyau de l\textquotesingle{}application.  
+
+
+{\ttfamily \#include $<$Q\+String$>$}\newline
+{\ttfamily \#include $<$Q\+Date$>$}\newline
+{\ttfamily \#include $<$Q\+String\+List$>$}\newline
+{\ttfamily \#include $<$Q\+File$>$}\newline
+{\ttfamily \#include $<$Q\+Debug$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTradingException}{Trading\+Exception}}
+\begin{DoxyCompactList}\small\item\em Contient le message d\textquotesingle{}erreur. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classDevise}{Devise}}
+\begin{DoxyCompactList}\small\item\em Représente une devise attributs \+: code, monnaie, zone méthodees \+: get\+Code, get\+Monnaie, get\+Zone\+Geographique amitiéss \+: class \mbox{\hyperlink{classDeviseManager}{Devise\+Manager}} Remarques \+: constructeur privé et destructeur privé \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}}
+\begin{DoxyCompactList}\small\item\em Représente une paire de devise attributs \+: base, contrepartie, surnom méthodees \+: get\+Base, get\+Contrepartie, get\+Surnom amitiéss \+: class \mbox{\hyperlink{classDeviseManager}{Devise\+Manager}} Remarques \+: constructeur privé et destructeur privé \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classDevisesManager}{Devises\+Manager}}
+\item 
+class \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} est la classe qui gère les cours d\textquotesingle{}une paire de devise sur un jour attributs \+: open, high, low, close, volume, date méthodees \+: get\+Open, get\+Low, get\+High, get\+Close, get\+Volume, get\+Date méthodees \+: set\+Cours, set\+Volume, set\+Date, forme, is\+Big\+Black\+Candle, is\+Big\+White\+Candle, is\+Spinning\+Top, is\+Doji, is\+Dragonfly\+Doji, is\+Grave\+Stone\+Doji, is\+Hannging\+Man, is\+Hammer, is\+Inverted\+Hammer, is\+Inverted\+Black\+Hammer, is\+Long\+Lower\+Shadow, is\+Long\+Upper\+Shadow, is\+Marubozu, is\+Shooting\+Star, is\+Shaven\+Bottom, is\+Shaven\+Head. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}}
+\begin{DoxyCompactList}\small\item\em associé à une paire de devises et composé de ses cours, elle représente l\textquotesingle{}éevolution de la paire sur une période attributs \+: paire, indicateur\+Collection, filen, cours, nb\+Cours, nb\+Max\+Cours méthodees \+: add\+Cours, operator=, get\+Nb\+Cours, get\+Paire\+Devises, get\+Collection, get\+Nom\+Fichier, save\+File Remarques \+: possède un iterateur \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}}
+\begin{DoxyCompactList}\small\item\em contient la valeure d\textquotesingle{}un indicateur sur une journée attributs \+: donnee, date méthodees \+: get\+Indice, get\+Date, set\+Indice, set\+Date, to\+String remarques \+: \href{https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:introduction_to_technical_indicators_and_oscillators\#momentum_oscillators}{\texttt{ https\+://stockcharts.\+com/school/doku.\+php?id=chart\+\_\+school\+:technical\+\_\+indicators\+:introduction\+\_\+to\+\_\+technical\+\_\+indicators\+\_\+and\+\_\+oscillators\#momentum\+\_\+oscillators}} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classIndicateur}{Indicateur}}
+\begin{DoxyCompactList}\small\item\em classe abstraite pour les indicateurs attributs protégés \+: nom, evolution\+Cours, indices, nb\+Indicateur, nb\+Max\+Indicateur méthodees \+: search\+Indice méthodees virtuelles pures \+: generate\+Indice, set\+Parameters, get\+Parameters amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} Remarques \+: possède un iterateur \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classEMA}{E\+MA}}
+\begin{DoxyCompactList}\small\item\em l\textquotesingle{}indicateur \mbox{\hyperlink{classEMA}{E\+MA}} \+: Exponential Moving Average attributs \+: period méthodees \+: generate\+Indice, set\+Parameters, get\+Parameters amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}}, \mbox{\hyperlink{classMACD}{M\+A\+CD}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \href{https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp}{\texttt{ https\+://www.\+investopedia.\+com/ask/answers/122314/what-\/exponential-\/moving-\/average-\/ema-\/formula-\/and-\/how-\/ema-\/calculated.\+asp}} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classRSI}{R\+SI}}
+\begin{DoxyCompactList}\small\item\em l\textquotesingle{}indicateur \mbox{\hyperlink{classRSI}{R\+SI}} \+: Relative Strength Index attributs \+: lookback\+Period, overbought\+Bound, oversold\+Bound méthodees \+: generate\+Indice, set\+Parameters, get\+Parameters, set\+Overbought\+Bound, set\+Oversold\+Bound, set\+Lookback\+Period amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \href{https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi}{\texttt{ https\+://stockcharts.\+com/school/doku.\+php?id=chart\+\_\+school\+:technical\+\_\+indicators\+:relative\+\_\+strength\+\_\+index\+\_\+rsi}} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classMACD}{M\+A\+CD}}
+\begin{DoxyCompactList}\small\item\em l\textquotesingle{}indicateur \mbox{\hyperlink{classMACD}{M\+A\+CD}} \+: Moving Average Convergence Divergence attributs \+: long\+Period, short\+Period, signal\+Period, signal\+Line, histogram méthodees \+: generate\+Indice, set\+Parameters, get\+Parameters amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \href{https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd}{\texttt{ https\+://stockcharts.\+com/school/doku.\+php?id=chart\+\_\+school\+:technical\+\_\+indicators\+:moving\+\_\+average\+\_\+convergence\+\_\+divergence\+\_\+macd}} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}}
+\begin{DoxyCompactList}\small\item\em collection des indicateurs, ils appartiennent à un objet \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} méthodes \+: get\+Indicateur amitiés \+: \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient le noyau de l\textquotesingle{}application. 
+
+\begin{DoxyVerb}Contient les classes concernant les Devises : TradingException, Devise, PaireDevises, DevisesManager
+Contient les classes concernant les Cours : coursOHLCV, ListEvolutionCours, EvolutionCours
+Contient les classes concernant les Indicateurs : Indicateur, IndicateurCollection, IndiceIndicateur, EMA, MACD, RSI
+\end{DoxyVerb}
+ 

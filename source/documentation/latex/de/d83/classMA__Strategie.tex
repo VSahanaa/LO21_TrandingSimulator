@@ -1,0 +1,233 @@
+\hypertarget{classMA__Strategie}{}\doxysection{Référence de la classe M\+A\+\_\+\+Strategie}
+\label{classMA__Strategie}\index{MA\_Strategie@{MA\_Strategie}}
+
+
+herite de \mbox{\hyperlink{classStrategie}{Strategie}}, strategie basée sur l\textquotesingle{}\mbox{\hyperlink{classEMA}{E\+MA}} attributs \+: ema, ema\+\_\+\+Iterator méthodes privées \+: \mbox{\hyperlink{classMA__Strategie}{M\+A\+\_\+\+Strategie}} méthodes publiques \+: $\sim$\+M\+A\+\_\+\+Strategie clone, set\+Parameters, get\+Parameters, operator() amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}}  
+
+
+
+
+{\ttfamily \#include $<$strategie.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de M\+A\+\_\+\+Strategie\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/d83/classMA__Strategie}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMA__Strategie_a05317ffbebf6071c0c086d366c4a45e9}{$\sim$\+M\+A\+\_\+\+Strategie}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classStrategie}{Strategie}} $\ast$ \mbox{\hyperlink{classMA__Strategie_adbdad37efea98c7ca3b495cab005cf24}{clone}} ()
+\begin{DoxyCompactList}\small\item\em méthode clone \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMA__Strategie_a2590aa56ae2500bb5cc7dcac918f5333}{set\+Parameters}} (Q\+Map$<$ Q\+String, Q\+Variant $>$ parameters)
+\begin{DoxyCompactList}\small\item\em méthode virtuelle set\+Parameters \end{DoxyCompactList}\item 
+Q\+Map$<$ Q\+String, Q\+Variant $>$ \mbox{\hyperlink{classMA__Strategie_ad4f93f294662976c887ccce2d7103ea8}{get\+Parameters}} () const
+\begin{DoxyCompactList}\small\item\em méthode virtuelle get\+Parameters \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMA__Strategie_a5e94653915bbd5c7c9bd0812f8e4445a}{operator()}} (\mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} $\ast$transaction\+Manager, \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} current\+Cours)
+\begin{DoxyCompactList}\small\item\em méthode operator() \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMA__Strategie_ab9349ac55e42ff567235beef00c69774}{Strategie\+Factory}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Description détaillée}
+herite de \mbox{\hyperlink{classStrategie}{Strategie}}, strategie basée sur l\textquotesingle{}\mbox{\hyperlink{classEMA}{E\+MA}} attributs \+: ema, ema\+\_\+\+Iterator méthodes privées \+: \mbox{\hyperlink{classMA__Strategie}{M\+A\+\_\+\+Strategie}} méthodes publiques \+: $\sim$\+M\+A\+\_\+\+Strategie clone, set\+Parameters, get\+Parameters, operator() amitiéss \+: class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} 
+
+Définition à la ligne 105 du fichier strategie.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classMA__Strategie_a05317ffbebf6071c0c086d366c4a45e9}\label{classMA__Strategie_a05317ffbebf6071c0c086d366c4a45e9}} 
+\index{MA\_Strategie@{MA\_Strategie}!````~MA\_Strategie@{$\sim$MA\_Strategie}}
+\index{````~MA\_Strategie@{$\sim$MA\_Strategie}!MA\_Strategie@{MA\_Strategie}}
+\doxysubsubsection{\texorpdfstring{$\sim$MA\_Strategie()}{~MA\_Strategie()}}
+{\footnotesize\ttfamily M\+A\+\_\+\+Strategie\+::$\sim$\+M\+A\+\_\+\+Strategie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 113 du fichier strategie.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113 \{\textcolor{keyword}{delete} ema;\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classMA__Strategie_adbdad37efea98c7ca3b495cab005cf24}\label{classMA__Strategie_adbdad37efea98c7ca3b495cab005cf24}} 
+\index{MA\_Strategie@{MA\_Strategie}!clone@{clone}}
+\index{clone@{clone}!MA\_Strategie@{MA\_Strategie}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStrategie}{Strategie}} $\ast$ M\+A\+\_\+\+Strategie\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode clone 
+
+\begin{DoxyReturn}{Renvoie}
+Strategie$\ast$ \+: renvoie une réplique de la stratégie 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classStrategie_a9cc5ef655c5f3a50b3fb856683dbcaab}{Strategie}}.
+
+
+
+Définition à la ligne 39 du fichier strategie.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39                                \{}
+\DoxyCodeLine{40     \mbox{\hyperlink{classMA__Strategie}{MA\_Strategie}}* \mbox{\hyperlink{classMA__Strategie_adbdad37efea98c7ca3b495cab005cf24}{clone}} = \textcolor{keyword}{new} \mbox{\hyperlink{classMA__Strategie}{MA\_Strategie}}();}
+\DoxyCodeLine{41     \mbox{\hyperlink{classMA__Strategie_adbdad37efea98c7ca3b495cab005cf24}{clone}}-\/>ema = this-\/>ema;}
+\DoxyCodeLine{42     \mbox{\hyperlink{classMA__Strategie_adbdad37efea98c7ca3b495cab005cf24}{clone}}-\/>ema\_Iterator = this-\/>ema\_Iterator;}
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} \mbox{\hyperlink{classMA__Strategie_adbdad37efea98c7ca3b495cab005cf24}{clone}};}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMA__Strategie_ad4f93f294662976c887ccce2d7103ea8}\label{classMA__Strategie_ad4f93f294662976c887ccce2d7103ea8}} 
+\index{MA\_Strategie@{MA\_Strategie}!getParameters@{getParameters}}
+\index{getParameters@{getParameters}!MA\_Strategie@{MA\_Strategie}}
+\doxysubsubsection{\texorpdfstring{getParameters()}{getParameters()}}
+{\footnotesize\ttfamily Q\+Map$<$Q\+String, Q\+Variant$>$ M\+A\+\_\+\+Strategie\+::get\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+méthode virtuelle get\+Parameters 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+Map$<$\+Q\+String,\+Q\+Variant$>$ \+: donne les paramatres de la statégie 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classStrategie_aae4968364ecffbc4d9f0c20fec34a3f7}{Strategie}}.
+
+
+
+Définition à la ligne 129 du fichier strategie.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{129 \{\textcolor{keywordflow}{return} ema-\/>\mbox{\hyperlink{classEMA_a9cf9d2ca025967cdccf3c70a4b10e2f7}{getParameters}}();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMA__Strategie_a5e94653915bbd5c7c9bd0812f8e4445a}\label{classMA__Strategie_a5e94653915bbd5c7c9bd0812f8e4445a}} 
+\index{MA\_Strategie@{MA\_Strategie}!operator()@{operator()}}
+\index{operator()@{operator()}!MA\_Strategie@{MA\_Strategie}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily double M\+A\+\_\+\+Strategie\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} $\ast$}]{transaction\+Manager,  }\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{current\+Cours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode operator() 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: le montant de la transaction renvoie \+: -\/ un montant positif si la transaction à faire est un achat
+\begin{DoxyItemize}
+\item un montant négatif si la transaction à faire est une vente
+\item 0 s\textquotesingle{}il ne faut rien faire 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classStrategie_abfb19aa17e97514c7561b35290f0b5cf}{Strategie}}.
+
+
+
+Définition à la ligne 53 du fichier strategie.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53                                                                                                            \{}
+\DoxyCodeLine{54     \textcolor{keywordtype}{double} montantBase = transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}();}
+\DoxyCodeLine{55     \textcolor{keywordtype}{double} montantContrepartie = transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}();}
+\DoxyCodeLine{56     \textcolor{comment}{// move ema\_Iterator to current date}}
+\DoxyCodeLine{57     \textcolor{keywordflow}{while}(ema\_Iterator-\/>\mbox{\hyperlink{classIndiceIndicateur_a4542a6895a475ef3b9ba35c9c4dfb91c}{getDate}}() < currentCours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}()) \{}
+\DoxyCodeLine{58         ema\_Iterator++;}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60     \textcolor{keywordflow}{if}(ema\_Iterator-\/>\mbox{\hyperlink{classIndiceIndicateur_a4542a6895a475ef3b9ba35c9c4dfb91c}{getDate}}() > currentCours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}()) \{}
+\DoxyCodeLine{61         \textcolor{comment}{//hold until has enough indicateur data}}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64     \textcolor{comment}{// trading decision}}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} (currentCours-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}() > ema\_Iterator-\/>\mbox{\hyperlink{classIndiceIndicateur_ac8cb8f95d4647f942a6c928f4921bdbd}{getIndice}}() \&\& montantContrepartie > 0) \{}
+\DoxyCodeLine{66         \textcolor{comment}{//buy signal}}
+\DoxyCodeLine{67             \textcolor{keywordflow}{return} montantContrepartie;}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (currentCours-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}() < ema\_Iterator-\/>\mbox{\hyperlink{classIndiceIndicateur_ac8cb8f95d4647f942a6c928f4921bdbd}{getIndice}}() \&\& montantBase > 0)\{}
+\DoxyCodeLine{70         \textcolor{comment}{//sell signal}}
+\DoxyCodeLine{71         \textcolor{keywordflow}{return} -\/ montantBase;}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{74         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMA__Strategie_a2590aa56ae2500bb5cc7dcac918f5333}\label{classMA__Strategie_a2590aa56ae2500bb5cc7dcac918f5333}} 
+\index{MA\_Strategie@{MA\_Strategie}!setParameters@{setParameters}}
+\index{setParameters@{setParameters}!MA\_Strategie@{MA\_Strategie}}
+\doxysubsubsection{\texorpdfstring{setParameters()}{setParameters()}}
+{\footnotesize\ttfamily void M\+A\+\_\+\+Strategie\+::set\+Parameters (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, Q\+Variant $>$}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode virtuelle set\+Parameters 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Q\+Map$<$\+Q\+String,Q\+Variant$>$} & parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: modifie les paramatres 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classStrategie_a05c125dd608fca933f4fe4b6cb813207}{Strategie}}.
+
+
+
+Définition à la ligne 46 du fichier strategie.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46                                                                   \{}
+\DoxyCodeLine{47     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classStrategie_a1360218dcc49c85e255dbbe0cde05971}{evolutionCours}}) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"Strategie: Can not set parameters when evolutionCours is null"});}
+\DoxyCodeLine{48     ema = dynamic\_cast<EMA*>(\mbox{\hyperlink{classStrategie_a1360218dcc49c85e255dbbe0cde05971}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_a58d3d38badd602231b2d33f5cb38312f}{getCollection}}()-\/>\mbox{\hyperlink{classIndicateurCollection_a5bfad05cff39a29f70127a4db89fc0ff}{getIndicateur}}(\textcolor{stringliteral}{"EMA"}));}
+\DoxyCodeLine{49     ema -\/>\mbox{\hyperlink{classEMA_af9b0dbadfb8a1415344898a651b87e38}{setParameters}}(parameters);}
+\DoxyCodeLine{50     ema\_Iterator = ema-\/>\mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}();}
+\DoxyCodeLine{51 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions amies et associées}
+\mbox{\Hypertarget{classMA__Strategie_ab9349ac55e42ff567235beef00c69774}\label{classMA__Strategie_ab9349ac55e42ff567235beef00c69774}} 
+\index{MA\_Strategie@{MA\_Strategie}!StrategieFactory@{StrategieFactory}}
+\index{StrategieFactory@{StrategieFactory}!MA\_Strategie@{MA\_Strategie}}
+\doxysubsubsection{\texorpdfstring{StrategieFactory}{StrategieFactory}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+Déclaration d\textquotesingle{}amitié \+: \mbox{\hyperlink{classStrategieFactory}{Strategie\+Factory}} 
+
+Définition à la ligne 106 du fichier strategie.\+h.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{strategie_8h}{strategie.\+h}}\item 
+Controller/\mbox{\hyperlink{strategie_8cpp}{strategie.\+cpp}}\end{DoxyCompactItemize}

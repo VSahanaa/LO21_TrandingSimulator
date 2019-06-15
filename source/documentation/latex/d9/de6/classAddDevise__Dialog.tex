@@ -1,0 +1,115 @@
+\hypertarget{classAddDevise__Dialog}{}\doxysection{Référence de la classe Add\+Devise\+\_\+\+Dialog}
+\label{classAddDevise__Dialog}\index{AddDevise\_Dialog@{AddDevise\_Dialog}}
+
+
+Q\+Object, hérite de Q\+Dialog, interface d\textquotesingle{}ajout de devises attributs \+: ui, new\+Devise méthodes publiques \+: \mbox{\hyperlink{classAddDevise__Dialog}{Add\+Devise\+\_\+\+Dialog}}, $\sim$\+Add\+Devise\+\_\+\+Dialog, get\+New\+Devise slots privés \+: on\+\_\+\+Add\+Devise\+\_\+\+Dialog\+\_\+accepted.  
+
+
+
+
+{\ttfamily \#include $<$adddevise\+\_\+dialog.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Add\+Devise\+\_\+\+Dialog\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d9/de6/classAddDevise__Dialog}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAddDevise__Dialog_abbcb7f5ccf741301a7437eca3cf449da}{Add\+Devise\+\_\+\+Dialog}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur explicite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAddDevise__Dialog_a76fab112b0fed40ea21e322b77c05897}{$\sim$\+Add\+Devise\+\_\+\+Dialog}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classDevise}{Devise}} $\ast$ \mbox{\hyperlink{classAddDevise__Dialog_ab54cdfcb88f09bfc1a74c7f3e84d822c}{get\+New\+Devise}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+New\+Devise \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Q\+Object, hérite de Q\+Dialog, interface d\textquotesingle{}ajout de devises attributs \+: ui, new\+Devise méthodes publiques \+: \mbox{\hyperlink{classAddDevise__Dialog}{Add\+Devise\+\_\+\+Dialog}}, $\sim$\+Add\+Devise\+\_\+\+Dialog, get\+New\+Devise slots privés \+: on\+\_\+\+Add\+Devise\+\_\+\+Dialog\+\_\+accepted. 
+
+Définition à la ligne 28 du fichier adddevise\+\_\+dialog.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classAddDevise__Dialog_abbcb7f5ccf741301a7437eca3cf449da}\label{classAddDevise__Dialog_abbcb7f5ccf741301a7437eca3cf449da}} 
+\index{AddDevise\_Dialog@{AddDevise\_Dialog}!AddDevise\_Dialog@{AddDevise\_Dialog}}
+\index{AddDevise\_Dialog@{AddDevise\_Dialog}!AddDevise\_Dialog@{AddDevise\_Dialog}}
+\doxysubsubsection{\texorpdfstring{AddDevise\_Dialog()}{AddDevise\_Dialog()}}
+{\footnotesize\ttfamily Add\+Devise\+\_\+\+Dialog\+::\+Add\+Devise\+\_\+\+Dialog (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur explicite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 4 du fichier adddevise\+\_\+dialog.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                                                   : QDialog(parent), ui(\textcolor{keyword}{new} Ui::AddDevise\_Dialog) \{}
+\DoxyCodeLine{5     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{6     this-\/>setWindowTitle(\textcolor{stringliteral}{"Add Devise"});}
+\DoxyCodeLine{7 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classAddDevise__Dialog_a76fab112b0fed40ea21e322b77c05897}\label{classAddDevise__Dialog_a76fab112b0fed40ea21e322b77c05897}} 
+\index{AddDevise\_Dialog@{AddDevise\_Dialog}!````~AddDevise\_Dialog@{$\sim$AddDevise\_Dialog}}
+\index{````~AddDevise\_Dialog@{$\sim$AddDevise\_Dialog}!AddDevise\_Dialog@{AddDevise\_Dialog}}
+\doxysubsubsection{\texorpdfstring{$\sim$AddDevise\_Dialog()}{~AddDevise\_Dialog()}}
+{\footnotesize\ttfamily Add\+Devise\+\_\+\+Dialog\+::$\sim$\+Add\+Devise\+\_\+\+Dialog (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 9 du fichier adddevise\+\_\+dialog.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9                                     \{}
+\DoxyCodeLine{10     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{11 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classAddDevise__Dialog_ab54cdfcb88f09bfc1a74c7f3e84d822c}\label{classAddDevise__Dialog_ab54cdfcb88f09bfc1a74c7f3e84d822c}} 
+\index{AddDevise\_Dialog@{AddDevise\_Dialog}!getNewDevise@{getNewDevise}}
+\index{getNewDevise@{getNewDevise}!AddDevise\_Dialog@{AddDevise\_Dialog}}
+\doxysubsubsection{\texorpdfstring{getNewDevise()}{getNewDevise()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classDevise}{Devise}}$\ast$ Add\+Devise\+\_\+\+Dialog\+::get\+New\+Devise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+New\+Devise 
+
+\begin{DoxyReturn}{Renvoie}
+const Devise$\ast$ \+: renvoie la valeur de l\textquotesingle{}attribut new\+Devise 
+\end{DoxyReturn}
+
+
+Définition à la ligne 42 du fichier adddevise\+\_\+dialog.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \{\textcolor{keywordflow}{return} newDevise;\}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Windows/\mbox{\hyperlink{adddevise__dialog_8h}{adddevise\+\_\+dialog.\+h}}\item 
+Windows/adddevise\+\_\+dialog.\+cpp\end{DoxyCompactItemize}

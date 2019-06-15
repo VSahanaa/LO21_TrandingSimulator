@@ -1,0 +1,523 @@
+\hypertarget{classEvolutionCours}{}\doxysection{Référence de la classe Evolution\+Cours}
+\label{classEvolutionCours}\index{EvolutionCours@{EvolutionCours}}
+
+
+associé à une paire de devises et composé de ses cours, elle représente l\textquotesingle{}éevolution de la paire sur une période attributs \+: paire, indicateur\+Collection, filen, cours, nb\+Cours, nb\+Max\+Cours méthodees \+: add\+Cours, operator=, get\+Nb\+Cours, get\+Paire\+Devises, get\+Collection, get\+Nom\+Fichier, save\+File Remarques \+: possède un iterateur  
+
+
+
+
+{\ttfamily \#include $<$trading.\+h$>$}
+
+\doxysubsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{iterator}} = \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$
+\item 
+using \mbox{\hyperlink{classEvolutionCours_ace29a257fde29946b7000003584ba47b}{const\+\_\+iterator}} = const \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEvolutionCours_a95a629cafc7f7f0ffa3e2a599da92107}{Evolution\+Cours}} (const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} \&paire)
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours_ad709c6c8ff7f55e21e08cbe8077cd6af}{Evolution\+Cours}} (const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} \&pair, Q\+String filename)
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours_a30626b48902c98a83aa579ab4d91fed0}{$\sim$\+Evolution\+Cours}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours_aa14a4bb126f46b29d393a7a448948929}{Evolution\+Cours}} (const \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} \&evolution\+Cours)
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEvolutionCours_a95bf0c5f4abc92e818295f43d46faa52}{add\+Cours}} (double open, double high, double low, double close, unsigned int volume, const Q\+Date \&date)
+\begin{DoxyCompactList}\small\item\em méthode add\+Cours ; ajoute un cours au tableau \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} \& \mbox{\hyperlink{classEvolutionCours_af3e2993526793ddd7e9db664776c7c8e}{operator=}} (const \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} \&evolution\+Cours)
+\begin{DoxyCompactList}\small\item\em méthode operator= \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classEvolutionCours_aa8abf863c4a64622bf46d201b5aa691e}{get\+Nb\+Cours}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Nb\+Cours \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} $\ast$ \mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{get\+Paire\+Devises}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Paire\+Devises \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} $\ast$ \mbox{\hyperlink{classEvolutionCours_a58d3d38badd602231b2d33f5cb38312f}{get\+Collection}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Collection \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{classEvolutionCours_af36ff85ab30dc5b7e4b0371d0b0f83e3}{get\+Nom\+Fichier}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Nom\+Fichier \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{iterator}} \mbox{\hyperlink{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}{begin}} ()
+\begin{DoxyCompactList}\small\item\em méthode begin \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{iterator}} \mbox{\hyperlink{classEvolutionCours_aca20c7a08667b3e14b03380957b973ea}{end}} ()
+\begin{DoxyCompactList}\small\item\em méthode end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours_ace29a257fde29946b7000003584ba47b}{const\+\_\+iterator}} \mbox{\hyperlink{classEvolutionCours_afcc75c25b16bdd9803daa5c7cec6c604}{cbegin}} () const
+\begin{DoxyCompactList}\small\item\em méthode begin \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours_ace29a257fde29946b7000003584ba47b}{const\+\_\+iterator}} \mbox{\hyperlink{classEvolutionCours_a19ca09190665079e5a0a419d799d5dca}{cend}} () const
+\begin{DoxyCompactList}\small\item\em méthode end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{iterator}} \mbox{\hyperlink{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}{search\+Cours}} (Q\+Date date)
+\begin{DoxyCompactList}\small\item\em méthode search\+Cours \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+associé à une paire de devises et composé de ses cours, elle représente l\textquotesingle{}éevolution de la paire sur une période attributs \+: paire, indicateur\+Collection, filen, cours, nb\+Cours, nb\+Max\+Cours méthodees \+: add\+Cours, operator=, get\+Nb\+Cours, get\+Paire\+Devises, get\+Collection, get\+Nom\+Fichier, save\+File Remarques \+: possède un iterateur 
+
+
+\begin{DoxyItemize}
+\item iterator qui correspond à Cours\+O\+H\+L\+C\+V$\ast$
+\item const\+\_\+iterator qui correspond à const Cours\+O\+H\+L\+C\+V$\ast$ avec les méthodes \+: begin, end, searchcours associées 
+\end{DoxyItemize}
+
+Définition à la ligne 396 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des définitions de type membres}
+\mbox{\Hypertarget{classEvolutionCours_ace29a257fde29946b7000003584ba47b}\label{classEvolutionCours_ace29a257fde29946b7000003584ba47b}} 
+\index{EvolutionCours@{EvolutionCours}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classEvolutionCours_ace29a257fde29946b7000003584ba47b}{Evolution\+Cours\+::const\+\_\+iterator}} =  const \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}}$\ast$}
+
+const\+\_\+iterator correspond à const cours\+O\+H\+L\+C\+V$\ast$ 
+
+Définition à la ligne 473 du fichier trading.\+h.
+
+\mbox{\Hypertarget{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}\label{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}} 
+\index{EvolutionCours@{EvolutionCours}!iterator@{iterator}}
+\index{iterator@{iterator}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} =  \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}}$\ast$}
+
+iterator correspond à cours\+O\+H\+L\+C\+V$\ast$ 
+
+Définition à la ligne 462 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classEvolutionCours_a95a629cafc7f7f0ffa3e2a599da92107}\label{classEvolutionCours_a95a629cafc7f7f0ffa3e2a599da92107}} 
+\index{EvolutionCours@{EvolutionCours}!EvolutionCours@{EvolutionCours}}
+\index{EvolutionCours@{EvolutionCours}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{EvolutionCours()}{EvolutionCours()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Evolution\+Cours\+::\+Evolution\+Cours (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} \&}]{paire }\end{DoxyParamCaption})}
+
+
+
+constructeur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em paire} & \+:const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}}\& \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 283 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{283 :paire(\&paire) \{ indicateurCollection = \textcolor{keyword}{new} \mbox{\hyperlink{classIndicateurCollection}{IndicateurCollection}}(\textcolor{keyword}{this});\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_ad709c6c8ff7f55e21e08cbe8077cd6af}\label{classEvolutionCours_ad709c6c8ff7f55e21e08cbe8077cd6af}} 
+\index{EvolutionCours@{EvolutionCours}!EvolutionCours@{EvolutionCours}}
+\index{EvolutionCours@{EvolutionCours}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{EvolutionCours()}{EvolutionCours()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Evolution\+Cours\+::\+Evolution\+Cours (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} \&}]{pair,  }\item[{Q\+String}]{filename }\end{DoxyParamCaption})}
+
+
+
+constructeur 
+
+constructeur pour charger les cours d\textquotesingle{}un fichier csv 
+\begin{DoxyParams}{Paramètres}
+{\em pair} & \+:const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}}\& \\
+\hline
+{\em filename} & Q\+String \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 285 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{285                                                                          \{}
+\DoxyCodeLine{286     paire = \&pair;}
+\DoxyCodeLine{287     filen = filename;}
+\DoxyCodeLine{288     QDate date;}
+\DoxyCodeLine{289     \textcolor{keywordtype}{double} open, high, close, low;}
+\DoxyCodeLine{290     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} volume;}
+\DoxyCodeLine{291     QFile file(filen);}
+\DoxyCodeLine{292     QStringList wordlist;}
+\DoxyCodeLine{293         \textcolor{keywordflow}{if} (!file.open(QIODevice::ReadOnly)) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"Fichier invalid"});}
+\DoxyCodeLine{294         QString line = file.readLine();            \textcolor{comment}{//avoid legendre}}
+\DoxyCodeLine{295         \textcolor{keywordflow}{while} (!file.atEnd()) \{}
+\DoxyCodeLine{296             line = file.readLine();}
+\DoxyCodeLine{297             wordlist = line.split(\textcolor{charliteral}{','});}
+\DoxyCodeLine{298             \textcolor{comment}{//qDebug() << wordlist;}}
+\DoxyCodeLine{299             date = QDate::fromString(wordlist.at(0), \textcolor{stringliteral}{"yyyy-\/MM-\/dd"});}
+\DoxyCodeLine{300             \textcolor{comment}{//qDebug() << date.toString();}}
+\DoxyCodeLine{301             open = wordlist.at(1).toDouble();}
+\DoxyCodeLine{302             high = wordlist.at(2).toDouble();}
+\DoxyCodeLine{303             low = wordlist.at(3).toDouble();}
+\DoxyCodeLine{304             close = wordlist.at(4).toDouble();}
+\DoxyCodeLine{305             volume = static\_cast<unsigned>(wordlist.at(6).toInt());}
+\DoxyCodeLine{306             \mbox{\hyperlink{classEvolutionCours_a95bf0c5f4abc92e818295f43d46faa52}{addCours}}(open, high, low, close, volume, date);}
+\DoxyCodeLine{307         \}}
+\DoxyCodeLine{308         file.close();}
+\DoxyCodeLine{309         indicateurCollection = \textcolor{keyword}{new} \mbox{\hyperlink{classIndicateurCollection}{IndicateurCollection}}(\textcolor{keyword}{this});  \textcolor{comment}{//initalize collection}}
+\DoxyCodeLine{310 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_a30626b48902c98a83aa579ab4d91fed0}\label{classEvolutionCours_a30626b48902c98a83aa579ab4d91fed0}} 
+\index{EvolutionCours@{EvolutionCours}!````~EvolutionCours@{$\sim$EvolutionCours}}
+\index{````~EvolutionCours@{$\sim$EvolutionCours}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{$\sim$EvolutionCours()}{~EvolutionCours()}}
+{\footnotesize\ttfamily Evolution\+Cours\+::$\sim$\+Evolution\+Cours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+destructor 
+
+
+
+Définition à la ligne 330 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{330                                 \{}
+\DoxyCodeLine{331     \textcolor{keyword}{delete}[] cours;}
+\DoxyCodeLine{332 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_aa14a4bb126f46b29d393a7a448948929}\label{classEvolutionCours_aa14a4bb126f46b29d393a7a448948929}} 
+\index{EvolutionCours@{EvolutionCours}!EvolutionCours@{EvolutionCours}}
+\index{EvolutionCours@{EvolutionCours}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{EvolutionCours()}{EvolutionCours()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Evolution\+Cours\+::\+Evolution\+Cours (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} \&}]{evolution\+Cours }\end{DoxyParamCaption})}
+
+
+
+constructeur 
+
+duplication par recopie 
+\begin{DoxyParams}{Paramètres}
+{\em evolution\+Cours} & \+:const \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}}\& \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 334 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{334                                                                    :}
+\DoxyCodeLine{335     paire(evolutionCours.paire),}
+\DoxyCodeLine{336     cours(\textcolor{keyword}{new} \mbox{\hyperlink{classCoursOHLCV}{CoursOHLCV}}[evolutionCours.nbCours]),}
+\DoxyCodeLine{337     nbCours(evolutionCours.nbCours),}
+\DoxyCodeLine{338     nbMaxCours(evolutionCours.nbCours) \{}
+\DoxyCodeLine{339     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < nbCours; i++) cours[i] = evolutionCours.cours[i];}
+\DoxyCodeLine{340 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classEvolutionCours_a95bf0c5f4abc92e818295f43d46faa52}\label{classEvolutionCours_a95bf0c5f4abc92e818295f43d46faa52}} 
+\index{EvolutionCours@{EvolutionCours}!addCours@{addCours}}
+\index{addCours@{addCours}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{addCours()}{addCours()}}
+{\footnotesize\ttfamily void Evolution\+Cours\+::add\+Cours (\begin{DoxyParamCaption}\item[{double}]{open,  }\item[{double}]{high,  }\item[{double}]{low,  }\item[{double}]{close,  }\item[{unsigned int}]{volume,  }\item[{const Q\+Date \&}]{date }\end{DoxyParamCaption})}
+
+
+
+méthode add\+Cours ; ajoute un cours au tableau 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em open} & \+:double \textbackslash{}parma high \+:double \\
+\hline
+{\em low} & \+:double \\
+\hline
+{\em close} & \+:double \\
+\hline
+{\em volume} & \+:unsigned int \\
+\hline
+{\em date} & \+:Q\+Date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Définition à la ligne 312 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{312                                                                                                                         \{}
+\DoxyCodeLine{313     \textcolor{keywordflow}{if} (nbMaxCours == nbCours) \{ \textcolor{comment}{// agrandissement du tableau}}
+\DoxyCodeLine{314         \mbox{\hyperlink{classCoursOHLCV}{CoursOHLCV}}* newTable = \textcolor{keyword}{new} \mbox{\hyperlink{classCoursOHLCV}{CoursOHLCV}}[nbMaxCours + 100];}
+\DoxyCodeLine{315         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < nbCours; i++) newTable[i] = cours[i];}
+\DoxyCodeLine{316         \textcolor{comment}{// mise à jour des attributs}}
+\DoxyCodeLine{317         \mbox{\hyperlink{classCoursOHLCV}{CoursOHLCV}}* old = cours;}
+\DoxyCodeLine{318         cours = newTable;}
+\DoxyCodeLine{319         nbMaxCours += 100;}
+\DoxyCodeLine{320         \textcolor{keyword}{delete}[] old; \textcolor{comment}{// destruction de l'ancien tableau}}
+\DoxyCodeLine{321     \}}
+\DoxyCodeLine{322     \textcolor{comment}{// ajout du cours}}
+\DoxyCodeLine{323     cours[nbCours].\mbox{\hyperlink{classCoursOHLCV_ae03064112b77b14e36602c3fafdd86de}{setCours}}(open, high, low, close);}
+\DoxyCodeLine{324     cours[nbCours].\mbox{\hyperlink{classCoursOHLCV_ac827ceed2df5268f8b17e60de797ddc3}{setVolume}}(volume);}
+\DoxyCodeLine{325     cours[nbCours].\mbox{\hyperlink{classCoursOHLCV_ab39997e3ba46a2ddbb3da73722bbc395}{setDate}}(date);}
+\DoxyCodeLine{326     qDebug() << open <<\textcolor{stringliteral}{" "} <<high<< \textcolor{stringliteral}{" "}<< low <<\textcolor{stringliteral}{" "}<<close<<\textcolor{stringliteral}{" "}<<volume<<date.toString(\textcolor{stringliteral}{"yyyy-\/MM-\/dd"});}
+\DoxyCodeLine{327     nbCours++;}
+\DoxyCodeLine{328 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}\label{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}} 
+\index{EvolutionCours@{EvolutionCours}!begin@{begin}}
+\index{begin@{begin}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{iterator}} Evolution\+Cours\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode begin 
+
+\begin{DoxyReturn}{Renvoie}
+iterator \+: la valeur du pointeur du premier cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 467 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{467 \{ \textcolor{keywordflow}{return} cours; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_afcc75c25b16bdd9803daa5c7cec6c604}\label{classEvolutionCours_afcc75c25b16bdd9803daa5c7cec6c604}} 
+\index{EvolutionCours@{EvolutionCours}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours_ace29a257fde29946b7000003584ba47b}{const\+\_\+iterator}} Evolution\+Cours\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode begin 
+
+\begin{DoxyReturn}{Renvoie}
+const\+\_\+iterator \+: la valeur du pointeur const du premier cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 478 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{478 \{ \textcolor{keywordflow}{return} cours; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_a19ca09190665079e5a0a419d799d5dca}\label{classEvolutionCours_a19ca09190665079e5a0a419d799d5dca}} 
+\index{EvolutionCours@{EvolutionCours}!cend@{cend}}
+\index{cend@{cend}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours_ace29a257fde29946b7000003584ba47b}{const\+\_\+iterator}} Evolution\+Cours\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode end 
+
+\begin{DoxyReturn}{Renvoie}
+const\+\_\+iterator \+: pointeur constant vers la fin de la table de Cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 483 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{483 \{ \textcolor{keywordflow}{return} cours + nbCours; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_aca20c7a08667b3e14b03380957b973ea}\label{classEvolutionCours_aca20c7a08667b3e14b03380957b973ea}} 
+\index{EvolutionCours@{EvolutionCours}!end@{end}}
+\index{end@{end}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{iterator}} Evolution\+Cours\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode end 
+
+\begin{DoxyReturn}{Renvoie}
+iterator \+: pointe vers la fin de la table de Cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 472 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{472 \{ \textcolor{keywordflow}{return} cours + nbCours; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_a58d3d38badd602231b2d33f5cb38312f}\label{classEvolutionCours_a58d3d38badd602231b2d33f5cb38312f}} 
+\index{EvolutionCours@{EvolutionCours}!getCollection@{getCollection}}
+\index{getCollection@{getCollection}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{getCollection()}{getCollection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}}$\ast$ Evolution\+Cours\+::get\+Collection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Collection 
+
+\begin{DoxyReturn}{Renvoie}
+Indicateur\+Collection$\ast$ \+: la valeur de l\textquotesingle{}attribut indicateur\+Collection 
+\end{DoxyReturn}
+
+
+Définition à la ligne 455 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{455 \{\textcolor{keywordflow}{return} indicateurCollection;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_aa8abf863c4a64622bf46d201b5aa691e}\label{classEvolutionCours_aa8abf863c4a64622bf46d201b5aa691e}} 
+\index{EvolutionCours@{EvolutionCours}!getNbCours@{getNbCours}}
+\index{getNbCours@{getNbCours}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{getNbCours()}{getNbCours()}}
+{\footnotesize\ttfamily unsigned int Evolution\+Cours\+::get\+Nb\+Cours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Nb\+Cours 
+
+\begin{DoxyReturn}{Renvoie}
+unsigned int \+: la valeur de l\textquotesingle{}attribut Nb\+Cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 445 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{445 \{ \textcolor{keywordflow}{return} nbCours; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_af36ff85ab30dc5b7e4b0371d0b0f83e3}\label{classEvolutionCours_af36ff85ab30dc5b7e4b0371d0b0f83e3}} 
+\index{EvolutionCours@{EvolutionCours}!getNomFichier@{getNomFichier}}
+\index{getNomFichier@{getNomFichier}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{getNomFichier()}{getNomFichier()}}
+{\footnotesize\ttfamily const Q\+String\& Evolution\+Cours\+::get\+Nom\+Fichier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Nom\+Fichier 
+
+\begin{DoxyReturn}{Renvoie}
+const Q\+String\&$\ast$ \+: la valeur de l\textquotesingle{}attribut filen 
+\end{DoxyReturn}
+
+
+Définition à la ligne 460 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{460 \{\textcolor{keywordflow}{return} filen;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}\label{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}} 
+\index{EvolutionCours@{EvolutionCours}!getPaireDevises@{getPaireDevises}}
+\index{getPaireDevises@{getPaireDevises}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{getPaireDevises()}{getPaireDevises()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}}$\ast$ Evolution\+Cours\+::get\+Paire\+Devises (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Paire\+Devises 
+
+\begin{DoxyReturn}{Renvoie}
+const Paire\+Devises$\ast$ \+: la valeur de l\textquotesingle{}attribut paire 
+\end{DoxyReturn}
+
+
+Définition à la ligne 450 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{450 \{ \textcolor{keywordflow}{return} paire; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_af3e2993526793ddd7e9db664776c7c8e}\label{classEvolutionCours_af3e2993526793ddd7e9db664776c7c8e}} 
+\index{EvolutionCours@{EvolutionCours}!operator=@{operator=}}
+\index{operator=@{operator=}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} \& Evolution\+Cours\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} \&}]{evolution\+Cours }\end{DoxyParamCaption})}
+
+
+
+méthode operator= 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em evolution\+Cours} & \+:const \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}}\& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}}\& \+: duplication par affectation 
+\end{DoxyReturn}
+
+
+Définition à la ligne 342 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{342                                                                               \{}
+\DoxyCodeLine{343     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != \&evolutionCours) \{ \textcolor{comment}{// se protéger de l'ato-\/affectation}}
+\DoxyCodeLine{344         paire = evolutionCours.paire;}
+\DoxyCodeLine{345         nbCours = 0;}
+\DoxyCodeLine{346         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < evolutionCours.nbCours; i++)}
+\DoxyCodeLine{347             \mbox{\hyperlink{classEvolutionCours_a95bf0c5f4abc92e818295f43d46faa52}{addCours}}(evolutionCours.cours[i].\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}(), evolutionCours.cours[i].\mbox{\hyperlink{classCoursOHLCV_ae43477ab486323cfccd61345c9b52f6c}{getHigh}}(),evolutionCours.cours[i].\mbox{\hyperlink{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}{getLow}}(), evolutionCours.cours[i].\mbox{\hyperlink{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}{getClose}}(), evolutionCours.cours[i].\mbox{\hyperlink{classCoursOHLCV_adc37cdb28c9c41b7f8e870d80c0c9fb8}{getVolume}}(), evolutionCours.cours[i].\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}());}
+\DoxyCodeLine{348     \}}
+\DoxyCodeLine{349     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{350 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}\label{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}} 
+\index{EvolutionCours@{EvolutionCours}!searchCours@{searchCours}}
+\index{searchCours@{searchCours}!EvolutionCours@{EvolutionCours}}
+\doxysubsubsection{\texorpdfstring{searchCours()}{searchCours()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} Evolution\+Cours\+::search\+Cours (\begin{DoxyParamCaption}\item[{Q\+Date}]{date }\end{DoxyParamCaption})}
+
+
+
+méthode search\+Cours 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em date} & \+:Qdate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+iterator \+: la valeur du pointeur du cours correspondant à la date si elle existe et nullptr, sinon. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 352 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{352                                                              \{}
+\DoxyCodeLine{353         \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{iterator}} coursIterator = \mbox{\hyperlink{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}{begin}}();}
+\DoxyCodeLine{354         \textcolor{keywordflow}{while}(coursIterator \&\& coursIterator != \mbox{\hyperlink{classEvolutionCours_aca20c7a08667b3e14b03380957b973ea}{end}}()) \{}
+\DoxyCodeLine{355             \textcolor{keywordflow}{if}(coursIterator-\/>getDate() >= date) \{}
+\DoxyCodeLine{356                 \textcolor{keywordflow}{return} coursIterator;}
+\DoxyCodeLine{357             \}}
+\DoxyCodeLine{358             coursIterator++;}
+\DoxyCodeLine{359         \}}
+\DoxyCodeLine{360         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{361 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8h}{trading.\+h}}\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8cpp}{trading.\+cpp}}\end{DoxyCompactItemize}

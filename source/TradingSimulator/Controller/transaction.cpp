@@ -1,3 +1,8 @@
+/**
+ * \file 	transaction.cpp
+ * \brief 	Definit les méthodes des classes concernant les transactions
+ *
+ */
 #include "transaction.h"
 
 /*----------------------------------- Methodes de classe TransactionManager --------------------------------------*/

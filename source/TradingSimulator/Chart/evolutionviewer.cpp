@@ -1,3 +1,7 @@
+/**
+ * \file 	evolutionviewer.cpp
+ * \brief 	Definit les classes Bougie, EvolutionViewer, VolumeViewer
+ */
 #include "evolutionviewer.h"
 
 EvolutionViewer::EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget* parent) : QWidget (parent), evolutionCours(evolutionCours), currentCours(currentCours) {

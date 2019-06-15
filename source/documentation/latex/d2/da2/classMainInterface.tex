@@ -1,0 +1,118 @@
+\hypertarget{classMainInterface}{}\doxysection{Référence de la classe Main\+Interface}
+\label{classMainInterface}\index{MainInterface@{MainInterface}}
+
+
+Q\+Object, hérite de Q\+Widget, interface principal pour les simulations attributs \+: note méthodes publiques \+: \mbox{\hyperlink{classNoteItem}{Note\+Item}}, get\+Note.  
+
+
+
+
+{\ttfamily \#include $<$maininterface.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Main\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/da2/classMainInterface}
+\end{center}
+\end{figure}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMainInterface_a31ef730dafa0ea67da5250c97454a9b8}{give\+Name}} (Q\+String nom)
+\begin{DoxyCompactList}\small\item\em Signal give\+Name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMainInterface_a41967d79b321a8954ca0b801f237fc78}{Main\+Interface}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur explicite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMainInterface_a30816483adcca651a0a01a232749e8ea}{$\sim$\+Main\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Q\+Object, hérite de Q\+Widget, interface principal pour les simulations attributs \+: note méthodes publiques \+: \mbox{\hyperlink{classNoteItem}{Note\+Item}}, get\+Note. 
+
+Définition à la ligne 56 du fichier maininterface.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classMainInterface_a41967d79b321a8954ca0b801f237fc78}\label{classMainInterface_a41967d79b321a8954ca0b801f237fc78}} 
+\index{MainInterface@{MainInterface}!MainInterface@{MainInterface}}
+\index{MainInterface@{MainInterface}!MainInterface@{MainInterface}}
+\doxysubsubsection{\texorpdfstring{MainInterface()}{MainInterface()}}
+{\footnotesize\ttfamily Main\+Interface\+::\+Main\+Interface (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur explicite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 4 du fichier maininterface.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                                             : QWidget(parent), ui(\textcolor{keyword}{new} Ui::MainInterface) \{}
+\DoxyCodeLine{5     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{6     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{7     QStringList listSavedSimulation = simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a402f082a4514f4fdb72ef9dbad65e4c5}{listSavedSimulation}}();}
+\DoxyCodeLine{8     ui-\/>listSimulation-\/>addItems(listSavedSimulation);}
+\DoxyCodeLine{9 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMainInterface_a30816483adcca651a0a01a232749e8ea}\label{classMainInterface_a30816483adcca651a0a01a232749e8ea}} 
+\index{MainInterface@{MainInterface}!````~MainInterface@{$\sim$MainInterface}}
+\index{````~MainInterface@{$\sim$MainInterface}!MainInterface@{MainInterface}}
+\doxysubsubsection{\texorpdfstring{$\sim$MainInterface()}{~MainInterface()}}
+{\footnotesize\ttfamily Main\+Interface\+::$\sim$\+Main\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 11 du fichier maininterface.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11                               \{}
+\DoxyCodeLine{12     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{13     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{14     simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a20d327dbdbfd692c7998742c40437cc5}{removeSimulation}}(simulation);}
+\DoxyCodeLine{15 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classMainInterface_a31ef730dafa0ea67da5250c97454a9b8}\label{classMainInterface_a31ef730dafa0ea67da5250c97454a9b8}} 
+\index{MainInterface@{MainInterface}!giveName@{giveName}}
+\index{giveName@{giveName}!MainInterface@{MainInterface}}
+\doxysubsubsection{\texorpdfstring{giveName}{giveName}}
+{\footnotesize\ttfamily void Main\+Interface\+::give\+Name (\begin{DoxyParamCaption}\item[{Q\+String}]{nom }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal give\+Name. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: quand un nom est donné 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Windows/\mbox{\hyperlink{maininterface_8h}{maininterface.\+h}}\item 
+Windows/maininterface.\+cpp\end{DoxyCompactItemize}

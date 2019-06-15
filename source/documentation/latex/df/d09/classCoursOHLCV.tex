@@ -1,0 +1,840 @@
+\hypertarget{classCoursOHLCV}{}\doxysection{Référence de la classe Cours\+O\+H\+L\+CV}
+\label{classCoursOHLCV}\index{CoursOHLCV@{CoursOHLCV}}
+
+
+\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} est la classe qui gère les cours d\textquotesingle{}une paire de devise sur un jour attributs \+: open, high, low, close, volume, date méthodees \+: get\+Open, get\+Low, get\+High, get\+Close, get\+Volume, get\+Date méthodees \+: set\+Cours, set\+Volume, set\+Date, forme, is\+Big\+Black\+Candle, is\+Big\+White\+Candle, is\+Spinning\+Top, is\+Doji, is\+Dragonfly\+Doji, is\+Grave\+Stone\+Doji, is\+Hannging\+Man, is\+Hammer, is\+Inverted\+Hammer, is\+Inverted\+Black\+Hammer, is\+Long\+Lower\+Shadow, is\+Long\+Upper\+Shadow, is\+Marubozu, is\+Shooting\+Star, is\+Shaven\+Bottom, is\+Shaven\+Head.  
+
+
+
+
+{\ttfamily \#include $<$trading.\+h$>$}
+
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCoursOHLCV_af455f7b56fc1048ee432734ce51b2e19}{Cours\+O\+H\+L\+CV}} ()
+\begin{DoxyCompactList}\small\item\em constructeur 1 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoursOHLCV_a9f7b785863235b1be94efba27fd8cb27}{Cours\+O\+H\+L\+CV}} (double open, double high, double low, double close, unsigned int volume, const Q\+Date \&date)
+\begin{DoxyCompactList}\small\item\em constructeur 2 \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{get\+Open}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Open \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCoursOHLCV_ae43477ab486323cfccd61345c9b52f6c}{get\+High}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+High \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}{get\+Low}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Low \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}{get\+Close}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Clos \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classCoursOHLCV_adc37cdb28c9c41b7f8e870d80c0c9fb8}{get\+Volume}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Volume \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCoursOHLCV_ae03064112b77b14e36602c3fafdd86de}{set\+Cours}} (double open, double high, double low, double close)
+\begin{DoxyCompactList}\small\item\em méthode set\+Cours ; modifie les valeurs des attributs d\textquotesingle{}un cours \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCoursOHLCV_ac827ceed2df5268f8b17e60de797ddc3}{set\+Volume}} (unsigned int volume)
+\begin{DoxyCompactList}\small\item\em méthode set\+Volume ; modifie la valeur de l\textquotesingle{}attribut volume \end{DoxyCompactList}\item 
+Q\+Date \mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{get\+Date}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Date \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCoursOHLCV_ab39997e3ba46a2ddbb3da73722bbc395}{set\+Date}} (const Q\+Date \&d)
+\begin{DoxyCompactList}\small\item\em méthode set\+Date ; modifie la date du cours \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{classCoursOHLCV_ad61ecd43647abc006dbe66574c355527}{forme}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode form \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a1cbf01f944a9ad30aa32edac8dabe995}{is\+Toupie}} (double min\+Local=0, double max\+Local=0) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Toupie \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a6d5c310873014b97789aef6651592af0}{is\+Doji}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Doji \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a52546088a4ebefcaa54124a63aeed444}{is\+Dragonfly\+Doji}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Dragonfly\+Doji \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_adb955d38e60b78a20062af7ca76af9d6}{is\+Grave\+Stone\+Doji}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Grave\+Stone\+Doji \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a17bf92a3852c4221401d662722ea6f07}{is\+Hangging\+Man}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Hangging\+Man \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a36a9475df051126cb335f81e8dcec54c}{is\+Hammer}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Hammer \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a7b146e886f8adc820fbaff91fbdd229c}{is\+Inverted\+Hammer}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Inverte\+Hammer \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a1395b321f169327ede18477b2fc22a78}{is\+Inverted\+Black\+Hammer}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Inverted\+Black\+Hammer \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a6a5f64d09f5be919b44339a7bc334d1c}{is\+Long\+Lower\+Shadow}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Long\+Lower\+Shadow \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a2390c638cec20047a4b9de74fdd3bf6a}{is\+Long\+Upper\+Shadow}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Long\+Upper\+Shadow \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a767d36964c7a4760d53e0beecefccd64}{is\+Marubozu}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em is Marubozu \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_ad2ba87d373a76f69e2a7dec2b3cccd9d}{is\+Shooting\+Star}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em is\+Shooting\+Star \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_ae378a6ec31033a54c6055f62df7a1def}{is\+Shaven\+Bottom}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Shaven\+Bottom \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classCoursOHLCV_a7dd2d7a9c68f8124ef2b6acdcb9275ff}{is\+Shaven\+Head}} (double min\+Local, double max\+Local) const
+\begin{DoxyCompactList}\small\item\em méthode is\+Shaven\+Head \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} est la classe qui gère les cours d\textquotesingle{}une paire de devise sur un jour attributs \+: open, high, low, close, volume, date méthodees \+: get\+Open, get\+Low, get\+High, get\+Close, get\+Volume, get\+Date méthodees \+: set\+Cours, set\+Volume, set\+Date, forme, is\+Big\+Black\+Candle, is\+Big\+White\+Candle, is\+Spinning\+Top, is\+Doji, is\+Dragonfly\+Doji, is\+Grave\+Stone\+Doji, is\+Hannging\+Man, is\+Hammer, is\+Inverted\+Hammer, is\+Inverted\+Black\+Hammer, is\+Long\+Lower\+Shadow, is\+Long\+Upper\+Shadow, is\+Marubozu, is\+Shooting\+Star, is\+Shaven\+Bottom, is\+Shaven\+Head. 
+
+Définition à la ligne 234 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classCoursOHLCV_af455f7b56fc1048ee432734ce51b2e19}\label{classCoursOHLCV_af455f7b56fc1048ee432734ce51b2e19}} 
+\index{CoursOHLCV@{CoursOHLCV}!CoursOHLCV@{CoursOHLCV}}
+\index{CoursOHLCV@{CoursOHLCV}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{CoursOHLCV()}{CoursOHLCV()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Cours\+O\+H\+L\+C\+V\+::\+Cours\+O\+H\+L\+CV (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructeur 1 
+
+tous les attributs sont nuls par default, sauf la date qui n\textquotesingle{}est pas fixé 
+
+Définition à la ligne 245 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{245 \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a9f7b785863235b1be94efba27fd8cb27}\label{classCoursOHLCV_a9f7b785863235b1be94efba27fd8cb27}} 
+\index{CoursOHLCV@{CoursOHLCV}!CoursOHLCV@{CoursOHLCV}}
+\index{CoursOHLCV@{CoursOHLCV}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{CoursOHLCV()}{CoursOHLCV()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Cours\+O\+H\+L\+C\+V\+::\+Cours\+O\+H\+L\+CV (\begin{DoxyParamCaption}\item[{double}]{open,  }\item[{double}]{high,  }\item[{double}]{low,  }\item[{double}]{close,  }\item[{unsigned int}]{volume,  }\item[{const Q\+Date \&}]{date }\end{DoxyParamCaption})}
+
+
+
+constructeur 2 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em open} & \+:double \textbackslash{}parma high \+:double \\
+\hline
+{\em low} & \+:double \\
+\hline
+{\em close} & \+:double \\
+\hline
+{\em volume} & \+:unsigned int \\
+\hline
+{\em date} & \+:Q\+Date \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 90 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90                                                                                                                 :date(date) \{}
+\DoxyCodeLine{91     \textcolor{keywordflow}{if} (open < 0 || high < 0 || low < 0 || close < 0 || low > high) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"Cours OHLCV incorrect"});}
+\DoxyCodeLine{92         this-\/>open = open;}
+\DoxyCodeLine{93         this-\/>high = high;}
+\DoxyCodeLine{94         this-\/>low = low;}
+\DoxyCodeLine{95         this-\/>close = close;}
+\DoxyCodeLine{96         this-\/>volume = volume;}
+\DoxyCodeLine{97 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classCoursOHLCV_ad61ecd43647abc006dbe66574c355527}\label{classCoursOHLCV_ad61ecd43647abc006dbe66574c355527}} 
+\index{CoursOHLCV@{CoursOHLCV}!forme@{forme}}
+\index{forme@{forme}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{forme()}{forme()}}
+{\footnotesize\ttfamily Q\+String Cours\+O\+H\+L\+C\+V\+::forme (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode form 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String \+: donne la forme de la bougie 
+\end{DoxyReturn}
+
+
+Définition à la ligne 264 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{264                                                                 \{}
+\DoxyCodeLine{265     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a767d36964c7a4760d53e0beecefccd64}{isMarubozu}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Marubozu"};}
+\DoxyCodeLine{266     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a52546088a4ebefcaa54124a63aeed444}{isDragonflyDoji}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Dragonfly Doji"};}
+\DoxyCodeLine{267     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_adb955d38e60b78a20062af7ca76af9d6}{isGraveStoneDoji}}(minLocal,maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Grave stone doji"};}
+\DoxyCodeLine{268     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a6d5c310873014b97789aef6651592af0}{isDoji}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Doji"};}
+\DoxyCodeLine{269     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a17bf92a3852c4221401d662722ea6f07}{isHanggingMan}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Hangging man"};}
+\DoxyCodeLine{270     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a7dd2d7a9c68f8124ef2b6acdcb9275ff}{isShavenHead}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Shaven head"};}
+\DoxyCodeLine{271     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_ae378a6ec31033a54c6055f62df7a1def}{isShavenBottom}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Shaven bottom"};}
+\DoxyCodeLine{272     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_ad2ba87d373a76f69e2a7dec2b3cccd9d}{isShootingStar}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Shooting star"};}
+\DoxyCodeLine{273     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a2390c638cec20047a4b9de74fdd3bf6a}{isLongUpperShadow}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Long upper shadow"};}
+\DoxyCodeLine{274     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a6a5f64d09f5be919b44339a7bc334d1c}{isLongLowerShadow}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Long lower shadow"};}
+\DoxyCodeLine{275     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a1395b321f169327ede18477b2fc22a78}{isInvertedBlackHammer}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Inverted black hammer"};}
+\DoxyCodeLine{276     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a7b146e886f8adc820fbaff91fbdd229c}{isInvertedHammer}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Inverted hammer"};}
+\DoxyCodeLine{277     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a36a9475df051126cb335f81e8dcec54c}{isHammer}}(minLocal, maxLocal)) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Hammer"};}
+\DoxyCodeLine{278     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a1cbf01f944a9ad30aa32edac8dabe995}{isToupie}}()) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Toupie"};}
+\DoxyCodeLine{279     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"Pas de forme particulière"};}
+\DoxyCodeLine{280 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}\label{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}} 
+\index{CoursOHLCV@{CoursOHLCV}!getClose@{getClose}}
+\index{getClose@{getClose}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{getClose()}{getClose()}}
+{\footnotesize\ttfamily double Cours\+O\+H\+L\+C\+V\+::get\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Clos 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: la valeur de l\textquotesingle{}attribut close 
+\end{DoxyReturn}
+
+
+Définition à la ligne 275 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{275 \{ \textcolor{keywordflow}{return} close; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}\label{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}} 
+\index{CoursOHLCV@{CoursOHLCV}!getDate@{getDate}}
+\index{getDate@{getDate}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily Q\+Date Cours\+O\+H\+L\+C\+V\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Date 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+Date \+: la valeur de l\textquotesingle{}attribut date 
+\end{DoxyReturn}
+
+
+Définition à la ligne 300 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{300 \{ \textcolor{keywordflow}{return} date; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_ae43477ab486323cfccd61345c9b52f6c}\label{classCoursOHLCV_ae43477ab486323cfccd61345c9b52f6c}} 
+\index{CoursOHLCV@{CoursOHLCV}!getHigh@{getHigh}}
+\index{getHigh@{getHigh}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{getHigh()}{getHigh()}}
+{\footnotesize\ttfamily double Cours\+O\+H\+L\+C\+V\+::get\+High (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+High 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: la valeur de l\textquotesingle{}attribut high 
+\end{DoxyReturn}
+
+
+Définition à la ligne 265 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{265 \{ \textcolor{keywordflow}{return} high; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}\label{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}} 
+\index{CoursOHLCV@{CoursOHLCV}!getLow@{getLow}}
+\index{getLow@{getLow}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{getLow()}{getLow()}}
+{\footnotesize\ttfamily double Cours\+O\+H\+L\+C\+V\+::get\+Low (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Low 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: la valeur de l\textquotesingle{}attribut low 
+\end{DoxyReturn}
+
+
+Définition à la ligne 270 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{270 \{ \textcolor{keywordflow}{return} low; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}\label{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}} 
+\index{CoursOHLCV@{CoursOHLCV}!getOpen@{getOpen}}
+\index{getOpen@{getOpen}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{getOpen()}{getOpen()}}
+{\footnotesize\ttfamily double Cours\+O\+H\+L\+C\+V\+::get\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Open 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: la valeur de l\textquotesingle{}attribut open 
+\end{DoxyReturn}
+
+
+Définition à la ligne 260 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{260 \{ \textcolor{keywordflow}{return} open; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_adc37cdb28c9c41b7f8e870d80c0c9fb8}\label{classCoursOHLCV_adc37cdb28c9c41b7f8e870d80c0c9fb8}} 
+\index{CoursOHLCV@{CoursOHLCV}!getVolume@{getVolume}}
+\index{getVolume@{getVolume}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{getVolume()}{getVolume()}}
+{\footnotesize\ttfamily unsigned Cours\+O\+H\+L\+C\+V\+::get\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Volume 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: la valeur de l\textquotesingle{}attribut volume 
+\end{DoxyReturn}
+
+
+Définition à la ligne 280 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{280 \{\textcolor{keywordflow}{return} volume;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a6d5c310873014b97789aef6651592af0}\label{classCoursOHLCV_a6d5c310873014b97789aef6651592af0}} 
+\index{CoursOHLCV@{CoursOHLCV}!isDoji@{isDoji}}
+\index{isDoji@{isDoji}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isDoji()}{isDoji()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Doji (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Doji 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est une doji, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 120 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120                                                               \{}
+\DoxyCodeLine{121     \textcolor{comment}{/*}}
+\DoxyCodeLine{122 \textcolor{comment}{     * Doji Formed when opening and closing prices are virtually the same. The lengths of shadows can vary.}}
+\DoxyCodeLine{123 \textcolor{comment}{     */}}
+\DoxyCodeLine{124     \textcolor{comment}{//double meche = high -\/ low;}}
+\DoxyCodeLine{125     \textcolor{keywordtype}{double} corps = abs(open -\/ close);}
+\DoxyCodeLine{126     \textcolor{keywordflow}{if}(corps < 0.005*(maxLocal-\/minLocal)) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{128 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a52546088a4ebefcaa54124a63aeed444}\label{classCoursOHLCV_a52546088a4ebefcaa54124a63aeed444}} 
+\index{CoursOHLCV@{CoursOHLCV}!isDragonflyDoji@{isDragonflyDoji}}
+\index{isDragonflyDoji@{isDragonflyDoji}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isDragonflyDoji()}{isDragonflyDoji()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Dragonfly\+Doji (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Dragonfly\+Doji 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est une doji dragon, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 130 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{130                                                                        \{}
+\DoxyCodeLine{131     \textcolor{comment}{/*}}
+\DoxyCodeLine{132 \textcolor{comment}{     * Dragonfly Doji Formed when the opening and the closing prices are at the highest of the day.}}
+\DoxyCodeLine{133 \textcolor{comment}{     * If it has a longer lower shadow it signals a more bullish trend. When appearing at market bottoms it is considered to be a reversal signal.}}
+\DoxyCodeLine{134 \textcolor{comment}{     */}}
+\DoxyCodeLine{135     \textcolor{keywordtype}{double} mecheSup = high -\/ max(open, close);}
+\DoxyCodeLine{136     \textcolor{keywordtype}{double} mecheInf = min(open, close) -\/ low;}
+\DoxyCodeLine{137     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a6d5c310873014b97789aef6651592af0}{isDoji}}(minLocal, maxLocal) \&\& mecheSup<0.008*(maxLocal-\/minLocal) \&\& mecheInf > 0.08*(maxLocal-\/minLocal)) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{139 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_adb955d38e60b78a20062af7ca76af9d6}\label{classCoursOHLCV_adb955d38e60b78a20062af7ca76af9d6}} 
+\index{CoursOHLCV@{CoursOHLCV}!isGraveStoneDoji@{isGraveStoneDoji}}
+\index{isGraveStoneDoji@{isGraveStoneDoji}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isGraveStoneDoji()}{isGraveStoneDoji()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Grave\+Stone\+Doji (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Grave\+Stone\+Doji 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est une doji pierre, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 141 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{141                                                                         \{}
+\DoxyCodeLine{142     \textcolor{comment}{/*}}
+\DoxyCodeLine{143 \textcolor{comment}{     * Gravestone Doji Formed when the opening and closing prices are at the lowest of the day.}}
+\DoxyCodeLine{144 \textcolor{comment}{     * If it has a longer upper shadow it signals a bearish trend. When it appears at market top it is considered a reversal signal.}}
+\DoxyCodeLine{145 \textcolor{comment}{     */}}
+\DoxyCodeLine{146     \textcolor{keywordtype}{double} mecheSup = high -\/ max(open, close);}
+\DoxyCodeLine{147     \textcolor{keywordtype}{double} mecheInf = min(open, close) -\/ low;}
+\DoxyCodeLine{148     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classCoursOHLCV_a6d5c310873014b97789aef6651592af0}{isDoji}}(minLocal, maxLocal) \&\& mecheInf<0.008*(maxLocal-\/minLocal) \&\& mecheSup > 0.008*(maxLocal-\/minLocal)) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{149         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{150 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a36a9475df051126cb335f81e8dcec54c}\label{classCoursOHLCV_a36a9475df051126cb335f81e8dcec54c}} 
+\index{CoursOHLCV@{CoursOHLCV}!isHammer@{isHammer}}
+\index{isHammer@{isHammer}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isHammer()}{isHammer()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Hammer (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Hammer 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est un marteau, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 176 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{176                                                                 \{}
+\DoxyCodeLine{177     \textcolor{comment}{/*}}
+\DoxyCodeLine{178 \textcolor{comment}{     * Hammer A black or a white candlestick that consists of a small body near the high with a little or no upper shadow and a long lower tail.}}
+\DoxyCodeLine{179 \textcolor{comment}{     * Considered a bullish pattern during a downtrend.}}
+\DoxyCodeLine{180 \textcolor{comment}{     */}}
+\DoxyCodeLine{181     \textcolor{keywordtype}{double} corps = abs(open -\/ close);}
+\DoxyCodeLine{182     \textcolor{keywordtype}{double} mecheInf = min(open, close) -\/ low;}
+\DoxyCodeLine{183     \textcolor{keywordtype}{double} mecheSup = high -\/ max(open, close);}
+\DoxyCodeLine{184     \textcolor{keywordflow}{if}(corps>0.05*(maxLocal-\/minLocal) \&\& mecheInf>0.05*(maxLocal-\/minLocal) \&\& mecheSup<0.01*(maxLocal-\/minLocal)) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{185         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{186 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a17bf92a3852c4221401d662722ea6f07}\label{classCoursOHLCV_a17bf92a3852c4221401d662722ea6f07}} 
+\index{CoursOHLCV@{CoursOHLCV}!isHanggingMan@{isHanggingMan}}
+\index{isHanggingMan@{isHanggingMan}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isHanggingMan()}{isHanggingMan()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Hangging\+Man (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Hangging\+Man 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est un pendu, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 165 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{165                                                                      \{}
+\DoxyCodeLine{166     \textcolor{comment}{/*}}
+\DoxyCodeLine{167 \textcolor{comment}{     * Hanging Man A black or a white candlestick that consists of a small body near the high with a little or no upper shadow and a long lower tail.}}
+\DoxyCodeLine{168 \textcolor{comment}{     * The lower tail should be two or three times the height of the body. Considered a bearish pattern during an uptrend.}}
+\DoxyCodeLine{169 \textcolor{comment}{     */}}
+\DoxyCodeLine{170     \textcolor{keywordtype}{double} corps = abs(open -\/ close);}
+\DoxyCodeLine{171     \textcolor{keywordtype}{double} mecheInf = min(open, close) -\/ low;}
+\DoxyCodeLine{172     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a36a9475df051126cb335f81e8dcec54c}{isHammer}}(minLocal, maxLocal) \&\&  mecheInf > 2*corps)  \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{173         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{174 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a1395b321f169327ede18477b2fc22a78}\label{classCoursOHLCV_a1395b321f169327ede18477b2fc22a78}} 
+\index{CoursOHLCV@{CoursOHLCV}!isInvertedBlackHammer@{isInvertedBlackHammer}}
+\index{isInvertedBlackHammer@{isInvertedBlackHammer}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isInvertedBlackHammer()}{isInvertedBlackHammer()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Inverted\+Black\+Hammer (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Inverted\+Black\+Hammer 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est un marteau noir inversé, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 188 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{188                                                                              \{}
+\DoxyCodeLine{189     \textcolor{comment}{/*}}
+\DoxyCodeLine{190 \textcolor{comment}{     * Inverted Black Hammer A black body in an upside-\/down hammer position. Usually considered a bottom reversal signal.}}
+\DoxyCodeLine{191 \textcolor{comment}{     */}}
+\DoxyCodeLine{192     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classCoursOHLCV_a7b146e886f8adc820fbaff91fbdd229c}{isInvertedHammer}}(minLocal, maxLocal) \&\& (open > close)) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{193         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{194 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a7b146e886f8adc820fbaff91fbdd229c}\label{classCoursOHLCV_a7b146e886f8adc820fbaff91fbdd229c}} 
+\index{CoursOHLCV@{CoursOHLCV}!isInvertedHammer@{isInvertedHammer}}
+\index{isInvertedHammer@{isInvertedHammer}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isInvertedHammer()}{isInvertedHammer()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Inverted\+Hammer (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Inverte\+Hammer 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est un marteau inversé, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 152 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{152                                                                         \{}
+\DoxyCodeLine{153     \textcolor{comment}{/*}}
+\DoxyCodeLine{154 \textcolor{comment}{     * Inverted Hammer A black or a white candlestick in an upside-\/down hammer position.}}
+\DoxyCodeLine{155 \textcolor{comment}{     */}}
+\DoxyCodeLine{156     \textcolor{keywordtype}{double} corps = abs(open -\/ close);}
+\DoxyCodeLine{157     \textcolor{keywordtype}{double} mecheSup = high -\/ max(open, close);}
+\DoxyCodeLine{158     \textcolor{keywordtype}{double} mecheInf = min(open, close) -\/ low;}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     \textcolor{keywordflow}{if}(corps>0.05*(maxLocal-\/minLocal) \&\& mecheSup>0.05*(maxLocal-\/minLocal) \&\& mecheInf < 0.01*(maxLocal-\/minLocal)) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{161         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a6a5f64d09f5be919b44339a7bc334d1c}\label{classCoursOHLCV_a6a5f64d09f5be919b44339a7bc334d1c}} 
+\index{CoursOHLCV@{CoursOHLCV}!isLongLowerShadow@{isLongLowerShadow}}
+\index{isLongLowerShadow@{isLongLowerShadow}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isLongLowerShadow()}{isLongLowerShadow()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Long\+Lower\+Shadow (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Long\+Lower\+Shadow 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie a une longue meche en bas, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 196 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{196                                                                          \{}
+\DoxyCodeLine{197     \textcolor{comment}{/*}}
+\DoxyCodeLine{198 \textcolor{comment}{     * Long Lower Shadow A black or a white candlestick is formed with a lower tail that has a length of 2/3 or more of the total range of the candlestick.}}
+\DoxyCodeLine{199 \textcolor{comment}{     * Normally considered a bullish signal when it appears around price support levels.}}
+\DoxyCodeLine{200 \textcolor{comment}{     */}}
+\DoxyCodeLine{201     \textcolor{keywordtype}{double} corps = abs(open -\/ close);}
+\DoxyCodeLine{202     \textcolor{keywordtype}{double} meche = high -\/ low;}
+\DoxyCodeLine{203     \textcolor{keywordtype}{double} mecheInf = min(open, close) -\/ low;}
+\DoxyCodeLine{204     \textcolor{keywordflow}{if}(corps>0.05*(maxLocal-\/minLocal) \&\& mecheInf/meche > \textcolor{keywordtype}{double}(2)/3) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{205         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{206 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a2390c638cec20047a4b9de74fdd3bf6a}\label{classCoursOHLCV_a2390c638cec20047a4b9de74fdd3bf6a}} 
+\index{CoursOHLCV@{CoursOHLCV}!isLongUpperShadow@{isLongUpperShadow}}
+\index{isLongUpperShadow@{isLongUpperShadow}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isLongUpperShadow()}{isLongUpperShadow()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Long\+Upper\+Shadow (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Long\+Upper\+Shadow 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie a une longue meche en haut, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 208 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{208                                                                          \{}
+\DoxyCodeLine{209     \textcolor{comment}{/*}}
+\DoxyCodeLine{210 \textcolor{comment}{     * Long Upper Shadow A black or a white candlestick with an upper shadow that has a length of 2/3 or more of the total range of the candlestick.}}
+\DoxyCodeLine{211 \textcolor{comment}{     * Normally considered a bearish signal when it appears around price resistance levels.}}
+\DoxyCodeLine{212 \textcolor{comment}{     */}}
+\DoxyCodeLine{213     \textcolor{keywordtype}{double} corps = abs(open -\/ close);}
+\DoxyCodeLine{214     \textcolor{keywordtype}{double} meche = high -\/ low;}
+\DoxyCodeLine{215     \textcolor{keywordtype}{double} mecheSup = high -\/ max(open, close);}
+\DoxyCodeLine{216     qDebug()<< mecheSup/meche;}
+\DoxyCodeLine{217     \textcolor{keywordflow}{if}(corps>0.05*(maxLocal-\/minLocal) \&\& mecheSup/meche> \textcolor{keywordtype}{double}(2)/3) \{}
+\DoxyCodeLine{218         qDebug(\textcolor{stringliteral}{"true"});}
+\DoxyCodeLine{219         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{220     \}}
+\DoxyCodeLine{221     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{222         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{223     \}}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a767d36964c7a4760d53e0beecefccd64}\label{classCoursOHLCV_a767d36964c7a4760d53e0beecefccd64}} 
+\index{CoursOHLCV@{CoursOHLCV}!isMarubozu@{isMarubozu}}
+\index{isMarubozu@{isMarubozu}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isMarubozu()}{isMarubozu()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Marubozu (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+is Marubozu 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est un marubozu, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 227 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{227                                                                   \{}
+\DoxyCodeLine{228     \textcolor{comment}{/*}}
+\DoxyCodeLine{229 \textcolor{comment}{     * Marubozu A long or a normal candlestick (black or white) with no shadow or tail.}}
+\DoxyCodeLine{230 \textcolor{comment}{     * The high and the lows represent the opening and the closing prices. Considered a continuation pattern.}}
+\DoxyCodeLine{231 \textcolor{comment}{     */}}
+\DoxyCodeLine{232     \textcolor{keywordtype}{double} mecheSup = high -\/ max(open, close);}
+\DoxyCodeLine{233     \textcolor{keywordtype}{double} mecheInf = min(open, close) -\/ low;}
+\DoxyCodeLine{234     \textcolor{keywordflow}{if}(mecheSup<0.005*(maxLocal-\/minLocal) \&\& mecheInf<0.005*(maxLocal-\/minLocal) \&\& (high-\/low) >= 0.5*(maxLocal-\/minLocal)) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{235         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{236 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_ae378a6ec31033a54c6055f62df7a1def}\label{classCoursOHLCV_ae378a6ec31033a54c6055f62df7a1def}} 
+\index{CoursOHLCV@{CoursOHLCV}!isShavenBottom@{isShavenBottom}}
+\index{isShavenBottom@{isShavenBottom}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isShavenBottom()}{isShavenBottom()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Shaven\+Bottom (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Shaven\+Bottom 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est un shoven bottom, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 248 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{248                                                                       \{}
+\DoxyCodeLine{249     \textcolor{comment}{/*}}
+\DoxyCodeLine{250 \textcolor{comment}{     * Shaven Bottom A black or a white candlestick with no lower tail. [Compare with Inverted Hammer.]}}
+\DoxyCodeLine{251 \textcolor{comment}{     */}}
+\DoxyCodeLine{252     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a7b146e886f8adc820fbaff91fbdd229c}{isInvertedHammer}}(minLocal, maxLocal) \&\& ((open==low) || (close==low))) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{253         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{254 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a7dd2d7a9c68f8124ef2b6acdcb9275ff}\label{classCoursOHLCV_a7dd2d7a9c68f8124ef2b6acdcb9275ff}} 
+\index{CoursOHLCV@{CoursOHLCV}!isShavenHead@{isShavenHead}}
+\index{isShavenHead@{isShavenHead}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isShavenHead()}{isShavenHead()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Shaven\+Head (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Shaven\+Head 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est un shaven head, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 256 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{256                                                                     \{}
+\DoxyCodeLine{257     \textcolor{comment}{/*}}
+\DoxyCodeLine{258 \textcolor{comment}{     * Shaven Head A black or a white candlestick with no upper shadow. [Compared with hammer.]}}
+\DoxyCodeLine{259 \textcolor{comment}{     */}}
+\DoxyCodeLine{260     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classCoursOHLCV_a36a9475df051126cb335f81e8dcec54c}{isHammer}}(minLocal, maxLocal) \&\& ((high==open || high==close)))    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{262 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_ad2ba87d373a76f69e2a7dec2b3cccd9d}\label{classCoursOHLCV_ad2ba87d373a76f69e2a7dec2b3cccd9d}} 
+\index{CoursOHLCV@{CoursOHLCV}!isShootingStar@{isShootingStar}}
+\index{isShootingStar@{isShootingStar}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isShootingStar()}{isShootingStar()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Shooting\+Star (\begin{DoxyParamCaption}\item[{double}]{min\+Local,  }\item[{double}]{max\+Local }\end{DoxyParamCaption}) const}
+
+
+
+is\+Shooting\+Star 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est une étoile filante, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 238 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{238                                                                       \{}
+\DoxyCodeLine{239     \textcolor{comment}{/*}}
+\DoxyCodeLine{240 \textcolor{comment}{     * Shooting Star A black or a white candlestick that has a small body, a long upper shadow and a little or no lower tail. Considered a bearish pattern in an uptrend}}
+\DoxyCodeLine{241 \textcolor{comment}{     */}}
+\DoxyCodeLine{242     \textcolor{keywordtype}{double} corps = abs(open -\/ close);}
+\DoxyCodeLine{243     \textcolor{keywordtype}{double} mecheSup = high -\/ max(open, close);}
+\DoxyCodeLine{244     \textcolor{keywordflow}{if}(corps<0.05*(maxLocal-\/minLocal) \&\& corps>0.01*(maxLocal-\/minLocal) \&\& mecheSup>0.05*(maxLocal-\/minLocal) \&\& ((open-\/low)<0.005*(maxLocal-\/minLocal) || (close-\/low)<0.005*(maxLocal-\/minLocal)))  \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{245         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{246 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_a1cbf01f944a9ad30aa32edac8dabe995}\label{classCoursOHLCV_a1cbf01f944a9ad30aa32edac8dabe995}} 
+\index{CoursOHLCV@{CoursOHLCV}!isToupie@{isToupie}}
+\index{isToupie@{isToupie}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{isToupie()}{isToupie()}}
+{\footnotesize\ttfamily bool Cours\+O\+H\+L\+C\+V\+::is\+Toupie (\begin{DoxyParamCaption}\item[{double}]{min\+Local = {\ttfamily 0},  }\item[{double}]{max\+Local = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+méthode is\+Toupie 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si la bougie est une toupie, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 108 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{108                                                                 \{}
+\DoxyCodeLine{109     \textcolor{comment}{/*}}
+\DoxyCodeLine{110 \textcolor{comment}{     * Toupie -\/ A black or a white candlestick with a small body compaire to the size.}}
+\DoxyCodeLine{111 \textcolor{comment}{     * Interpreted as a neutral pattern but gains importance when it is part of other formations.}}
+\DoxyCodeLine{112 \textcolor{comment}{     */}}
+\DoxyCodeLine{113     \textcolor{keywordtype}{double} meche = high -\/ low;}
+\DoxyCodeLine{114     \textcolor{keywordtype}{double} corps = abs(open -\/ close);}
+\DoxyCodeLine{115     \textcolor{keywordflow}{if}( corps <= 0.5*meche) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{116         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_ae03064112b77b14e36602c3fafdd86de}\label{classCoursOHLCV_ae03064112b77b14e36602c3fafdd86de}} 
+\index{CoursOHLCV@{CoursOHLCV}!setCours@{setCours}}
+\index{setCours@{setCours}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{setCours()}{setCours()}}
+{\footnotesize\ttfamily void Cours\+O\+H\+L\+C\+V\+::set\+Cours (\begin{DoxyParamCaption}\item[{double}]{open,  }\item[{double}]{high,  }\item[{double}]{low,  }\item[{double}]{close }\end{DoxyParamCaption})}
+
+
+
+méthode set\+Cours ; modifie les valeurs des attributs d\textquotesingle{}un cours 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em open} & \+:double \textbackslash{}parma high \+:double \\
+\hline
+{\em low} & \+:double \\
+\hline
+{\em close} & \+:double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Définition à la ligne 99 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99                                                                             \{}
+\DoxyCodeLine{100     \textcolor{keywordflow}{if} (open < 0 || high < 0 || low < 0 || close < 0 || low > high) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"Cours OHLCV incorrect"});}
+\DoxyCodeLine{101         this-\/>open = open;}
+\DoxyCodeLine{102         this-\/>high = high;}
+\DoxyCodeLine{103         this-\/>low = low;}
+\DoxyCodeLine{104         this-\/>close = close;}
+\DoxyCodeLine{105 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_ab39997e3ba46a2ddbb3da73722bbc395}\label{classCoursOHLCV_ab39997e3ba46a2ddbb3da73722bbc395}} 
+\index{CoursOHLCV@{CoursOHLCV}!setDate@{setDate}}
+\index{setDate@{setDate}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily void Cours\+O\+H\+L\+C\+V\+::set\+Date (\begin{DoxyParamCaption}\item[{const Q\+Date \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode set\+Date ; modifie la date du cours 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em date} & \+:Q\+Date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Définition à la ligne 306 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{306 \{ date=d;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classCoursOHLCV_ac827ceed2df5268f8b17e60de797ddc3}\label{classCoursOHLCV_ac827ceed2df5268f8b17e60de797ddc3}} 
+\index{CoursOHLCV@{CoursOHLCV}!setVolume@{setVolume}}
+\index{setVolume@{setVolume}!CoursOHLCV@{CoursOHLCV}}
+\doxysubsubsection{\texorpdfstring{setVolume()}{setVolume()}}
+{\footnotesize\ttfamily void Cours\+O\+H\+L\+C\+V\+::set\+Volume (\begin{DoxyParamCaption}\item[{unsigned int}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode set\+Volume ; modifie la valeur de l\textquotesingle{}attribut volume 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em volume} & unsigned int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Définition à la ligne 295 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{295 \{this-\/>volume = volume;\}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8h}{trading.\+h}}\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8cpp}{trading.\+cpp}}\end{DoxyCompactItemize}

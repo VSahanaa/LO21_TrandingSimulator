@@ -1,0 +1,27 @@
+\hypertarget{evolutionviewer_8h}{}\doxysection{Référence du fichier Chart/evolutionviewer.h}
+\label{evolutionviewer_8h}\index{Chart/evolutionviewer.h@{Chart/evolutionviewer.h}}
+
+
+Contient les classes \mbox{\hyperlink{classBougie}{Bougie}}, \mbox{\hyperlink{classEvolutionViewer}{Evolution\+Viewer}}, \mbox{\hyperlink{classVolumeViewer}{Volume\+Viewer}}.  
+
+
+{\ttfamily \#include $<$Q\+Widget$>$}\newline
+{\ttfamily \#include $<$Qt\+Charts$>$}\newline
+{\ttfamily \#include $<$Q\+Scroll\+Bar$>$}\newline
+{\ttfamily \#include $<$Q\+Date$>$}\newline
+{\ttfamily \#include \char`\"{}../\+Core\+\_\+\+Devises/trading.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Controller/transaction.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classBougie}{Bougie}}
+\begin{DoxyCompactList}\small\item\em Q\+Object, hérite de Q\+Candlestick\+Set, interface des \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} sous forme de bougies attributs \+: cours méthodes publiques \+: \mbox{\hyperlink{classBougie}{Bougie}}, get\+Cours\+O\+H\+L\+CV signals publics \+: click\+Bougie; hover\+Bougie slots privés \+: pick\+Cours, view\+Form. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classEvolutionViewer}{Evolution\+Viewer}}
+\begin{DoxyCompactList}\small\item\em Q\+Object, hérite de Q\+Widget, représentation des bougies sous forme de graphique en chandelier attributs \+: evolution\+Cours, ema, macd, current\+Cours, max\+Date\+Shown, series, E\+M\+A\+\_\+series, M\+A\+C\+D\+\_\+series, M\+A\+C\+D\+\_\+histogram, M\+A\+C\+D\+\_\+signal, axisX, axisY, chart, chart\+View, scroll\+Bar, layout méthodes privées \+: clear\+Charts méthodes publiques \+: \mbox{\hyperlink{classEvolutionViewer}{Evolution\+Viewer}}, show\+Chart, set\+Current\+Cours, activate\+E\+MA, activate\+M\+A\+CD signals publics \+: current\+Cours\+Changed, cours\+Picked slots privés \+: update\+Chart, current\+Cours\+Changed\+\_\+react, pick\+Cours slot public \+: analyse\+Form. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classVolumeViewer}{Volume\+Viewer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les classes \mbox{\hyperlink{classBougie}{Bougie}}, \mbox{\hyperlink{classEvolutionViewer}{Evolution\+Viewer}}, \mbox{\hyperlink{classVolumeViewer}{Volume\+Viewer}}. 
+

@@ -1,3 +1,8 @@
+/**
+ * \file 	trading.cpp
+ * \brief 	Definit les méthodes des classes concernant les CoursOHLCV et Devises
+ *
+ */
 #include "trading.h"
 /* Implement Trading
  */

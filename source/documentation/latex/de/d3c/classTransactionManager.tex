@@ -1,0 +1,349 @@
+\hypertarget{classTransactionManager}{}\doxysection{Référence de la classe Transaction\+Manager}
+\label{classTransactionManager}\index{TransactionManager@{TransactionManager}}
+
+
+s\textquotesingle{}occupe de la classe \mbox{\hyperlink{classTransaction}{Transaction}} attributs \+: liste\+Transaction, pourcentage, montant\+Base\+Initial, montant\+Contrepartie\+Initial méthodes privées \+: \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}}, $\sim$\+Transaction\+Manager, clear\+Transactions méthodes publiques \+: add\+Transaction,delete\+Last\+Transaction, solde, get\+Montant\+Base, get\+Montant\+Contrepartie, get\+Pourcentage, roi amitiés \+: \mbox{\hyperlink{classSimulation}{Simulation}} Remarques \+: constructeur, destructeur privés dont seul \mbox{\hyperlink{classSimulation}{Simulation}} à accés possède un itérateur pour parcourir les transactions avec next, has\+Next  
+
+
+
+
+{\ttfamily \#include $<$transaction.\+h$>$}
+
+\doxysubsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classTransactionManager_a8f84830cc5584edafa314859778e3776}{iterator}} = \mbox{\hyperlink{classTransaction}{Transaction}} $\ast$
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTransactionManager_ae8116cd4c770ccdfecdb5cbcf677918b}{add\+Transaction}} (const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} $\ast$paire, \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours, bool achat, double montant)
+\begin{DoxyCompactList}\small\item\em méthode add\+Transaction \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransactionManager_a6ada8ad21790e8e846f24e9e748223d3}{add\+Transaction}} (const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} $\ast$paire, \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours, bool achat, double montant\+Base, double montant\+Contrepartie)
+\begin{DoxyCompactList}\small\item\em méthode add\+Transaction \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTransactionManager_a90ed8a7471404193e5508f397ae00be6}{delete\+Last\+Transaction}} ()
+\begin{DoxyCompactList}\small\item\em méthode delete\+Last\+Transaction \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransactionManager_ad845f67b23208954f1ecdcbeef2814b9}{solde}} () const
+\begin{DoxyCompactList}\small\item\em méthode solde \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{get\+Montant\+Base}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Montant\+Base \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransactionManager_a8b21012d5c6934c2be7817c3e3dcc28a}{get\+Pourcentage}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Pourcentage \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{get\+Montant\+Contrepartie}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Montant\+Contrepartie \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransactionManager_a3ffd4549f363784b1a4e01669764fba9}{get\+Montant\+Total\+Initial}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Montant\+Total\+Initial \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTransactionManager_a8f84830cc5584edafa314859778e3776}{iterator}} \mbox{\hyperlink{classTransactionManager_a09d3f6e2acdb088e89bd78cef666d93f}{head}} () const
+\begin{DoxyCompactList}\small\item\em méthode head \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTransactionManager_aeb51e0a4c44d4192cfbdb79598859172}{Simulation}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+s\textquotesingle{}occupe de la classe \mbox{\hyperlink{classTransaction}{Transaction}} attributs \+: liste\+Transaction, pourcentage, montant\+Base\+Initial, montant\+Contrepartie\+Initial méthodes privées \+: \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}}, $\sim$\+Transaction\+Manager, clear\+Transactions méthodes publiques \+: add\+Transaction,delete\+Last\+Transaction, solde, get\+Montant\+Base, get\+Montant\+Contrepartie, get\+Pourcentage, roi amitiés \+: \mbox{\hyperlink{classSimulation}{Simulation}} Remarques \+: constructeur, destructeur privés dont seul \mbox{\hyperlink{classSimulation}{Simulation}} à accés possède un itérateur pour parcourir les transactions avec next, has\+Next 
+
+Définition à la ligne 129 du fichier transaction.\+h.
+
+
+
+\doxysubsection{Documentation des définitions de type membres}
+\mbox{\Hypertarget{classTransactionManager_a8f84830cc5584edafa314859778e3776}\label{classTransactionManager_a8f84830cc5584edafa314859778e3776}} 
+\index{TransactionManager@{TransactionManager}!iterator@{iterator}}
+\index{iterator@{iterator}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classTransactionManager_a8f84830cc5584edafa314859778e3776}{Transaction\+Manager\+::iterator}} =  \mbox{\hyperlink{classTransaction}{Transaction}}$\ast$}
+
+déclaration iterator $<$=$>$ Transaction$\ast$ 
+
+Définition à la ligne 207 du fichier transaction.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classTransactionManager_ae8116cd4c770ccdfecdb5cbcf677918b}\label{classTransactionManager_ae8116cd4c770ccdfecdb5cbcf677918b}} 
+\index{TransactionManager@{TransactionManager}!addTransaction@{addTransaction}}
+\index{addTransaction@{addTransaction}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{addTransaction()}{addTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Transaction\+Manager\+::add\+Transaction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} $\ast$}]{paire,  }\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours,  }\item[{bool}]{achat,  }\item[{double}]{montant }\end{DoxyParamCaption})}
+
+
+
+méthode add\+Transaction 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em paire} & \+:Paire\+Devises$\ast$ \\
+\hline
+{\em achat} & \+:bool \\
+\hline
+{\em montant} & \+:double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ajout d\textquotesingle{}une transaction 
+\end{DoxyReturn}
+
+
+Définition à la ligne 22 du fichier transaction.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                                                                                                                 \{}
+\DoxyCodeLine{23     \textcolor{keywordtype}{double} currentMontantBase, currentMontantContrepartie;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{double} montantBase, montantContrepartie;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (listeTransaction == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{27         currentMontantBase = montantBaseInitial;}
+\DoxyCodeLine{28         currentMontantContrepartie = montantContrepartieInitial;}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{31         currentMontantBase = listeTransaction-\/>\mbox{\hyperlink{classTransaction_ac102bb2a4cd8df20d2e8b801c920ce68}{getMontantBase}}();}
+\DoxyCodeLine{32         currentMontantContrepartie = listeTransaction-\/>\mbox{\hyperlink{classTransaction_aaa27d802abc6d8986cdca66d710329f6}{getMontantContrepartie}}();}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (achat) \{}
+\DoxyCodeLine{36         montantBase = currentMontantBase + (1-\/pourcentage)*montant/cours-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}();}
+\DoxyCodeLine{37         montantContrepartie = currentMontantContrepartie -\/ montant;}
+\DoxyCodeLine{38         \textcolor{keywordflow}{if} (montantContrepartie < 0) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"montant de devise contre partie n'est pas assez"});}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{41         montantBase = currentMontantBase -\/ montant;}
+\DoxyCodeLine{42         montantContrepartie = currentMontantContrepartie + (1-\/pourcentage)*montant*cours-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}();}
+\DoxyCodeLine{43         \textcolor{keywordflow}{if} (montantBase < 0) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"montant de devise de base n'est pas assez"});}
+\DoxyCodeLine{44     \}}
+\DoxyCodeLine{45     listeTransaction = \textcolor{keyword}{new} \mbox{\hyperlink{classTransaction}{Transaction}}(listeTransaction, paire, cours, achat, montantBase, montantContrepartie, montantBaseInitial, montantContrepartieInitial);    \textcolor{comment}{//effectuer la transaction}}
+\DoxyCodeLine{46 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransactionManager_a6ada8ad21790e8e846f24e9e748223d3}\label{classTransactionManager_a6ada8ad21790e8e846f24e9e748223d3}} 
+\index{TransactionManager@{TransactionManager}!addTransaction@{addTransaction}}
+\index{addTransaction@{addTransaction}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{addTransaction()}{addTransaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Transaction\+Manager\+::add\+Transaction (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} $\ast$}]{paire,  }\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours,  }\item[{bool}]{achat,  }\item[{double}]{montant\+Base,  }\item[{double}]{montant\+Contrepartie }\end{DoxyParamCaption})}
+
+
+
+méthode add\+Transaction 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em paire} & \+:Paire\+Devises$\ast$ \\
+\hline
+{\em achat} & \+:bool \\
+\hline
+{\em montant} & \+:double \\
+\hline
+{\em montant\+Base} & \+:double \\
+\hline
+{\em montant\+Contrepartie} & \+:double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ajout d\textquotesingle{}une transaction 
+\end{DoxyReturn}
+
+
+Définition à la ligne 48 du fichier transaction.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                                                                                                                                                 \{}
+\DoxyCodeLine{49     listeTransaction = \textcolor{keyword}{new} \mbox{\hyperlink{classTransaction}{Transaction}}(listeTransaction, paire, cours, achat, montantBase, montantContrepartie, montantBaseInitial, montantContrepartieInitial);}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransactionManager_a90ed8a7471404193e5508f397ae00be6}\label{classTransactionManager_a90ed8a7471404193e5508f397ae00be6}} 
+\index{TransactionManager@{TransactionManager}!deleteLastTransaction@{deleteLastTransaction}}
+\index{deleteLastTransaction@{deleteLastTransaction}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{deleteLastTransaction()}{deleteLastTransaction()}}
+{\footnotesize\ttfamily void Transaction\+Manager\+::delete\+Last\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+méthode delete\+Last\+Transaction 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: supprime la dernière transaction faite (la plus récente) 
+\end{DoxyReturn}
+
+
+Définition à la ligne 52 du fichier transaction.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52                                                \{}
+\DoxyCodeLine{53     \textcolor{keywordflow}{if} (listeTransaction == \textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{54     \mbox{\hyperlink{classTransaction}{Transaction}}* transactionCurrent = listeTransaction;}
+\DoxyCodeLine{55     listeTransaction = transactionCurrent-\/>\mbox{\hyperlink{classTransaction_a6fca2dc3f24e08369470db11860708fa}{getLastTransaction}}();}
+\DoxyCodeLine{56     qDebug() << \textcolor{stringliteral}{"delete transaction"};}
+\DoxyCodeLine{57     \textcolor{keyword}{delete} transactionCurrent;}
+\DoxyCodeLine{58 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}\label{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}} 
+\index{TransactionManager@{TransactionManager}!getMontantBase@{getMontantBase}}
+\index{getMontantBase@{getMontantBase}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{getMontantBase()}{getMontantBase()}}
+{\footnotesize\ttfamily double Transaction\+Manager\+::get\+Montant\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Montant\+Base 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: donne le montant de la devise de base détenu par l\textquotesingle{}utilisateur au moment présent 
+\end{DoxyReturn}
+
+
+Définition à la ligne 185 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{185                                   \{}
+\DoxyCodeLine{186         \textcolor{keywordflow}{if} (!listeTransaction) \{\textcolor{keywordflow}{return} montantBaseInitial;\}}
+\DoxyCodeLine{187             \textcolor{keywordflow}{return} listeTransaction-\/>\mbox{\hyperlink{classTransaction_ac102bb2a4cd8df20d2e8b801c920ce68}{getMontantBase}}();}
+\DoxyCodeLine{188     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}\label{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}} 
+\index{TransactionManager@{TransactionManager}!getMontantContrepartie@{getMontantContrepartie}}
+\index{getMontantContrepartie@{getMontantContrepartie}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{getMontantContrepartie()}{getMontantContrepartie()}}
+{\footnotesize\ttfamily double Transaction\+Manager\+::get\+Montant\+Contrepartie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Montant\+Contrepartie 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: donne le montant de la devise de contrepartie détenu par l\textquotesingle{}utilisateur au moment présent 
+\end{DoxyReturn}
+
+
+Définition à la ligne 198 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{198                                           \{}
+\DoxyCodeLine{199         \textcolor{keywordflow}{if} (!listeTransaction) \{\textcolor{keywordflow}{return} montantContrepartieInitial;\}}
+\DoxyCodeLine{200             \textcolor{keywordflow}{return} listeTransaction-\/>\mbox{\hyperlink{classTransaction_aaa27d802abc6d8986cdca66d710329f6}{getMontantContrepartie}}();}
+\DoxyCodeLine{201     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransactionManager_a3ffd4549f363784b1a4e01669764fba9}\label{classTransactionManager_a3ffd4549f363784b1a4e01669764fba9}} 
+\index{TransactionManager@{TransactionManager}!getMontantTotalInitial@{getMontantTotalInitial}}
+\index{getMontantTotalInitial@{getMontantTotalInitial}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{getMontantTotalInitial()}{getMontantTotalInitial()}}
+{\footnotesize\ttfamily double Transaction\+Manager\+::get\+Montant\+Total\+Initial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Montant\+Total\+Initial 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: donne le montant totale détenu par l\textquotesingle{}utilisateur initialement 
+\end{DoxyReturn}
+
+
+Définition à la ligne 206 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{206 \{\textcolor{keywordflow}{return} montantTotalInitial;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransactionManager_a8b21012d5c6934c2be7817c3e3dcc28a}\label{classTransactionManager_a8b21012d5c6934c2be7817c3e3dcc28a}} 
+\index{TransactionManager@{TransactionManager}!getPourcentage@{getPourcentage}}
+\index{getPourcentage@{getPourcentage}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{getPourcentage()}{getPourcentage()}}
+{\footnotesize\ttfamily double Transaction\+Manager\+::get\+Pourcentage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Pourcentage 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: donne la valeur de l\textquotesingle{}attribut pourcentage 
+\end{DoxyReturn}
+
+
+Définition à la ligne 193 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{193 \{\textcolor{keywordflow}{return} pourcentage;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransactionManager_a09d3f6e2acdb088e89bd78cef666d93f}\label{classTransactionManager_a09d3f6e2acdb088e89bd78cef666d93f}} 
+\index{TransactionManager@{TransactionManager}!head@{head}}
+\index{head@{head}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{head()}{head()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTransactionManager_a8f84830cc5584edafa314859778e3776}{iterator}} Transaction\+Manager\+::head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode head 
+
+\begin{DoxyReturn}{Renvoie}
+iterator \+: donne la la transaction la plus récente 
+\end{DoxyReturn}
+
+
+Définition à la ligne 212 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{212 \{\textcolor{keywordflow}{return} listeTransaction;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransactionManager_ad845f67b23208954f1ecdcbeef2814b9}\label{classTransactionManager_ad845f67b23208954f1ecdcbeef2814b9}} 
+\index{TransactionManager@{TransactionManager}!solde@{solde}}
+\index{solde@{solde}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{solde()}{solde()}}
+{\footnotesize\ttfamily double Transaction\+Manager\+::solde (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+méthode solde 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: donne le solde en devise de contrepartie 
+\end{DoxyReturn}
+
+
+Définition à la ligne 60 du fichier transaction.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60                                        \{}
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} (listeTransaction == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} montantTotalInitial;}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{65         \textcolor{keywordflow}{return} listeTransaction-\/>\mbox{\hyperlink{classTransaction_a8df0b3d3a83a406388b9a6a546bae630}{montantTotal}}();}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions amies et associées}
+\mbox{\Hypertarget{classTransactionManager_aeb51e0a4c44d4192cfbdb79598859172}\label{classTransactionManager_aeb51e0a4c44d4192cfbdb79598859172}} 
+\index{TransactionManager@{TransactionManager}!Simulation@{Simulation}}
+\index{Simulation@{Simulation}!TransactionManager@{TransactionManager}}
+\doxysubsubsection{\texorpdfstring{Simulation}{Simulation}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classSimulation}{Simulation}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+déclaration d\textquotesingle{}amitié \+: \mbox{\hyperlink{classSimulation}{Simulation}} 
+
+Définition à la ligne 130 du fichier transaction.\+h.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{transaction_8h}{transaction.\+h}}\item 
+Controller/\mbox{\hyperlink{transaction_8cpp}{transaction.\+cpp}}\end{DoxyCompactItemize}

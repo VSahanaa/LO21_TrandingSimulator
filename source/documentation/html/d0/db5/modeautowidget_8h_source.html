@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trading Simulator:  Fichier source de Windows/modeautowidget.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trading Simulator
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_a67a73c2d68c1a16cb1ec52de74dbd35.html">Windows</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">modeautowidget.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/db5/modeautowidget_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MODEAUTOWIDGET_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MODEAUTOWIDGET_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../Controller/simulation.h&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>Ui {</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">class </span><a class="code" href="../../d1/d7f/classModeAutowidget.html">ModeAutowidget</a>;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d1/d7f/classModeAutowidget.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d7f/classModeAutowidget.html">ModeAutowidget</a> : <span class="keyword">public</span> QWidget {</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../d1/d7f/classModeAutowidget.html#ac959ec1e5bd067d722892d6cbe9e6b19">ModeAutowidget</a>(<a class="code" href="../../dc/d89/classModeAutomatique.html">ModeAutomatique</a>* modeAutomatique, QWidget *parent = <span class="keyword">nullptr</span>);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="../../d1/d7f/classModeAutowidget.html#a40a793b111e7f76c0befb0502c33a9c9">~ModeAutowidget</a>();</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;signals:</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../d1/d7f/classModeAutowidget.html#ac8f2453c383809083eec5dc593a78aea">transactionChanged</a>();</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span> slots:</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> updateData();</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> on_comboBox_timer_currentIndexChanged(<span class="keywordtype">int</span> index);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> on_pause_clicked();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> on_next_clicked();</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    Ui::ModeAutowidget *ui; </div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="../../dc/d89/classModeAutomatique.html">ModeAutomatique</a>* modeAutomatique; </div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="../../de/d3c/classTransactionManager.html">TransactionManager</a>* transactionManager; </div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif // MODEAUTOWIDGET_H</span></div></div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassModeAutowidget_html_a40a793b111e7f76c0befb0502c33a9c9"><div class="ttname"><a href="../../d1/d7f/classModeAutowidget.html#a40a793b111e7f76c0befb0502c33a9c9">ModeAutowidget::~ModeAutowidget</a></div><div class="ttdeci">~ModeAutowidget()</div><div class="ttdoc">Destructeur.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d4d/modeautowidget_8cpp_source.html#l00035">modeautowidget.cpp:35</a></div></div>
+<div class="ttc" id="aclassModeAutowidget_html_ac959ec1e5bd067d722892d6cbe9e6b19"><div class="ttname"><a href="../../d1/d7f/classModeAutowidget.html#ac959ec1e5bd067d722892d6cbe9e6b19">ModeAutowidget::ModeAutowidget</a></div><div class="ttdeci">ModeAutowidget(ModeAutomatique *modeAutomatique, QWidget *parent=nullptr)</div><div class="ttdoc">Constructeur explicite.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d4d/modeautowidget_8cpp_source.html#l00004">modeautowidget.cpp:4</a></div></div>
+<div class="ttc" id="aclassModeAutomatique_html"><div class="ttname"><a href="../../dc/d89/classModeAutomatique.html">ModeAutomatique</a></div><div class="ttdoc">hérite de la classe Simulation et de la class QObject attributs : timer, strategie méthodes publiques...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00333">simulation.h:333</a></div></div>
+<div class="ttc" id="aclassModeAutowidget_html_ac8f2453c383809083eec5dc593a78aea"><div class="ttname"><a href="../../d1/d7f/classModeAutowidget.html#ac8f2453c383809083eec5dc593a78aea">ModeAutowidget::transactionChanged</a></div><div class="ttdeci">void transactionChanged()</div><div class="ttdoc">signal transactionChanged</div></div>
+<div class="ttc" id="aclassModeAutowidget_html"><div class="ttname"><a href="../../d1/d7f/classModeAutowidget.html">ModeAutowidget</a></div><div class="ttdoc">hérite de QWidget attributs : ui, modeAutomatique, transactionManager méthode publique : ModeAutomati...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db5/modeautowidget_8h_source.html#l00027">modeautowidget.h:27</a></div></div>
+<div class="ttc" id="aclassTransactionManager_html"><div class="ttname"><a href="../../de/d3c/classTransactionManager.html">TransactionManager</a></div><div class="ttdoc">s'occupe de la classe Transaction attributs : listeTransaction, pourcentage, montantBaseInitial,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/db6/transaction_8h_source.html#l00129">transaction.h:129</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

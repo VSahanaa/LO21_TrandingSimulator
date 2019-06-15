@@ -1,0 +1,68 @@
+\hypertarget{classIndicateurCollection}{}\doxysection{Référence de la classe Indicateur\+Collection}
+\label{classIndicateurCollection}\index{IndicateurCollection@{IndicateurCollection}}
+
+
+collection des indicateurs, ils appartiennent à un objet \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} méthodes \+: get\+Indicateur amitiés \+: \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}}  
+
+
+
+
+{\ttfamily \#include $<$trading.\+h$>$}
+
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIndicateur}{Indicateur}} $\ast$ \mbox{\hyperlink{classIndicateurCollection_a5bfad05cff39a29f70127a4db89fc0ff}{get\+Indicateur}} (Q\+String nom)
+\begin{DoxyCompactList}\small\item\em méthode get\+Indicateur \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIndicateurCollection_aec8574031116a3b8fca01898064c44e2}\label{classIndicateurCollection_aec8574031116a3b8fca01898064c44e2}} 
+class {\bfseries Evolution\+Cours}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+collection des indicateurs, ils appartiennent à un objet \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} méthodes \+: get\+Indicateur amitiés \+: \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} 
+
+Définition à la ligne 799 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classIndicateurCollection_a5bfad05cff39a29f70127a4db89fc0ff}\label{classIndicateurCollection_a5bfad05cff39a29f70127a4db89fc0ff}} 
+\index{IndicateurCollection@{IndicateurCollection}!getIndicateur@{getIndicateur}}
+\index{getIndicateur@{getIndicateur}!IndicateurCollection@{IndicateurCollection}}
+\doxysubsubsection{\texorpdfstring{getIndicateur()}{getIndicateur()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateur}{Indicateur}} $\ast$ Indicateur\+Collection\+::get\+Indicateur (\begin{DoxyParamCaption}\item[{Q\+String}]{nom }\end{DoxyParamCaption})}
+
+
+
+méthode get\+Indicateur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Indicateur$\ast$ \+: le pointeur qui pointe sur l\textquotesingle{}indicateur demandé et nullptr, sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 226 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{226                                                            \{}
+\DoxyCodeLine{227     \textcolor{keywordflow}{if} (!indicateurDictionary.contains(nom)) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"IndicateurCollection: collection not containing requested item"});}
+\DoxyCodeLine{228     \textcolor{keywordflow}{return} indicateurDictionary[nom];}
+\DoxyCodeLine{229 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8h}{trading.\+h}}\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{indicateur_8cpp}{indicateur.\+cpp}}\end{DoxyCompactItemize}

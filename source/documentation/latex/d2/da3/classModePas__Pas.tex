@@ -1,0 +1,310 @@
+\hypertarget{classModePas__Pas}{}\doxysection{Référence de la classe Mode\+Pas\+\_\+\+Pas}
+\label{classModePas__Pas}\index{ModePas\_Pas@{ModePas\_Pas}}
+
+
+hérite de la classe \mbox{\hyperlink{classSimulation}{Simulation}}, de la classe \mbox{\hyperlink{classModeManuel}{Mode\+Manuel}} et de la class Q\+Object attributs \+: timer méthodes publiques \+: \mbox{\hyperlink{classModePas__Pas}{Mode\+Pas\+\_\+\+Pas}},$\sim$\+Mode\+Pas\+\_\+\+Pas, save\+Simulation, set\+Timer, achat, vente signals publics \+: end\+Simulation, cours\+Changed slots privées \+:iteration slots publiques \+: go\+Back  
+
+
+
+
+{\ttfamily \#include $<$simulation.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Mode\+Pas\+\_\+\+Pas\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{d2/da3/classModePas__Pas}
+\end{center}
+\end{figure}
+\doxysubsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classModePas__Pas_acc1c32cca3bf0c441c74e20f3f091bd0}{go\+Back}} (Q\+Date date)
+\begin{DoxyCompactList}\small\item\em Slot go\+Back. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classModePas__Pas_a3dae18eb57759518507c11ebb1436f21}{cours\+Changed}} ()
+\begin{DoxyCompactList}\small\item\em Signal cours\+Changed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModePas__Pas_a2aea65b5e923ee3074fcb5433987b7d4}{end\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Signal end\+Simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classModePas__Pas_a68d8aa7af4ddf0880d9243c298af8af2}{Mode\+Pas\+\_\+\+Pas}} (Q\+String \mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}}, \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolution\+Cours}}, \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} cours\+Debut, double pourcentage=0.\+001, double montant\+Base\+Initial=0, double montant\+Contrepartie\+Initial=1000000, unsigned int time\+\_\+interval=5000, Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classModePas__Pas_a29ffe5e71f76d6a1dcf0cb10b019aa24}{$\sim$\+Mode\+Pas\+\_\+\+Pas}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModePas__Pas_a7b5edab4b1dce6e430f2f26c2fa02052}{save\+Simulation}} () const
+\begin{DoxyCompactList}\small\item\em Méthode save\+Simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModePas__Pas_a27d67ea161c6a807f91344907b26ed57}{set\+Timer}} (unsigned int interval)
+\begin{DoxyCompactList}\small\item\em Méthode set\+Timer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModePas__Pas_ae79e53eed8a6e3669e4ee794a0692963}{achat}} (double montant)
+\begin{DoxyCompactList}\small\item\em Méthode achat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModePas__Pas_aed4074478f725819c54759624d43f213}{vente}} (double montant)
+\begin{DoxyCompactList}\small\item\em Méthode achat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Description détaillée}
+hérite de la classe \mbox{\hyperlink{classSimulation}{Simulation}}, de la classe \mbox{\hyperlink{classModeManuel}{Mode\+Manuel}} et de la class Q\+Object attributs \+: timer méthodes publiques \+: \mbox{\hyperlink{classModePas__Pas}{Mode\+Pas\+\_\+\+Pas}},$\sim$\+Mode\+Pas\+\_\+\+Pas, save\+Simulation, set\+Timer, achat, vente signals publics \+: end\+Simulation, cours\+Changed slots privées \+:iteration slots publiques \+: go\+Back 
+
+Définition à la ligne 251 du fichier simulation.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classModePas__Pas_a68d8aa7af4ddf0880d9243c298af8af2}\label{classModePas__Pas_a68d8aa7af4ddf0880d9243c298af8af2}} 
+\index{ModePas\_Pas@{ModePas\_Pas}!ModePas\_Pas@{ModePas\_Pas}}
+\index{ModePas\_Pas@{ModePas\_Pas}!ModePas\_Pas@{ModePas\_Pas}}
+\doxysubsubsection{\texorpdfstring{ModePas\_Pas()}{ModePas\_Pas()}}
+{\footnotesize\ttfamily Mode\+Pas\+\_\+\+Pas\+::\+Mode\+Pas\+\_\+\+Pas (\begin{DoxyParamCaption}\item[{Q\+String}]{nom,  }\item[{\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$}]{evolution\+Cours,  }\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{cours\+Debut,  }\item[{double}]{pourcentage = {\ttfamily 0.001},  }\item[{double}]{montant\+Base\+Initial = {\ttfamily 0},  }\item[{double}]{montant\+Contrepartie\+Initial = {\ttfamily 1000000},  }\item[{unsigned int}]{time\+\_\+interval = {\ttfamily 5000},  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+constructeur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+{\em evolution\+Cours} & \+:Evolution\+Cours$\ast$ \\
+\hline
+{\em cours\+Debut} & \+:\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \\
+\hline
+{\em poucentage} & \+:double \\
+\hline
+{\em montant\+Base\+Initial} & \+: double \\
+\hline
+{\em montant\+Contrepartie\+Initial} & \+: double \\
+\hline
+{\em time\+\_\+interval} & \+:unsigned int \\
+\hline
+{\em parent} & \+:Q\+Object$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 246 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{246                                                                                                                                                                                                                                      :}
+\DoxyCodeLine{247     QObject(parent), \mbox{\hyperlink{classModeManuel_aa7788e5cd256f33be877405ce7a495b6}{ModeManuel}}(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) \{}
+\DoxyCodeLine{248     \mbox{\hyperlink{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}{type}} = \textcolor{stringliteral}{"Pas\_Pas"};}
+\DoxyCodeLine{249     timer = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});}
+\DoxyCodeLine{250     timer-\/>setInterval(time\_interval);              \textcolor{comment}{//set timer interval in ms}}
+\DoxyCodeLine{251     QObject::connect(timer, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(iteration()));}
+\DoxyCodeLine{252     timer-\/>start();}
+\DoxyCodeLine{253 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModePas__Pas_a29ffe5e71f76d6a1dcf0cb10b019aa24}\label{classModePas__Pas_a29ffe5e71f76d6a1dcf0cb10b019aa24}} 
+\index{ModePas\_Pas@{ModePas\_Pas}!````~ModePas\_Pas@{$\sim$ModePas\_Pas}}
+\index{````~ModePas\_Pas@{$\sim$ModePas\_Pas}!ModePas\_Pas@{ModePas\_Pas}}
+\doxysubsubsection{\texorpdfstring{$\sim$ModePas\_Pas()}{~ModePas\_Pas()}}
+{\footnotesize\ttfamily Mode\+Pas\+\_\+\+Pas\+::$\sim$\+Mode\+Pas\+\_\+\+Pas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 268 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{268 \{\textcolor{keyword}{delete} timer;\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classModePas__Pas_ae79e53eed8a6e3669e4ee794a0692963}\label{classModePas__Pas_ae79e53eed8a6e3669e4ee794a0692963}} 
+\index{ModePas\_Pas@{ModePas\_Pas}!achat@{achat}}
+\index{achat@{achat}!ModePas\_Pas@{ModePas\_Pas}}
+\doxysubsubsection{\texorpdfstring{achat()}{achat()}}
+{\footnotesize\ttfamily void Mode\+Pas\+\_\+\+Pas\+::achat (\begin{DoxyParamCaption}\item[{double}]{montant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode achat. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em montant} & \+:double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ajoute la transaction en achat 
+\end{DoxyReturn}
+
+
+Définition à la ligne 285 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{285 \{\mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_ae8116cd4c770ccdfecdb5cbcf677918b}{addTransaction}}(\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}(), \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}}, \textcolor{keyword}{true}, montant);\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModePas__Pas_a3dae18eb57759518507c11ebb1436f21}\label{classModePas__Pas_a3dae18eb57759518507c11ebb1436f21}} 
+\index{ModePas\_Pas@{ModePas\_Pas}!coursChanged@{coursChanged}}
+\index{coursChanged@{coursChanged}!ModePas\_Pas@{ModePas\_Pas}}
+\doxysubsubsection{\texorpdfstring{coursChanged}{coursChanged}}
+{\footnotesize\ttfamily void Mode\+Pas\+\_\+\+Pas\+::cours\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal cours\+Changed. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: transmettre le message de changement de cours 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModePas__Pas_a2aea65b5e923ee3074fcb5433987b7d4}\label{classModePas__Pas_a2aea65b5e923ee3074fcb5433987b7d4}} 
+\index{ModePas\_Pas@{ModePas\_Pas}!endSimulation@{endSimulation}}
+\index{endSimulation@{endSimulation}!ModePas\_Pas@{ModePas\_Pas}}
+\doxysubsubsection{\texorpdfstring{endSimulation}{endSimulation}}
+{\footnotesize\ttfamily void Mode\+Pas\+\_\+\+Pas\+::end\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal end\+Simulation. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: transmettre le message de fin de simulation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModePas__Pas_acc1c32cca3bf0c441c74e20f3f091bd0}\label{classModePas__Pas_acc1c32cca3bf0c441c74e20f3f091bd0}} 
+\index{ModePas\_Pas@{ModePas\_Pas}!goBack@{goBack}}
+\index{goBack@{goBack}!ModePas\_Pas@{ModePas\_Pas}}
+\doxysubsubsection{\texorpdfstring{goBack}{goBack}}
+{\footnotesize\ttfamily void Mode\+Pas\+\_\+\+Pas\+::go\+Back (\begin{DoxyParamCaption}\item[{Q\+Date}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Slot go\+Back. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em date} & \+:Q\+Date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: retourner à la date indiquée 
+\end{DoxyReturn}
+
+
+Définition à la ligne 255 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{255                                    \{}
+\DoxyCodeLine{256     \textcolor{keywordflow}{if} (date > \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}}-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}()) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"Ne peut pas aller à la future"});}
+\DoxyCodeLine{257     \textcolor{comment}{//delete transactions}}
+\DoxyCodeLine{258     \textcolor{keywordflow}{while} (\mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_a09d3f6e2acdb088e89bd78cef666d93f}{head}}() != \textcolor{keyword}{nullptr} \&\&  \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_a09d3f6e2acdb088e89bd78cef666d93f}{head}}()-\/>\mbox{\hyperlink{classTransaction_ab6fcc894f4fb8899e96141a10aa53f6f}{getCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}() > date) \{}
+\DoxyCodeLine{259         \mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_a90ed8a7471404193e5508f397ae00be6}{deleteLastTransaction}}();}
+\DoxyCodeLine{260     \};}
+\DoxyCodeLine{261     \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}} = \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}{searchCours}}(date);}
+\DoxyCodeLine{262     emit \mbox{\hyperlink{classModePas__Pas_a3dae18eb57759518507c11ebb1436f21}{coursChanged}}();}
+\DoxyCodeLine{263 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModePas__Pas_a7b5edab4b1dce6e430f2f26c2fa02052}\label{classModePas__Pas_a7b5edab4b1dce6e430f2f26c2fa02052}} 
+\index{ModePas\_Pas@{ModePas\_Pas}!saveSimulation@{saveSimulation}}
+\index{saveSimulation@{saveSimulation}!ModePas\_Pas@{ModePas\_Pas}}
+\doxysubsubsection{\texorpdfstring{saveSimulation()}{saveSimulation()}}
+{\footnotesize\ttfamily void Mode\+Pas\+\_\+\+Pas\+::save\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Méthode save\+Simulation. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: sauvegarde la simulation 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{classModeManuel_a7c2ff5c30ee391fde4f5f40c0a9f4606}{Mode\+Manuel}}.
+
+
+
+Définition à la ligne 277 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{277                                        \{}
+\DoxyCodeLine{278     \mbox{\hyperlink{classSimulation_a1650262c3dc5316f3a81d0489fd4f8ef}{saveEvolutionCours}}();}
+\DoxyCodeLine{279     \mbox{\hyperlink{classSimulation_aecad8b5b6a07b072a0283a55645c5a31}{saveTransactions}}();}
+\DoxyCodeLine{280     \mbox{\hyperlink{classSimulation_a77972769aceb06ccc15f1db4789f0601}{saveNotes}}();}
+\DoxyCodeLine{281     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{282     QSettings setting(simulationManager-\/>\mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{getNomGroupe}}(), simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{getNomApplication}}());}
+\DoxyCodeLine{283     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{284         setting.beginGroup(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{285             setting.setValue(\textcolor{stringliteral}{"type"}, \mbox{\hyperlink{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}{type}});}
+\DoxyCodeLine{286             setting.setValue(\textcolor{stringliteral}{"currentDate"}, \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}}-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"yyyy-\/MM-\/dd"}));}
+\DoxyCodeLine{287             setting.setValue(\textcolor{stringliteral}{"timerInterval"}, timer-\/>interval());}
+\DoxyCodeLine{288         setting.endGroup();}
+\DoxyCodeLine{289     setting.endGroup();}
+\DoxyCodeLine{290     qDebug(\textcolor{stringliteral}{"Mode Pas a pas saved"});}
+\DoxyCodeLine{291 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModePas__Pas_a27d67ea161c6a807f91344907b26ed57}\label{classModePas__Pas_a27d67ea161c6a807f91344907b26ed57}} 
+\index{ModePas\_Pas@{ModePas\_Pas}!setTimer@{setTimer}}
+\index{setTimer@{setTimer}!ModePas\_Pas@{ModePas\_Pas}}
+\doxysubsubsection{\texorpdfstring{setTimer()}{setTimer()}}
+{\footnotesize\ttfamily void Mode\+Pas\+\_\+\+Pas\+::set\+Timer (\begin{DoxyParamCaption}\item[{unsigned int}]{interval }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode set\+Timer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em interval} & \+:unsigned int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: permet de modifier le timer 
+\end{DoxyReturn}
+
+
+Définition à la ligne 279 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{279 \{timer-\/>setInterval(interval); qDebug() << timer-\/>interval();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModePas__Pas_aed4074478f725819c54759624d43f213}\label{classModePas__Pas_aed4074478f725819c54759624d43f213}} 
+\index{ModePas\_Pas@{ModePas\_Pas}!vente@{vente}}
+\index{vente@{vente}!ModePas\_Pas@{ModePas\_Pas}}
+\doxysubsubsection{\texorpdfstring{vente()}{vente()}}
+{\footnotesize\ttfamily void Mode\+Pas\+\_\+\+Pas\+::vente (\begin{DoxyParamCaption}\item[{double}]{montant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode achat. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em montant} & \+:double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ajoute la transaction en achat 
+\end{DoxyReturn}
+
+
+Définition à la ligne 291 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{291 \{\mbox{\hyperlink{classSimulation_a0580f87a96d8c3b9ec3b160fdf97bd11}{transactionManager}}.\mbox{\hyperlink{classTransactionManager_ae8116cd4c770ccdfecdb5cbcf677918b}{addTransaction}}(\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}(), \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}}, \textcolor{keyword}{false}, montant);\}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{simulation_8h}{simulation.\+h}}\item 
+Controller/\mbox{\hyperlink{simulation_8cpp}{simulation.\+cpp}}\end{DoxyCompactItemize}

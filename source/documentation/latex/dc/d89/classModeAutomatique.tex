@@ -1,0 +1,382 @@
+\hypertarget{classModeAutomatique}{}\doxysection{Référence de la classe Mode\+Automatique}
+\label{classModeAutomatique}\index{ModeAutomatique@{ModeAutomatique}}
+
+
+hérite de la classe \mbox{\hyperlink{classSimulation}{Simulation}} et de la class Q\+Object attributs \+: timer, strategie méthodes publiques \+: \mbox{\hyperlink{classModeAutomatique}{Mode\+Automatique}}, $\sim$\+Mode\+Automatique, save\+Simulation, save\+Strategie, get\+Strategie\+Name, set\+Timer signals publics \+: end\+Simulation, cours\+Changed slots privées \+:iteration slots publiques set\+Timer, pause, play, speed\+Up, slow\+Down  
+
+
+
+
+{\ttfamily \#include $<$simulation.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Mode\+Automatique\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/d89/classModeAutomatique}
+\end{center}
+\end{figure}
+\doxysubsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classModeAutomatique_ac13ab42e742a0f0bdf19c242d053c4cc}{pause}} ()
+\begin{DoxyCompactList}\small\item\em Slot publique pause. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModeAutomatique_af1c16e58c7c8a405654ed722bcd1f686}{play}} ()
+\begin{DoxyCompactList}\small\item\em Slot publique play. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModeAutomatique_adf3a1d3edafbdf30b2c7419249d0e723}{next\+Iteration}} ()
+\begin{DoxyCompactList}\small\item\em Slot publique next\+Iteration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classModeAutomatique_a333b154cd8f82d4242c74cba8042f390}{cours\+Changed}} ()
+\begin{DoxyCompactList}\small\item\em Signal cours\+Changed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModeAutomatique_a88d550f54eca670ad6875c6e8ea066c8}{end\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Signal end\+Simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classModeAutomatique_a2e2970629029b37962bedbe85ab8cf39}{Mode\+Automatique}} (Q\+String \mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}}, \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$\mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolution\+Cours}}, \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} cours\+Debut, \mbox{\hyperlink{classStrategie}{Strategie}} $\ast$strategie, double pourcentage=0.\+001, double montant\+Base\+Initial=0, double montant\+Contrepartie\+Initial=1000000, unsigned int time\+\_\+interval=5000, Q\+Object $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classModeAutomatique_afc81627553d8e130e43be8775eb5581e}{$\sim$\+Mode\+Automatique}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModeAutomatique_a55795ff2d1f75f0e58c52cb12df5fc94}{save\+Simulation}} () const
+\begin{DoxyCompactList}\small\item\em Méthode save\+Simulation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModeAutomatique_acbee746d5df030c14647865fea5553a2}{save\+Strategie}} () const
+\begin{DoxyCompactList}\small\item\em Méthode save\+Strategie. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{classModeAutomatique_adf92bdea71180b73ca8c41385645fd0b}{get\+Strategie\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Méthode get\+Strategie\+Name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classModeAutomatique_a1cd36ecad923e7945feee4db06ffe786}{set\+Timer}} (unsigned int interval)
+\begin{DoxyCompactList}\small\item\em Méthode set\+Timer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classModeAutomatique_aa2c5544e3ec1c0832388b68d80d114fe}{is\+Paused}} () const
+\begin{DoxyCompactList}\small\item\em Methode is\+Paused. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Description détaillée}
+hérite de la classe \mbox{\hyperlink{classSimulation}{Simulation}} et de la class Q\+Object attributs \+: timer, strategie méthodes publiques \+: \mbox{\hyperlink{classModeAutomatique}{Mode\+Automatique}}, $\sim$\+Mode\+Automatique, save\+Simulation, save\+Strategie, get\+Strategie\+Name, set\+Timer signals publics \+: end\+Simulation, cours\+Changed slots privées \+:iteration slots publiques set\+Timer, pause, play, speed\+Up, slow\+Down 
+
+Définition à la ligne 333 du fichier simulation.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classModeAutomatique_a2e2970629029b37962bedbe85ab8cf39}\label{classModeAutomatique_a2e2970629029b37962bedbe85ab8cf39}} 
+\index{ModeAutomatique@{ModeAutomatique}!ModeAutomatique@{ModeAutomatique}}
+\index{ModeAutomatique@{ModeAutomatique}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{ModeAutomatique()}{ModeAutomatique()}}
+{\footnotesize\ttfamily Mode\+Automatique\+::\+Mode\+Automatique (\begin{DoxyParamCaption}\item[{Q\+String}]{nom,  }\item[{\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$}]{evolution\+Cours,  }\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{cours\+Debut,  }\item[{\mbox{\hyperlink{classStrategie}{Strategie}} $\ast$}]{strategie,  }\item[{double}]{pourcentage = {\ttfamily 0.001},  }\item[{double}]{montant\+Base\+Initial = {\ttfamily 0},  }\item[{double}]{montant\+Contrepartie\+Initial = {\ttfamily 1000000},  }\item[{unsigned int}]{time\+\_\+interval = {\ttfamily 5000},  }\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+constructeur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+{\em evolution\+Cours} & \+:Evolution\+Cours$\ast$ \\
+\hline
+{\em cours\+Debut} & \+:\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \\
+\hline
+{\em poucentage} & \+:double \\
+\hline
+{\em montant\+Base\+Initial} & \+: double \\
+\hline
+{\em montant\+Contrepartie\+Initial} & \+: double \\
+\hline
+{\em time\+\_\+interval} & \+:unsigned int \\
+\hline
+{\em parent} & \+:Q\+Object$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 174 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{174                                                                                                                                                                                                                                                                     :}
+\DoxyCodeLine{175     QObject(parent), \mbox{\hyperlink{classSimulation_aa15c0a3aadb4c0226f1f07195f60ac25}{Simulation}}(\textcolor{stringliteral}{"Automatique"}, \mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}}, \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}, coursDebut, pourcentage, montantBaseInitial, montantContrepartieInitial) \{}
+\DoxyCodeLine{176     \textcolor{keywordflow}{if} (!strategie) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"ModeAutomatique: Strategie is null"});}
+\DoxyCodeLine{177     this-\/>strategie = strategie;}
+\DoxyCodeLine{178     timer = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});}
+\DoxyCodeLine{179     timer-\/>setInterval(time\_interval);              \textcolor{comment}{//set timer interval in ms}}
+\DoxyCodeLine{180     QObject::connect(timer, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(iteration()));}
+\DoxyCodeLine{181     timer-\/>start();}
+\DoxyCodeLine{182 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeAutomatique_afc81627553d8e130e43be8775eb5581e}\label{classModeAutomatique_afc81627553d8e130e43be8775eb5581e}} 
+\index{ModeAutomatique@{ModeAutomatique}!````~ModeAutomatique@{$\sim$ModeAutomatique}}
+\index{````~ModeAutomatique@{$\sim$ModeAutomatique}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{$\sim$ModeAutomatique()}{~ModeAutomatique()}}
+{\footnotesize\ttfamily Mode\+Automatique\+::$\sim$\+Mode\+Automatique (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 351 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{351 \{\textcolor{keyword}{delete} strategie;   \textcolor{keyword}{delete} timer;\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classModeAutomatique_a333b154cd8f82d4242c74cba8042f390}\label{classModeAutomatique_a333b154cd8f82d4242c74cba8042f390}} 
+\index{ModeAutomatique@{ModeAutomatique}!coursChanged@{coursChanged}}
+\index{coursChanged@{coursChanged}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{coursChanged}{coursChanged}}
+{\footnotesize\ttfamily void Mode\+Automatique\+::cours\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal cours\+Changed. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: transmettre le message de changement de cours 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModeAutomatique_a88d550f54eca670ad6875c6e8ea066c8}\label{classModeAutomatique_a88d550f54eca670ad6875c6e8ea066c8}} 
+\index{ModeAutomatique@{ModeAutomatique}!endSimulation@{endSimulation}}
+\index{endSimulation@{endSimulation}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{endSimulation}{endSimulation}}
+{\footnotesize\ttfamily void Mode\+Automatique\+::end\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal end\+Simulation. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: transmettre le message de fin de simulation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classModeAutomatique_adf92bdea71180b73ca8c41385645fd0b}\label{classModeAutomatique_adf92bdea71180b73ca8c41385645fd0b}} 
+\index{ModeAutomatique@{ModeAutomatique}!getStrategieName@{getStrategieName}}
+\index{getStrategieName@{getStrategieName}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{getStrategieName()}{getStrategieName()}}
+{\footnotesize\ttfamily Q\+String Mode\+Automatique\+::get\+Strategie\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode get\+Strategie\+Name. 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String \+: retourne le nom de la strategie utilisée 
+\end{DoxyReturn}
+
+
+Définition à la ligne 366 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{366 \{\textcolor{keywordflow}{return} strategie-\/>\mbox{\hyperlink{classStrategie_a67c8466719ffa288568f05a8fa14872c}{getNom}}();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeAutomatique_aa2c5544e3ec1c0832388b68d80d114fe}\label{classModeAutomatique_aa2c5544e3ec1c0832388b68d80d114fe}} 
+\index{ModeAutomatique@{ModeAutomatique}!isPaused@{isPaused}}
+\index{isPaused@{isPaused}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{isPaused()}{isPaused()}}
+{\footnotesize\ttfamily bool Mode\+Automatique\+::is\+Paused (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Methode is\+Paused. 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: retourne l\textquotesingle{}etat du timer 
+\end{DoxyReturn}
+
+
+Définition à la ligne 377 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{377 \{\textcolor{keywordflow}{return} !timer-\/>isActive();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeAutomatique_adf3a1d3edafbdf30b2c7419249d0e723}\label{classModeAutomatique_adf3a1d3edafbdf30b2c7419249d0e723}} 
+\index{ModeAutomatique@{ModeAutomatique}!nextIteration@{nextIteration}}
+\index{nextIteration@{nextIteration}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{nextIteration}{nextIteration}}
+{\footnotesize\ttfamily void Mode\+Automatique\+::next\+Iteration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+Slot publique next\+Iteration. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: accelerer la simulation d\textquotesingle{}effectuer la prochaine iteration 
+\end{DoxyReturn}
+
+
+Définition à la ligne 410 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{410 \{\textcolor{keywordflow}{if} (\mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}} != \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_aca20c7a08667b3e14b03380957b973ea}{end}}()) iteration();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeAutomatique_ac13ab42e742a0f0bdf19c242d053c4cc}\label{classModeAutomatique_ac13ab42e742a0f0bdf19c242d053c4cc}} 
+\index{ModeAutomatique@{ModeAutomatique}!pause@{pause}}
+\index{pause@{pause}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{pause}{pause}}
+{\footnotesize\ttfamily void Mode\+Automatique\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+Slot publique pause. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: faire une pause sur la simulation 
+\end{DoxyReturn}
+
+
+Définition à la ligne 400 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{400 \{timer-\/>stop();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeAutomatique_af1c16e58c7c8a405654ed722bcd1f686}\label{classModeAutomatique_af1c16e58c7c8a405654ed722bcd1f686}} 
+\index{ModeAutomatique@{ModeAutomatique}!play@{play}}
+\index{play@{play}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{play}{play}}
+{\footnotesize\ttfamily void Mode\+Automatique\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+
+
+
+Slot publique play. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: reactiver la simulation 
+\end{DoxyReturn}
+
+
+Définition à la ligne 405 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{405 \{\textcolor{keywordflow}{if} (\mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}} != \mbox{\hyperlink{classSimulation_ad9a48b4f7999b7b7204a05fd96f1ae6a}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_aca20c7a08667b3e14b03380957b973ea}{end}}()) timer-\/>start();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeAutomatique_a55795ff2d1f75f0e58c52cb12df5fc94}\label{classModeAutomatique_a55795ff2d1f75f0e58c52cb12df5fc94}} 
+\index{ModeAutomatique@{ModeAutomatique}!saveSimulation@{saveSimulation}}
+\index{saveSimulation@{saveSimulation}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{saveSimulation()}{saveSimulation()}}
+{\footnotesize\ttfamily void Mode\+Automatique\+::save\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Méthode save\+Simulation. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: sauvegarde la simulation 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{classSimulation_a080f74bf793340e2757e19bd4b595cbc}{Simulation}}.
+
+
+
+Définition à la ligne 227 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{227                                            \{}
+\DoxyCodeLine{228     \mbox{\hyperlink{classSimulation_a1650262c3dc5316f3a81d0489fd4f8ef}{saveEvolutionCours}}();}
+\DoxyCodeLine{229     \mbox{\hyperlink{classSimulation_aecad8b5b6a07b072a0283a55645c5a31}{saveTransactions}}();}
+\DoxyCodeLine{230     \mbox{\hyperlink{classSimulation_a77972769aceb06ccc15f1db4789f0601}{saveNotes}}();}
+\DoxyCodeLine{231     \mbox{\hyperlink{classModeAutomatique_acbee746d5df030c14647865fea5553a2}{saveStrategie}}();}
+\DoxyCodeLine{232     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{233     QSettings setting(simulationManager-\/>\mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{getNomGroupe}}(), simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{getNomApplication}}());}
+\DoxyCodeLine{234     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{235         setting.beginGroup(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{236             setting.setValue(\textcolor{stringliteral}{"type"}, \mbox{\hyperlink{classSimulation_ae43770454b8f8201ef30c830b1bd27e2}{type}});}
+\DoxyCodeLine{237             setting.setValue(\textcolor{stringliteral}{"currentDate"}, \mbox{\hyperlink{classSimulation_a3e9a823c99919c166db55b78a438e790}{currentCours}}-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"yyyy-\/MM-\/dd"}));}
+\DoxyCodeLine{238             setting.setValue(\textcolor{stringliteral}{"timerInterval"}, timer-\/>interval());}
+\DoxyCodeLine{239         setting.endGroup();}
+\DoxyCodeLine{240     setting.endGroup();}
+\DoxyCodeLine{241     qDebug(\textcolor{stringliteral}{"Mode auto saved"});}
+\DoxyCodeLine{242 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeAutomatique_acbee746d5df030c14647865fea5553a2}\label{classModeAutomatique_acbee746d5df030c14647865fea5553a2}} 
+\index{ModeAutomatique@{ModeAutomatique}!saveStrategie@{saveStrategie}}
+\index{saveStrategie@{saveStrategie}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{saveStrategie()}{saveStrategie()}}
+{\footnotesize\ttfamily void Mode\+Automatique\+::save\+Strategie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Méthode save\+Strategie. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: sauvegarde la strategie 
+\end{DoxyReturn}
+
+
+Définition à la ligne 204 du fichier simulation.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{204                                           \{}
+\DoxyCodeLine{205     \mbox{\hyperlink{classSimulationManager}{SimulationManager}}* simulationManager = \mbox{\hyperlink{classSimulationManager_a622edd593a785f5d45ab1c079ebc1887}{SimulationManager::getSimulationManager}}();}
+\DoxyCodeLine{206     QSettings setting(simulationManager-\/>\mbox{\hyperlink{classSimulationManager_aab8a6e873d581d98e31e2ce8866307be}{getNomGroupe}}(), simulationManager-\/>\mbox{\hyperlink{classSimulationManager_a44227e7a21ff392a8596d7ff528c2cf1}{getNomApplication}}());}
+\DoxyCodeLine{207     setting.beginGroup(\textcolor{stringliteral}{"Simulation"});}
+\DoxyCodeLine{208         setting.beginGroup(\mbox{\hyperlink{classSimulation_a427d95b2aa2370c2eb401c01d0da8d9d}{nom}});}
+\DoxyCodeLine{209             setting.beginGroup(\textcolor{stringliteral}{"Strategie"});}
+\DoxyCodeLine{210                 setting.setValue(\textcolor{stringliteral}{"nom"}, strategie-\/>\mbox{\hyperlink{classStrategie_a67c8466719ffa288568f05a8fa14872c}{getNom}}());}
+\DoxyCodeLine{211                 qDebug()<< \textcolor{stringliteral}{"nom strategie"} << setting.value(\textcolor{stringliteral}{"nom"}).toString();}
+\DoxyCodeLine{212                 \textcolor{comment}{//save parametrer}}
+\DoxyCodeLine{213                 QMap<QString, QVariant> parameters = strategie-\/>\mbox{\hyperlink{classStrategie_aae4968364ecffbc4d9f0c20fec34a3f7}{getParameters}}();}
+\DoxyCodeLine{214                 setting.beginGroup(\textcolor{stringliteral}{"parameters"});}
+\DoxyCodeLine{215                     QMap<QString, QVariant>::iterator parametersIterator = parameters.begin();}
+\DoxyCodeLine{216                     \textcolor{keywordflow}{while} (parametersIterator != parameters.end()) \{}
+\DoxyCodeLine{217                         setting.setValue(parametersIterator.key(), parametersIterator.value());}
+\DoxyCodeLine{218                         parametersIterator++;}
+\DoxyCodeLine{219                     \}}
+\DoxyCodeLine{220                 setting.endGroup();}
+\DoxyCodeLine{221             setting.endGroup();}
+\DoxyCodeLine{222         setting.endGroup();}
+\DoxyCodeLine{223     setting.endGroup();}
+\DoxyCodeLine{224     qDebug(\textcolor{stringliteral}{"strategie saved"});}
+\DoxyCodeLine{225 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeAutomatique_a1cd36ecad923e7945feee4db06ffe786}\label{classModeAutomatique_a1cd36ecad923e7945feee4db06ffe786}} 
+\index{ModeAutomatique@{ModeAutomatique}!setTimer@{setTimer}}
+\index{setTimer@{setTimer}!ModeAutomatique@{ModeAutomatique}}
+\doxysubsubsection{\texorpdfstring{setTimer()}{setTimer()}}
+{\footnotesize\ttfamily void Mode\+Automatique\+::set\+Timer (\begin{DoxyParamCaption}\item[{unsigned int}]{interval }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Méthode set\+Timer. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em interval} & \+:unsigned int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: permet de modifier le timer 
+\end{DoxyReturn}
+
+
+Définition à la ligne 372 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{372 \{timer-\/>setInterval(interval);\}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{simulation_8h}{simulation.\+h}}\item 
+Controller/\mbox{\hyperlink{simulation_8cpp}{simulation.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,189 @@
+\hypertarget{classNote}{}\doxysection{Référence de la classe Note}
+\label{classNote}\index{Note@{Note}}
+
+
+stock les notes prises par l\textquotesingle{}utilisateur attributs \+: nom, note, date\+Creation, dernier\+Acces méthodes privées \+: set\+Date\+Creation méthodes publiques \+: modifier\+Nom, modifier\+Note, get\+Date\+Creation, get\+Dernier\+Acces, set\+Nom, set\+Note amitiéss \+: class \mbox{\hyperlink{classSimulation}{Simulation}} Remarques \+: seules la classe \mbox{\hyperlink{classSimulation}{Simulation}} a accés au constructeur les notes sont organisées comme Q\+List dans l\textquotesingle{}attribut note\+Manager dans la classe \mbox{\hyperlink{classSimulation}{Simulation}}  
+
+
+
+
+{\ttfamily \#include $<$simulation.\+h$>$}
+
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \& \mbox{\hyperlink{classNote_a2d88e194039d685d4fe75d1d98b72e70}{get\+Note}} ()
+\begin{DoxyCompactList}\small\item\em méthode get\+Note \end{DoxyCompactList}\item 
+Q\+String \& \mbox{\hyperlink{classNote_adfee478d4bdbb749ab1d165cb12ba633}{get\+Nom}} ()
+\begin{DoxyCompactList}\small\item\em méthode get\+Note \end{DoxyCompactList}\item 
+Q\+Date\+Time \mbox{\hyperlink{classNote_a5602e6dafa7b041fe0c684939c7f0819}{get\+Date\+Creation}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Date\+Creation \end{DoxyCompactList}\item 
+Q\+Date\+Time \mbox{\hyperlink{classNote_a1764ad77efcfd5b7f81f1140fdfb928e}{get\+Dernier\+Acces}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Dernier\+Acces \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNote_a3750a7fb6e9d8c8689dd05bb5a8b01d0}{set\+Note}} (Q\+String note)
+\begin{DoxyCompactList}\small\item\em méthode set\+Note \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNote_a4f7b7b9255f518dbecc2db28bd3de7fc}{set\+Nom}} (Q\+String nom)
+\begin{DoxyCompactList}\small\item\em méthode set\+Nom \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNote_aeb51e0a4c44d4192cfbdb79598859172}\label{classNote_aeb51e0a4c44d4192cfbdb79598859172}} 
+class {\bfseries Simulation}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+stock les notes prises par l\textquotesingle{}utilisateur attributs \+: nom, note, date\+Creation, dernier\+Acces méthodes privées \+: set\+Date\+Creation méthodes publiques \+: modifier\+Nom, modifier\+Note, get\+Date\+Creation, get\+Dernier\+Acces, set\+Nom, set\+Note amitiéss \+: class \mbox{\hyperlink{classSimulation}{Simulation}} Remarques \+: seules la classe \mbox{\hyperlink{classSimulation}{Simulation}} a accés au constructeur les notes sont organisées comme Q\+List dans l\textquotesingle{}attribut note\+Manager dans la classe \mbox{\hyperlink{classSimulation}{Simulation}} 
+
+Définition à la ligne 28 du fichier simulation.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classNote_a5602e6dafa7b041fe0c684939c7f0819}\label{classNote_a5602e6dafa7b041fe0c684939c7f0819}} 
+\index{Note@{Note}!getDateCreation@{getDateCreation}}
+\index{getDateCreation@{getDateCreation}!Note@{Note}}
+\doxysubsubsection{\texorpdfstring{getDateCreation()}{getDateCreation()}}
+{\footnotesize\ttfamily Q\+Date\+Time Note\+::get\+Date\+Creation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Date\+Creation 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+Date\+Time \+: revoie la valeur de date\+Creation après modification 
+\end{DoxyReturn}
+
+
+Définition à la ligne 64 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64 \{\textcolor{keywordflow}{return} dateCreation;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNote_a1764ad77efcfd5b7f81f1140fdfb928e}\label{classNote_a1764ad77efcfd5b7f81f1140fdfb928e}} 
+\index{Note@{Note}!getDernierAcces@{getDernierAcces}}
+\index{getDernierAcces@{getDernierAcces}!Note@{Note}}
+\doxysubsubsection{\texorpdfstring{getDernierAcces()}{getDernierAcces()}}
+{\footnotesize\ttfamily Q\+Date\+Time Note\+::get\+Dernier\+Acces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Dernier\+Acces 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+Date\+Time \+: revoie la valeur de dernier\+Acces après modification 
+\end{DoxyReturn}
+
+
+Définition à la ligne 69 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \{\textcolor{keywordflow}{return} dernierAcces;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNote_adfee478d4bdbb749ab1d165cb12ba633}\label{classNote_adfee478d4bdbb749ab1d165cb12ba633}} 
+\index{Note@{Note}!getNom@{getNom}}
+\index{getNom@{getNom}!Note@{Note}}
+\doxysubsubsection{\texorpdfstring{getNom()}{getNom()}}
+{\footnotesize\ttfamily Q\+String\& Note\+::get\+Nom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Note 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String\& \+: revoie la valeur de note 
+\end{DoxyReturn}
+
+
+Définition à la ligne 59 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59 \{dernierAcces = QDateTime::currentDateTime(); \textcolor{keywordflow}{return} nom;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNote_a2d88e194039d685d4fe75d1d98b72e70}\label{classNote_a2d88e194039d685d4fe75d1d98b72e70}} 
+\index{Note@{Note}!getNote@{getNote}}
+\index{getNote@{getNote}!Note@{Note}}
+\doxysubsubsection{\texorpdfstring{getNote()}{getNote()}}
+{\footnotesize\ttfamily Q\+String\& Note\+::get\+Note (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Note 
+
+\begin{DoxyReturn}{Renvoie}
+Q\+String\& \+: revoie la valeur de note 
+\end{DoxyReturn}
+
+
+Définition à la ligne 54 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54 \{dernierAcces=QDateTime::currentDateTime(); \textcolor{keywordflow}{return} note;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNote_a4f7b7b9255f518dbecc2db28bd3de7fc}\label{classNote_a4f7b7b9255f518dbecc2db28bd3de7fc}} 
+\index{Note@{Note}!setNom@{setNom}}
+\index{setNom@{setNom}!Note@{Note}}
+\doxysubsubsection{\texorpdfstring{setNom()}{setNom()}}
+{\footnotesize\ttfamily void Note\+::set\+Nom (\begin{DoxyParamCaption}\item[{Q\+String}]{nom }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode set\+Nom 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & \+:Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+:modifie la valeur de nom 
+\end{DoxyReturn}
+
+
+Définition à la ligne 81 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81 \{dernierAcces=QDateTime::currentDateTime(); this-\/>nom = nom;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classNote_a3750a7fb6e9d8c8689dd05bb5a8b01d0}\label{classNote_a3750a7fb6e9d8c8689dd05bb5a8b01d0}} 
+\index{Note@{Note}!setNote@{setNote}}
+\index{setNote@{setNote}!Note@{Note}}
+\doxysubsubsection{\texorpdfstring{setNote()}{setNote()}}
+{\footnotesize\ttfamily void Note\+::set\+Note (\begin{DoxyParamCaption}\item[{Q\+String}]{note }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode set\+Note 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em note} & \+:Q\+String \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+:modifie la valeur de note 
+\end{DoxyReturn}
+
+
+Définition à la ligne 75 du fichier simulation.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75 \{dernierAcces=QDateTime::currentDateTime(); this-\/>note = note;\}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{simulation_8h}{simulation.\+h}}\end{DoxyCompactItemize}

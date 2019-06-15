@@ -1,0 +1,423 @@
+\hypertarget{classEvolutionViewer}{}\doxysection{Référence de la classe Evolution\+Viewer}
+\label{classEvolutionViewer}\index{EvolutionViewer@{EvolutionViewer}}
+
+
+Q\+Object, hérite de Q\+Widget, représentation des bougies sous forme de graphique en chandelier attributs \+: evolution\+Cours, ema, macd, current\+Cours, max\+Date\+Shown, series, E\+M\+A\+\_\+series, M\+A\+C\+D\+\_\+series, M\+A\+C\+D\+\_\+histogram, M\+A\+C\+D\+\_\+signal, axisX, axisY, chart, chart\+View, scroll\+Bar, layout méthodes privées \+: clear\+Charts méthodes publiques \+: \mbox{\hyperlink{classEvolutionViewer}{Evolution\+Viewer}}, show\+Chart, set\+Current\+Cours, activate\+E\+MA, activate\+M\+A\+CD signals publics \+: current\+Cours\+Changed, cours\+Picked slots privés \+: update\+Chart, current\+Cours\+Changed\+\_\+react, pick\+Cours slot public \+: analyse\+Form.  
+
+
+
+
+{\ttfamily \#include $<$evolutionviewer.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Evolution\+Viewer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d1/d27/classEvolutionViewer}
+\end{center}
+\end{figure}
+\doxysubsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEvolutionViewer_a4d610c6bcaec8840a9e1714deab5d8b0}{analyse\+Form}} (\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours)
+\begin{DoxyCompactList}\small\item\em slot analyse\+Form \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEvolutionViewer_a56f8b3c0ca7291a6c0564f2b1b59e251}{current\+Cours\+\_\+changed}} ()
+\begin{DoxyCompactList}\small\item\em signal current\+Cours\+\_\+changed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEvolutionViewer_a8fa80e6118889d7d8dbcba4d7aac1352}{cours\+Picked}} (\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours)
+\begin{DoxyCompactList}\small\item\em signal cours\+Picked \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEvolutionViewer_a9c13613afe6c3fe0e9733d9f90a07686}{Evolution\+Viewer}} (\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$evolution\+Cours, \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} current\+Cours, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Contructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEvolutionViewer_a9a048951a6b8852288fc2b241626f85c}{$\sim$\+Evolution\+Viewer}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEvolutionViewer_a8bb0a633d4a5fccef859913da6890e52}{show\+Chart}} (Q\+Date firstdate, Q\+Date lastdate)
+\begin{DoxyCompactList}\small\item\em méthode show\+Chart \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEvolutionViewer_a5b0be03b010b87110944bf2c4c9af9fa}{set\+Current\+Cours}} (\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} current\+Cours)
+\begin{DoxyCompactList}\small\item\em méthode set\+Current\+Cours \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEvolutionViewer_a1b3aac64c23cc21f6adaa65657bbf183}{activate\+E\+MA}} (bool val)
+\begin{DoxyCompactList}\small\item\em méthode activate\+E\+MA \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEvolutionViewer_a74c1fc22c6b5b12c6fd2f4ad9b3ed95e}{activate\+M\+A\+CD}} (bool val)
+\begin{DoxyCompactList}\small\item\em méthode activate\+M\+A\+CD \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Q\+Object, hérite de Q\+Widget, représentation des bougies sous forme de graphique en chandelier attributs \+: evolution\+Cours, ema, macd, current\+Cours, max\+Date\+Shown, series, E\+M\+A\+\_\+series, M\+A\+C\+D\+\_\+series, M\+A\+C\+D\+\_\+histogram, M\+A\+C\+D\+\_\+signal, axisX, axisY, chart, chart\+View, scroll\+Bar, layout méthodes privées \+: clear\+Charts méthodes publiques \+: \mbox{\hyperlink{classEvolutionViewer}{Evolution\+Viewer}}, show\+Chart, set\+Current\+Cours, activate\+E\+MA, activate\+M\+A\+CD signals publics \+: current\+Cours\+Changed, cours\+Picked slots privés \+: update\+Chart, current\+Cours\+Changed\+\_\+react, pick\+Cours slot public \+: analyse\+Form. 
+
+Définition à la ligne 81 du fichier evolutionviewer.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classEvolutionViewer_a9c13613afe6c3fe0e9733d9f90a07686}\label{classEvolutionViewer_a9c13613afe6c3fe0e9733d9f90a07686}} 
+\index{EvolutionViewer@{EvolutionViewer}!EvolutionViewer@{EvolutionViewer}}
+\index{EvolutionViewer@{EvolutionViewer}!EvolutionViewer@{EvolutionViewer}}
+\doxysubsubsection{\texorpdfstring{EvolutionViewer()}{EvolutionViewer()}}
+{\footnotesize\ttfamily Evolution\+Viewer\+::\+Evolution\+Viewer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$}]{evolution\+Cours,  }\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{current\+Cours,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Contructeur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em evolution\+Cours} & \+:Evolution\+Cours$\ast$ \\
+\hline
+{\em current\+Cours} & \+:\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \\
+\hline
+{\em parent} & \+:Q\+Widget \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 7 du fichier evolutionviewer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7                                                                                                                      : QWidget (parent), evolutionCours(evolutionCours), currentCours(currentCours) \{}
+\DoxyCodeLine{8     setMouseTracking(\textcolor{keyword}{true});}
+\DoxyCodeLine{9     ema = static\_cast<EMA*>(evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a58d3d38badd602231b2d33f5cb38312f}{getCollection}}()-\/>\mbox{\hyperlink{classIndicateurCollection_a5bfad05cff39a29f70127a4db89fc0ff}{getIndicateur}}(\textcolor{stringliteral}{"EMA"}));}
+\DoxyCodeLine{10     macd = static\_cast<MACD*>(evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a58d3d38badd602231b2d33f5cb38312f}{getCollection}}()-\/>\mbox{\hyperlink{classIndicateurCollection_a5bfad05cff39a29f70127a4db89fc0ff}{getIndicateur}}(\textcolor{stringliteral}{"MACD"}));}
+\DoxyCodeLine{11     \textcolor{comment}{//set up chart for EvolutionCours}}
+\DoxyCodeLine{12     chart = \textcolor{keyword}{new} QChart();}
+\DoxyCodeLine{13     chart-\/>setAnimationOptions(QChart::SeriesAnimations);}
+\DoxyCodeLine{14     chart-\/>legend()-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{15     chart-\/>legend()-\/>setAlignment(Qt::AlignBottom);}
+\DoxyCodeLine{16     chart-\/>createDefaultAxes();}
+\DoxyCodeLine{17     chartView = \textcolor{keyword}{new} QChartView(chart, \textcolor{keyword}{this});}
+\DoxyCodeLine{18     scrollBar = \textcolor{keyword}{new} QScrollBar(Qt::Horizontal, \textcolor{keyword}{this});}
+\DoxyCodeLine{19     scrollBar-\/>setMinimum(0);}
+\DoxyCodeLine{20     \mbox{\hyperlink{classCoursOHLCV}{EvolutionCours::iterator}} cours = evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}{searchCours}}(currentCours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().addDays(-\/maxDateShown));}
+\DoxyCodeLine{21     scrollBar-\/>setMaximum(evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}{begin}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().daysTo(cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}()));      \textcolor{comment}{//sync scroll bar with time range}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     layout = \textcolor{keyword}{new} QVBoxLayout;}
+\DoxyCodeLine{24     layout-\/>addWidget(chartView);}
+\DoxyCodeLine{25     layout-\/>addWidget(scrollBar);}
+\DoxyCodeLine{26     this-\/>setLayout(layout);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{//set up series}}
+\DoxyCodeLine{29     series = \textcolor{keyword}{new} QCandlestickSeries(\textcolor{keyword}{this});}
+\DoxyCodeLine{30     series-\/>setName(evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}{toString}}());          \textcolor{comment}{//name of EvolutionCours}}
+\DoxyCodeLine{31     series-\/>setIncreasingColor(QColor(Qt::green));}
+\DoxyCodeLine{32     series-\/>setDecreasingColor(QColor(Qt::red));}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     EMA\_series = \textcolor{keyword}{new} QLineSeries();}
+\DoxyCodeLine{35     EMA\_series-\/>setName(\textcolor{stringliteral}{"EMA"});}
+\DoxyCodeLine{36     EMA\_series-\/>setColor(Qt::blue);}
+\DoxyCodeLine{37     EMA\_series-\/>setVisible(\textcolor{keyword}{false});              \textcolor{comment}{//not shown by default}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     MACD\_series =  \textcolor{keyword}{new} QLineSeries();}
+\DoxyCodeLine{40     MACD\_series-\/>setName(\textcolor{stringliteral}{"MACD"});}
+\DoxyCodeLine{41     MACD\_series-\/>setColor(Qt::black);}
+\DoxyCodeLine{42     MACD\_series-\/>setVisible(\textcolor{keyword}{false});              \textcolor{comment}{//not shown by default}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     MACD\_signal =  \textcolor{keyword}{new} QLineSeries();}
+\DoxyCodeLine{45     MACD\_signal-\/>setName(\textcolor{stringliteral}{"MACD signal line"});}
+\DoxyCodeLine{46     MACD\_signal-\/>setColor(Qt::red);}
+\DoxyCodeLine{47     MACD\_signal-\/>setVisible(\textcolor{keyword}{false});              \textcolor{comment}{//not shown by default}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     MACD\_histogram =  \textcolor{keyword}{new} QLineSeries();}
+\DoxyCodeLine{50     MACD\_histogram-\/>setName(\textcolor{stringliteral}{"MACD histogram"});}
+\DoxyCodeLine{51     MACD\_histogram-\/>setColor(Qt::gray);}
+\DoxyCodeLine{52     MACD\_histogram-\/>setVisible(\textcolor{keyword}{false});              \textcolor{comment}{//not shown by default}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     axisX = \textcolor{keyword}{new} QBarCategoryAxis;}
+\DoxyCodeLine{56     axisY= \textcolor{keyword}{new} QValueAxis;}
+\DoxyCodeLine{57     \textcolor{comment}{//binding sigals}}
+\DoxyCodeLine{58     QObject::connect(scrollBar, SIGNAL(valueChanged(\textcolor{keywordtype}{int})), \textcolor{keyword}{this}, SLOT(updateChart(\textcolor{keywordtype}{int})));}
+\DoxyCodeLine{59     QObject::connect(\textcolor{keyword}{this}, SIGNAL(\mbox{\hyperlink{classEvolutionViewer_a56f8b3c0ca7291a6c0564f2b1b59e251}{currentCours\_changed}}()), \textcolor{keyword}{this}, SLOT(currentCoursChanged\_react()));}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{if}(scrollBar-\/>maximum() == 0) \{updateChart(0);\}}
+\DoxyCodeLine{62     scrollBar-\/>setValue(scrollBar-\/>maximum());}
+\DoxyCodeLine{63 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionViewer_a9a048951a6b8852288fc2b241626f85c}\label{classEvolutionViewer_a9a048951a6b8852288fc2b241626f85c}} 
+\index{EvolutionViewer@{EvolutionViewer}!````~EvolutionViewer@{$\sim$EvolutionViewer}}
+\index{````~EvolutionViewer@{$\sim$EvolutionViewer}!EvolutionViewer@{EvolutionViewer}}
+\doxysubsubsection{\texorpdfstring{$\sim$EvolutionViewer()}{~EvolutionViewer()}}
+{\footnotesize\ttfamily Evolution\+Viewer\+::$\sim$\+Evolution\+Viewer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 65 du fichier evolutionviewer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                                   \{}
+\DoxyCodeLine{66     clearCharts();}
+\DoxyCodeLine{67     \textcolor{keyword}{delete} EMA\_series;}
+\DoxyCodeLine{68     \textcolor{keyword}{delete} MACD\_series;}
+\DoxyCodeLine{69     \textcolor{keyword}{delete} MACD\_signal;}
+\DoxyCodeLine{70     \textcolor{keyword}{delete} MACD\_histogram;}
+\DoxyCodeLine{71     \textcolor{keyword}{delete} axisX;}
+\DoxyCodeLine{72     \textcolor{keyword}{delete} axisY;}
+\DoxyCodeLine{73     \textcolor{keyword}{delete} chart;}
+\DoxyCodeLine{74     \textcolor{keyword}{delete} chartView;}
+\DoxyCodeLine{75     \textcolor{keyword}{delete} scrollBar;}
+\DoxyCodeLine{76     \textcolor{keyword}{delete} layout;}
+\DoxyCodeLine{77 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classEvolutionViewer_a1b3aac64c23cc21f6adaa65657bbf183}\label{classEvolutionViewer_a1b3aac64c23cc21f6adaa65657bbf183}} 
+\index{EvolutionViewer@{EvolutionViewer}!activateEMA@{activateEMA}}
+\index{activateEMA@{activateEMA}!EvolutionViewer@{EvolutionViewer}}
+\doxysubsubsection{\texorpdfstring{activateEMA()}{activateEMA()}}
+{\footnotesize\ttfamily void Evolution\+Viewer\+::activate\+E\+MA (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode activate\+E\+MA 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em val} & \+:bool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: permet de rendre visible ou non le graphe d\textquotesingle{}\mbox{\hyperlink{classEMA}{E\+MA}} 
+\end{DoxyReturn}
+
+
+Définition à la ligne 133 du fichier evolutionviewer.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{133 \{EMA\_series-\/>setVisible(val);   emit scrollBar-\/>valueChanged(scrollBar-\/>value());\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionViewer_a74c1fc22c6b5b12c6fd2f4ad9b3ed95e}\label{classEvolutionViewer_a74c1fc22c6b5b12c6fd2f4ad9b3ed95e}} 
+\index{EvolutionViewer@{EvolutionViewer}!activateMACD@{activateMACD}}
+\index{activateMACD@{activateMACD}!EvolutionViewer@{EvolutionViewer}}
+\doxysubsubsection{\texorpdfstring{activateMACD()}{activateMACD()}}
+{\footnotesize\ttfamily void Evolution\+Viewer\+::activate\+M\+A\+CD (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode activate\+M\+A\+CD 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em val} & \+:bool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: permet de rendre visible ou non les graphes de \mbox{\hyperlink{classMACD}{M\+A\+CD}} 
+\end{DoxyReturn}
+
+
+Définition à la ligne 139 du fichier evolutionviewer.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139                                 \{}
+\DoxyCodeLine{140         MACD\_series-\/>setVisible(val);}
+\DoxyCodeLine{141         MACD\_signal-\/>setVisible(val);}
+\DoxyCodeLine{142         MACD\_histogram-\/>setVisible(val);}
+\DoxyCodeLine{143         emit scrollBar-\/>valueChanged(scrollBar-\/>value());}
+\DoxyCodeLine{144     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionViewer_a4d610c6bcaec8840a9e1714deab5d8b0}\label{classEvolutionViewer_a4d610c6bcaec8840a9e1714deab5d8b0}} 
+\index{EvolutionViewer@{EvolutionViewer}!analyseForm@{analyseForm}}
+\index{analyseForm@{analyseForm}!EvolutionViewer@{EvolutionViewer}}
+\doxysubsubsection{\texorpdfstring{analyseForm}{analyseForm}}
+{\footnotesize\ttfamily void Evolution\+Viewer\+::analyse\+Form (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+slot analyse\+Form 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cours} & \+:Cours\+O\+H\+L\+C\+V$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: analyse de la forme de la bougie du cours O\+H\+L\+CV 
+\end{DoxyReturn}
+
+
+Définition à la ligne 173 du fichier evolutionviewer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{173                                                    \{}
+\DoxyCodeLine{174     QString form = cours-\/>\mbox{\hyperlink{classCoursOHLCV_ad61ecd43647abc006dbe66574c355527}{forme}}(axisY-\/>min(), axisY-\/>max());}
+\DoxyCodeLine{175     form += \textcolor{stringliteral}{"\(\backslash\)n Open price: "} + QString::number(cours-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}());}
+\DoxyCodeLine{176     \textcolor{keywordflow}{if} (cours != currentCours || currentCours == evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_aca20c7a08667b3e14b03380957b973ea}{end}}()-\/1) \{}
+\DoxyCodeLine{177         form += \textcolor{stringliteral}{"\(\backslash\)n High Price: "} + QString::number(cours-\/>\mbox{\hyperlink{classCoursOHLCV_ae43477ab486323cfccd61345c9b52f6c}{getHigh}}());}
+\DoxyCodeLine{178         form += \textcolor{stringliteral}{"\(\backslash\)n Low Price: "} + QString::number(cours-\/>\mbox{\hyperlink{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}{getLow}}());}
+\DoxyCodeLine{179         form += \textcolor{stringliteral}{"\(\backslash\)n Close Price: "} + QString::number(cours-\/>\mbox{\hyperlink{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}{getLow}}());}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{181      QToolTip::showText(QCursor::pos() , form, \textcolor{keyword}{nullptr}, QRect(), 50000);}
+\DoxyCodeLine{182 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionViewer_a8fa80e6118889d7d8dbcba4d7aac1352}\label{classEvolutionViewer_a8fa80e6118889d7d8dbcba4d7aac1352}} 
+\index{EvolutionViewer@{EvolutionViewer}!coursPicked@{coursPicked}}
+\index{coursPicked@{coursPicked}!EvolutionViewer@{EvolutionViewer}}
+\doxysubsubsection{\texorpdfstring{coursPicked}{coursPicked}}
+{\footnotesize\ttfamily void Evolution\+Viewer\+::cours\+Picked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal cours\+Picked 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cours} & \+:Cours\+O\+H\+L\+C\+V$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: signal représentant le choix d\textquotesingle{}un cours O\+H\+L\+CV 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvolutionViewer_a56f8b3c0ca7291a6c0564f2b1b59e251}\label{classEvolutionViewer_a56f8b3c0ca7291a6c0564f2b1b59e251}} 
+\index{EvolutionViewer@{EvolutionViewer}!currentCours\_changed@{currentCours\_changed}}
+\index{currentCours\_changed@{currentCours\_changed}!EvolutionViewer@{EvolutionViewer}}
+\doxysubsubsection{\texorpdfstring{currentCours\_changed}{currentCours\_changed}}
+{\footnotesize\ttfamily void Evolution\+Viewer\+::current\+Cours\+\_\+changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal current\+Cours\+\_\+changed 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: signal représentant le changement de cours 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvolutionViewer_a5b0be03b010b87110944bf2c4c9af9fa}\label{classEvolutionViewer_a5b0be03b010b87110944bf2c4c9af9fa}} 
+\index{EvolutionViewer@{EvolutionViewer}!setCurrentCours@{setCurrentCours}}
+\index{setCurrentCours@{setCurrentCours}!EvolutionViewer@{EvolutionViewer}}
+\doxysubsubsection{\texorpdfstring{setCurrentCours()}{setCurrentCours()}}
+{\footnotesize\ttfamily void Evolution\+Viewer\+::set\+Current\+Cours (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{current\+Cours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode set\+Current\+Cours 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em current\+Cours} & \+:\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: permet de changer le cours O\+H\+L\+CV en cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 124 du fichier evolutionviewer.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{124                                                               \{}
+\DoxyCodeLine{125         this-\/>currentCours = currentCours;}
+\DoxyCodeLine{126         emit \mbox{\hyperlink{classEvolutionViewer_a56f8b3c0ca7291a6c0564f2b1b59e251}{currentCours\_changed}}();}
+\DoxyCodeLine{127     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEvolutionViewer_a8bb0a633d4a5fccef859913da6890e52}\label{classEvolutionViewer_a8bb0a633d4a5fccef859913da6890e52}} 
+\index{EvolutionViewer@{EvolutionViewer}!showChart@{showChart}}
+\index{showChart@{showChart}!EvolutionViewer@{EvolutionViewer}}
+\doxysubsubsection{\texorpdfstring{showChart()}{showChart()}}
+{\footnotesize\ttfamily void Evolution\+Viewer\+::show\+Chart (\begin{DoxyParamCaption}\item[{Q\+Date}]{firstdate,  }\item[{Q\+Date}]{lastdate }\end{DoxyParamCaption})}
+
+
+
+méthode show\+Chart 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em firstdate} & \+:Q\+Date \\
+\hline
+{\em lastdate} & \+:Q\+Date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: permet de montrer le graphique 
+\end{DoxyReturn}
+
+
+Définition à la ligne 93 du fichier evolutionviewer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{93                                                                \{}
+\DoxyCodeLine{94     clearCharts();}
+\DoxyCodeLine{95     \mbox{\hyperlink{classCoursOHLCV}{EvolutionCours::iterator}} cours = evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}{searchCours}}(firstdate);}
+\DoxyCodeLine{96     qDebug() << firstdate.toString(\textcolor{stringliteral}{"yyyy"});}
+\DoxyCodeLine{97     chart-\/>setTitle(evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}{toString}}() + \textcolor{stringliteral}{" en "} + cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"yyyy"}));}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{comment}{//add new data}}
+\DoxyCodeLine{100     \mbox{\hyperlink{classIndiceIndicateur}{Indicateur::iterator}} emaIterator, macdIterator;}
+\DoxyCodeLine{101     QStringList dates;}
+\DoxyCodeLine{102     dates << firstdate.\mbox{\hyperlink{classIndiceIndicateur_a3eb37a4f238b42714f25ebb444f80cdd}{toString}}(\textcolor{stringliteral}{"d/M"});}
+\DoxyCodeLine{103     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{104     \textcolor{keywordtype}{double} yMin = cours-\/>\mbox{\hyperlink{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}{getLow}}();}
+\DoxyCodeLine{105     \textcolor{keywordtype}{double} yMax = cours-\/>\mbox{\hyperlink{classCoursOHLCV_ae43477ab486323cfccd61345c9b52f6c}{getHigh}}();}
+\DoxyCodeLine{106     \textcolor{keywordflow}{for} (; cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}() <= lastdate; cours++)\{}
+\DoxyCodeLine{107         \textcolor{keywordflow}{if} (cours-\/>\mbox{\hyperlink{classCoursOHLCV_ae43477ab486323cfccd61345c9b52f6c}{getHigh}}() > yMax) yMax = cours-\/>\mbox{\hyperlink{classCoursOHLCV_ae43477ab486323cfccd61345c9b52f6c}{getHigh}}();                           \textcolor{comment}{//mesure range of y axis}}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} (cours-\/>\mbox{\hyperlink{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}{getLow}}() < yMin) yMin = cours-\/>\mbox{\hyperlink{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}{getLow}}();}
+\DoxyCodeLine{109         \mbox{\hyperlink{classBougie}{Bougie}}* bougie = \textcolor{keyword}{new} \mbox{\hyperlink{classBougie}{Bougie}}(cours-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}(), cours-\/>\mbox{\hyperlink{classCoursOHLCV_ae43477ab486323cfccd61345c9b52f6c}{getHigh}}(), cours-\/>\mbox{\hyperlink{classCoursOHLCV_af3a09c259e5315fe8528885f04883e1e}{getLow}}(), cours-\/>\mbox{\hyperlink{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}{getClose}}(), cours);}
+\DoxyCodeLine{110         QObject::connect(bougie, SIGNAL(clickBougie(\mbox{\hyperlink{classCoursOHLCV}{CoursOHLCV}}*)), \textcolor{keyword}{this}, SLOT(pickCours(\mbox{\hyperlink{classCoursOHLCV}{CoursOHLCV}}*)));}
+\DoxyCodeLine{111         QObject::connect(bougie, SIGNAL(hoverBougie(\mbox{\hyperlink{classCoursOHLCV}{CoursOHLCV}}*)), \textcolor{keyword}{this}, SLOT(\mbox{\hyperlink{classEvolutionViewer_a4d610c6bcaec8840a9e1714deab5d8b0}{analyseForm}}(\mbox{\hyperlink{classCoursOHLCV}{CoursOHLCV}}*)));}
+\DoxyCodeLine{112         series-\/>append(bougie);}
+\DoxyCodeLine{113         \textcolor{comment}{//Indicateur series}}
+\DoxyCodeLine{114         \textcolor{keywordflow}{if}(EMA\_series-\/>isVisible()) \{}
+\DoxyCodeLine{115             emaIterator = ema-\/>\mbox{\hyperlink{classIndicateur_a7059d1b3c2fce6dcd30fcf3ee2dde7cb}{searchIndice}}(cours);}
+\DoxyCodeLine{116             \textcolor{keywordflow}{if}(!emaIterator) \{}
+\DoxyCodeLine{117                 EMA\_series-\/>append(i, 0);}
+\DoxyCodeLine{118             \}}
+\DoxyCodeLine{119             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{120                 EMA\_series-\/>append(i, emaIterator-\/>\mbox{\hyperlink{classIndiceIndicateur_ac8cb8f95d4647f942a6c928f4921bdbd}{getIndice}}());}
+\DoxyCodeLine{121             \}}
+\DoxyCodeLine{122         \}}
+\DoxyCodeLine{123         \textcolor{keywordflow}{if}(MACD\_series-\/>isVisible()) \{}
+\DoxyCodeLine{124             macdIterator = macd-\/>\mbox{\hyperlink{classIndicateur_a7059d1b3c2fce6dcd30fcf3ee2dde7cb}{searchIndice}}(cours);}
+\DoxyCodeLine{125             \textcolor{keywordtype}{int} index = macd-\/>\mbox{\hyperlink{classIndicateur_ad98dc2442f3b824c8b6a3e39ee0f6012}{index}}(macdIterator);}
+\DoxyCodeLine{126             qDebug()<< \textcolor{stringliteral}{"index "} << index;}
+\DoxyCodeLine{127             \textcolor{keywordflow}{if}(!macdIterator) \{}
+\DoxyCodeLine{128                 MACD\_series-\/>append(i, 0);}
+\DoxyCodeLine{129                 MACD\_signal-\/>append(i,0);}
+\DoxyCodeLine{130                 MACD\_histogram-\/>append(i,0);}
+\DoxyCodeLine{131             \}}
+\DoxyCodeLine{132             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{133                 MACD\_series-\/>append(i, macdIterator-\/>\mbox{\hyperlink{classIndiceIndicateur_ac8cb8f95d4647f942a6c928f4921bdbd}{getIndice}}());}
+\DoxyCodeLine{134                 MACD\_signal-\/>append(i, ((macd-\/>\mbox{\hyperlink{classMACD_ae44891a59bf13e1d78d3999b7e05b017}{signalLine\_begin}}()) + index)-\/>getIndice());}
+\DoxyCodeLine{135                 MACD\_histogram-\/>append(i, ((macd-\/>\mbox{\hyperlink{classMACD_a6b80dbfc2048427c05016247cfbafe07}{histogramLine\_begin}}()) + index)-\/>getIndice());}
+\DoxyCodeLine{136             \}}
+\DoxyCodeLine{137         \}}
+\DoxyCodeLine{138         i++;}
+\DoxyCodeLine{139         dates << cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"d/M"});}
+\DoxyCodeLine{140         \textcolor{keywordflow}{if} (cours == currentCours) \textcolor{keywordflow}{break};       \textcolor{comment}{//only show up to current cours}}
+\DoxyCodeLine{141     \}}
+\DoxyCodeLine{142     axisX-\/>append(dates);}
+\DoxyCodeLine{143     axisY-\/>setRange(yMin*0.98, yMax*1.02);}
+\DoxyCodeLine{144     chart-\/>addSeries(series);}
+\DoxyCodeLine{145     \textcolor{keywordflow}{if}(EMA\_series-\/>isVisible()) chart-\/>addSeries(EMA\_series);}
+\DoxyCodeLine{146     \textcolor{keywordflow}{if}(MACD\_series-\/>isVisible()) \{}
+\DoxyCodeLine{147         chart-\/>addSeries(MACD\_series);}
+\DoxyCodeLine{148         chart-\/>addSeries(MACD\_signal);}
+\DoxyCodeLine{149         chart-\/>addSeries(MACD\_histogram);}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{151     chart-\/>setAxisX(axisX,series);}
+\DoxyCodeLine{152     chart-\/>setAxisY(axisY,series);}
+\DoxyCodeLine{153 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Chart/\mbox{\hyperlink{evolutionviewer_8h}{evolutionviewer.\+h}}\item 
+Chart/\mbox{\hyperlink{evolutionviewer_8cpp}{evolutionviewer.\+cpp}}\end{DoxyCompactItemize}

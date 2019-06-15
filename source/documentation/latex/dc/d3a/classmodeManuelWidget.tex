@@ -1,0 +1,193 @@
+\hypertarget{classmodeManuelWidget}{}\doxysection{Référence de la classe mode\+Manuel\+Widget}
+\label{classmodeManuelWidget}\index{modeManuelWidget@{modeManuelWidget}}
+
+
+hérite de Q\+Widget attributs \+: ui, mode\+Manuel, transaction\+Manager, cours\+Picked méthode publique \+: \mbox{\hyperlink{classmodeManuelWidget}{mode\+Manuel\+Widget}}, $\sim$mode\+Manuel\+Widget, update\+Data signal public \+: transaction\+Changed slots privés \+: on\+\_\+push\+Button\+\_\+achat\+\_\+clicked, on\+\_\+push\+Button\+\_\+annuler\+Transaction\+\_\+clicked, on\+\_\+push\+Button\+\_\+vente\+\_\+clicked slot public \+: set\+Cours\+Picked  
+
+
+
+
+{\ttfamily \#include $<$modemanuelwidget.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de mode\+Manuel\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/d3a/classmodeManuelWidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Connecteurs publics}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmodeManuelWidget_a8368aa0614335069e1d09e6a782b3a8c}{set\+Cours\+Picked}} (\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours)
+\begin{DoxyCompactList}\small\item\em slot set\+Cours\+Picked \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmodeManuelWidget_aeca91a249abd510f8b17812678c8445d}{transaction\+Changed}} ()
+\begin{DoxyCompactList}\small\item\em signal transaction\+Changed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodeManuelWidget_a7180c8ae275dc05dca2efcc8b42a7757}{mode\+Manuel\+Widget}} (\mbox{\hyperlink{classModeManuel}{Mode\+Manuel}} $\ast$mode\+Manuel, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur explicite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmodeManuelWidget_a3b1b0a8e25f1a1e0a658f043550ebaf0}{$\sim$mode\+Manuel\+Widget}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmodeManuelWidget_ac22aa18710fb5a9ae9d9646bfdb6752b}{update\+Data}} ()
+\begin{DoxyCompactList}\small\item\em slot update\+Data \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+hérite de Q\+Widget attributs \+: ui, mode\+Manuel, transaction\+Manager, cours\+Picked méthode publique \+: \mbox{\hyperlink{classmodeManuelWidget}{mode\+Manuel\+Widget}}, $\sim$mode\+Manuel\+Widget, update\+Data signal public \+: transaction\+Changed slots privés \+: on\+\_\+push\+Button\+\_\+achat\+\_\+clicked, on\+\_\+push\+Button\+\_\+annuler\+Transaction\+\_\+clicked, on\+\_\+push\+Button\+\_\+vente\+\_\+clicked slot public \+: set\+Cours\+Picked 
+
+Définition à la ligne 29 du fichier modemanuelwidget.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classmodeManuelWidget_a7180c8ae275dc05dca2efcc8b42a7757}\label{classmodeManuelWidget_a7180c8ae275dc05dca2efcc8b42a7757}} 
+\index{modeManuelWidget@{modeManuelWidget}!modeManuelWidget@{modeManuelWidget}}
+\index{modeManuelWidget@{modeManuelWidget}!modeManuelWidget@{modeManuelWidget}}
+\doxysubsubsection{\texorpdfstring{modeManuelWidget()}{modeManuelWidget()}}
+{\footnotesize\ttfamily mode\+Manuel\+Widget\+::mode\+Manuel\+Widget (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classModeManuel}{Mode\+Manuel}} $\ast$}]{mode\+Manuel,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur explicite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mode\+Manuel} & \+:Mode\+Manuel$\ast$ \\
+\hline
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 4 du fichier modemanuelwidget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                                                                           : QWidget(parent), ui(\textcolor{keyword}{new} Ui::modeManuelWidget), modeManuel(modeManuel) \{}
+\DoxyCodeLine{5     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{6     coursPicked = modeManuel-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}();}
+\DoxyCodeLine{7     transactionManager = modeManuel-\/>\mbox{\hyperlink{classSimulation_ac5a714fd110f5f86427b5f2d1c4f60fe}{getTransactionManager}}();}
+\DoxyCodeLine{8     ui-\/>pairelabel-\/>setText(modeManuel-\/>\mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{getEvolutionCours}}()-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}{toString}}());}
+\DoxyCodeLine{9     ui-\/>base-\/>setText(modeManuel-\/>\mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{getEvolutionCours}}()-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6878818a7170f53fef760a57341b2216}{getBase}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}());}
+\DoxyCodeLine{10     ui-\/>contrepartie-\/>setText(modeManuel-\/>\mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{getEvolutionCours}}()-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}{getContrepartie}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}());}
+\DoxyCodeLine{11     ui-\/>label\_montantBase-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}()));}
+\DoxyCodeLine{12     ui-\/>label\_montantContrepartie-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}()));}
+\DoxyCodeLine{13     ui-\/>label\_broker-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_a8b21012d5c6934c2be7817c3e3dcc28a}{getPourcentage}}()));}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     ui-\/>label\_date-\/>setText(modeManuel-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"dd.MM.yyyy"}));}
+\DoxyCodeLine{16     ui-\/>openPrice-\/>setText(QString::number(modeManuel-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}()));}
+\DoxyCodeLine{17     ui-\/>montant\_Edit-\/>setMinimum(0);}
+\DoxyCodeLine{18     ui-\/>montant\_Edit-\/>setMaximum(max(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}(), transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}())*1000);}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmodeManuelWidget_a3b1b0a8e25f1a1e0a658f043550ebaf0}\label{classmodeManuelWidget_a3b1b0a8e25f1a1e0a658f043550ebaf0}} 
+\index{modeManuelWidget@{modeManuelWidget}!````~modeManuelWidget@{$\sim$modeManuelWidget}}
+\index{````~modeManuelWidget@{$\sim$modeManuelWidget}!modeManuelWidget@{modeManuelWidget}}
+\doxysubsubsection{\texorpdfstring{$\sim$modeManuelWidget()}{~modeManuelWidget()}}
+{\footnotesize\ttfamily mode\+Manuel\+Widget\+::$\sim$mode\+Manuel\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 21 du fichier modemanuelwidget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                     \{}
+\DoxyCodeLine{22     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classmodeManuelWidget_a8368aa0614335069e1d09e6a782b3a8c}\label{classmodeManuelWidget_a8368aa0614335069e1d09e6a782b3a8c}} 
+\index{modeManuelWidget@{modeManuelWidget}!setCoursPicked@{setCoursPicked}}
+\index{setCoursPicked@{setCoursPicked}!modeManuelWidget@{modeManuelWidget}}
+\doxysubsubsection{\texorpdfstring{setCoursPicked}{setCoursPicked}}
+{\footnotesize\ttfamily void mode\+Manuel\+Widget\+::set\+Cours\+Picked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+slot set\+Cours\+Picked 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cours} & \+:Cours\+O\+H\+L\+C\+V$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: pour le choix du cours O\+H\+L\+CV 
+\end{DoxyReturn}
+
+
+Définition à la ligne 32 du fichier modemanuelwidget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                                                        \{}
+\DoxyCodeLine{33     coursPicked = cours;}
+\DoxyCodeLine{34     \textcolor{keywordflow}{if}(cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}() < modeManuel-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}()) \{}
+\DoxyCodeLine{35         QMessageBox::information(\textcolor{keyword}{this}, \textcolor{stringliteral}{"Info"}, \textcolor{stringliteral}{"Ne peut pas choisir un jour dans le passé"});}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{38         ui-\/>label\_date-\/>setText(cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"dd.MM.yy"}));}
+\DoxyCodeLine{39         ui-\/>openPrice-\/>setText(QString::number(cours-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}()));}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classmodeManuelWidget_aeca91a249abd510f8b17812678c8445d}\label{classmodeManuelWidget_aeca91a249abd510f8b17812678c8445d}} 
+\index{modeManuelWidget@{modeManuelWidget}!transactionChanged@{transactionChanged}}
+\index{transactionChanged@{transactionChanged}!modeManuelWidget@{modeManuelWidget}}
+\doxysubsubsection{\texorpdfstring{transactionChanged}{transactionChanged}}
+{\footnotesize\ttfamily void mode\+Manuel\+Widget\+::transaction\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal transaction\+Changed 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: signale le changement de transaction (précédente à la suivante) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmodeManuelWidget_ac22aa18710fb5a9ae9d9646bfdb6752b}\label{classmodeManuelWidget_ac22aa18710fb5a9ae9d9646bfdb6752b}} 
+\index{modeManuelWidget@{modeManuelWidget}!updateData@{updateData}}
+\index{updateData@{updateData}!modeManuelWidget@{modeManuelWidget}}
+\doxysubsubsection{\texorpdfstring{updateData()}{updateData()}}
+{\footnotesize\ttfamily void mode\+Manuel\+Widget\+::update\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+slot update\+Data 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: pour mettre à jour les données 
+\end{DoxyReturn}
+
+
+Définition à la ligne 25 du fichier modemanuelwidget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                                   \{}
+\DoxyCodeLine{26     ui-\/>label\_montantBase-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}()));}
+\DoxyCodeLine{27     ui-\/>label\_montantContrepartie-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}()));}
+\DoxyCodeLine{28     ui-\/>label\_broker-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_a8b21012d5c6934c2be7817c3e3dcc28a}{getPourcentage}}()));}
+\DoxyCodeLine{29     ui-\/>montant\_Edit-\/>setMaximum(max(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}(), transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}())*1000);}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Windows/modemanuelwidget.\+h\item 
+Windows/modemanuelwidget.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,111 @@
+\hypertarget{classMainWindow}{}\doxysection{Référence de la classe Main\+Window}
+\label{classMainWindow}\index{MainWindow@{MainWindow}}
+
+
+hérite de Q\+Main\+Window, fenêtre principale attributs \+: ui, simulation\+Tabs méthode publique \+: \mbox{\hyperlink{classMainWindow}{Main\+Window}}, $\sim$\+Main\+Window signal public \+: stop slot privé \+: send\+\_\+stop  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d6/d1a/classMainWindow}
+\end{center}
+\end{figure}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMainWindow_a939e90ddfe07d74be87b351ca2171fb0}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Signal stop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+hérite de Q\+Main\+Window, fenêtre principale attributs \+: ui, simulation\+Tabs méthode publique \+: \mbox{\hyperlink{classMainWindow}{Main\+Window}}, $\sim$\+Main\+Window signal public \+: stop slot privé \+: send\+\_\+stop 
+
+Définition à la ligne 68 du fichier mainwindow.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classMainWindow_a996c5a2b6f77944776856f08ec30858d}\label{classMainWindow_a996c5a2b6f77944776856f08ec30858d}} 
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 41 du fichier mainwindow.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                                       : QMainWindow(parent), ui(\textcolor{keyword}{new} Ui::MainWindow) \{}
+\DoxyCodeLine{42     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{43     simulationTabs = \textcolor{keyword}{new} \mbox{\hyperlink{classSimulationTab}{SimulationTab}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{44     connect(simulationTabs, SIGNAL(closeWindow\_request()), \textcolor{keyword}{this}, SLOT(send\_stop()));}
+\DoxyCodeLine{45     ui-\/>mainLayout-\/>addWidget(simulationTabs);}
+\DoxyCodeLine{46 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}\label{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}} 
+\index{MainWindow@{MainWindow}!````~MainWindow@{$\sim$MainWindow}}
+\index{````~MainWindow@{$\sim$MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{$\sim$MainWindow()}{~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::$\sim$\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 48 du fichier mainwindow.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                         \{}
+\DoxyCodeLine{49     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classMainWindow_a939e90ddfe07d74be87b351ca2171fb0}\label{classMainWindow_a939e90ddfe07d74be87b351ca2171fb0}} 
+\index{MainWindow@{MainWindow}!stop@{stop}}
+\index{stop@{stop}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{stop}{stop}}
+{\footnotesize\ttfamily void Main\+Window\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Signal stop. 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: signal pour arrêter la simulation 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Windows/mainwindow.\+h\item 
+Windows/mainwindow.\+cpp\end{DoxyCompactItemize}

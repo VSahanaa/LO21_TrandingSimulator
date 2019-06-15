@@ -3,7 +3,7 @@
 
 /**
  * \file 	addindicateur_dialog.h
- * \brief 	classe AddIndicateurDialog dans le namespace Ui
+ * \brief 	classe AddIndicateurDialog
  * 	
  * 	Contient le QDialog pour ajouter un indicateur (choix parmi ceux implémentés)
  * 			
@@ -13,10 +13,6 @@
 #include <QMessageBox>
 #include "../Core_Devises/trading.h"
 
-//! Namespace Ui
-/**
-* classe : AddIndicateurDialog
-*/
 namespace Ui {
     class AddIndicateurDialog;
 }

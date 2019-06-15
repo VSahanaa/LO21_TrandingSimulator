@@ -3,7 +3,7 @@
 
 /**
  * \file 	modepaspaswidget.h
- * \brief 	classe modeManuelWidget dans le namespace Ui
+ * \brief 	classe modeManuelWidget
  * 	
  * 	Contient le QWidget du mode Manuel
  * 			
@@ -13,10 +13,6 @@
 #include <QWidget>
 #include <QMessageBox>
 
-//! Namespace Ui
-/**
-* classe : ModePasPaswidget
-*/
 namespace Ui {
     class ModePasPaswidget;
 }

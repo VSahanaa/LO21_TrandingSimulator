@@ -1,0 +1,87 @@
+\hypertarget{classInfo}{}\doxysection{Référence de la classe Info}
+\label{classInfo}\index{Info@{Info}}
+
+
+Q\+Object, hérite de Q\+Dialog, interface représentant les informations lors du lancement de l\textquotesingle{}application attributs \+: ui méthodes publiques \+: \mbox{\hyperlink{classInfo}{Info}}, $\sim$\+Info.  
+
+
+
+
+{\ttfamily \#include $<$info.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Info\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{da/df5/classInfo}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classInfo_afcb88abfe58feb88016042142faac5eb}{Info}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur explicite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInfo_a5cc1b412a3c005a5a6db2dcdf73be439}{$\sim$\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Q\+Object, hérite de Q\+Dialog, interface représentant les informations lors du lancement de l\textquotesingle{}application attributs \+: ui méthodes publiques \+: \mbox{\hyperlink{classInfo}{Info}}, $\sim$\+Info. 
+
+Définition à la ligne 26 du fichier info.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classInfo_afcb88abfe58feb88016042142faac5eb}\label{classInfo_afcb88abfe58feb88016042142faac5eb}} 
+\index{Info@{Info}!Info@{Info}}
+\index{Info@{Info}!Info@{Info}}
+\doxysubsubsection{\texorpdfstring{Info()}{Info()}}
+{\footnotesize\ttfamily Info\+::\+Info (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructeur explicite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 33 du fichier info.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                              : QDialog(parent), ui(\textcolor{keyword}{new} Ui::Info) \{}
+\DoxyCodeLine{34         ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{35         this-\/>setWindowTitle(\textcolor{stringliteral}{"About"});}
+\DoxyCodeLine{36     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classInfo_a5cc1b412a3c005a5a6db2dcdf73be439}\label{classInfo_a5cc1b412a3c005a5a6db2dcdf73be439}} 
+\index{Info@{Info}!````~Info@{$\sim$Info}}
+\index{````~Info@{$\sim$Info}!Info@{Info}}
+\doxysubsubsection{\texorpdfstring{$\sim$Info()}{~Info()}}
+{\footnotesize\ttfamily Info\+::$\sim$\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 38 du fichier info.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38             \{}
+\DoxyCodeLine{39         \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{40     \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+Windows/\mbox{\hyperlink{info_8h}{info.\+h}}\end{DoxyCompactItemize}

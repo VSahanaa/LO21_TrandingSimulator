@@ -1,0 +1,709 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trading Simulator: Référence de la classe Indicateur</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trading Simulator
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Types publics</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a> &#124;
+<a href="#friends">Amis</a> &#124;
+<a href="../../d4/d2a/classIndicateur-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence de la classe Indicateur<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>classe abstraite pour les indicateurs attributs protégés : nom, evolutionCours, indices, nbIndicateur, nbMaxIndicateur méthodees : searchIndice méthodees virtuelles pures : generateIndice, setParameters, getParameters amitiés : <a class="el" href="../../d0/dc2/classIndicateurCollection.html" title="collection des indicateurs, ils appartiennent à un objet EvolutionCours méthodes : getIndicateur amit...">IndicateurCollection</a> Remarques : possède un iterateur  
+ <a href="../../d9/d5b/classIndicateur.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe d'héritage de Indicateur:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="../../d9/d5b/classIndicateur.png" usemap="#Indicateur_map" alt=""/>
+  <map id="Indicateur_map" name="Indicateur_map">
+<area href="../../d7/d40/classEMA.html" title="l&#39;indicateur EMA : Exponential Moving Average attributs : period méthodees : generateIndice,..." alt="EMA" shape="rect" coords="0,56,68,80"/>
+<area href="../../de/dc7/classMACD.html" title="l&#39;indicateur MACD : Moving Average Convergence Divergence attributs : longPeriod, shortPeriod,..." alt="MACD" shape="rect" coords="78,56,146,80"/>
+<area href="../../d2/dd4/classRSI.html" title="l&#39;indicateur RSI : Relative Strength Index attributs : lookbackPeriod, overboughtBound,..." alt="RSI" shape="rect" coords="156,56,224,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:a690d5bb561bcae04f59a90fa2aa88be4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">iterator</a> = <a class="el" href="../../d7/db0/classIndiceIndicateur.html">IndiceIndicateur</a> *</td></tr>
+<tr class="separator:a690d5bb561bcae04f59a90fa2aa88be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81be0ff696d53815bc15a3ef7790be8b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a81be0ff696d53815bc15a3ef7790be8b">const_iterator</a> = const <a class="el" href="../../d7/db0/classIndiceIndicateur.html">IndiceIndicateur</a> *</td></tr>
+<tr class="separator:a81be0ff696d53815bc15a3ef7790be8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:af8d408a8aa64531c442cd8aa9adfc361"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#af8d408a8aa64531c442cd8aa9adfc361">generateIndice</a> ()=0</td></tr>
+<tr class="memdesc:af8d408a8aa64531c442cd8aa9adfc361"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode virtual pure generateIndice  <a href="../../d9/d5b/classIndicateur.html#af8d408a8aa64531c442cd8aa9adfc361">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af8d408a8aa64531c442cd8aa9adfc361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15cd611fe58c9ba90086131a1f20f252"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a15cd611fe58c9ba90086131a1f20f252">begin</a> ()</td></tr>
+<tr class="memdesc:a15cd611fe58c9ba90086131a1f20f252"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode begin  <a href="../../d9/d5b/classIndicateur.html#a15cd611fe58c9ba90086131a1f20f252">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a15cd611fe58c9ba90086131a1f20f252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eaa0e8daf91be5661a8da012aa254f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a8eaa0e8daf91be5661a8da012aa254f7">end</a> ()</td></tr>
+<tr class="memdesc:a8eaa0e8daf91be5661a8da012aa254f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode end  <a href="../../d9/d5b/classIndicateur.html#a8eaa0e8daf91be5661a8da012aa254f7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8eaa0e8daf91be5661a8da012aa254f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f09b288efa9812bb58f10769736c360"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d5b/classIndicateur.html#a81be0ff696d53815bc15a3ef7790be8b">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a4f09b288efa9812bb58f10769736c360">cbegin</a> () const</td></tr>
+<tr class="memdesc:a4f09b288efa9812bb58f10769736c360"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode begin  <a href="../../d9/d5b/classIndicateur.html#a4f09b288efa9812bb58f10769736c360">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4f09b288efa9812bb58f10769736c360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1d8da2616015c4f7f230ad4d421c30b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/d5b/classIndicateur.html#a81be0ff696d53815bc15a3ef7790be8b">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#aa1d8da2616015c4f7f230ad4d421c30b">cend</a> () const</td></tr>
+<tr class="memdesc:aa1d8da2616015c4f7f230ad4d421c30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode end  <a href="../../d9/d5b/classIndicateur.html#aa1d8da2616015c4f7f230ad4d421c30b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa1d8da2616015c4f7f230ad4d421c30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7059d1b3c2fce6dcd30fcf3ee2dde7cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/db0/classIndiceIndicateur.html">IndiceIndicateur</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a7059d1b3c2fce6dcd30fcf3ee2dde7cb">searchIndice</a> (<a class="el" href="../../df/d09/classCoursOHLCV.html">CoursOHLCV</a> *cours)</td></tr>
+<tr class="memdesc:a7059d1b3c2fce6dcd30fcf3ee2dde7cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode searchIndice  <a href="../../d9/d5b/classIndicateur.html#a7059d1b3c2fce6dcd30fcf3ee2dde7cb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7059d1b3c2fce6dcd30fcf3ee2dde7cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7f0dff88e616b0112f9b5fb7826996"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a3d7f0dff88e616b0112f9b5fb7826996">setParameters</a> (QMap&lt; QString, QVariant &gt; parameters)=0</td></tr>
+<tr class="memdesc:a3d7f0dff88e616b0112f9b5fb7826996"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode virtual pure setParameters  <a href="../../d9/d5b/classIndicateur.html#a3d7f0dff88e616b0112f9b5fb7826996">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3d7f0dff88e616b0112f9b5fb7826996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd5d5adeda2708179d912f78012992f"><td class="memItemLeft" align="right" valign="top">virtual QMap&lt; QString, QVariant &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#aefd5d5adeda2708179d912f78012992f">getParameters</a> () const =0</td></tr>
+<tr class="memdesc:aefd5d5adeda2708179d912f78012992f"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode virtual pure getParameters ;  <a href="../../d9/d5b/classIndicateur.html#aefd5d5adeda2708179d912f78012992f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aefd5d5adeda2708179d912f78012992f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad98dc2442f3b824c8b6a3e39ee0f6012"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#ad98dc2442f3b824c8b6a3e39ee0f6012">index</a> (<a class="el" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">iterator</a> indice)</td></tr>
+<tr class="memdesc:ad98dc2442f3b824c8b6a3e39ee0f6012"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode index  <a href="../../d9/d5b/classIndicateur.html#ad98dc2442f3b824c8b6a3e39ee0f6012">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad98dc2442f3b824c8b6a3e39ee0f6012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:a7a7829b5893662f78f7927716f905632"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a7a7829b5893662f78f7927716f905632">Indicateur</a> (<a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *<a class="el" href="../../d9/d5b/classIndicateur.html#ad822d276436ede2212d186a36b0587f9">evolutionCours</a>, QString <a class="el" href="../../d9/d5b/classIndicateur.html#a6ab38638be85ce931ba6b81e0633bd62">nom</a>=&quot;unnamed indicator&quot;)</td></tr>
+<tr class="memdesc:a7a7829b5893662f78f7927716f905632"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructeur  <a href="../../d9/d5b/classIndicateur.html#a7a7829b5893662f78f7927716f905632">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7a7829b5893662f78f7927716f905632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4199843dae6eb684e098de813994bb9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#af4199843dae6eb684e098de813994bb9">~Indicateur</a> ()</td></tr>
+<tr class="memdesc:af4199843dae6eb684e098de813994bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor virtual  <a href="../../d9/d5b/classIndicateur.html#af4199843dae6eb684e098de813994bb9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af4199843dae6eb684e098de813994bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a6ab38638be85ce931ba6b81e0633bd62"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a6ab38638be85ce931ba6b81e0633bd62">nom</a></td></tr>
+<tr class="separator:a6ab38638be85ce931ba6b81e0633bd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad822d276436ede2212d186a36b0587f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#ad822d276436ede2212d186a36b0587f9">evolutionCours</a></td></tr>
+<tr class="separator:ad822d276436ede2212d186a36b0587f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a659ba59316b71d13b9025f954e801280"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/db0/classIndiceIndicateur.html">IndiceIndicateur</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a659ba59316b71d13b9025f954e801280">indices</a> = nullptr</td></tr>
+<tr class="separator:a659ba59316b71d13b9025f954e801280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e786471f5ab9776ec24c7fa6ea736ac"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#a8e786471f5ab9776ec24c7fa6ea736ac">nbIndicateur</a></td></tr>
+<tr class="separator:a8e786471f5ab9776ec24c7fa6ea736ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa41dec251341be1250d216e0d3103ff7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d5b/classIndicateur.html#aa41dec251341be1250d216e0d3103ff7">nbMaxIndicateur</a></td></tr>
+<tr class="separator:aa41dec251341be1250d216e0d3103ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Amis</h2></td></tr>
+<tr class="memitem:a222e2b39985432a8e02aea6c2d5f841f"><td class="memItemLeft" align="right" valign="top"><a id="a222e2b39985432a8e02aea6c2d5f841f"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>IndicateurCollection</b></td></tr>
+<tr class="separator:a222e2b39985432a8e02aea6c2d5f841f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>classe abstraite pour les indicateurs attributs protégés : nom, evolutionCours, indices, nbIndicateur, nbMaxIndicateur méthodees : searchIndice méthodees virtuelles pures : generateIndice, setParameters, getParameters amitiés : <a class="el" href="../../d0/dc2/classIndicateurCollection.html" title="collection des indicateurs, ils appartiennent à un objet EvolutionCours méthodes : getIndicateur amit...">IndicateurCollection</a> Remarques : possède un iterateur </p>
+<ul>
+<li>iterator qui correspond à IndiceIndicateur*</li>
+<li>const_iterator qui correspond à const IndiceIndicateur* avec les méthodes : begin, end, searchcours associées </li>
+</ul>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00555">555</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+</div><h2 class="groupheader">Documentation des définitions de type membres</h2>
+<a id="a81be0ff696d53815bc15a3ef7790be8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81be0ff696d53815bc15a3ef7790be8b">&#9670;&nbsp;</a></span>const_iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/d5b/classIndicateur.html#a81be0ff696d53815bc15a3ef7790be8b">Indicateur::const_iterator</a> =  const <a class="el" href="../../d7/db0/classIndiceIndicateur.html">IndiceIndicateur</a>*</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>const_iterator correspond à const IndiceIndicateur* </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00581">581</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+
+</div>
+</div>
+<a id="a690d5bb561bcae04f59a90fa2aa88be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a690d5bb561bcae04f59a90fa2aa88be4">&#9670;&nbsp;</a></span>iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">Indicateur::iterator</a> =  <a class="el" href="../../d7/db0/classIndiceIndicateur.html">IndiceIndicateur</a>*</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>iterator correspond à IndiceIndicateur* </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00580">580</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="a7a7829b5893662f78f7927716f905632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a7829b5893662f78f7927716f905632">&#9670;&nbsp;</a></span>Indicateur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Indicateur::Indicateur </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *&#160;</td>
+          <td class="paramname"><em>evolutionCours</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nom</em> = <code>&quot;unnamed&#160;indicator&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructeur </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">evolutionCours</td><td>:EvolutionCours* </td></tr>
+    <tr><td class="paramname">nom</td><td>:QString = "unnamed indicator" par default </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d7/dc5/indicateur_8cpp_source.html#l00010">10</a> du fichier <a class="el" href="../../d7/dc5/indicateur_8cpp_source.html">indicateur.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                                                                 : <a class="code" href="../../d9/d5b/classIndicateur.html#a6ab38638be85ce931ba6b81e0633bd62">nom</a>(<a class="code" href="../../d9/d5b/classIndicateur.html#a6ab38638be85ce931ba6b81e0633bd62">nom</a>) {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="../../d9/d5b/classIndicateur.html#ad822d276436ede2212d186a36b0587f9">evolutionCours</a>) <span class="keywordflow">throw</span> <a class="code" href="../../d2/d7d/classTradingException.html">TradingException</a>(<span class="stringliteral">&quot;Idicateur: evolutionCours est null&quot;</span>);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        this-&gt;evolutionCours = <a class="code" href="../../d9/d5b/classIndicateur.html#ad822d276436ede2212d186a36b0587f9">evolutionCours</a>;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../d9/d5b/classIndicateur.html#a8e786471f5ab9776ec24c7fa6ea736ac">nbIndicateur</a> = 0;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="af4199843dae6eb684e098de813994bb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4199843dae6eb684e098de813994bb9">&#9670;&nbsp;</a></span>~Indicateur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Indicateur::~Indicateur </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>destructor virtual </p>
+<p>libère la mémoire allouée pour le tableau indices </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00573">573</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;{<span class="keyword">delete</span>[] <a class="code" href="../../d9/d5b/classIndicateur.html#a659ba59316b71d13b9025f954e801280">indices</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a15cd611fe58c9ba90086131a1f20f252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15cd611fe58c9ba90086131a1f20f252">&#9670;&nbsp;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">iterator</a> Indicateur::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode begin </p>
+<dl class="section return"><dt>Renvoie</dt><dd>iterator : pointe sur premier élément du tableau indices </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00586">586</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../d9/d5b/classIndicateur.html#a659ba59316b71d13b9025f954e801280">indices</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a4f09b288efa9812bb58f10769736c360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f09b288efa9812bb58f10769736c360">&#9670;&nbsp;</a></span>cbegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d5b/classIndicateur.html#a81be0ff696d53815bc15a3ef7790be8b">const_iterator</a> Indicateur::cbegin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode begin </p>
+<dl class="section return"><dt>Renvoie</dt><dd>const_iterator : la valeur du pointeur const sur le premier élément du tableau indices </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00596">596</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../d9/d5b/classIndicateur.html#a659ba59316b71d13b9025f954e801280">indices</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aa1d8da2616015c4f7f230ad4d421c30b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1d8da2616015c4f7f230ad4d421c30b">&#9670;&nbsp;</a></span>cend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d5b/classIndicateur.html#a81be0ff696d53815bc15a3ef7790be8b">const_iterator</a> Indicateur::cend </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode end </p>
+<dl class="section return"><dt>Renvoie</dt><dd>const_iterator : la valeur du pointeur const sur la fin du tableau indices </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00601">601</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../d9/d5b/classIndicateur.html#a659ba59316b71d13b9025f954e801280">indices</a>+ <a class="code" href="../../d9/d5b/classIndicateur.html#a8e786471f5ab9776ec24c7fa6ea736ac">nbIndicateur</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a8eaa0e8daf91be5661a8da012aa254f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eaa0e8daf91be5661a8da012aa254f7">&#9670;&nbsp;</a></span>end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">iterator</a> Indicateur::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode end </p>
+<dl class="section return"><dt>Renvoie</dt><dd>iterator : pointe sur la fin du tableau indices </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00591">591</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="../../d9/d5b/classIndicateur.html#a659ba59316b71d13b9025f954e801280">indices</a> + <a class="code" href="../../d9/d5b/classIndicateur.html#a8e786471f5ab9776ec24c7fa6ea736ac">nbIndicateur</a>;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="af8d408a8aa64531c442cd8aa9adfc361"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8d408a8aa64531c442cd8aa9adfc361">&#9670;&nbsp;</a></span>generateIndice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Indicateur::generateIndice </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode virtual pure generateIndice </p>
+<dl class="section return"><dt>Renvoie</dt><dd>void : génére le tableau d'indice </dd></dl>
+
+<p>Implémenté dans <a class="el" href="../../de/dc7/classMACD.html#a65836c3a0a5de1cc37590f4b947acc51">MACD</a>, <a class="el" href="../../d2/dd4/classRSI.html#a97d440b6ee4a31209829547db87b0ce8">RSI</a>, et <a class="el" href="../../d7/d40/classEMA.html#a745b74f4054e17c6207e790edbdff34c">EMA</a>.</p>
+
+</div>
+</div>
+<a id="aefd5d5adeda2708179d912f78012992f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd5d5adeda2708179d912f78012992f">&#9670;&nbsp;</a></span>getParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QMap&lt;QString, QVariant&gt; Indicateur::getParameters </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode virtual pure getParameters ; </p>
+
+<p>Implémenté dans <a class="el" href="../../de/dc7/classMACD.html#aa54c70e30d3caaed32fa19a8b45ec389">MACD</a>, <a class="el" href="../../d2/dd4/classRSI.html#a51ae2c173b2d2d58a9f58429739e8509">RSI</a>, et <a class="el" href="../../d7/d40/classEMA.html#a9cf9d2ca025967cdccf3c70a4b10e2f7">EMA</a>.</p>
+
+</div>
+</div>
+<a id="ad98dc2442f3b824c8b6a3e39ee0f6012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad98dc2442f3b824c8b6a3e39ee0f6012">&#9670;&nbsp;</a></span>index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Indicateur::index </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">iterator</a>&#160;</td>
+          <td class="paramname"><em>indice</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode index </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">indice</td><td>: <a class="el" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">Indicateur::iterator</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : position d'un <a class="el" href="../../d7/db0/classIndiceIndicateur.html" title="contient la valeure d&#39;un indicateur sur une journée attributs : donnee, date méthodees : getIndice,...">IndiceIndicateur</a> dans la chaine </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00622">622</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;                              {</div><div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="../../d9/d5b/classIndicateur.html#a8e786471f5ab9776ec24c7fa6ea736ac">nbIndicateur</a>; i++) {</div><div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="../../d9/d5b/classIndicateur.html#a15cd611fe58c9ba90086131a1f20f252">begin</a>()+i == indice) <span class="keywordflow">return</span> i;</div><div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;        }</div><div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;        <span class="keywordflow">return</span> -1;</div><div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a7059d1b3c2fce6dcd30fcf3ee2dde7cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7059d1b3c2fce6dcd30fcf3ee2dde7cb">&#9670;&nbsp;</a></span>searchIndice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/db0/classIndiceIndicateur.html">IndiceIndicateur</a> * Indicateur::searchIndice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d09/classCoursOHLCV.html">CoursOHLCV</a> *&#160;</td>
+          <td class="paramname"><em>cours</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode searchIndice </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cours</td><td>:coursOHLCV* </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>IndiceIndicateur* </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d7/dc5/indicateur_8cpp_source.html#l00016">16</a> du fichier <a class="el" href="../../d7/dc5/indicateur_8cpp_source.html">indicateur.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                                            {     <span class="comment">//map indice Indicateur with CoursOHLCV</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    QDate date = cours-&gt;<a class="code" href="../../df/d09/classCoursOHLCV.html#a8f0c96eabbe5fe9d36f9eb4ffa20d260">getDate</a>();</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">iterator</a> indiceIterator = <a class="code" href="../../d9/d5b/classIndicateur.html#a15cd611fe58c9ba90086131a1f20f252">begin</a>();</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">while</span>(indiceIterator &amp;&amp; indiceIterator-&gt;getDate() &lt;= date) {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span>(indiceIterator-&gt;getDate() == date) <span class="keywordflow">return</span> indiceIterator;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        indiceIterator++;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a3d7f0dff88e616b0112f9b5fb7826996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7f0dff88e616b0112f9b5fb7826996">&#9670;&nbsp;</a></span>setParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Indicateur::setParameters </td>
+          <td>(</td>
+          <td class="paramtype">QMap&lt; QString, QVariant &gt;&#160;</td>
+          <td class="paramname"><em>parameters</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>méthode virtual pure setParameters </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">QMap&lt;QString</td><td></td></tr>
+    <tr><td class="paramname">QVariant&gt;</td><td>parameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : modifie les paramatres </dd></dl>
+
+<p>Implémenté dans <a class="el" href="../../de/dc7/classMACD.html#afb6575a56e9358b15702c065e1548237">MACD</a>, <a class="el" href="../../d2/dd4/classRSI.html#a24819034d38a313fc98e74510b56e7cf">RSI</a>, et <a class="el" href="../../d7/d40/classEMA.html#af9b0dbadfb8a1415344898a651b87e38">EMA</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des données membres</h2>
+<a id="ad822d276436ede2212d186a36b0587f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad822d276436ede2212d186a36b0587f9">&#9670;&nbsp;</a></span>evolutionCours</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a>* Indicateur::evolutionCours</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>evolutionCours :EvolutionCours* contient la valeur du pointeur sur <a class="el" href="../../d0/de6/classEvolutionCours.html" title="associé à une paire de devises et composé de ses cours, elle représente l&#39;éevolution de la paire sur ...">EvolutionCours</a> </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00559">559</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+
+</div>
+</div>
+<a id="a659ba59316b71d13b9025f954e801280"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a659ba59316b71d13b9025f954e801280">&#9670;&nbsp;</a></span>indices</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/db0/classIndiceIndicateur.html">IndiceIndicateur</a>* Indicateur::indices = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>indices :IndiceIndicateur* pointe sur un tableau de <a class="el" href="../../d7/db0/classIndiceIndicateur.html" title="contient la valeure d&#39;un indicateur sur une journée attributs : donnee, date méthodees : getIndice,...">IndiceIndicateur</a> </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00560">560</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+
+</div>
+</div>
+<a id="a8e786471f5ab9776ec24c7fa6ea736ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e786471f5ab9776ec24c7fa6ea736ac">&#9670;&nbsp;</a></span>nbIndicateur</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Indicateur::nbIndicateur</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>nbIndicateur :unsigned int contient la valeur du nombre d'éléments dans le tableau indices </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00561">561</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+
+</div>
+</div>
+<a id="aa41dec251341be1250d216e0d3103ff7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa41dec251341be1250d216e0d3103ff7">&#9670;&nbsp;</a></span>nbMaxIndicateur</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Indicateur::nbMaxIndicateur</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>nbMaxIndicateur :unsigned int contient la valeur du nombre maximal d'éléments que peut contenir le tableau indices </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00562">562</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+
+</div>
+</div>
+<a id="a6ab38638be85ce931ba6b81e0633bd62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab38638be85ce931ba6b81e0633bd62">&#9670;&nbsp;</a></span>nom</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Indicateur::nom</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>nom :QString contient le nom de l'indicateur </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d5/d52/trading_8h_source.html#l00558">558</a> du fichier <a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>Core_Devises/<a class="el" href="../../d5/d52/trading_8h_source.html">trading.h</a></li>
+<li>Core_Devises/<a class="el" href="../../d7/dc5/indicateur_8cpp_source.html">indicateur.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<div class="ttc" id="aclassIndicateur_html_a690d5bb561bcae04f59a90fa2aa88be4"><div class="ttname"><a href="../../d9/d5b/classIndicateur.html#a690d5bb561bcae04f59a90fa2aa88be4">Indicateur::iterator</a></div><div class="ttdeci">IndiceIndicateur * iterator</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00580">trading.h:580</a></div></div>
+<div class="ttc" id="aclassIndicateur_html_a6ab38638be85ce931ba6b81e0633bd62"><div class="ttname"><a href="../../d9/d5b/classIndicateur.html#a6ab38638be85ce931ba6b81e0633bd62">Indicateur::nom</a></div><div class="ttdeci">QString nom</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00558">trading.h:558</a></div></div>
+<div class="ttc" id="aclassTradingException_html"><div class="ttname"><a href="../../d2/d7d/classTradingException.html">TradingException</a></div><div class="ttdoc">Contient le message d'erreur.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00028">trading.h:28</a></div></div>
+<div class="ttc" id="aclassIndicateur_html_ad822d276436ede2212d186a36b0587f9"><div class="ttname"><a href="../../d9/d5b/classIndicateur.html#ad822d276436ede2212d186a36b0587f9">Indicateur::evolutionCours</a></div><div class="ttdeci">EvolutionCours * evolutionCours</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00559">trading.h:559</a></div></div>
+<div class="ttc" id="aclassIndicateur_html_a659ba59316b71d13b9025f954e801280"><div class="ttname"><a href="../../d9/d5b/classIndicateur.html#a659ba59316b71d13b9025f954e801280">Indicateur::indices</a></div><div class="ttdeci">IndiceIndicateur * indices</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00560">trading.h:560</a></div></div>
+<div class="ttc" id="aclassIndicateur_html_a8e786471f5ab9776ec24c7fa6ea736ac"><div class="ttname"><a href="../../d9/d5b/classIndicateur.html#a8e786471f5ab9776ec24c7fa6ea736ac">Indicateur::nbIndicateur</a></div><div class="ttdeci">unsigned int nbIndicateur</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00561">trading.h:561</a></div></div>
+<div class="ttc" id="aclassCoursOHLCV_html_a8f0c96eabbe5fe9d36f9eb4ffa20d260"><div class="ttname"><a href="../../df/d09/classCoursOHLCV.html#a8f0c96eabbe5fe9d36f9eb4ffa20d260">CoursOHLCV::getDate</a></div><div class="ttdeci">QDate getDate() const</div><div class="ttdoc">méthode getDate</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00300">trading.h:300</a></div></div>
+<div class="ttc" id="aclassIndicateur_html_a15cd611fe58c9ba90086131a1f20f252"><div class="ttname"><a href="../../d9/d5b/classIndicateur.html#a15cd611fe58c9ba90086131a1f20f252">Indicateur::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdoc">méthode begin</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00586">trading.h:586</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

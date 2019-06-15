@@ -3,7 +3,7 @@
 
 /**
  * \file 	modeautowidget.h
- * \brief 	classe ModeAutowidget dans le namespace Ui
+ * \brief 	classe ModeAutowidget
  * 	
  * 	Contient le QWidget du mode automatique
  * 			
@@ -12,10 +12,6 @@
 #include "../Controller/simulation.h"
 #include <QWidget>
 
-//! Namespace Ui
-/**
-* classe : ModeAutowidget
-*/
 namespace Ui {
     class ModeAutowidget;
 }

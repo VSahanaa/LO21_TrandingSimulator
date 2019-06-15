@@ -1,0 +1,289 @@
+\hypertarget{classMACD}{}\doxysection{Référence de la classe M\+A\+CD}
+\label{classMACD}\index{MACD@{MACD}}
+
+
+l\textquotesingle{}indicateur \mbox{\hyperlink{classMACD}{M\+A\+CD}} \+: Moving Average Convergence Divergence attributs \+: long\+Period, short\+Period, signal\+Period, signal\+Line, histogram méthodees \+: generate\+Indice, set\+Parameters, get\+Parameters amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \href{https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd}{\texttt{ https\+://stockcharts.\+com/school/doku.\+php?id=chart\+\_\+school\+:technical\+\_\+indicators\+:moving\+\_\+average\+\_\+convergence\+\_\+divergence\+\_\+macd}}  
+
+
+
+
+{\ttfamily \#include $<$trading.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de M\+A\+CD\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/dc7/classMACD}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMACD_a65836c3a0a5de1cc37590f4b947acc51}{generate\+Indice}} ()
+\begin{DoxyCompactList}\small\item\em méthode generate\+Indice \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMACD_afb6575a56e9358b15702c065e1548237}{set\+Parameters}} (Q\+Map$<$ Q\+String, Q\+Variant $>$ parameters)
+\begin{DoxyCompactList}\small\item\em méthode set\+Parameters \end{DoxyCompactList}\item 
+Q\+Map$<$ Q\+String, Q\+Variant $>$ \mbox{\hyperlink{classMACD_aa54c70e30d3caaed32fa19a8b45ec389}{get\+Parameters}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Parameters ; \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} \mbox{\hyperlink{classMACD_ae44891a59bf13e1d78d3999b7e05b017}{signal\+Line\+\_\+begin}} ()
+\begin{DoxyCompactList}\small\item\em méthode signal\+Line\+\_\+begin \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} \mbox{\hyperlink{classMACD_a828a958c50eb8ef188239dbb65a64be0}{signal\+Line\+\_\+end}} ()
+\begin{DoxyCompactList}\small\item\em méthode signal\+Line\+\_\+end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} \mbox{\hyperlink{classMACD_a6b80dbfc2048427c05016247cfbafe07}{histogram\+Line\+\_\+begin}} ()
+\begin{DoxyCompactList}\small\item\em méthode histogram\+Line\+\_\+begin \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} \mbox{\hyperlink{classMACD_a30801d9e719da2e0f1a6dd1a2fe2667c}{histogram\+Line\+\_\+end}} ()
+\begin{DoxyCompactList}\small\item\em méthode histogram\+Line\+\_\+end \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMACD_a222e2b39985432a8e02aea6c2d5f841f}\label{classMACD_a222e2b39985432a8e02aea6c2d5f841f}} 
+class {\bfseries Indicateur\+Collection}
+\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Description détaillée}
+l\textquotesingle{}indicateur \mbox{\hyperlink{classMACD}{M\+A\+CD}} \+: Moving Average Convergence Divergence attributs \+: long\+Period, short\+Period, signal\+Period, signal\+Line, histogram méthodees \+: generate\+Indice, set\+Parameters, get\+Parameters amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \href{https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:moving_average_convergence_divergence_macd}{\texttt{ https\+://stockcharts.\+com/school/doku.\+php?id=chart\+\_\+school\+:technical\+\_\+indicators\+:moving\+\_\+average\+\_\+convergence\+\_\+divergence\+\_\+macd}} 
+
+Définition à la ligne 735 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classMACD_a65836c3a0a5de1cc37590f4b947acc51}\label{classMACD_a65836c3a0a5de1cc37590f4b947acc51}} 
+\index{MACD@{MACD}!generateIndice@{generateIndice}}
+\index{generateIndice@{generateIndice}!MACD@{MACD}}
+\doxysubsubsection{\texorpdfstring{generateIndice()}{generateIndice()}}
+{\footnotesize\ttfamily void M\+A\+C\+D\+::generate\+Indice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode generate\+Indice 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: création du tableau d\textquotesingle{}indices 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{classIndicateur_af8d408a8aa64531c442cd8aa9adfc361}{Indicateur}}.
+
+
+
+Définition à la ligne 142 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{142                           \{}
+\DoxyCodeLine{143     \textcolor{keyword}{delete}[] signalLine;}
+\DoxyCodeLine{144     \textcolor{keyword}{delete}[] histogram;}
+\DoxyCodeLine{145     \textcolor{keyword}{delete}[] \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}};}
+\DoxyCodeLine{146     \mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}} = \mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_aa8abf863c4a64622bf46d201b5aa691e}{getNbCours}}();}
+\DoxyCodeLine{147     \textcolor{comment}{//qDebug() << "nbCOurs" << evolutionCours-\/>getNbCours();}}
+\DoxyCodeLine{148     signalLine = \textcolor{keyword}{new} \mbox{\hyperlink{classIndiceIndicateur}{IndiceIndicateur}}[\mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}}];}
+\DoxyCodeLine{149     histogram = \textcolor{keyword}{new} \mbox{\hyperlink{classIndiceIndicateur}{IndiceIndicateur}}[\mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}}];}
+\DoxyCodeLine{150     \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}} = \textcolor{keyword}{new} \mbox{\hyperlink{classIndiceIndicateur}{IndiceIndicateur}}[\mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}}];}
+\DoxyCodeLine{151     \mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nbIndicateur}} = \mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}} -\/ longPeriod;}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     \mbox{\hyperlink{classEMA}{EMA}}* shortEMA = \textcolor{keyword}{new} \mbox{\hyperlink{classEMA}{EMA}}(\mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}, shortPeriod);}
+\DoxyCodeLine{154     shortEMA-\/>\mbox{\hyperlink{classEMA_a745b74f4054e17c6207e790edbdff34c}{generateIndice}}();}
+\DoxyCodeLine{155     \mbox{\hyperlink{classEMA}{EMA}}* longEMA = \textcolor{keyword}{new} \mbox{\hyperlink{classEMA}{EMA}}(\mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}, longPeriod);}
+\DoxyCodeLine{156     longEMA -\/>\mbox{\hyperlink{classEMA_a745b74f4054e17c6207e790edbdff34c}{generateIndice}}();}
+\DoxyCodeLine{157     \mbox{\hyperlink{classEMA}{EMA}}* signalEMA = \textcolor{keyword}{new} \mbox{\hyperlink{classEMA}{EMA}}(\mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}, signalPeriod);}
+\DoxyCodeLine{158     signalEMA-\/>\mbox{\hyperlink{classEMA_a745b74f4054e17c6207e790edbdff34c}{generateIndice}}();}
+\DoxyCodeLine{159     \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} shortEMA\_Iterator, longEMA\_Iterator, signalEMA\_Iterator, indiceIterator, signalLine\_Iterator, histogram\_Iterator;}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     longEMA\_Iterator = longEMA-\/>\mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}();}
+\DoxyCodeLine{162     shortEMA\_Iterator = shortEMA-\/>\mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}() + longPeriod -\/ shortPeriod;}
+\DoxyCodeLine{163     signalEMA\_Iterator = signalEMA-\/>\mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}() + longPeriod -\/ signalPeriod;}
+\DoxyCodeLine{164     indiceIterator = \mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}();}
+\DoxyCodeLine{165     signalLine\_Iterator = signalLine;}
+\DoxyCodeLine{166     histogram\_Iterator = histogram;}
+\DoxyCodeLine{167     \textcolor{keywordflow}{while}(longEMA\_Iterator != longEMA-\/>\mbox{\hyperlink{classIndicateur_a8eaa0e8daf91be5661a8da012aa254f7}{end}}()) \{}
+\DoxyCodeLine{168         indiceIterator-\/>\mbox{\hyperlink{classIndiceIndicateur_a247790e958c4a8dd5c2feb65cde2d36d}{setDate}}(longEMA\_Iterator-\/>getDate());}
+\DoxyCodeLine{169         signalLine\_Iterator-\/>setDate(longEMA\_Iterator-\/>getDate());}
+\DoxyCodeLine{170         histogram\_Iterator-\/>setDate(longEMA\_Iterator-\/>getDate());}
+\DoxyCodeLine{171         qDebug() <<\textcolor{stringliteral}{"short EMA"} << shortEMA\_Iterator-\/>toString();}
+\DoxyCodeLine{172         qDebug() <<\textcolor{stringliteral}{"long EMA"} <<longEMA\_Iterator-\/>toString();}
+\DoxyCodeLine{173         qDebug() <<\textcolor{stringliteral}{"signal EMA"} <<signalEMA\_Iterator-\/>toString();}
+\DoxyCodeLine{174         indiceIterator-\/>setIndice(shortEMA\_Iterator++-\/>getIndice() -\/ longEMA\_Iterator++-\/>getIndice());}
+\DoxyCodeLine{175         signalLine\_Iterator-\/>setIndice(signalEMA\_Iterator++-\/>getIndice());}
+\DoxyCodeLine{176         histogram\_Iterator++-\/>setIndice(indiceIterator++-\/>getIndice() -\/ signalLine\_Iterator++-\/>getIndice());}
+\DoxyCodeLine{177     \}}
+\DoxyCodeLine{178     \textcolor{keyword}{delete} shortEMA;}
+\DoxyCodeLine{179     \textcolor{keyword}{delete} longEMA;}
+\DoxyCodeLine{180     \textcolor{keyword}{delete} signalEMA;}
+\DoxyCodeLine{181 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMACD_aa54c70e30d3caaed32fa19a8b45ec389}\label{classMACD_aa54c70e30d3caaed32fa19a8b45ec389}} 
+\index{MACD@{MACD}!getParameters@{getParameters}}
+\index{getParameters@{getParameters}!MACD@{MACD}}
+\doxysubsubsection{\texorpdfstring{getParameters()}{getParameters()}}
+{\footnotesize\ttfamily Q\+Map$<$ Q\+String, Q\+Variant $>$ M\+A\+C\+D\+::get\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode get\+Parameters ; 
+
+
+
+Implémente \mbox{\hyperlink{classIndicateur_aefd5d5adeda2708179d912f78012992f}{Indicateur}}.
+
+
+
+Définition à la ligne 202 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{202                                                   \{}
+\DoxyCodeLine{203     QMap<QString, QVariant> parameters;}
+\DoxyCodeLine{204     parameters[\textcolor{stringliteral}{"longPeriod"}] = longPeriod;}
+\DoxyCodeLine{205     parameters[\textcolor{stringliteral}{"shortPeriod"}] = shortPeriod;}
+\DoxyCodeLine{206     parameters[\textcolor{stringliteral}{"signalPeriod"}] = signalPeriod;}
+\DoxyCodeLine{207     \textcolor{keywordflow}{return} parameters;}
+\DoxyCodeLine{208 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMACD_a6b80dbfc2048427c05016247cfbafe07}\label{classMACD_a6b80dbfc2048427c05016247cfbafe07}} 
+\index{MACD@{MACD}!histogramLine\_begin@{histogramLine\_begin}}
+\index{histogramLine\_begin@{histogramLine\_begin}!MACD@{MACD}}
+\doxysubsubsection{\texorpdfstring{histogramLine\_begin()}{histogramLine\_begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} M\+A\+C\+D\+::histogram\+Line\+\_\+begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode histogram\+Line\+\_\+begin 
+
+\begin{DoxyReturn}{Renvoie}
+iterator \+: pointe sur premier élément du tableau histogram 
+\end{DoxyReturn}
+
+
+Définition à la ligne 784 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{784 \{\textcolor{keywordflow}{return} histogram;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMACD_a30801d9e719da2e0f1a6dd1a2fe2667c}\label{classMACD_a30801d9e719da2e0f1a6dd1a2fe2667c}} 
+\index{MACD@{MACD}!histogramLine\_end@{histogramLine\_end}}
+\index{histogramLine\_end@{histogramLine\_end}!MACD@{MACD}}
+\doxysubsubsection{\texorpdfstring{histogramLine\_end()}{histogramLine\_end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} M\+A\+C\+D\+::histogram\+Line\+\_\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode histogram\+Line\+\_\+end 
+
+\begin{DoxyReturn}{Renvoie}
+iterator \+: pointe sur la fin du tableau histogram 
+\end{DoxyReturn}
+
+
+Définition à la ligne 789 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{789 \{\textcolor{keywordflow}{return} histogram+\mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nbIndicateur}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMACD_afb6575a56e9358b15702c065e1548237}\label{classMACD_afb6575a56e9358b15702c065e1548237}} 
+\index{MACD@{MACD}!setParameters@{setParameters}}
+\index{setParameters@{setParameters}!MACD@{MACD}}
+\doxysubsubsection{\texorpdfstring{setParameters()}{setParameters()}}
+{\footnotesize\ttfamily void M\+A\+C\+D\+::set\+Parameters (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, Q\+Variant $>$}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode set\+Parameters 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Q\+Map$<$\+Q\+String} & \\
+\hline
+{\em Q\+Variant$>$} & parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: modifie les paramatres 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{classIndicateur_a3d7f0dff88e616b0112f9b5fb7826996}{Indicateur}}.
+
+
+
+Définition à la ligne 183 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{183                                                            \{   }
+\DoxyCodeLine{184     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} old\_longPeriod = longPeriod, old\_shortPeriod = shortPeriod, old\_signalPeriod = signalPeriod;}
+\DoxyCodeLine{185     \textcolor{keywordflow}{if} (parameters.contains(\textcolor{stringliteral}{"longPeriod"}) \&\& static\_cast<unsigned int>(parameters[\textcolor{stringliteral}{"longPeriod"}].toInt()) != longPeriod)}
+\DoxyCodeLine{186         longPeriod = static\_cast<unsigned int>(parameters[\textcolor{stringliteral}{"longPeriod"}].toInt());}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{keywordflow}{if} (parameters.contains(\textcolor{stringliteral}{"shortPeriod"}) \&\& static\_cast<unsigned int>(parameters[\textcolor{stringliteral}{"shortPeriod"}].toInt()) != shortPeriod)}
+\DoxyCodeLine{189         shortPeriod = static\_cast<unsigned int>(parameters[\textcolor{stringliteral}{"shortPeriod"}].toInt());}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{keywordflow}{if} (parameters.contains(\textcolor{stringliteral}{"signalPeriod"}) \&\& static\_cast<unsigned int>(parameters[\textcolor{stringliteral}{"signalPeriod"}].toInt()) != signalPeriod)}
+\DoxyCodeLine{192         signalPeriod = static\_cast<unsigned int>(parameters[\textcolor{stringliteral}{"signalPeriod"}].toInt());}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{keywordflow}{if}(longPeriod < shortPeriod || longPeriod<signalPeriod) \{}
+\DoxyCodeLine{195         \textcolor{comment}{//roll back}}
+\DoxyCodeLine{196         longPeriod = old\_longPeriod;    shortPeriod= old\_shortPeriod;    signalPeriod = old\_signalPeriod;}
+\DoxyCodeLine{197         \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"MACD: long period doit etre le plus grand"});}
+\DoxyCodeLine{198     \}}
+\DoxyCodeLine{199     \mbox{\hyperlink{classMACD_a65836c3a0a5de1cc37590f4b947acc51}{generateIndice}}();}
+\DoxyCodeLine{200 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMACD_ae44891a59bf13e1d78d3999b7e05b017}\label{classMACD_ae44891a59bf13e1d78d3999b7e05b017}} 
+\index{MACD@{MACD}!signalLine\_begin@{signalLine\_begin}}
+\index{signalLine\_begin@{signalLine\_begin}!MACD@{MACD}}
+\doxysubsubsection{\texorpdfstring{signalLine\_begin()}{signalLine\_begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} M\+A\+C\+D\+::signal\+Line\+\_\+begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode signal\+Line\+\_\+begin 
+
+\begin{DoxyReturn}{Renvoie}
+iterator \+: pointe sur premier élément du tableau signal\+Line 
+\end{DoxyReturn}
+
+
+Définition à la ligne 774 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{774 \{\textcolor{keywordflow}{return} signalLine;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classMACD_a828a958c50eb8ef188239dbb65a64be0}\label{classMACD_a828a958c50eb8ef188239dbb65a64be0}} 
+\index{MACD@{MACD}!signalLine\_end@{signalLine\_end}}
+\index{signalLine\_end@{signalLine\_end}!MACD@{MACD}}
+\doxysubsubsection{\texorpdfstring{signalLine\_end()}{signalLine\_end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} M\+A\+C\+D\+::signal\+Line\+\_\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode signal\+Line\+\_\+end 
+
+\begin{DoxyReturn}{Renvoie}
+iterator \+: pointe sur la fin du tableau signal\+Line 
+\end{DoxyReturn}
+
+
+Définition à la ligne 779 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{779 \{\textcolor{keywordflow}{return} signalLine + \mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nbIndicateur}};\}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8h}{trading.\+h}}\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{indicateur_8cpp}{indicateur.\+cpp}}\end{DoxyCompactItemize}

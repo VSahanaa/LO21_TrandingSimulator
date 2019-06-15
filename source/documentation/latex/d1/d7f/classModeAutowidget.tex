@@ -1,0 +1,137 @@
+\hypertarget{classModeAutowidget}{}\doxysection{Référence de la classe Mode\+Autowidget}
+\label{classModeAutowidget}\index{ModeAutowidget@{ModeAutowidget}}
+
+
+hérite de Q\+Widget attributs \+: ui, mode\+Automatique, transaction\+Manager méthode publique \+: \mbox{\hyperlink{classModeAutomatique}{Mode\+Automatique}}, $\sim$\+Mode\+Automatique signal public \+: transaction\+Changed slots privés \+: update\+Data, on\+\_\+combo\+Box\+\_\+timer\+\_\+current\+Index\+Changed  
+
+
+
+
+{\ttfamily \#include $<$modeautowidget.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Mode\+Autowidget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d1/d7f/classModeAutowidget}
+\end{center}
+\end{figure}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classModeAutowidget_ac8f2453c383809083eec5dc593a78aea}{transaction\+Changed}} ()
+\begin{DoxyCompactList}\small\item\em signal transaction\+Changed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classModeAutowidget_ac959ec1e5bd067d722892d6cbe9e6b19}{Mode\+Autowidget}} (\mbox{\hyperlink{classModeAutomatique}{Mode\+Automatique}} $\ast$mode\+Automatique, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur explicite. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classModeAutowidget_a40a793b111e7f76c0befb0502c33a9c9}{$\sim$\+Mode\+Autowidget}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+hérite de Q\+Widget attributs \+: ui, mode\+Automatique, transaction\+Manager méthode publique \+: \mbox{\hyperlink{classModeAutomatique}{Mode\+Automatique}}, $\sim$\+Mode\+Automatique signal public \+: transaction\+Changed slots privés \+: update\+Data, on\+\_\+combo\+Box\+\_\+timer\+\_\+current\+Index\+Changed 
+
+Définition à la ligne 27 du fichier modeautowidget.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classModeAutowidget_ac959ec1e5bd067d722892d6cbe9e6b19}\label{classModeAutowidget_ac959ec1e5bd067d722892d6cbe9e6b19}} 
+\index{ModeAutowidget@{ModeAutowidget}!ModeAutowidget@{ModeAutowidget}}
+\index{ModeAutowidget@{ModeAutowidget}!ModeAutowidget@{ModeAutowidget}}
+\doxysubsubsection{\texorpdfstring{ModeAutowidget()}{ModeAutowidget()}}
+{\footnotesize\ttfamily Mode\+Autowidget\+::\+Mode\+Autowidget (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classModeAutomatique}{Mode\+Automatique}} $\ast$}]{mode\+Automatique,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructeur explicite. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em mode\+Automatique} & \+:Mode\+Automatique$\ast$ \\
+\hline
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 4 du fichier modeautowidget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                                                                                 : QWidget(parent), ui(\textcolor{keyword}{new} Ui::ModeAutowidget), modeAutomatique(modeAutomatique) \{}
+\DoxyCodeLine{5     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{6     transactionManager = modeAutomatique-\/>\mbox{\hyperlink{classSimulation_ac5a714fd110f5f86427b5f2d1c4f60fe}{getTransactionManager}}();}
+\DoxyCodeLine{7     ui-\/>pairelabel-\/>setText(modeAutomatique-\/>\mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{getEvolutionCours}}()-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}{toString}}());}
+\DoxyCodeLine{8     ui-\/>base-\/>setText(modeAutomatique-\/>\mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{getEvolutionCours}}()-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6878818a7170f53fef760a57341b2216}{getBase}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}());}
+\DoxyCodeLine{9     ui-\/>contrepartie-\/>setText(modeAutomatique-\/>\mbox{\hyperlink{classSimulation_a6530918faa7f5e62631edf23dd6d8aef}{getEvolutionCours}}()-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}{getContrepartie}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}());}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     ui-\/>label\_montantBase-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ae88c8f05c223fdd02107f76d4390d1a1}{getMontantBase}}()));}
+\DoxyCodeLine{12     ui-\/>label\_montantContrepartie-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_ac542644f03185a2587003bb5d9a0e779}{getMontantContrepartie}}()));}
+\DoxyCodeLine{13     ui-\/>label\_broker-\/>setText(QString::number(transactionManager-\/>\mbox{\hyperlink{classTransactionManager_a8b21012d5c6934c2be7817c3e3dcc28a}{getPourcentage}}()));}
+\DoxyCodeLine{14     ui-\/>label\_strategie-\/>setText(modeAutomatique-\/>\mbox{\hyperlink{classModeAutomatique_adf92bdea71180b73ca8c41385645fd0b}{getStrategieName}}());}
+\DoxyCodeLine{15     ui-\/>dateEdit-\/>setDate(modeAutomatique-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}());}
+\DoxyCodeLine{16     ui-\/>dateEdit-\/>setMaximumDate(modeAutomatique-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}());}
+\DoxyCodeLine{17     ui-\/>dateEdit-\/>setMinimumDate(modeAutomatique-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}());}
+\DoxyCodeLine{18     ui-\/>openPrice-\/>setText(QString::number(modeAutomatique-\/>\mbox{\hyperlink{classSimulation_ac896b3a7b7040449d0375b3bad42bf2e}{getCurrentCours}}()-\/>\mbox{\hyperlink{classCoursOHLCV_af26181a37fdf5d69f48823768eb2b169}{getOpen}}()));}
+\DoxyCodeLine{19     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"5 secondes"}, 5000);}
+\DoxyCodeLine{20     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"10 secondes"}, 10000);}
+\DoxyCodeLine{21     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"30 secondes"}, 30000);}
+\DoxyCodeLine{22     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"1 min"}, 60000);}
+\DoxyCodeLine{23     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"5 mins"}, 300000);}
+\DoxyCodeLine{24     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"10 mins"}, 600000);}
+\DoxyCodeLine{25     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"30 mins"}, 1800000);}
+\DoxyCodeLine{26     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"1 heure"}, 3600000);}
+\DoxyCodeLine{27     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"3 heures"}, 10800000);}
+\DoxyCodeLine{28     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"5 heures"}, 18000000);}
+\DoxyCodeLine{29     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"12 heures"}, 43200000);}
+\DoxyCodeLine{30     ui-\/>comboBox\_timer-\/>addItem(\textcolor{stringliteral}{"1 jour"}, 86400000);}
+\DoxyCodeLine{31     ui-\/>comboBox\_timer-\/>setCurrentIndex(0);}
+\DoxyCodeLine{32     QObject::connect(modeAutomatique, SIGNAL(coursChanged()), \textcolor{keyword}{this}, SLOT(updateData()));}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classModeAutowidget_a40a793b111e7f76c0befb0502c33a9c9}\label{classModeAutowidget_a40a793b111e7f76c0befb0502c33a9c9}} 
+\index{ModeAutowidget@{ModeAutowidget}!````~ModeAutowidget@{$\sim$ModeAutowidget}}
+\index{````~ModeAutowidget@{$\sim$ModeAutowidget}!ModeAutowidget@{ModeAutowidget}}
+\doxysubsubsection{\texorpdfstring{$\sim$ModeAutowidget()}{~ModeAutowidget()}}
+{\footnotesize\ttfamily Mode\+Autowidget\+::$\sim$\+Mode\+Autowidget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 35 du fichier modeautowidget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35                                 \{}
+\DoxyCodeLine{36     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classModeAutowidget_ac8f2453c383809083eec5dc593a78aea}\label{classModeAutowidget_ac8f2453c383809083eec5dc593a78aea}} 
+\index{ModeAutowidget@{ModeAutowidget}!transactionChanged@{transactionChanged}}
+\index{transactionChanged@{transactionChanged}!ModeAutowidget@{ModeAutowidget}}
+\doxysubsubsection{\texorpdfstring{transactionChanged}{transactionChanged}}
+{\footnotesize\ttfamily void Mode\+Autowidget\+::transaction\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal transaction\+Changed 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: signale le changement de transaction (précédente à la suivante) 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Windows/\mbox{\hyperlink{modeautowidget_8h}{modeautowidget.\+h}}\item 
+Windows/modeautowidget.\+cpp\end{DoxyCompactItemize}

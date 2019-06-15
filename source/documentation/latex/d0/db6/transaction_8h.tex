@@ -1,0 +1,23 @@
+\hypertarget{transaction_8h}{}\doxysection{Référence du fichier Controller/transaction.h}
+\label{transaction_8h}\index{Controller/transaction.h@{Controller/transaction.h}}
+
+
+Contient la classe transaction et son manager \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} ~\newline
+  
+
+
+{\ttfamily \#include $<$Q\+Date$>$}\newline
+{\ttfamily \#include \char`\"{}../\+Core\+\_\+\+Devises/trading.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTransaction}{Transaction}}
+\begin{DoxyCompactList}\small\item\em contient les informations de chaque transaction attributs privés \+: transaction\+Dernier, paire, cours, achat, montant\+Base, montant\+Contrepartie, montant\+Base\+Initial, montant\+Contrepartie\+Initial méthodes privées \+: \mbox{\hyperlink{classTransaction}{Transaction}} méthodes publiques \+: difference\+Base, difference\+Contrepartie, get\+Montant\+Base, roi, get\+Montant\+Contrepartie, get\+Cours, est\+\_\+achat, get\+Last\+Transaction, next, has\+Next amitiéss \+: class \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} Remarques \+: constructeur, destructeur privés dont seul \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} à accés les transactions sont organisées en liste chainées \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}}
+\begin{DoxyCompactList}\small\item\em s\textquotesingle{}occupe de la classe \mbox{\hyperlink{classTransaction}{Transaction}} attributs \+: liste\+Transaction, pourcentage, montant\+Base\+Initial, montant\+Contrepartie\+Initial méthodes privées \+: \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}}, $\sim$\+Transaction\+Manager, clear\+Transactions méthodes publiques \+: add\+Transaction,delete\+Last\+Transaction, solde, get\+Montant\+Base, get\+Montant\+Contrepartie, get\+Pourcentage, roi amitiés \+: \mbox{\hyperlink{classSimulation}{Simulation}} Remarques \+: constructeur, destructeur privés dont seul \mbox{\hyperlink{classSimulation}{Simulation}} à accés possède un itérateur pour parcourir les transactions avec next, has\+Next \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient la classe transaction et son manager \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} ~\newline
+ 
+

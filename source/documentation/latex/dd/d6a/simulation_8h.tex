@@ -1,0 +1,35 @@
+\hypertarget{simulation_8h}{}\doxysection{Référence du fichier Controller/simulation.h}
+\label{simulation_8h}\index{Controller/simulation.h@{Controller/simulation.h}}
+
+
+Contient les classes nécessaires à la simulation.  
+
+
+{\ttfamily \#include \char`\"{}strategie.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Q\+Settings$>$}\newline
+{\ttfamily \#include $<$Q\+Timer$>$}\newline
+{\ttfamily \#include $<$Q\+Object$>$}\newline
+{\ttfamily \#include $<$Q\+Date\+Time$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classNote}{Note}}
+\begin{DoxyCompactList}\small\item\em stock les notes prises par l\textquotesingle{}utilisateur attributs \+: nom, note, date\+Creation, dernier\+Acces méthodes privées \+: set\+Date\+Creation méthodes publiques \+: modifier\+Nom, modifier\+Note, get\+Date\+Creation, get\+Dernier\+Acces, set\+Nom, set\+Note amitiéss \+: class \mbox{\hyperlink{classSimulation}{Simulation}} Remarques \+: seules la classe \mbox{\hyperlink{classSimulation}{Simulation}} a accés au constructeur les notes sont organisées comme Q\+List dans l\textquotesingle{}attribut note\+Manager dans la classe \mbox{\hyperlink{classSimulation}{Simulation}} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classSimulation}{Simulation}}
+\begin{DoxyCompactList}\small\item\em classe abstraite pour créer toutes les simulations attributs \+: type, nom, evolution\+Cours, current\+Cours, transaction\+Manager, note\+Manager méthodes publiques \+: simulation, $\sim$simulation, achat, vente, get\+Nom, get\+Type, get\+Evolution\+Cours get\+Current\+Cours, save\+Evolution\+Cours, save\+Transactions, save\+Notes, load\+Notes, load\+Transactions, get\+Transaction\+Manager, get\+Note\+Manager, add\+Note methode virtuelle publique \+: save\+Simulation Remarques \+: chaque simulation a son propre \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classModeManuel}{Mode\+Manuel}}
+\begin{DoxyCompactList}\small\item\em hérite de la classe \mbox{\hyperlink{classSimulation}{Simulation}} méthodes publiques \+: \mbox{\hyperlink{classModeManuel}{Mode\+Manuel}},$\sim$\+Mode\+Manuel, annule méthodes publiques virtuelles \+: save\+Simulation Remarques \+: l\textquotesingle{}utilisateur peut choisir sur quel cours il souhaite faire la transaction \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classModePas__Pas}{Mode\+Pas\+\_\+\+Pas}}
+\begin{DoxyCompactList}\small\item\em hérite de la classe \mbox{\hyperlink{classSimulation}{Simulation}}, de la classe \mbox{\hyperlink{classModeManuel}{Mode\+Manuel}} et de la class Q\+Object attributs \+: timer méthodes publiques \+: \mbox{\hyperlink{classModePas__Pas}{Mode\+Pas\+\_\+\+Pas}},$\sim$\+Mode\+Pas\+\_\+\+Pas, save\+Simulation, set\+Timer, achat, vente signals publics \+: end\+Simulation, cours\+Changed slots privées \+:iteration slots publiques \+: go\+Back \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classModeAutomatique}{Mode\+Automatique}}
+\begin{DoxyCompactList}\small\item\em hérite de la classe \mbox{\hyperlink{classSimulation}{Simulation}} et de la class Q\+Object attributs \+: timer, strategie méthodes publiques \+: \mbox{\hyperlink{classModeAutomatique}{Mode\+Automatique}}, $\sim$\+Mode\+Automatique, save\+Simulation, save\+Strategie, get\+Strategie\+Name, set\+Timer signals publics \+: end\+Simulation, cours\+Changed slots privées \+:iteration slots publiques set\+Timer, pause, play, speed\+Up, slow\+Down \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classSimulationManager}{Simulation\+Manager}}
+\begin{DoxyCompactList}\small\item\em gère les simulations attributs \+: instance, nom\+Groupe, nom\+Application, liste\+Simulation méthodes privées \+: \mbox{\hyperlink{classSimulationManager}{Simulation\+Manager}}, $\sim$\+Simulation\+Manager méthodes publiques \+: get\+Simulation\+Manager, liberer\+Simulation\+Manager, add\+Simulation, remove\+Simulation charge\+Evolution\+Cours, list\+Exist\+Simulation, list\+Saved\+Simulation, get\+Nom\+Application, get\+Nom\+Groupe Remarques \+: chaque simulation est ajouté à la liste après sa création \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Contient les classes nécessaires à la simulation. 
+
+\begin{DoxyVerb}Contient les classes Note, Simulation, les modes de simulation, et SimulationManager
+\end{DoxyVerb}
+ 

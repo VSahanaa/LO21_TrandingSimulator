@@ -1,0 +1,103 @@
+\hypertarget{classSimulationTab}{}\doxysection{Référence de la classe Simulation\+Tab}
+\label{classSimulationTab}\index{SimulationTab@{SimulationTab}}
+
+
+hérite de Q\+Tab\+Widget, tableau de choix de simulation méthode publique \+: \mbox{\hyperlink{classSimulationTab}{Simulation\+Tab}} signal public \+: close\+Window\+\_\+request, slots privés \+: new\+Tab, close\+Tab, set\+Tab\+Name  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Simulation\+Tab\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d3/d3a/classSimulationTab}
+\end{center}
+\end{figure}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSimulationTab_a0683ef704ce5cdaf2f383f586a54fc36}{close\+Window\+\_\+request}} ()
+\begin{DoxyCompactList}\small\item\em signal close\+Window\+\_\+request \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSimulationTab_a68950e938ea93ed3654da89f87ab1aca}{Simulation\+Tab}} (Q\+Widget $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+hérite de Q\+Tab\+Widget, tableau de choix de simulation méthode publique \+: \mbox{\hyperlink{classSimulationTab}{Simulation\+Tab}} signal public \+: close\+Window\+\_\+request, slots privés \+: new\+Tab, close\+Tab, set\+Tab\+Name 
+
+Définition à la ligne 24 du fichier mainwindow.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classSimulationTab_a68950e938ea93ed3654da89f87ab1aca}\label{classSimulationTab_a68950e938ea93ed3654da89f87ab1aca}} 
+\index{SimulationTab@{SimulationTab}!SimulationTab@{SimulationTab}}
+\index{SimulationTab@{SimulationTab}!SimulationTab@{SimulationTab}}
+\doxysubsubsection{\texorpdfstring{SimulationTab()}{SimulationTab()}}
+{\footnotesize\ttfamily Simulation\+Tab\+::\+Simulation\+Tab (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Constructeur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \+:Q\+Widget$\ast$ \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 4 du fichier mainwindow.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                                            : QTabWidget (parent) \{}
+\DoxyCodeLine{5    \textcolor{comment}{// this-\/>setWindowIcon(QIcon(":/TradingSimulator/evolutionCours/icons/logo.png"));}}
+\DoxyCodeLine{6     QTabBar* tabBar = this-\/>tabBar();}
+\DoxyCodeLine{7     tabBar-\/>setTabsClosable(\textcolor{keyword}{true});}
+\DoxyCodeLine{8     tabBar-\/>setSelectionBehaviorOnRemove(QTabBar::SelectPreviousTab);}
+\DoxyCodeLine{9     tabBar-\/>setMovable(\textcolor{keyword}{true});}
+\DoxyCodeLine{10     setDocumentMode(\textcolor{keyword}{true});}
+\DoxyCodeLine{11     setElideMode(Qt::ElideRight);}
+\DoxyCodeLine{12     \mbox{\hyperlink{classMainInterface}{MainInterface}}* mainInterface = \textcolor{keyword}{new} \mbox{\hyperlink{classMainInterface}{MainInterface}}();}
+\DoxyCodeLine{13     connect(mainInterface, SIGNAL(giveName(QString)), \textcolor{keyword}{this}, SLOT(setTabName(QString)));}
+\DoxyCodeLine{14     this-\/>addTab(mainInterface, \textcolor{stringliteral}{"New Simulation"});            \textcolor{comment}{// first Tab}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     this-\/>addTab(\textcolor{keyword}{new} QPushButton(),\textcolor{stringliteral}{""});                             \textcolor{comment}{//new Tab button}}
+\DoxyCodeLine{17     QPushButton* newTabButton = \textcolor{keyword}{new} QPushButton(QIcon(\textcolor{stringliteral}{"://icons/add.png"}), \textcolor{stringliteral}{""});}
+\DoxyCodeLine{18     tabBar-\/>setTabButton(1, QTabBar::RightSide, newTabButton);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{comment}{//connect signals}}
+\DoxyCodeLine{21     connect(newTabButton, SIGNAL(clicked()), \textcolor{keyword}{this}, SLOT(newTab()));}
+\DoxyCodeLine{22     connect(tabBar, SIGNAL(tabCloseRequested(\textcolor{keywordtype}{int})), \textcolor{keyword}{this}, SLOT(closeTab(\textcolor{keywordtype}{int})));}
+\DoxyCodeLine{23     qDebug() << this-\/>count();}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classSimulationTab_a0683ef704ce5cdaf2f383f586a54fc36}\label{classSimulationTab_a0683ef704ce5cdaf2f383f586a54fc36}} 
+\index{SimulationTab@{SimulationTab}!closeWindow\_request@{closeWindow\_request}}
+\index{closeWindow\_request@{closeWindow\_request}!SimulationTab@{SimulationTab}}
+\doxysubsubsection{\texorpdfstring{closeWindow\_request}{closeWindow\_request}}
+{\footnotesize\ttfamily void Simulation\+Tab\+::close\+Window\+\_\+request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal close\+Window\+\_\+request 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: signal de fermeture de la fenêtre 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Windows/mainwindow.\+h\item 
+Windows/mainwindow.\+cpp\end{DoxyCompactItemize}

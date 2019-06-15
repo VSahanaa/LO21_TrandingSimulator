@@ -3,7 +3,7 @@
 
 /**
  * \file 	info.h
- * \brief 	classe Info dans le namespace Ui
+ * \brief 	classe Info
  * 	
  * 	Contient le QDialog pour la fenêtre d'explication (lors du lancement de l'application)
  * 			
@@ -13,10 +13,6 @@
 #include <QDialog>
 #include "ui_info.h"
 
-//! Namespace Ui
-/**
-* classe : Info
-*/
 namespace Ui {
     class Info;
 }

@@ -1,0 +1,177 @@
+\hypertarget{classEMA}{}\doxysection{Référence de la classe E\+MA}
+\label{classEMA}\index{EMA@{EMA}}
+
+
+l\textquotesingle{}indicateur \mbox{\hyperlink{classEMA}{E\+MA}} \+: Exponential Moving Average attributs \+: period méthodees \+: generate\+Indice, set\+Parameters, get\+Parameters amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}}, \mbox{\hyperlink{classMACD}{M\+A\+CD}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \href{https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp}{\texttt{ https\+://www.\+investopedia.\+com/ask/answers/122314/what-\/exponential-\/moving-\/average-\/ema-\/formula-\/and-\/how-\/ema-\/calculated.\+asp}}  
+
+
+
+
+{\ttfamily \#include $<$trading.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de E\+MA\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/d40/classEMA}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEMA_a745b74f4054e17c6207e790edbdff34c}{generate\+Indice}} ()
+\begin{DoxyCompactList}\small\item\em méthode generate\+Indice \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEMA_af9b0dbadfb8a1415344898a651b87e38}{set\+Parameters}} (Q\+Map$<$ Q\+String, Q\+Variant $>$ parameters)
+\begin{DoxyCompactList}\small\item\em méthode set\+Parameters \end{DoxyCompactList}\item 
+Q\+Map$<$ Q\+String, Q\+Variant $>$ \mbox{\hyperlink{classEMA_a9cf9d2ca025967cdccf3c70a4b10e2f7}{get\+Parameters}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Parameters ; \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEMA_a222e2b39985432a8e02aea6c2d5f841f}\label{classEMA_a222e2b39985432a8e02aea6c2d5f841f}} 
+class {\bfseries Indicateur\+Collection}
+\item 
+\mbox{\Hypertarget{classEMA_a7bc09e24422065007069506d85b8fbbe}\label{classEMA_a7bc09e24422065007069506d85b8fbbe}} 
+class {\bfseries M\+A\+CD}
+\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Description détaillée}
+l\textquotesingle{}indicateur \mbox{\hyperlink{classEMA}{E\+MA}} \+: Exponential Moving Average attributs \+: period méthodees \+: generate\+Indice, set\+Parameters, get\+Parameters amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}}, \mbox{\hyperlink{classMACD}{M\+A\+CD}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \href{https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp}{\texttt{ https\+://www.\+investopedia.\+com/ask/answers/122314/what-\/exponential-\/moving-\/average-\/ema-\/formula-\/and-\/how-\/ema-\/calculated.\+asp}} 
+
+Définition à la ligne 639 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classEMA_a745b74f4054e17c6207e790edbdff34c}\label{classEMA_a745b74f4054e17c6207e790edbdff34c}} 
+\index{EMA@{EMA}!generateIndice@{generateIndice}}
+\index{generateIndice@{generateIndice}!EMA@{EMA}}
+\doxysubsubsection{\texorpdfstring{generateIndice()}{generateIndice()}}
+{\footnotesize\ttfamily void E\+M\+A\+::generate\+Indice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode generate\+Indice 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: création du tableau d\textquotesingle{}indices 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{classIndicateur_af8d408a8aa64531c442cd8aa9adfc361}{Indicateur}}.
+
+
+
+Définition à la ligne 26 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26                          \{}
+\DoxyCodeLine{27     \textcolor{keyword}{delete} [] \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}};}
+\DoxyCodeLine{28     \mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}} = \mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_aa8abf863c4a64622bf46d201b5aa691e}{getNbCours}}();}
+\DoxyCodeLine{29     \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}} = \textcolor{keyword}{new} \mbox{\hyperlink{classIndiceIndicateur}{IndiceIndicateur}}[\mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}}];}
+\DoxyCodeLine{30     \textcolor{comment}{//EMA initial est SMA pour cette periode}}
+\DoxyCodeLine{31     \textcolor{comment}{//il n'y a pas de SMA et EMA pendant la premiere periode}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{double} sum = 0;}
+\DoxyCodeLine{33     \mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nbIndicateur}} = \mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}} -\/ period + 1;}
+\DoxyCodeLine{34     \textcolor{comment}{//qDebug() << nbMaxIndicateur <<" " << nbIndicateur;}}
+\DoxyCodeLine{35     \mbox{\hyperlink{classCoursOHLCV}{EvolutionCours::iterator}} coursIterator;}
+\DoxyCodeLine{36     \textcolor{comment}{//cacule premier SMA}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} i=0;}
+\DoxyCodeLine{38     \textcolor{keywordflow}{for}(coursIterator = \mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}{begin}}(); coursIterator != \mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}{begin}}() + period; coursIterator++) \{}
+\DoxyCodeLine{39         \textcolor{comment}{//qDebug() << i++;}}
+\DoxyCodeLine{40         sum += coursIterator-\/>\mbox{\hyperlink{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}{getClose}}();}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} indiceIterator = \mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}();}
+\DoxyCodeLine{44     indiceIterator-\/>setDate((coursIterator-\/1)-\/>getDate());}
+\DoxyCodeLine{45     indiceIterator-\/>setIndice(sum/period);       \textcolor{comment}{//premier SMA}}
+\DoxyCodeLine{46     \textcolor{comment}{//qDebug() << indiceIterator-\/>toString();}}
+\DoxyCodeLine{47     indiceIterator++;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordflow}{while}(indiceIterator != \mbox{\hyperlink{classIndicateur_a8eaa0e8daf91be5661a8da012aa254f7}{end}}()) \{}
+\DoxyCodeLine{50         indiceIterator-\/>setDate(coursIterator-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}());}
+\DoxyCodeLine{51         indiceIterator-\/>setIndice((coursIterator-\/>\mbox{\hyperlink{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}{getClose}}()-\/(indiceIterator-\/1)-\/>getIndice())*2/(period+1) + (indiceIterator-\/1)-\/>getIndice());}
+\DoxyCodeLine{52         \textcolor{comment}{//qDebug() << indiceIterator-\/>toString();}}
+\DoxyCodeLine{53         indiceIterator++;}
+\DoxyCodeLine{54         coursIterator++;}
+\DoxyCodeLine{55     \}}
+\DoxyCodeLine{56 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEMA_a9cf9d2ca025967cdccf3c70a4b10e2f7}\label{classEMA_a9cf9d2ca025967cdccf3c70a4b10e2f7}} 
+\index{EMA@{EMA}!getParameters@{getParameters}}
+\index{getParameters@{getParameters}!EMA@{EMA}}
+\doxysubsubsection{\texorpdfstring{getParameters()}{getParameters()}}
+{\footnotesize\ttfamily Q\+Map$<$ Q\+String, Q\+Variant $>$ E\+M\+A\+::get\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode get\+Parameters ; 
+
+
+
+Implémente \mbox{\hyperlink{classIndicateur_aefd5d5adeda2708179d912f78012992f}{Indicateur}}.
+
+
+
+Définition à la ligne 69 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69                                                  \{}
+\DoxyCodeLine{70     QMap<QString, QVariant> parameters;}
+\DoxyCodeLine{71     parameters[\textcolor{stringliteral}{"period"}] = period;}
+\DoxyCodeLine{72     \textcolor{keywordflow}{return} parameters;}
+\DoxyCodeLine{73 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classEMA_af9b0dbadfb8a1415344898a651b87e38}\label{classEMA_af9b0dbadfb8a1415344898a651b87e38}} 
+\index{EMA@{EMA}!setParameters@{setParameters}}
+\index{setParameters@{setParameters}!EMA@{EMA}}
+\doxysubsubsection{\texorpdfstring{setParameters()}{setParameters()}}
+{\footnotesize\ttfamily void E\+M\+A\+::set\+Parameters (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, Q\+Variant $>$}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode set\+Parameters 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Q\+Map$<$\+Q\+String} & \\
+\hline
+{\em Q\+Variant$>$} & parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: modifie les paramatres 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{classIndicateur_a3d7f0dff88e616b0112f9b5fb7826996}{Indicateur}}.
+
+
+
+Définition à la ligne 58 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                                                           \{}
+\DoxyCodeLine{59     \textcolor{comment}{//refresh array of indice if period is changed or array of index is empty}}
+\DoxyCodeLine{60     \textcolor{keywordflow}{if} (!parameters.contains(\textcolor{stringliteral}{"period"}) \&\& !\mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}})\{}
+\DoxyCodeLine{61         \mbox{\hyperlink{classEMA_a745b74f4054e17c6207e790edbdff34c}{generateIndice}}();}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this-\/>period != static\_cast<unsigned int>(parameters[\textcolor{stringliteral}{"period"}].toInt()) || !\mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}}) \{}
+\DoxyCodeLine{64         this-\/>period = static\_cast<unsigned int>(parameters[\textcolor{stringliteral}{"period"}].toInt());}
+\DoxyCodeLine{65         \mbox{\hyperlink{classEMA_a745b74f4054e17c6207e790edbdff34c}{generateIndice}}();}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8h}{trading.\+h}}\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{indicateur_8cpp}{indicateur.\+cpp}}\end{DoxyCompactItemize}

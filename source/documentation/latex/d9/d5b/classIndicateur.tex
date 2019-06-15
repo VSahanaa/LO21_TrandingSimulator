@@ -1,0 +1,431 @@
+\hypertarget{classIndicateur}{}\doxysection{Référence de la classe Indicateur}
+\label{classIndicateur}\index{Indicateur@{Indicateur}}
+
+
+classe abstraite pour les indicateurs attributs protégés \+: nom, evolution\+Cours, indices, nb\+Indicateur, nb\+Max\+Indicateur méthodees \+: search\+Indice méthodees virtuelles pures \+: generate\+Indice, set\+Parameters, get\+Parameters amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} Remarques \+: possède un iterateur  
+
+
+
+
+{\ttfamily \#include $<$trading.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de Indicateur\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d9/d5b/classIndicateur}
+\end{center}
+\end{figure}
+\doxysubsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} = \mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}} $\ast$
+\item 
+using \mbox{\hyperlink{classIndicateur_a81be0ff696d53815bc15a3ef7790be8b}{const\+\_\+iterator}} = const \mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}} $\ast$
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classIndicateur_af8d408a8aa64531c442cd8aa9adfc361}{generate\+Indice}} ()=0
+\begin{DoxyCompactList}\small\item\em méthode virtual pure generate\+Indice \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} \mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}} ()
+\begin{DoxyCompactList}\small\item\em méthode begin \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} \mbox{\hyperlink{classIndicateur_a8eaa0e8daf91be5661a8da012aa254f7}{end}} ()
+\begin{DoxyCompactList}\small\item\em méthode end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndicateur_a81be0ff696d53815bc15a3ef7790be8b}{const\+\_\+iterator}} \mbox{\hyperlink{classIndicateur_a4f09b288efa9812bb58f10769736c360}{cbegin}} () const
+\begin{DoxyCompactList}\small\item\em méthode begin \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndicateur_a81be0ff696d53815bc15a3ef7790be8b}{const\+\_\+iterator}} \mbox{\hyperlink{classIndicateur_aa1d8da2616015c4f7f230ad4d421c30b}{cend}} () const
+\begin{DoxyCompactList}\small\item\em méthode end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}} $\ast$ \mbox{\hyperlink{classIndicateur_a7059d1b3c2fce6dcd30fcf3ee2dde7cb}{search\+Indice}} (\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$cours)
+\begin{DoxyCompactList}\small\item\em méthode search\+Indice \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIndicateur_a3d7f0dff88e616b0112f9b5fb7826996}{set\+Parameters}} (Q\+Map$<$ Q\+String, Q\+Variant $>$ parameters)=0
+\begin{DoxyCompactList}\small\item\em méthode virtual pure set\+Parameters \end{DoxyCompactList}\item 
+virtual Q\+Map$<$ Q\+String, Q\+Variant $>$ \mbox{\hyperlink{classIndicateur_aefd5d5adeda2708179d912f78012992f}{get\+Parameters}} () const =0
+\begin{DoxyCompactList}\small\item\em méthode virtual pure get\+Parameters ; \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classIndicateur_ad98dc2442f3b824c8b6a3e39ee0f6012}{index}} (\mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} indice)
+\begin{DoxyCompactList}\small\item\em méthode index \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIndicateur_a7a7829b5893662f78f7927716f905632}{Indicateur}} (\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$\mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolution\+Cours}}, Q\+String \mbox{\hyperlink{classIndicateur_a6ab38638be85ce931ba6b81e0633bd62}{nom}}=\char`\"{}unnamed indicator\char`\"{})
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classIndicateur_af4199843dae6eb684e098de813994bb9}{$\sim$\+Indicateur}} ()
+\begin{DoxyCompactList}\small\item\em destructor virtual \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \mbox{\hyperlink{classIndicateur_a6ab38638be85ce931ba6b81e0633bd62}{nom}}
+\item 
+\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$ \mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolution\+Cours}}
+\item 
+\mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}} $\ast$ \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}} = nullptr
+\item 
+unsigned int \mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nb\+Indicateur}}
+\item 
+unsigned int \mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nb\+Max\+Indicateur}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIndicateur_a222e2b39985432a8e02aea6c2d5f841f}\label{classIndicateur_a222e2b39985432a8e02aea6c2d5f841f}} 
+class {\bfseries Indicateur\+Collection}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+classe abstraite pour les indicateurs attributs protégés \+: nom, evolution\+Cours, indices, nb\+Indicateur, nb\+Max\+Indicateur méthodees \+: search\+Indice méthodees virtuelles pures \+: generate\+Indice, set\+Parameters, get\+Parameters amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} Remarques \+: possède un iterateur 
+
+
+\begin{DoxyItemize}
+\item iterator qui correspond à Indice\+Indicateur$\ast$
+\item const\+\_\+iterator qui correspond à const Indice\+Indicateur$\ast$ avec les méthodes \+: begin, end, searchcours associées 
+\end{DoxyItemize}
+
+Définition à la ligne 555 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des définitions de type membres}
+\mbox{\Hypertarget{classIndicateur_a81be0ff696d53815bc15a3ef7790be8b}\label{classIndicateur_a81be0ff696d53815bc15a3ef7790be8b}} 
+\index{Indicateur@{Indicateur}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classIndicateur_a81be0ff696d53815bc15a3ef7790be8b}{Indicateur\+::const\+\_\+iterator}} =  const \mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}}$\ast$}
+
+const\+\_\+iterator correspond à const Indice\+Indicateur$\ast$ 
+
+Définition à la ligne 581 du fichier trading.\+h.
+
+\mbox{\Hypertarget{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}\label{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}} 
+\index{Indicateur@{Indicateur}!iterator@{iterator}}
+\index{iterator@{iterator}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{Indicateur\+::iterator}} =  \mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}}$\ast$}
+
+iterator correspond à Indice\+Indicateur$\ast$ 
+
+Définition à la ligne 580 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classIndicateur_a7a7829b5893662f78f7927716f905632}\label{classIndicateur_a7a7829b5893662f78f7927716f905632}} 
+\index{Indicateur@{Indicateur}!Indicateur@{Indicateur}}
+\index{Indicateur@{Indicateur}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{Indicateur()}{Indicateur()}}
+{\footnotesize\ttfamily Indicateur\+::\+Indicateur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$}]{evolution\+Cours,  }\item[{Q\+String}]{nom = {\ttfamily \char`\"{}unnamed~indicator\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+constructeur 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em evolution\+Cours} & \+:Evolution\+Cours$\ast$ \\
+\hline
+{\em nom} & \+:Q\+String = \char`\"{}unnamed indicator\char`\"{} par default \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 10 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10                                                                  : \mbox{\hyperlink{classIndicateur_a6ab38638be85ce931ba6b81e0633bd62}{nom}}(\mbox{\hyperlink{classIndicateur_a6ab38638be85ce931ba6b81e0633bd62}{nom}}) \{}
+\DoxyCodeLine{11     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}) \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"Idicateur: evolutionCours est null"});}
+\DoxyCodeLine{12         this-\/>evolutionCours = \mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}};}
+\DoxyCodeLine{13     \mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nbIndicateur}} = 0;}
+\DoxyCodeLine{14 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classIndicateur_af4199843dae6eb684e098de813994bb9}\label{classIndicateur_af4199843dae6eb684e098de813994bb9}} 
+\index{Indicateur@{Indicateur}!````~Indicateur@{$\sim$Indicateur}}
+\index{````~Indicateur@{$\sim$Indicateur}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{$\sim$Indicateur()}{~Indicateur()}}
+{\footnotesize\ttfamily virtual Indicateur\+::$\sim$\+Indicateur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+destructor virtual 
+
+libère la mémoire allouée pour le tableau indices 
+
+Définition à la ligne 573 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{573 \{\textcolor{keyword}{delete}[] \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}};\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}\label{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}} 
+\index{Indicateur@{Indicateur}!begin@{begin}}
+\index{begin@{begin}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} Indicateur\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode begin 
+
+\begin{DoxyReturn}{Renvoie}
+iterator \+: pointe sur premier élément du tableau indices 
+\end{DoxyReturn}
+
+
+Définition à la ligne 586 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{586 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classIndicateur_a4f09b288efa9812bb58f10769736c360}\label{classIndicateur_a4f09b288efa9812bb58f10769736c360}} 
+\index{Indicateur@{Indicateur}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateur_a81be0ff696d53815bc15a3ef7790be8b}{const\+\_\+iterator}} Indicateur\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode begin 
+
+\begin{DoxyReturn}{Renvoie}
+const\+\_\+iterator \+: la valeur du pointeur const sur le premier élément du tableau indices 
+\end{DoxyReturn}
+
+
+Définition à la ligne 596 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{596 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classIndicateur_aa1d8da2616015c4f7f230ad4d421c30b}\label{classIndicateur_aa1d8da2616015c4f7f230ad4d421c30b}} 
+\index{Indicateur@{Indicateur}!cend@{cend}}
+\index{cend@{cend}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateur_a81be0ff696d53815bc15a3ef7790be8b}{const\+\_\+iterator}} Indicateur\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode end 
+
+\begin{DoxyReturn}{Renvoie}
+const\+\_\+iterator \+: la valeur du pointeur const sur la fin du tableau indices 
+\end{DoxyReturn}
+
+
+Définition à la ligne 601 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{601 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}}+ \mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nbIndicateur}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classIndicateur_a8eaa0e8daf91be5661a8da012aa254f7}\label{classIndicateur_a8eaa0e8daf91be5661a8da012aa254f7}} 
+\index{Indicateur@{Indicateur}!end@{end}}
+\index{end@{end}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} Indicateur\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode end 
+
+\begin{DoxyReturn}{Renvoie}
+iterator \+: pointe sur la fin du tableau indices 
+\end{DoxyReturn}
+
+
+Définition à la ligne 591 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{591 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}} + \mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nbIndicateur}};\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classIndicateur_af8d408a8aa64531c442cd8aa9adfc361}\label{classIndicateur_af8d408a8aa64531c442cd8aa9adfc361}} 
+\index{Indicateur@{Indicateur}!generateIndice@{generateIndice}}
+\index{generateIndice@{generateIndice}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{generateIndice()}{generateIndice()}}
+{\footnotesize\ttfamily virtual void Indicateur\+::generate\+Indice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+méthode virtual pure generate\+Indice 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: génére le tableau d\textquotesingle{}indice 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{classMACD_a65836c3a0a5de1cc37590f4b947acc51}{M\+A\+CD}}, \mbox{\hyperlink{classRSI_a97d440b6ee4a31209829547db87b0ce8}{R\+SI}}, et \mbox{\hyperlink{classEMA_a745b74f4054e17c6207e790edbdff34c}{E\+MA}}.
+
+\mbox{\Hypertarget{classIndicateur_aefd5d5adeda2708179d912f78012992f}\label{classIndicateur_aefd5d5adeda2708179d912f78012992f}} 
+\index{Indicateur@{Indicateur}!getParameters@{getParameters}}
+\index{getParameters@{getParameters}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{getParameters()}{getParameters()}}
+{\footnotesize\ttfamily virtual Q\+Map$<$Q\+String, Q\+Variant$>$ Indicateur\+::get\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+méthode virtual pure get\+Parameters ; 
+
+
+
+Implémenté dans \mbox{\hyperlink{classMACD_aa54c70e30d3caaed32fa19a8b45ec389}{M\+A\+CD}}, \mbox{\hyperlink{classRSI_a51ae2c173b2d2d58a9f58429739e8509}{R\+SI}}, et \mbox{\hyperlink{classEMA_a9cf9d2ca025967cdccf3c70a4b10e2f7}{E\+MA}}.
+
+\mbox{\Hypertarget{classIndicateur_ad98dc2442f3b824c8b6a3e39ee0f6012}\label{classIndicateur_ad98dc2442f3b824c8b6a3e39ee0f6012}} 
+\index{Indicateur@{Indicateur}!index@{index}}
+\index{index@{index}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{index()}{index()}}
+{\footnotesize\ttfamily int Indicateur\+::index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}}}]{indice }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode index 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em indice} & \+: \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{Indicateur\+::iterator}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: position d\textquotesingle{}un \mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}} dans la chaine 
+\end{DoxyReturn}
+
+
+Définition à la ligne 622 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{622                               \{}
+\DoxyCodeLine{623         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<\mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nbIndicateur}}; i++) \{}
+\DoxyCodeLine{624             \textcolor{keywordflow}{if}(\mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}()+i == indice) \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{625         \}}
+\DoxyCodeLine{626         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{627     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classIndicateur_a7059d1b3c2fce6dcd30fcf3ee2dde7cb}\label{classIndicateur_a7059d1b3c2fce6dcd30fcf3ee2dde7cb}} 
+\index{Indicateur@{Indicateur}!searchIndice@{searchIndice}}
+\index{searchIndice@{searchIndice}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{searchIndice()}{searchIndice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}} $\ast$ Indicateur\+::search\+Indice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$}]{cours }\end{DoxyParamCaption})}
+
+
+
+méthode search\+Indice 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em cours} & \+:cours\+O\+H\+L\+C\+V$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Indice\+Indicateur$\ast$ 
+\end{DoxyReturn}
+
+
+Définition à la ligne 16 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                                                             \{     \textcolor{comment}{//map indice Indicateur with CoursOHLCV}}
+\DoxyCodeLine{17     QDate date = cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}();}
+\DoxyCodeLine{18     \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} indiceIterator = \mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}();}
+\DoxyCodeLine{19     \textcolor{keywordflow}{while}(indiceIterator \&\& indiceIterator-\/>getDate() <= date) \{}
+\DoxyCodeLine{20         \textcolor{keywordflow}{if}(indiceIterator-\/>getDate() == date) \textcolor{keywordflow}{return} indiceIterator;}
+\DoxyCodeLine{21         indiceIterator++;}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classIndicateur_a3d7f0dff88e616b0112f9b5fb7826996}\label{classIndicateur_a3d7f0dff88e616b0112f9b5fb7826996}} 
+\index{Indicateur@{Indicateur}!setParameters@{setParameters}}
+\index{setParameters@{setParameters}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{setParameters()}{setParameters()}}
+{\footnotesize\ttfamily virtual void Indicateur\+::set\+Parameters (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, Q\+Variant $>$}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+méthode virtual pure set\+Parameters 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Q\+Map$<$\+Q\+String} & \\
+\hline
+{\em Q\+Variant$>$} & parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: modifie les paramatres 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{classMACD_afb6575a56e9358b15702c065e1548237}{M\+A\+CD}}, \mbox{\hyperlink{classRSI_a24819034d38a313fc98e74510b56e7cf}{R\+SI}}, et \mbox{\hyperlink{classEMA_af9b0dbadfb8a1415344898a651b87e38}{E\+MA}}.
+
+
+
+\doxysubsection{Documentation des données membres}
+\mbox{\Hypertarget{classIndicateur_ad822d276436ede2212d186a36b0587f9}\label{classIndicateur_ad822d276436ede2212d186a36b0587f9}} 
+\index{Indicateur@{Indicateur}!evolutionCours@{evolutionCours}}
+\index{evolutionCours@{evolutionCours}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{evolutionCours}{evolutionCours}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}}$\ast$ Indicateur\+::evolution\+Cours\hspace{0.3cm}{\ttfamily [protected]}}
+
+evolution\+Cours \+:Evolution\+Cours$\ast$ contient la valeur du pointeur sur \mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} 
+
+Définition à la ligne 559 du fichier trading.\+h.
+
+\mbox{\Hypertarget{classIndicateur_a659ba59316b71d13b9025f954e801280}\label{classIndicateur_a659ba59316b71d13b9025f954e801280}} 
+\index{Indicateur@{Indicateur}!indices@{indices}}
+\index{indices@{indices}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{indices}{indices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}}$\ast$ Indicateur\+::indices = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+indices \+:Indice\+Indicateur$\ast$ pointe sur un tableau de \mbox{\hyperlink{classIndiceIndicateur}{Indice\+Indicateur}} 
+
+Définition à la ligne 560 du fichier trading.\+h.
+
+\mbox{\Hypertarget{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}\label{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}} 
+\index{Indicateur@{Indicateur}!nbIndicateur@{nbIndicateur}}
+\index{nbIndicateur@{nbIndicateur}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{nbIndicateur}{nbIndicateur}}
+{\footnotesize\ttfamily unsigned int Indicateur\+::nb\+Indicateur\hspace{0.3cm}{\ttfamily [protected]}}
+
+nb\+Indicateur \+:unsigned int contient la valeur du nombre d\textquotesingle{}éléments dans le tableau indices 
+
+Définition à la ligne 561 du fichier trading.\+h.
+
+\mbox{\Hypertarget{classIndicateur_aa41dec251341be1250d216e0d3103ff7}\label{classIndicateur_aa41dec251341be1250d216e0d3103ff7}} 
+\index{Indicateur@{Indicateur}!nbMaxIndicateur@{nbMaxIndicateur}}
+\index{nbMaxIndicateur@{nbMaxIndicateur}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{nbMaxIndicateur}{nbMaxIndicateur}}
+{\footnotesize\ttfamily unsigned int Indicateur\+::nb\+Max\+Indicateur\hspace{0.3cm}{\ttfamily [protected]}}
+
+nb\+Max\+Indicateur \+:unsigned int contient la valeur du nombre maximal d\textquotesingle{}éléments que peut contenir le tableau indices 
+
+Définition à la ligne 562 du fichier trading.\+h.
+
+\mbox{\Hypertarget{classIndicateur_a6ab38638be85ce931ba6b81e0633bd62}\label{classIndicateur_a6ab38638be85ce931ba6b81e0633bd62}} 
+\index{Indicateur@{Indicateur}!nom@{nom}}
+\index{nom@{nom}!Indicateur@{Indicateur}}
+\doxysubsubsection{\texorpdfstring{nom}{nom}}
+{\footnotesize\ttfamily Q\+String Indicateur\+::nom\hspace{0.3cm}{\ttfamily [protected]}}
+
+nom \+:Q\+String contient le nom de l\textquotesingle{}indicateur 
+
+Définition à la ligne 558 du fichier trading.\+h.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8h}{trading.\+h}}\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{indicateur_8cpp}{indicateur.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,236 @@
+\hypertarget{classDevisesManager}{}\doxysection{Référence de la classe Devises\+Manager}
+\label{classDevisesManager}\index{DevisesManager@{DevisesManager}}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String\+List \mbox{\hyperlink{classDevisesManager_aa0461837aaa23ba84635f4a0b5944cfa}{get\+Devise\+Codes}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Devise\+Codes \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDevise}{Devise}} $\ast$ \mbox{\hyperlink{classDevisesManager_a19992989951a6ef56bf1f93c56625e36}{creation\+Devise}} (const Q\+String \&code, const Q\+String \&monnaie, const Q\+String \&zone)
+\begin{DoxyCompactList}\small\item\em méthode creation\+Devise \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDevise}{Devise}} $\ast$ \mbox{\hyperlink{classDevisesManager_abc01ef5fd78aa365085884176b5118f0}{get\+Devise}} (const Q\+String \&code) const
+\begin{DoxyCompactList}\small\item\em méthode get\+Devise ; \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} \& \mbox{\hyperlink{classDevisesManager_ac514ec6ce1e1454908b73b1fd87a3c60}{get\+Paire\+Devises}} (const Q\+String \&base\+Code, const Q\+String \&contrepartie\+Code) const
+\begin{DoxyCompactList}\small\item\em méthode get\+Paire\+Devises \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classDevisesManager}{Devises\+Manager}} \& \mbox{\hyperlink{classDevisesManager_a271ad1137d23b6ef3779110a806af778}{get\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em méthode get\+Manager \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classDevisesManager_aaf4445f4e430e3ea2fa92dec85224743}{liberer\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em méthode liberer\+Manager \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+
+
+Définition à la ligne 147 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classDevisesManager_a19992989951a6ef56bf1f93c56625e36}\label{classDevisesManager_a19992989951a6ef56bf1f93c56625e36}} 
+\index{DevisesManager@{DevisesManager}!creationDevise@{creationDevise}}
+\index{creationDevise@{creationDevise}!DevisesManager@{DevisesManager}}
+\doxysubsubsection{\texorpdfstring{creationDevise()}{creationDevise()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDevise}{Devise}} $\ast$ Devises\+Manager\+::creation\+Devise (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{code,  }\item[{const Q\+String \&}]{monnaie,  }\item[{const Q\+String \&}]{zone }\end{DoxyParamCaption})}
+
+
+
+méthode creation\+Devise 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em code} & \+:const Q\+String\& \\
+\hline
+{\em monnaie} & \+:const Qstring\& \\
+\hline
+{\em zone} & \+:const Q\+String\& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Devise$\ast$ \+: la valeur de l\textquotesingle{}adresse de la devise qui vient d\textquotesingle{}être créée et nullptr en cas d\textquotesingle{}échec 
+\end{DoxyReturn}
+
+
+Définition à la ligne 31 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                                                                                                        \{}
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} (nbDevises == nbMaxDevises) \{}
+\DoxyCodeLine{33         \textcolor{comment}{// agrandissement tableau}}
+\DoxyCodeLine{34         \mbox{\hyperlink{classDevise}{Devise}}** newTable = \textcolor{keyword}{new} \mbox{\hyperlink{classDevise}{Devise}}*[nbMaxDevises + 10];}
+\DoxyCodeLine{35         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < nbDevises; i++) newTable[i] = devises[i];}
+\DoxyCodeLine{36         \textcolor{comment}{// mise à jour des attributs}}
+\DoxyCodeLine{37         \mbox{\hyperlink{classDevise}{Devise}}** old = devises;}
+\DoxyCodeLine{38         nbMaxDevises += 10;}
+\DoxyCodeLine{39         devises = newTable;}
+\DoxyCodeLine{40         \textcolor{keyword}{delete}[] old;}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42     \textcolor{comment}{// cération et ajout de la nouvelle devise...}}
+\DoxyCodeLine{43     devises[nbDevises] = \textcolor{keyword}{new} \mbox{\hyperlink{classDevise}{Devise}}(code, monnaie, zone);}
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} devises[nbDevises++];}
+\DoxyCodeLine{45 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDevisesManager_abc01ef5fd78aa365085884176b5118f0}\label{classDevisesManager_abc01ef5fd78aa365085884176b5118f0}} 
+\index{DevisesManager@{DevisesManager}!getDevise@{getDevise}}
+\index{getDevise@{getDevise}!DevisesManager@{DevisesManager}}
+\doxysubsubsection{\texorpdfstring{getDevise()}{getDevise()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDevise}{Devise}} $\ast$ Devises\+Manager\+::get\+Devise (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{code }\end{DoxyParamCaption}) const}
+
+
+
+méthode get\+Devise ; 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em code} & \+:const Q\+String\& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Devise$\ast$ \+: la valeur de l\textquotesingle{}adresse de la devise dont le code est égale au code donné en entrée 
+\end{DoxyReturn}
+
+
+Définition à la ligne 47 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                                                           \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < nbDevises; i++)}
+\DoxyCodeLine{49         \textcolor{keywordflow}{if} (devises[i]-\/>getCode() == code) \textcolor{keywordflow}{return} devises[i];}
+\DoxyCodeLine{50     \textcolor{keywordflow}{throw} \mbox{\hyperlink{classTradingException}{TradingException}}(\textcolor{stringliteral}{"devise inexistante"});}
+\DoxyCodeLine{51 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDevisesManager_aa0461837aaa23ba84635f4a0b5944cfa}\label{classDevisesManager_aa0461837aaa23ba84635f4a0b5944cfa}} 
+\index{DevisesManager@{DevisesManager}!getDeviseCodes@{getDeviseCodes}}
+\index{getDeviseCodes@{getDeviseCodes}!DevisesManager@{DevisesManager}}
+\doxysubsubsection{\texorpdfstring{getDeviseCodes()}{getDeviseCodes()}}
+{\footnotesize\ttfamily Q\+String\+List Devises\+Manager\+::get\+Devise\+Codes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+méthode get\+Devise\+Codes 
+
+\begin{DoxyReturn}{Renvoie}
+Qstring\+List \+: la liste des codes des devises 
+\end{DoxyReturn}
+
+
+Définition à la ligne 72 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{72                                                  \{}
+\DoxyCodeLine{73     QStringList listeCodes;}
+\DoxyCodeLine{74     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i=0; i<nbDevises; i++) \{}
+\DoxyCodeLine{75         listeCodes<<devises[i]-\/>\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}();}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77     \textcolor{keywordflow}{return} listeCodes;}
+\DoxyCodeLine{78 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDevisesManager_a271ad1137d23b6ef3779110a806af778}\label{classDevisesManager_a271ad1137d23b6ef3779110a806af778}} 
+\index{DevisesManager@{DevisesManager}!getManager@{getManager}}
+\index{getManager@{getManager}!DevisesManager@{DevisesManager}}
+\doxysubsubsection{\texorpdfstring{getManager()}{getManager()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classDevisesManager}{Devises\+Manager}}\& Devises\+Manager\+::get\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+méthode get\+Manager 
+
+\begin{DoxyReturn}{Renvoie}
+static \mbox{\hyperlink{classDevisesManager}{Devises\+Manager}}\& \+: la valeur de handler.\+instance, si elle n\textquotesingle{}existe pas, elle la créée 
+\end{DoxyReturn}
+
+
+Définition à la ligne 180 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{180                                         \{}
+\DoxyCodeLine{181         \textcolor{keywordflow}{if} (handler.instance == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{182             handler.instance = \textcolor{keyword}{new} \mbox{\hyperlink{classDevisesManager}{DevisesManager}};}
+\DoxyCodeLine{183         \textcolor{keywordflow}{return} *handler.instance;}
+\DoxyCodeLine{184     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDevisesManager_ac514ec6ce1e1454908b73b1fd87a3c60}\label{classDevisesManager_ac514ec6ce1e1454908b73b1fd87a3c60}} 
+\index{DevisesManager@{DevisesManager}!getPaireDevises@{getPaireDevises}}
+\index{getPaireDevises@{getPaireDevises}!DevisesManager@{DevisesManager}}
+\doxysubsubsection{\texorpdfstring{getPaireDevises()}{getPaireDevises()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPaireDevises}{Paire\+Devises}} \& Devises\+Manager\+::get\+Paire\+Devises (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{base\+Code,  }\item[{const Q\+String \&}]{contrepartie\+Code }\end{DoxyParamCaption}) const}
+
+
+
+méthode get\+Paire\+Devises 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em base\+Code} & \+:const Q\+String\& \\
+\hline
+{\em contrepartie\+Code} & \+:const Qstring\& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\mbox{\hyperlink{classPaireDevises}{Paire\+Devises}}\& \+: la valeur de l\textquotesingle{}adresse de la paire recherchée s\textquotesingle{}il existe. Sinon elle est créée 
+\end{DoxyReturn}
+
+
+Définition à la ligne 53 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53                                                                                                               \{}
+\DoxyCodeLine{54     \textcolor{keyword}{const} \mbox{\hyperlink{classDevise}{Devise}}* base = \mbox{\hyperlink{classDevisesManager_abc01ef5fd78aa365085884176b5118f0}{getDevise}}(baseCode);}
+\DoxyCodeLine{55     \textcolor{keyword}{const} \mbox{\hyperlink{classDevise}{Devise}}* contrepartie = \mbox{\hyperlink{classDevisesManager_abc01ef5fd78aa365085884176b5118f0}{getDevise}}(contrepartieCode);}
+\DoxyCodeLine{56     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < nbPaires; i++)}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if} (paires[i]-\/>getBase().getCode() == baseCode \&\& paires[i]-\/>getContrepartie().getCode() == contrepartieCode)}
+\DoxyCodeLine{58             \textcolor{keywordflow}{return} *paires[i];}
+\DoxyCodeLine{59     \textcolor{comment}{// si la paire de devises n'est pas trouvée, il faut la créer}}
+\DoxyCodeLine{60     \textcolor{keywordflow}{if} (nbPaires == nbMaxPaires) \{ \textcolor{comment}{// agrandissement du tableau}}
+\DoxyCodeLine{61         \mbox{\hyperlink{classPaireDevises}{PaireDevises}}** newTable = \textcolor{keyword}{new} \mbox{\hyperlink{classPaireDevises}{PaireDevises}}*[nbMaxPaires + 10];}
+\DoxyCodeLine{62         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < nbPaires; i++) newTable[i] = paires[i];}
+\DoxyCodeLine{63         \mbox{\hyperlink{classPaireDevises}{PaireDevises}}** old = paires;}
+\DoxyCodeLine{64         nbMaxPaires += 10;}
+\DoxyCodeLine{65         paires = newTable;}
+\DoxyCodeLine{66         \textcolor{keyword}{delete}[] old;}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{68     paires[nbPaires] = \textcolor{keyword}{new} \mbox{\hyperlink{classPaireDevises}{PaireDevises}}(*base, *contrepartie);}
+\DoxyCodeLine{69     \textcolor{keywordflow}{return} *paires[nbPaires++];}
+\DoxyCodeLine{70 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDevisesManager_aaf4445f4e430e3ea2fa92dec85224743}\label{classDevisesManager_aaf4445f4e430e3ea2fa92dec85224743}} 
+\index{DevisesManager@{DevisesManager}!libererManager@{libererManager}}
+\index{libererManager@{libererManager}!DevisesManager@{DevisesManager}}
+\doxysubsubsection{\texorpdfstring{libererManager()}{libererManager()}}
+{\footnotesize\ttfamily static void Devises\+Manager\+::liberer\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+méthode liberer\+Manager 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: libère l\textquotesingle{}instance handler.\+instance 
+\end{DoxyReturn}
+
+
+Définition à la ligne 189 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{189                                  \{}
+\DoxyCodeLine{190         \textcolor{keyword}{delete} handler.instance;  handler.instance = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{191     \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8h}{trading.\+h}}\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8cpp}{trading.\+cpp}}\end{DoxyCompactItemize}

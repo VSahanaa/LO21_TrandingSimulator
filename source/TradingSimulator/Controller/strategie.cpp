@@ -1,3 +1,8 @@
+/**
+ * \file 	strategie.cpp
+ * \brief 	Definit les methodes des classes concernant les strategies
+ *
+ */
 #include "strategie.h"
 
 StrategieFactory* StrategieFactory::instance = nullptr;

@@ -1,3 +1,8 @@
+/**
+ * \file 	indicateur.cpp
+ * \brief 	Contient les méthodes des classes concernant les indicateurs
+ *
+ */
 #include "trading.h"
 /* Implement Indicateurs
  */

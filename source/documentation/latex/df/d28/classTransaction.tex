@@ -1,0 +1,317 @@
+\hypertarget{classTransaction}{}\doxysection{Référence de la classe Transaction}
+\label{classTransaction}\index{Transaction@{Transaction}}
+
+
+contient les informations de chaque transaction attributs privés \+: transaction\+Dernier, paire, cours, achat, montant\+Base, montant\+Contrepartie, montant\+Base\+Initial, montant\+Contrepartie\+Initial méthodes privées \+: \mbox{\hyperlink{classTransaction}{Transaction}} méthodes publiques \+: difference\+Base, difference\+Contrepartie, get\+Montant\+Base, roi, get\+Montant\+Contrepartie, get\+Cours, est\+\_\+achat, get\+Last\+Transaction, next, has\+Next amitiéss \+: class \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} Remarques \+: constructeur, destructeur privés dont seul \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} à accés les transactions sont organisées en liste chainées  
+
+
+
+
+{\ttfamily \#include $<$transaction.\+h$>$}
+
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classTransaction_a036f63fbbd6aebbcf5533cf7a42baf74}{difference\+Base}} () const
+\begin{DoxyCompactList}\small\item\em méthode difference\+Base \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransaction_a553c91682cfb66b8baf7f8fcf9304dae}{difference\+Contrepartie}} () const
+\begin{DoxyCompactList}\small\item\em méthode difference\+Contrepartie \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransaction_a8df0b3d3a83a406388b9a6a546bae630}{montant\+Total}} () const
+\begin{DoxyCompactList}\small\item\em méthode montant\+Total \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransaction_a2b172e7a0c7a34df8f22bcdbc63ca223}{roi}} (double montant\+Total\+Initial) const
+\begin{DoxyCompactList}\small\item\em méthode roi \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransaction_ac102bb2a4cd8df20d2e8b801c920ce68}{get\+Montant\+Base}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Montant\+Base \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classTransaction_aaa27d802abc6d8986cdca66d710329f6}{get\+Montant\+Contrepartie}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Montant\+Contrepartie \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}} $\ast$ \mbox{\hyperlink{classTransaction_ab6fcc894f4fb8899e96141a10aa53f6f}{get\+Cours}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Cours \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTransaction_ad8c80c4f1bc4d5d569c0bf8c4e56880a}{est\+\_\+achat}} () const
+\begin{DoxyCompactList}\small\item\em méthode est\+\_\+achat \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTransaction}{Transaction}} $\ast$ \mbox{\hyperlink{classTransaction_a6fca2dc3f24e08369470db11860708fa}{get\+Last\+Transaction}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Last\+Transaction \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTransaction}{Transaction}} $\ast$ \mbox{\hyperlink{classTransaction_a518b117dcf5ef9a2d323493a8d4fb922}{next}} () const
+\begin{DoxyCompactList}\small\item\em méthode next \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTransaction_a9c562b4d29343bd4ef6ba112eae83fb1}{has\+Next}} () const
+\begin{DoxyCompactList}\small\item\em méthode has\+Next \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTransaction_adb936c8577cc481f904aee636498cfc0}{Transaction\+Manager}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+contient les informations de chaque transaction attributs privés \+: transaction\+Dernier, paire, cours, achat, montant\+Base, montant\+Contrepartie, montant\+Base\+Initial, montant\+Contrepartie\+Initial méthodes privées \+: \mbox{\hyperlink{classTransaction}{Transaction}} méthodes publiques \+: difference\+Base, difference\+Contrepartie, get\+Montant\+Base, roi, get\+Montant\+Contrepartie, get\+Cours, est\+\_\+achat, get\+Last\+Transaction, next, has\+Next amitiéss \+: class \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} Remarques \+: constructeur, destructeur privés dont seul \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} à accés les transactions sont organisées en liste chainées 
+
+Définition à la ligne 26 du fichier transaction.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classTransaction_a036f63fbbd6aebbcf5533cf7a42baf74}\label{classTransaction_a036f63fbbd6aebbcf5533cf7a42baf74}} 
+\index{Transaction@{Transaction}!differenceBase@{differenceBase}}
+\index{differenceBase@{differenceBase}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{differenceBase()}{differenceBase()}}
+{\footnotesize\ttfamily double Transaction\+::difference\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode difference\+Base 
+
+\begin{DoxyReturn}{Renvoie}
+double \+:retourne la différence entre le montant de base de cette transaction et de lla précédente 
+\end{DoxyReturn}
+
+
+Définition à la ligne 54 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                                   \{}
+\DoxyCodeLine{55         \textcolor{keywordflow}{if}(!transactionDernier) \textcolor{keywordflow}{return} this-\/>montantBase -\/ montantBaseInitial;}
+\DoxyCodeLine{56         \textcolor{keywordflow}{return} this-\/>montantBase -\/ transactionDernier-\/>montantBase;}
+\DoxyCodeLine{57     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_a553c91682cfb66b8baf7f8fcf9304dae}\label{classTransaction_a553c91682cfb66b8baf7f8fcf9304dae}} 
+\index{Transaction@{Transaction}!differenceContrepartie@{differenceContrepartie}}
+\index{differenceContrepartie@{differenceContrepartie}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{differenceContrepartie()}{differenceContrepartie()}}
+{\footnotesize\ttfamily double Transaction\+::difference\+Contrepartie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode difference\+Contrepartie 
+
+\begin{DoxyReturn}{Renvoie}
+double \+:retourne la différence entre le montant de contrepartie de cette transaction et de lla précédente 
+\end{DoxyReturn}
+
+
+Définition à la ligne 62 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                                           \{}
+\DoxyCodeLine{63         \textcolor{keywordflow}{if}(!transactionDernier) \textcolor{keywordflow}{return} this-\/>montantContrepartie -\/ montantContrepartieInitial;}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} this-\/>montantContrepartie -\/ transactionDernier-\/>montantContrepartie;}
+\DoxyCodeLine{65     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_ad8c80c4f1bc4d5d569c0bf8c4e56880a}\label{classTransaction_ad8c80c4f1bc4d5d569c0bf8c4e56880a}} 
+\index{Transaction@{Transaction}!est\_achat@{est\_achat}}
+\index{est\_achat@{est\_achat}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{est\_achat()}{est\_achat()}}
+{\footnotesize\ttfamily bool Transaction\+::est\+\_\+achat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode est\+\_\+achat 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: retourne la valeur de l\textquotesingle{}attribut achat 
+\end{DoxyReturn}
+
+
+Définition à la ligne 95 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95 \{\textcolor{keywordflow}{return} achat;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_ab6fcc894f4fb8899e96141a10aa53f6f}\label{classTransaction_ab6fcc894f4fb8899e96141a10aa53f6f}} 
+\index{Transaction@{Transaction}!getCours@{getCours}}
+\index{getCours@{getCours}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getCours()}{getCours()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCoursOHLCV}{Cours\+O\+H\+L\+CV}}$\ast$ Transaction\+::get\+Cours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Cours 
+
+\begin{DoxyReturn}{Renvoie}
+Cours\+O\+H\+L\+C\+V$\ast$ \+: retourne la valeur de l\textquotesingle{}attribut cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 90 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90 \{\textcolor{keywordflow}{return} cours;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_a6fca2dc3f24e08369470db11860708fa}\label{classTransaction_a6fca2dc3f24e08369470db11860708fa}} 
+\index{Transaction@{Transaction}!getLastTransaction@{getLastTransaction}}
+\index{getLastTransaction@{getLastTransaction}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getLastTransaction()}{getLastTransaction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTransaction}{Transaction}}$\ast$ Transaction\+::get\+Last\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Last\+Transaction 
+
+\begin{DoxyReturn}{Renvoie}
+Transaction$\ast$ \+: retourne la valeur de l\textquotesingle{}attribut transaction\+Dernier 
+\end{DoxyReturn}
+
+
+Définition à la ligne 100 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100 \{\textcolor{keywordflow}{return} transactionDernier;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_ac102bb2a4cd8df20d2e8b801c920ce68}\label{classTransaction_ac102bb2a4cd8df20d2e8b801c920ce68}} 
+\index{Transaction@{Transaction}!getMontantBase@{getMontantBase}}
+\index{getMontantBase@{getMontantBase}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getMontantBase()}{getMontantBase()}}
+{\footnotesize\ttfamily double Transaction\+::get\+Montant\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Montant\+Base 
+
+\begin{DoxyReturn}{Renvoie}
+double \+:retourne la valeur de l\textquotesingle{}attribut montant\+Base 
+\end{DoxyReturn}
+
+
+Définition à la ligne 80 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80 \{\textcolor{keywordflow}{return} montantBase;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_aaa27d802abc6d8986cdca66d710329f6}\label{classTransaction_aaa27d802abc6d8986cdca66d710329f6}} 
+\index{Transaction@{Transaction}!getMontantContrepartie@{getMontantContrepartie}}
+\index{getMontantContrepartie@{getMontantContrepartie}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{getMontantContrepartie()}{getMontantContrepartie()}}
+{\footnotesize\ttfamily double Transaction\+::get\+Montant\+Contrepartie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Montant\+Contrepartie 
+
+\begin{DoxyReturn}{Renvoie}
+double \+:retourne la valeur de l\textquotesingle{}attribut montant\+Contrepartie 
+\end{DoxyReturn}
+
+
+Définition à la ligne 85 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85 \{\textcolor{keywordflow}{return} montantContrepartie;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_a9c562b4d29343bd4ef6ba112eae83fb1}\label{classTransaction_a9c562b4d29343bd4ef6ba112eae83fb1}} 
+\index{Transaction@{Transaction}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily bool Transaction\+::has\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode has\+Next 
+
+\begin{DoxyReturn}{Renvoie}
+bool \+: true si transaction\+Dernier existe, false sinon 
+\end{DoxyReturn}
+
+
+Définition à la ligne 110 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110 \{\textcolor{keywordflow}{if} (transactionDernier) \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\} \textcolor{keywordflow}{else} \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_a8df0b3d3a83a406388b9a6a546bae630}\label{classTransaction_a8df0b3d3a83a406388b9a6a546bae630}} 
+\index{Transaction@{Transaction}!montantTotal@{montantTotal}}
+\index{montantTotal@{montantTotal}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{montantTotal()}{montantTotal()}}
+{\footnotesize\ttfamily double Transaction\+::montant\+Total (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode montant\+Total 
+
+\begin{DoxyReturn}{Renvoie}
+double \+:retourne le montant total dans la devise de contrepartie 
+\end{DoxyReturn}
+
+
+Définition à la ligne 70 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70 \{\textcolor{keywordflow}{return} montantBase*cours-\/>\mbox{\hyperlink{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}{getClose}}() + montantContrepartie;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_a518b117dcf5ef9a2d323493a8d4fb922}\label{classTransaction_a518b117dcf5ef9a2d323493a8d4fb922}} 
+\index{Transaction@{Transaction}!next@{next}}
+\index{next@{next}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTransaction}{Transaction}}$\ast$ Transaction\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode next 
+
+\begin{DoxyReturn}{Renvoie}
+Transaction$\ast$ \+: retourne la valeur de l\textquotesingle{}attribut transaction\+Dernier 
+\end{DoxyReturn}
+
+
+Définition à la ligne 105 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classTransaction_a6fca2dc3f24e08369470db11860708fa}{getLastTransaction}}();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classTransaction_a2b172e7a0c7a34df8f22bcdbc63ca223}\label{classTransaction_a2b172e7a0c7a34df8f22bcdbc63ca223}} 
+\index{Transaction@{Transaction}!roi@{roi}}
+\index{roi@{roi}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{roi()}{roi()}}
+{\footnotesize\ttfamily double Transaction\+::roi (\begin{DoxyParamCaption}\item[{double}]{montant\+Total\+Initial }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode roi 
+
+\begin{DoxyReturn}{Renvoie}
+double \+: ratio entre le montant\+Total et le montant\+Total\+Initial 
+\end{DoxyReturn}
+
+
+Définition à la ligne 75 du fichier transaction.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{classTransaction_a8df0b3d3a83a406388b9a6a546bae630}{montantTotal}}()/ montantTotalInitial;\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions amies et associées}
+\mbox{\Hypertarget{classTransaction_adb936c8577cc481f904aee636498cfc0}\label{classTransaction_adb936c8577cc481f904aee636498cfc0}} 
+\index{Transaction@{Transaction}!TransactionManager@{TransactionManager}}
+\index{TransactionManager@{TransactionManager}!Transaction@{Transaction}}
+\doxysubsubsection{\texorpdfstring{TransactionManager}{TransactionManager}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+déclaration d\textquotesingle{}amitiés \+: \mbox{\hyperlink{classTransactionManager}{Transaction\+Manager}} 
+
+Définition à la ligne 27 du fichier transaction.\+h.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+Controller/\mbox{\hyperlink{transaction_8h}{transaction.\+h}}\end{DoxyCompactItemize}

@@ -1,3 +1,7 @@
+/**
+ * \file 	simulation.cpp
+ * \brief 	Definit les classes Simulation, SimulationManager, ModeAutomatique, ModeManuel, ModePas_Pas
+ */
 #include "simulation.h"
 
 /*---------------------------------------------------------- Methodes de classe Simulation -------------------------------------------------------*/

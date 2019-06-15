@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trading Simulator: Référence de la classe SimulationManager</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trading Simulator
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-static-methods">Fonctions membres publiques statiques</a> &#124;
+<a href="../../de/d60/classSimulationManager-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence de la classe SimulationManager</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>gère les simulations attributs : instance, nomGroupe, nomApplication, listeSimulation méthodes privées : <a class="el" href="../../d9/dbb/classSimulationManager.html" title="gère les simulations attributs : instance, nomGroupe, nomApplication, listeSimulation méthodes privée...">SimulationManager</a>, ~SimulationManager méthodes publiques : getSimulationManager, libererSimulationManager, addSimulation, removeSimulation chargeEvolutionCours, listExistSimulation, listSavedSimulation, getNomApplication, getNomGroupe Remarques : chaque simulation est ajouté à la liste après sa création  
+ <a href="../../d9/dbb/classSimulationManager.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a51363f19ac3b8843d8eb065c8e6948a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#a51363f19ac3b8843d8eb065c8e6948a8">addSimulation</a> (<a class="el" href="../../d1/d7b/classSimulation.html">Simulation</a> *simulation)</td></tr>
+<tr class="memdesc:a51363f19ac3b8843d8eb065c8e6948a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode addSimulation.  <a href="../../d9/dbb/classSimulationManager.html#a51363f19ac3b8843d8eb065c8e6948a8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a51363f19ac3b8843d8eb065c8e6948a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20d327dbdbfd692c7998742c40437cc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#a20d327dbdbfd692c7998742c40437cc5">removeSimulation</a> (<a class="el" href="../../d1/d7b/classSimulation.html">Simulation</a> *simulation)</td></tr>
+<tr class="memdesc:a20d327dbdbfd692c7998742c40437cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode removeSimulation.  <a href="../../d9/dbb/classSimulationManager.html#a20d327dbdbfd692c7998742c40437cc5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a20d327dbdbfd692c7998742c40437cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00f4a2baccc70491890ca0943584ad2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#a00f4a2baccc70491890ca0943584ad2e">chargeEvolutionCours</a> (QString nomSimulation)</td></tr>
+<tr class="memdesc:a00f4a2baccc70491890ca0943584ad2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode chargeEvolutionCours.  <a href="../../d9/dbb/classSimulationManager.html#a00f4a2baccc70491890ca0943584ad2e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a00f4a2baccc70491890ca0943584ad2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceaa4ec85c7e00897c8b07ad8662a39c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d1/d7b/classSimulation.html">Simulation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#aceaa4ec85c7e00897c8b07ad8662a39c">chargeSimulation</a> (QString nom)</td></tr>
+<tr class="memdesc:aceaa4ec85c7e00897c8b07ad8662a39c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode chargeSimulation.  <a href="../../d9/dbb/classSimulationManager.html#aceaa4ec85c7e00897c8b07ad8662a39c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aceaa4ec85c7e00897c8b07ad8662a39c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a402f082a4514f4fdb72ef9dbad65e4c5"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#a402f082a4514f4fdb72ef9dbad65e4c5">listSavedSimulation</a> () const</td></tr>
+<tr class="memdesc:a402f082a4514f4fdb72ef9dbad65e4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode listSavedSimulation.  <a href="../../d9/dbb/classSimulationManager.html#a402f082a4514f4fdb72ef9dbad65e4c5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a402f082a4514f4fdb72ef9dbad65e4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17b45ddce8897e53df881f03fd774f95"><td class="memItemLeft" align="right" valign="top">QStringList&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#a17b45ddce8897e53df881f03fd774f95">listExistSimulation</a> () const</td></tr>
+<tr class="memdesc:a17b45ddce8897e53df881f03fd774f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode listExistSimulation.  <a href="../../d9/dbb/classSimulationManager.html#a17b45ddce8897e53df881f03fd774f95">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a17b45ddce8897e53df881f03fd774f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab8a6e873d581d98e31e2ce8866307be"><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#aab8a6e873d581d98e31e2ce8866307be">getNomGroupe</a> () const</td></tr>
+<tr class="memdesc:aab8a6e873d581d98e31e2ce8866307be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode getNomGroupe.  <a href="../../d9/dbb/classSimulationManager.html#aab8a6e873d581d98e31e2ce8866307be">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aab8a6e873d581d98e31e2ce8866307be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44227e7a21ff392a8596d7ff528c2cf1"><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#a44227e7a21ff392a8596d7ff528c2cf1">getNomApplication</a> () const</td></tr>
+<tr class="memdesc:a44227e7a21ff392a8596d7ff528c2cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode getNomApplication.  <a href="../../d9/dbb/classSimulationManager.html#a44227e7a21ff392a8596d7ff528c2cf1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a44227e7a21ff392a8596d7ff528c2cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6fa60754800d2167161a316cd0de05c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#ae6fa60754800d2167161a316cd0de05c">verifierNomSimulation</a> (QString nom) const</td></tr>
+<tr class="memdesc:ae6fa60754800d2167161a316cd0de05c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode verifierNomSimulation.  <a href="../../d9/dbb/classSimulationManager.html#ae6fa60754800d2167161a316cd0de05c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae6fa60754800d2167161a316cd0de05c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af88ccf7ce9d2515b03bdc0df4029ed5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#af88ccf7ce9d2515b03bdc0df4029ed5c">deleteSavedSimulation</a> (QString nom)</td></tr>
+<tr class="memdesc:af88ccf7ce9d2515b03bdc0df4029ed5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode deleteSavedSimulation.  <a href="../../d9/dbb/classSimulationManager.html#af88ccf7ce9d2515b03bdc0df4029ed5c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af88ccf7ce9d2515b03bdc0df4029ed5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Fonctions membres publiques statiques</h2></td></tr>
+<tr class="memitem:a622edd593a785f5d45ab1c079ebc1887"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d9/dbb/classSimulationManager.html">SimulationManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#a622edd593a785f5d45ab1c079ebc1887">getSimulationManager</a> (QString nomGroupe=&quot;LO21_TD2_Groupe100&quot;, QString nomApplication=&quot;Trading Simulator&quot;)</td></tr>
+<tr class="memdesc:a622edd593a785f5d45ab1c079ebc1887"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode getSimulationManager.  <a href="../../d9/dbb/classSimulationManager.html#a622edd593a785f5d45ab1c079ebc1887">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a622edd593a785f5d45ab1c079ebc1887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab09eef3bdab2f5f06c3bd46a07443a4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dbb/classSimulationManager.html#aab09eef3bdab2f5f06c3bd46a07443a4">libererSimulationManager</a> ()</td></tr>
+<tr class="memdesc:aab09eef3bdab2f5f06c3bd46a07443a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode libererSimulationManager.  <a href="../../d9/dbb/classSimulationManager.html#aab09eef3bdab2f5f06c3bd46a07443a4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aab09eef3bdab2f5f06c3bd46a07443a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>gère les simulations attributs : instance, nomGroupe, nomApplication, listeSimulation méthodes privées : <a class="el" href="../../d9/dbb/classSimulationManager.html" title="gère les simulations attributs : instance, nomGroupe, nomApplication, listeSimulation méthodes privée...">SimulationManager</a>, ~SimulationManager méthodes publiques : getSimulationManager, libererSimulationManager, addSimulation, removeSimulation chargeEvolutionCours, listExistSimulation, listSavedSimulation, getNomApplication, getNomGroupe Remarques : chaque simulation est ajouté à la liste après sa création </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00431">431</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a51363f19ac3b8843d8eb065c8e6948a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51363f19ac3b8843d8eb065c8e6948a8">&#9670;&nbsp;</a></span>addSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationManager::addSimulation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d7b/classSimulation.html">Simulation</a> *&#160;</td>
+          <td class="paramname"><em>simulation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode addSimulation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">simulation</td><td>:Simulation* </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : ajoute la simulation </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00470">470</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;{ listeSimulation.append(simulation);}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a00f4a2baccc70491890ca0943584ad2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00f4a2baccc70491890ca0943584ad2e">&#9670;&nbsp;</a></span>chargeEvolutionCours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a> * SimulationManager::chargeEvolutionCours </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nomSimulation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode chargeEvolutionCours. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomSimulation</td><td>:QString </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>EvolutionCours* : renvoie la valeur du pointeur sur l'evolutionCours associé à la simulation </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00330">330</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                                                                             {</div><div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <a class="code" href="../../d4/d66/classDevisesManager.html">DevisesManager</a>&amp; deviseManager = <a class="code" href="../../d4/d66/classDevisesManager.html#a271ad1137d23b6ef3779110a806af778">DevisesManager::getManager</a>();</div><div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <a class="code" href="../../d7/d47/classDevise.html">Devise</a>* base;</div><div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <a class="code" href="../../d7/d47/classDevise.html">Devise</a>* contrepartie;</div><div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    QString filename;</div><div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <a class="code" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a>* evolutionCours;</div><div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    QSettings setting(nomGroupe, nomApplication);</div><div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    setting.beginGroup(<span class="stringliteral">&quot;Simulation&quot;</span>);</div><div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="comment">//if(!setting.contains(nomSimulation)) throw TradingException(&quot;Simulation have not been saved&quot;);</span></div><div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        setting.beginGroup(nomSimulation);</div><div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;            setting.beginGroup(<span class="stringliteral">&quot;EvolutionCours&quot;</span>);</div><div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                setting.beginGroup(<span class="stringliteral">&quot;paireDevises&quot;</span>);     <span class="comment">//load paire devises</span></div><div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                    <span class="keywordflow">if</span>(deviseManager.<a class="code" href="../../d4/d66/classDevisesManager.html#aa0461837aaa23ba84635f4a0b5944cfa">getDeviseCodes</a>().contains(setting.value(<span class="stringliteral">&quot;base/code&quot;</span>).toString())) {</div><div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                        base = deviseManager.<a class="code" href="../../d4/d66/classDevisesManager.html#abc01ef5fd78aa365085884176b5118f0">getDevise</a>(setting.value(<span class="stringliteral">&quot;base/code&quot;</span>).toString());</div><div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                    }</div><div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;                    <span class="keywordflow">else</span> {</div><div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;                        base = deviseManager.<a class="code" href="../../d4/d66/classDevisesManager.html#a19992989951a6ef56bf1f93c56625e36">creationDevise</a>(setting.value(<span class="stringliteral">&quot;base/code&quot;</span>).toString(), setting.value(<span class="stringliteral">&quot;base/monnaie&quot;</span>).toString(), setting.value(<span class="stringliteral">&quot;base/zone&quot;</span>).toString());</div><div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                    }</div><div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div><div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                    <span class="keywordflow">if</span>(deviseManager.<a class="code" href="../../d4/d66/classDevisesManager.html#aa0461837aaa23ba84635f4a0b5944cfa">getDeviseCodes</a>().contains(setting.value(<span class="stringliteral">&quot;contrepartie/code&quot;</span>).toString())) {</div><div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                        contrepartie = deviseManager.<a class="code" href="../../d4/d66/classDevisesManager.html#abc01ef5fd78aa365085884176b5118f0">getDevise</a>(setting.value(<span class="stringliteral">&quot;contrepartie/code&quot;</span>).toString());</div><div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;                    }</div><div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                    <span class="keywordflow">else</span> {</div><div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;                        contrepartie = deviseManager.<a class="code" href="../../d4/d66/classDevisesManager.html#a19992989951a6ef56bf1f93c56625e36">creationDevise</a>(setting.value(<span class="stringliteral">&quot;contrepartie/code&quot;</span>).toString(), setting.value(<span class="stringliteral">&quot;contrepartie/monnaie&quot;</span>).toString(), setting.value(<span class="stringliteral">&quot;contrepartie/zone&quot;</span>).toString());</div><div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                    }</div><div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;                    <a class="code" href="../../dd/d44/classPaireDevises.html">PaireDevises</a>&amp; paire =  deviseManager.<a class="code" href="../../d4/d66/classDevisesManager.html#ac514ec6ce1e1454908b73b1fd87a3c60">getPaireDevises</a>(setting.value(<span class="stringliteral">&quot;base/code&quot;</span>).toString(), setting.value(<span class="stringliteral">&quot;contrepartie/code&quot;</span>).toString());</div><div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;                    paire.<a class="code" href="../../dd/d44/classPaireDevises.html#aa4c8a2adeaf0b1ac80eeebb7dc66c16e">setSurnom</a>(setting.value(<span class="stringliteral">&quot;surnom&quot;</span>).toString());</div><div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;                setting.endGroup();</div><div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                filename = setting.value(<span class="stringliteral">&quot;fichier&quot;</span>).toString();</div><div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                evolutionCours = <span class="keyword">new</span> <a class="code" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a>(paire, filename);</div><div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            setting.endGroup();</div><div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        setting.endGroup();</div><div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    setting.endGroup();</div><div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordflow">return</span> evolutionCours;</div><div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aceaa4ec85c7e00897c8b07ad8662a39c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceaa4ec85c7e00897c8b07ad8662a39c">&#9670;&nbsp;</a></span>chargeSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d7b/classSimulation.html">Simulation</a> * SimulationManager::chargeSimulation </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode chargeSimulation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom</td><td>:QString </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Simulation* : renvoie la simulation dont le nom est donnée en paramètre </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00366">366</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                                                           {</div><div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <a class="code" href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a>* evolutionCours = <a class="code" href="../../d9/dbb/classSimulationManager.html#a00f4a2baccc70491890ca0943584ad2e">chargeEvolutionCours</a>(nom);</div><div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <a class="code" href="../../d1/d7b/classSimulation.html">Simulation</a>* simulation = <span class="keyword">nullptr</span>;</div><div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    QString type;</div><div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <a class="code" href="../../df/d09/classCoursOHLCV.html">EvolutionCours::iterator</a> currentCours;</div><div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordtype">double</span> pourcentage, montantBaseInitial, montantContrepartieInitial;</div><div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    QSettings setting(nomGroupe, nomApplication);</div><div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div><div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    setting.beginGroup(<span class="stringliteral">&quot;Simulation&quot;</span>);</div><div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        setting.beginGroup(nom);</div><div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            <span class="comment">//if(!setting.contains(nom)) throw TradingException(&quot;Simulation have not been saved&quot;);</span></div><div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            currentCours = evolutionCours-&gt;<a class="code" href="../../d0/de6/classEvolutionCours.html#a64d7a97b6ef6f8a0cf9f3b8cd44da35c">searchCours</a>(QDate::fromString(setting.value(<span class="stringliteral">&quot;currentDate&quot;</span>).toString(), <span class="stringliteral">&quot;yyyy-MM-dd&quot;</span>));</div><div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            type = setting.value(<span class="stringliteral">&quot;type&quot;</span>).toString();</div><div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;            qDebug() &lt;&lt; type;</div><div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;            setting.beginGroup(<span class="stringliteral">&quot;TransactionManager&quot;</span>);</div><div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                pourcentage =  setting.value(<span class="stringliteral">&quot;TransactionManager/pourcentage&quot;</span>).toDouble();</div><div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                montantBaseInitial = setting.value(<span class="stringliteral">&quot;TransactionManager/montantBaseInitial&quot;</span>).toDouble();</div><div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                montantContrepartieInitial = setting.value(<span class="stringliteral">&quot;TransactionManager/montantContrepartieInitial&quot;</span>).toDouble();</div><div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                qDebug(<span class="stringliteral">&quot;start loading simulation&quot;</span>);</div><div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            setting.endGroup();</div><div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            <span class="keywordflow">if</span>(type == <span class="stringliteral">&quot;Manuel&quot;</span>) {</div><div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                simulation = <span class="keyword">new</span> <a class="code" href="../../d6/d6e/classModeManuel.html">ModeManuel</a>(nom, evolutionCours, currentCours, pourcentage, montantBaseInitial, montantContrepartieInitial);</div><div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;            }</div><div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (type == <span class="stringliteral">&quot;Pas_Pas&quot;</span>) {</div><div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                <span class="keywordtype">int</span> time_interval = setting.value(<span class="stringliteral">&quot;timerInterval&quot;</span>).toInt();</div><div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                simulation = <span class="keyword">new</span> <a class="code" href="../../d2/da3/classModePas__Pas.html">ModePas_Pas</a>(nom, evolutionCours, currentCours, pourcentage, montantBaseInitial, montantContrepartieInitial, time_interval);</div><div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;            }</div><div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (type == <span class="stringliteral">&quot;Automatique&quot;</span>){</div><div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                <span class="keywordtype">int</span> time_interval = setting.value(<span class="stringliteral">&quot;timerInterval&quot;</span>).toInt();</div><div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                <a class="code" href="../../d3/d70/classStrategieFactory.html">StrategieFactory</a>* strategieFactory = <a class="code" href="../../d3/d70/classStrategieFactory.html#a77a83ec9c8d8f472590362afdf5dff1f">StrategieFactory::getStrategieFactory</a>();</div><div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                setting.beginGroup(<span class="stringliteral">&quot;Strategie&quot;</span>);</div><div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                    qDebug() &lt;&lt; setting.value(<span class="stringliteral">&quot;nom&quot;</span>).toString();</div><div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                    <a class="code" href="../../dc/dd4/classStrategie.html">Strategie</a>* strategie = strategieFactory-&gt;<a class="code" href="../../d3/d70/classStrategieFactory.html#addcf8d47f035caa184abf651a972fdfe">getStrategie</a>(setting.value(<span class="stringliteral">&quot;nom&quot;</span>).toString(), evolutionCours);</div><div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                    QMap&lt;QString, QVariant&gt; parameters;</div><div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                        setting.beginGroup(<span class="stringliteral">&quot;parameters&quot;</span>);</div><div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                            QStringList listeParameters = setting.childKeys();</div><div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                            qDebug()&lt;&lt; listeParameters;</div><div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;listeParameters.count(); i++) {</div><div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;                                parameters[listeParameters[i]] = setting.value(listeParameters[i]);</div><div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                            }</div><div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                        setting.endGroup();</div><div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;               setting.endGroup();</div><div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;               strategie-&gt;<a class="code" href="../../dc/dd4/classStrategie.html#a05c125dd608fca933f4fe4b6cb813207">setParameters</a>(parameters);</div><div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;               simulation = <span class="keyword">new</span> <a class="code" href="../../dc/d89/classModeAutomatique.html">ModeAutomatique</a>(nom, evolutionCours, currentCours, strategie, pourcentage, montantBaseInitial, montantContrepartieInitial, time_interval);</div><div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            }</div><div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        setting.endGroup();</div><div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    setting.endGroup();</div><div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    qDebug(<span class="stringliteral">&quot;load simulation success&quot;</span>);</div><div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    simulation-&gt;<a class="code" href="../../d1/d7b/classSimulation.html#a2d57406836f4f0cede0c054ba406825e">loadTransactions</a>();</div><div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    simulation-&gt;<a class="code" href="../../d1/d7b/classSimulation.html#aba050bcd0360e02faca27632d1b04946">loadNotes</a>();</div><div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <a class="code" href="../../d9/dbb/classSimulationManager.html#a51363f19ac3b8843d8eb065c8e6948a8">addSimulation</a>(simulation);</div><div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keywordflow">return</span> simulation;</div><div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="af88ccf7ce9d2515b03bdc0df4029ed5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af88ccf7ce9d2515b03bdc0df4029ed5c">&#9670;&nbsp;</a></span>deleteSavedSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationManager::deleteSavedSimulation </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode deleteSavedSimulation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom</td><td>:QString </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : supprime la simulation qui a nom donné (si elle avait été sauvegardée) </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00322">322</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;                                                         {</div><div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    QSettings setting(nomGroupe, nomApplication);</div><div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    setting.beginGroup(<span class="stringliteral">&quot;Simulation&quot;</span>);</div><div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        setting.remove(nom);</div><div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    setting.endGroup();</div><div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a44227e7a21ff392a8596d7ff528c2cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44227e7a21ff392a8596d7ff528c2cf1">&#9670;&nbsp;</a></span>getNomApplication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString&amp; SimulationManager::getNomApplication </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode getNomApplication. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>const QString&amp; : renvoie la valeur de getNomApplication </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00514">514</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;{<span class="keywordflow">return</span> nomApplication;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aab8a6e873d581d98e31e2ce8866307be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab8a6e873d581d98e31e2ce8866307be">&#9670;&nbsp;</a></span>getNomGroupe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString&amp; SimulationManager::getNomGroupe </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode getNomGroupe. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>const QString&amp; : renvoie la valeur de getNomGroupe </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00509">509</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;{<span class="keywordflow">return</span> nomGroupe;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a622edd593a785f5d45ab1c079ebc1887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a622edd593a785f5d45ab1c079ebc1887">&#9670;&nbsp;</a></span>getSimulationManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../d9/dbb/classSimulationManager.html">SimulationManager</a>* SimulationManager::getSimulationManager </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nomGroupe</em> = <code>&quot;LO21_TD2_Groupe100&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nomApplication</em> = <code>&quot;Trading&#160;Simulator&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode getSimulationManager. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nomGroupe</td><td>:QString </td></tr>
+    <tr><td class="paramname">nomApplication</td><td>:QString </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>static SimulationManager* : renvoie la valeur de l'attribut instance, et la crée si elle est null </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00451">451</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                                                                                                                                       {</div><div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="keywordflow">if</span> (!instance) {</div><div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;            instance = <span class="keyword">new</span> <a class="code" href="../../d9/dbb/classSimulationManager.html">SimulationManager</a>(nomGroupe, nomApplication);</div><div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        }</div><div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        <span class="keywordflow">return</span> instance;</div><div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aab09eef3bdab2f5f06c3bd46a07443a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab09eef3bdab2f5f06c3bd46a07443a4">&#9670;&nbsp;</a></span>libererSimulationManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void SimulationManager::libererSimulationManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode libererSimulationManager. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>static void : libère l'instance </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00461">461</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                                           {</div><div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        <span class="keyword">delete</span> instance;</div><div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        instance = <span class="keyword">nullptr</span>;</div><div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a17b45ddce8897e53df881f03fd774f95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17b45ddce8897e53df881f03fd774f95">&#9670;&nbsp;</a></span>listExistSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QStringList SimulationManager::listExistSimulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode listExistSimulation. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>QStringList : renvoie la liste des noms des simulations existantes </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00302">302</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                                                         {</div><div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    QStringList listeNomSimulation = <a class="code" href="../../d9/dbb/classSimulationManager.html#a402f082a4514f4fdb72ef9dbad65e4c5">listSavedSimulation</a>();</div><div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;listeSimulation.length(); i++) {</div><div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        listeNomSimulation.append(listeSimulation[i]-&gt;getNom());        <span class="comment">//list of simulation that already exist in the program</span></div><div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    }</div><div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">return</span> listeNomSimulation;</div><div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a402f082a4514f4fdb72ef9dbad65e4c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a402f082a4514f4fdb72ef9dbad65e4c5">&#9670;&nbsp;</a></span>listSavedSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QStringList SimulationManager::listSavedSimulation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode listSavedSimulation. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>QStringList : renvoie la liste des noms des simulations sauvegardées </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00310">310</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;                                                         {</div><div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    QSettings setting(nomGroupe, nomApplication);</div><div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    setting.beginGroup(<span class="stringliteral">&quot;Simulation&quot;</span>);</div><div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        QStringList listeSavedSimulation = setting.childGroups();         <span class="comment">//list saved Simulation</span></div><div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    setting.endGroup();</div><div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordflow">return</span> listeSavedSimulation;</div><div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<a id="a20d327dbdbfd692c7998742c40437cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20d327dbdbfd692c7998742c40437cc5">&#9670;&nbsp;</a></span>removeSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationManager::removeSimulation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d7b/classSimulation.html">Simulation</a> *&#160;</td>
+          <td class="paramname"><em>simulation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Méthode removeSimulation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">simulation</td><td>:void </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : supprime la simulation de la liste des simulation </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dd/d6a/simulation_8h_source.html#l00476">476</a> du fichier <a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;                                                  {</div><div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keywordflow">if</span> (!simulation) <span class="keywordflow">return</span>;</div><div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;listeSimulation.count(); i++) {</div><div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;            <span class="keywordflow">if</span> (listeSimulation[i] == simulation) listeSimulation.removeAt(i);</div><div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        }</div><div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="ae6fa60754800d2167161a316cd0de05c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6fa60754800d2167161a316cd0de05c">&#9670;&nbsp;</a></span>verifierNomSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SimulationManager::verifierNomSimulation </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>nom</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Méthode verifierNomSimulation. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom</td><td>:QString </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>bool : true si une simulation du même nom exist, false sinon </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d2/d93/simulation_8cpp_source.html#l00318">318</a> du fichier <a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                                                               {</div><div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">return</span> !<a class="code" href="../../d9/dbb/classSimulationManager.html#a17b45ddce8897e53df881f03fd774f95">listExistSimulation</a>().contains(nom);</div><div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>Controller/<a class="el" href="../../dd/d6a/simulation_8h_source.html">simulation.h</a></li>
+<li>Controller/<a class="el" href="../../d2/d93/simulation_8cpp_source.html">simulation.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<div class="ttc" id="aclassEvolutionCours_html_a64d7a97b6ef6f8a0cf9f3b8cd44da35c"><div class="ttname"><a href="../../d0/de6/classEvolutionCours.html#a64d7a97b6ef6f8a0cf9f3b8cd44da35c">EvolutionCours::searchCours</a></div><div class="ttdeci">iterator searchCours(QDate date)</div><div class="ttdoc">méthode searchCours</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d13/trading_8cpp_source.html#l00352">trading.cpp:352</a></div></div>
+<div class="ttc" id="aclassStrategieFactory_html"><div class="ttname"><a href="../../d3/d70/classStrategieFactory.html">StrategieFactory</a></div><div class="ttdoc">se charge du prototype des Strategie attributs : rsi, rsi_Iterator méthodes privées : StrategieFactor...</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00204">strategie.h:204</a></div></div>
+<div class="ttc" id="aclassModePas__Pas_html"><div class="ttname"><a href="../../d2/da3/classModePas__Pas.html">ModePas_Pas</a></div><div class="ttdoc">hérite de la classe Simulation, de la classe ModeManuel et de la class QObject attributs : timer méth...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00251">simulation.h:251</a></div></div>
+<div class="ttc" id="aclassDevisesManager_html_a19992989951a6ef56bf1f93c56625e36"><div class="ttname"><a href="../../d4/d66/classDevisesManager.html#a19992989951a6ef56bf1f93c56625e36">DevisesManager::creationDevise</a></div><div class="ttdeci">Devise * creationDevise(const QString &amp;code, const QString &amp;monnaie, const QString &amp;zone)</div><div class="ttdoc">méthode creationDevise</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d13/trading_8cpp_source.html#l00031">trading.cpp:31</a></div></div>
+<div class="ttc" id="aclassSimulationManager_html_a51363f19ac3b8843d8eb065c8e6948a8"><div class="ttname"><a href="../../d9/dbb/classSimulationManager.html#a51363f19ac3b8843d8eb065c8e6948a8">SimulationManager::addSimulation</a></div><div class="ttdeci">void addSimulation(Simulation *simulation)</div><div class="ttdoc">Méthode addSimulation.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00470">simulation.h:470</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a2d57406836f4f0cede0c054ba406825e"><div class="ttname"><a href="../../d1/d7b/classSimulation.html#a2d57406836f4f0cede0c054ba406825e">Simulation::loadTransactions</a></div><div class="ttdeci">void loadTransactions()</div><div class="ttdoc">Méthode loadTransactions.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d93/simulation_8cpp_source.html#l00065">simulation.cpp:65</a></div></div>
+<div class="ttc" id="aclassDevise_html"><div class="ttname"><a href="../../d7/d47/classDevise.html">Devise</a></div><div class="ttdoc">Représente une devise attributs : code, monnaie, zone méthodees : getCode, getMonnaie,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00052">trading.h:52</a></div></div>
+<div class="ttc" id="aclassStrategieFactory_html_addcf8d47f035caa184abf651a972fdfe"><div class="ttname"><a href="../../d3/d70/classStrategieFactory.html#addcf8d47f035caa184abf651a972fdfe">StrategieFactory::getStrategie</a></div><div class="ttdeci">Strategie * getStrategie(QString nom, EvolutionCours *evolutionCours) const</div><div class="ttdoc">Méthode getStrategie.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/dcf/strategie_8cpp_source.html#l00024">strategie.cpp:24</a></div></div>
+<div class="ttc" id="aclassDevisesManager_html"><div class="ttname"><a href="../../d4/d66/classDevisesManager.html">DevisesManager</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00147">trading.h:147</a></div></div>
+<div class="ttc" id="aclassEvolutionCours_html"><div class="ttname"><a href="../../d0/de6/classEvolutionCours.html">EvolutionCours</a></div><div class="ttdoc">associé à une paire de devises et composé de ses cours, elle représente l'éevolution de la paire sur ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00396">trading.h:396</a></div></div>
+<div class="ttc" id="aclassSimulationManager_html"><div class="ttname"><a href="../../d9/dbb/classSimulationManager.html">SimulationManager</a></div><div class="ttdoc">gère les simulations attributs : instance, nomGroupe, nomApplication, listeSimulation méthodes privée...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00431">simulation.h:431</a></div></div>
+<div class="ttc" id="aclassStrategieFactory_html_a77a83ec9c8d8f472590362afdf5dff1f"><div class="ttname"><a href="../../d3/d70/classStrategieFactory.html#a77a83ec9c8d8f472590362afdf5dff1f">StrategieFactory::getStrategieFactory</a></div><div class="ttdeci">static StrategieFactory * getStrategieFactory()</div><div class="ttdoc">Méthode statique getStrategieFactory.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00218">strategie.h:218</a></div></div>
+<div class="ttc" id="aclassCoursOHLCV_html"><div class="ttname"><a href="../../df/d09/classCoursOHLCV.html">CoursOHLCV</a></div><div class="ttdoc">CoursOHLCV est la classe qui gère les cours d'une paire de devise sur un jour attributs : open,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00234">trading.h:234</a></div></div>
+<div class="ttc" id="aclassSimulation_html"><div class="ttname"><a href="../../d1/d7b/classSimulation.html">Simulation</a></div><div class="ttdoc">classe abstraite pour créer toutes les simulations attributs : type, nom, evolutionCours,...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00093">simulation.h:93</a></div></div>
+<div class="ttc" id="aclassSimulationManager_html_a00f4a2baccc70491890ca0943584ad2e"><div class="ttname"><a href="../../d9/dbb/classSimulationManager.html#a00f4a2baccc70491890ca0943584ad2e">SimulationManager::chargeEvolutionCours</a></div><div class="ttdeci">EvolutionCours * chargeEvolutionCours(QString nomSimulation)</div><div class="ttdoc">Méthode chargeEvolutionCours.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d93/simulation_8cpp_source.html#l00330">simulation.cpp:330</a></div></div>
+<div class="ttc" id="aclassSimulationManager_html_a17b45ddce8897e53df881f03fd774f95"><div class="ttname"><a href="../../d9/dbb/classSimulationManager.html#a17b45ddce8897e53df881f03fd774f95">SimulationManager::listExistSimulation</a></div><div class="ttdeci">QStringList listExistSimulation() const</div><div class="ttdoc">Méthode listExistSimulation.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d93/simulation_8cpp_source.html#l00302">simulation.cpp:302</a></div></div>
+<div class="ttc" id="aclassDevisesManager_html_a271ad1137d23b6ef3779110a806af778"><div class="ttname"><a href="../../d4/d66/classDevisesManager.html#a271ad1137d23b6ef3779110a806af778">DevisesManager::getManager</a></div><div class="ttdeci">static DevisesManager &amp; getManager()</div><div class="ttdoc">méthode getManager</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00180">trading.h:180</a></div></div>
+<div class="ttc" id="aclassStrategie_html"><div class="ttname"><a href="../../dc/dd4/classStrategie.html">Strategie</a></div><div class="ttdoc">classe mère abstraite pour ajouter des stratégies de trading attributs protégés : nom,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00027">strategie.h:27</a></div></div>
+<div class="ttc" id="aclassModeAutomatique_html"><div class="ttname"><a href="../../dc/d89/classModeAutomatique.html">ModeAutomatique</a></div><div class="ttdoc">hérite de la classe Simulation et de la class QObject attributs : timer, strategie méthodes publiques...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00333">simulation.h:333</a></div></div>
+<div class="ttc" id="aclassDevisesManager_html_abc01ef5fd78aa365085884176b5118f0"><div class="ttname"><a href="../../d4/d66/classDevisesManager.html#abc01ef5fd78aa365085884176b5118f0">DevisesManager::getDevise</a></div><div class="ttdeci">Devise * getDevise(const QString &amp;code) const</div><div class="ttdoc">méthode getDevise ;</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d13/trading_8cpp_source.html#l00047">trading.cpp:47</a></div></div>
+<div class="ttc" id="aclassDevisesManager_html_aa0461837aaa23ba84635f4a0b5944cfa"><div class="ttname"><a href="../../d4/d66/classDevisesManager.html#aa0461837aaa23ba84635f4a0b5944cfa">DevisesManager::getDeviseCodes</a></div><div class="ttdeci">QStringList getDeviseCodes() const</div><div class="ttdoc">méthode getDeviseCodes</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d13/trading_8cpp_source.html#l00072">trading.cpp:72</a></div></div>
+<div class="ttc" id="aclassStrategie_html_a05c125dd608fca933f4fe4b6cb813207"><div class="ttname"><a href="../../dc/dd4/classStrategie.html#a05c125dd608fca933f4fe4b6cb813207">Strategie::setParameters</a></div><div class="ttdeci">virtual void setParameters(QMap&lt; QString, QVariant &gt; parameters)</div><div class="ttdoc">méthode virtuelle setParameters</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d5c/strategie_8h_source.html#l00066">strategie.h:66</a></div></div>
+<div class="ttc" id="aclassSimulation_html_aba050bcd0360e02faca27632d1b04946"><div class="ttname"><a href="../../d1/d7b/classSimulation.html#aba050bcd0360e02faca27632d1b04946">Simulation::loadNotes</a></div><div class="ttdeci">void loadNotes()</div><div class="ttdoc">Méthode loadNotes.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d93/simulation_8cpp_source.html#l00113">simulation.cpp:113</a></div></div>
+<div class="ttc" id="aclassPaireDevises_html_aa4c8a2adeaf0b1ac80eeebb7dc66c16e"><div class="ttname"><a href="../../dd/d44/classPaireDevises.html#aa4c8a2adeaf0b1ac80eeebb7dc66c16e">PaireDevises::setSurnom</a></div><div class="ttdeci">void setSurnom(QString surnom)</div><div class="ttdoc">méthode setSurnom</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00128">trading.h:128</a></div></div>
+<div class="ttc" id="aclassModeManuel_html"><div class="ttname"><a href="../../d6/d6e/classModeManuel.html">ModeManuel</a></div><div class="ttdoc">hérite de la classe Simulation méthodes publiques : ModeManuel,~ModeManuel, annule méthodes publiques...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d6a/simulation_8h_source.html#l00213">simulation.h:213</a></div></div>
+<div class="ttc" id="aclassDevisesManager_html_ac514ec6ce1e1454908b73b1fd87a3c60"><div class="ttname"><a href="../../d4/d66/classDevisesManager.html#ac514ec6ce1e1454908b73b1fd87a3c60">DevisesManager::getPaireDevises</a></div><div class="ttdeci">PaireDevises &amp; getPaireDevises(const QString &amp;baseCode, const QString &amp;contrepartieCode) const</div><div class="ttdoc">méthode getPaireDevises</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d13/trading_8cpp_source.html#l00053">trading.cpp:53</a></div></div>
+<div class="ttc" id="aclassSimulationManager_html_a402f082a4514f4fdb72ef9dbad65e4c5"><div class="ttname"><a href="../../d9/dbb/classSimulationManager.html#a402f082a4514f4fdb72ef9dbad65e4c5">SimulationManager::listSavedSimulation</a></div><div class="ttdeci">QStringList listSavedSimulation() const</div><div class="ttdoc">Méthode listSavedSimulation.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/d93/simulation_8cpp_source.html#l00310">simulation.cpp:310</a></div></div>
+<div class="ttc" id="aclassPaireDevises_html"><div class="ttname"><a href="../../dd/d44/classPaireDevises.html">PaireDevises</a></div><div class="ttdoc">Représente une paire de devise attributs : base, contrepartie, surnom méthodees : getBase,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d52/trading_8h_source.html#l00092">trading.h:92</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

@@ -1,0 +1,178 @@
+\hypertarget{classPaireDevises}{}\doxysection{Référence de la classe Paire\+Devises}
+\label{classPaireDevises}\index{PaireDevises@{PaireDevises}}
+
+
+Représente une paire de devise attributs \+: base, contrepartie, surnom méthodees \+: get\+Base, get\+Contrepartie, get\+Surnom amitiéss \+: class \mbox{\hyperlink{classDeviseManager}{Devise\+Manager}} Remarques \+: constructeur privé et destructeur privé  
+
+
+
+
+{\ttfamily \#include $<$trading.\+h$>$}
+
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classDevise}{Devise}} \& \mbox{\hyperlink{classPaireDevises_a6878818a7170f53fef760a57341b2216}{get\+Base}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Base \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classDevise}{Devise}} \& \mbox{\hyperlink{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}{get\+Contrepartie}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Contrepartie \end{DoxyCompactList}\item 
+const Q\+String \& \mbox{\hyperlink{classPaireDevises_ab71e900ae5692748434143a89beb4761}{get\+Surnom}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Surnom \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPaireDevises_aa4c8a2adeaf0b1ac80eeebb7dc66c16e}{set\+Surnom}} (Q\+String surnom)
+\begin{DoxyCompactList}\small\item\em méthode set\+Surnom \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em méthode to\+String \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classPaireDevises_a17e0397d6c1a3527e5f76e6b497e382a}{Devises\+Manager}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Représente une paire de devise attributs \+: base, contrepartie, surnom méthodees \+: get\+Base, get\+Contrepartie, get\+Surnom amitiéss \+: class \mbox{\hyperlink{classDeviseManager}{Devise\+Manager}} Remarques \+: constructeur privé et destructeur privé 
+
+Définition à la ligne 92 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classPaireDevises_a6878818a7170f53fef760a57341b2216}\label{classPaireDevises_a6878818a7170f53fef760a57341b2216}} 
+\index{PaireDevises@{PaireDevises}!getBase@{getBase}}
+\index{getBase@{getBase}!PaireDevises@{PaireDevises}}
+\doxysubsubsection{\texorpdfstring{getBase()}{getBase()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classDevise}{Devise}}\& Paire\+Devises\+::get\+Base (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Base 
+
+\begin{DoxyReturn}{Renvoie}
+const \mbox{\hyperlink{classDevise}{Devise}}\& \+: la valeur de l\textquotesingle{}attribut base 
+\end{DoxyReturn}
+
+
+Définition à la ligne 112 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112 \{ \textcolor{keywordflow}{return} *base; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}\label{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}} 
+\index{PaireDevises@{PaireDevises}!getContrepartie@{getContrepartie}}
+\index{getContrepartie@{getContrepartie}!PaireDevises@{PaireDevises}}
+\doxysubsubsection{\texorpdfstring{getContrepartie()}{getContrepartie()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classDevise}{Devise}}\& Paire\+Devises\+::get\+Contrepartie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Contrepartie 
+
+\begin{DoxyReturn}{Renvoie}
+const \mbox{\hyperlink{classDevise}{Devise}}\& \+: la valeur de l\textquotesingle{}attribut contrepartie 
+\end{DoxyReturn}
+
+
+Définition à la ligne 117 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{117 \{ \textcolor{keywordflow}{return} *contrepartie; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPaireDevises_ab71e900ae5692748434143a89beb4761}\label{classPaireDevises_ab71e900ae5692748434143a89beb4761}} 
+\index{PaireDevises@{PaireDevises}!getSurnom@{getSurnom}}
+\index{getSurnom@{getSurnom}!PaireDevises@{PaireDevises}}
+\doxysubsubsection{\texorpdfstring{getSurnom()}{getSurnom()}}
+{\footnotesize\ttfamily const Q\+String\& Paire\+Devises\+::get\+Surnom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode get\+Surnom 
+
+\begin{DoxyReturn}{Renvoie}
+const Q\+String\& \+: la valeur de l\textquotesingle{}attribut surnom 
+\end{DoxyReturn}
+
+
+Définition à la ligne 122 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{122 \{ \textcolor{keywordflow}{return} surnom; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPaireDevises_aa4c8a2adeaf0b1ac80eeebb7dc66c16e}\label{classPaireDevises_aa4c8a2adeaf0b1ac80eeebb7dc66c16e}} 
+\index{PaireDevises@{PaireDevises}!setSurnom@{setSurnom}}
+\index{setSurnom@{setSurnom}!PaireDevises@{PaireDevises}}
+\doxysubsubsection{\texorpdfstring{setSurnom()}{setSurnom()}}
+{\footnotesize\ttfamily void Paire\+Devises\+::set\+Surnom (\begin{DoxyParamCaption}\item[{Q\+String}]{surnom }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode set\+Surnom 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: permet de modifier le surnom 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em surnom} & \+:Qstring \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 128 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{128 \{this-\/>surnom = surnom;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}\label{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}} 
+\index{PaireDevises@{PaireDevises}!toString@{toString}}
+\index{toString@{toString}!PaireDevises@{PaireDevises}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily Q\+String Paire\+Devises\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+méthode to\+String 
+
+\begin{DoxyReturn}{Renvoie}
+Qstring \+: donne le nom de la paire sous forme de string renvoie {\ttfamily .$<$contrepartie$>$/$<$contrepartie$>$.{\ttfamily  sous forme de string }}
+\end{DoxyReturn}
+
+
+Définition à la ligne 23 du fichier trading.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                                      \{}
+\DoxyCodeLine{24     QString string;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{string} = \mbox{\hyperlink{classPaireDevises_a6878818a7170f53fef760a57341b2216}{getBase}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}()+\textcolor{stringliteral}{"/"}+\mbox{\hyperlink{classPaireDevises_a57f9fdb0cb7ec461f2448babfdebfd65}{getContrepartie}}().\mbox{\hyperlink{classDevise_a65c5b31c2e59217f55adf2fd75719150}{getCode}}();}
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classPaireDevises_ab71e900ae5692748434143a89beb4761}{getSurnom}}()!=\textcolor{stringliteral}{""}) \textcolor{keywordtype}{string}+=\textcolor{stringliteral}{"("}+\mbox{\hyperlink{classPaireDevises_ab71e900ae5692748434143a89beb4761}{getSurnom}}()+\textcolor{stringliteral}{")"};}
+\DoxyCodeLine{27     \textcolor{keywordflow}{return} string;}
+\DoxyCodeLine{28 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions amies et associées}
+\mbox{\Hypertarget{classPaireDevises_a17e0397d6c1a3527e5f76e6b497e382a}\label{classPaireDevises_a17e0397d6c1a3527e5f76e6b497e382a}} 
+\index{PaireDevises@{PaireDevises}!DevisesManager@{DevisesManager}}
+\index{DevisesManager@{DevisesManager}!PaireDevises@{PaireDevises}}
+\doxysubsubsection{\texorpdfstring{DevisesManager}{DevisesManager}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classDevisesManager}{Devises\+Manager}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+declaration d\textquotesingle{}amitiés \+: \mbox{\hyperlink{classDevisesManager}{Devises\+Manager}} 
+
+Définition à la ligne 106 du fichier trading.\+h.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8h}{trading.\+h}}\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8cpp}{trading.\+cpp}}\end{DoxyCompactItemize}

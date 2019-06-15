@@ -1,0 +1,259 @@
+\hypertarget{classVolumeViewer}{}\doxysection{Référence de la classe Volume\+Viewer}
+\label{classVolumeViewer}\index{VolumeViewer@{VolumeViewer}}
+Graphe d\textquotesingle{}héritage de Volume\+Viewer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/dcc/classVolumeViewer}
+\end{center}
+\end{figure}
+\doxysubsection*{Signaux}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classVolumeViewer_ab651c0eca099fb3621588c29c87e3675}{current\+Cours\+\_\+changed}} ()
+\begin{DoxyCompactList}\small\item\em signal current\+Cours\+\_\+changed \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVolumeViewer_aaa0a2c5699cec83d985f9347cb98a2a8}{Volume\+Viewer}} (\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$evolution\+Cours, \mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} current\+Cours, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Contructeur. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVolumeViewer_a622fba69985afcbdf81321ae62d69949}{$\sim$\+Volume\+Viewer}} ()
+\begin{DoxyCompactList}\small\item\em Destructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVolumeViewer_a23a769c2037d634c017e783543fd7468}{show\+Chart}} (Q\+Date firstdate, Q\+Date lastdate)
+\begin{DoxyCompactList}\small\item\em méthode show\+Chart \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVolumeViewer_a4c2a332f26acf51aac5aa4b2812595fa}{set\+Current\+Cours}} (\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} current\+Cours)
+\begin{DoxyCompactList}\small\item\em méthode set\+Current\+Cours \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+
+
+Définition à la ligne 193 du fichier evolutionviewer.\+h.
+
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classVolumeViewer_aaa0a2c5699cec83d985f9347cb98a2a8}\label{classVolumeViewer_aaa0a2c5699cec83d985f9347cb98a2a8}} 
+\index{VolumeViewer@{VolumeViewer}!VolumeViewer@{VolumeViewer}}
+\index{VolumeViewer@{VolumeViewer}!VolumeViewer@{VolumeViewer}}
+\doxysubsubsection{\texorpdfstring{VolumeViewer()}{VolumeViewer()}}
+{\footnotesize\ttfamily Volume\+Viewer\+::\+Volume\+Viewer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEvolutionCours}{Evolution\+Cours}} $\ast$}]{evolution\+Cours,  }\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{current\+Cours,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Contructeur. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em evolution\+Cours} & \+:Evolution\+Cours$\ast$ \\
+\hline
+{\em current\+Cours} & \+:\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \\
+\hline
+{\em parent} & \+:Q\+Widget \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 186 du fichier evolutionviewer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186                                                                                                               : QWidget(parent), evolutionCours(evolutionCours), currentCours(currentCours) \{}
+\DoxyCodeLine{187     rsi = static\_cast<RSI*>(evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a58d3d38badd602231b2d33f5cb38312f}{getCollection}}()-\/>\mbox{\hyperlink{classIndicateurCollection_a5bfad05cff39a29f70127a4db89fc0ff}{getIndicateur}}(\textcolor{stringliteral}{"RSI"}));}
+\DoxyCodeLine{188     chart = \textcolor{keyword}{new} QChart();}
+\DoxyCodeLine{189     \textcolor{comment}{//chart-\/>setAnimationOptions(QChart::SeriesAnimations);}}
+\DoxyCodeLine{190     chart-\/>legend()-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{191     chart-\/>legend()-\/>setAlignment(Qt::AlignBottom);}
+\DoxyCodeLine{192     chart-\/>createDefaultAxes();}
+\DoxyCodeLine{193     chartView = \textcolor{keyword}{new} QChartView(chart, \textcolor{keyword}{this});}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195     \textcolor{comment}{//setup RSI viewer}}
+\DoxyCodeLine{196     chartRSI = \textcolor{keyword}{new} QChart();}
+\DoxyCodeLine{197     chartRSI-\/>legend()-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{198     chartRSI-\/>legend()-\/>setAlignment(Qt::AlignBottom);}
+\DoxyCodeLine{199     chartRSI-\/>createDefaultAxes();}
+\DoxyCodeLine{200     chartViewRSI = \textcolor{keyword}{new}  QChartView(chartRSI, \textcolor{keyword}{this});}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     scrollBar = \textcolor{keyword}{new} QScrollBar(Qt::Horizontal, \textcolor{keyword}{this});}
+\DoxyCodeLine{203     scrollBar-\/>setMinimum(0);}
+\DoxyCodeLine{204     \mbox{\hyperlink{classCoursOHLCV}{EvolutionCours::iterator}} cours = evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}{searchCours}}(currentCours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().addDays(-\/maxDateShown));}
+\DoxyCodeLine{205     scrollBar-\/>setMaximum(evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}{begin}}()-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().daysTo((cours)-\/>getDate()));      \textcolor{comment}{//sync scroll bar with time range}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207     layout = \textcolor{keyword}{new} QVBoxLayout;}
+\DoxyCodeLine{208     layout-\/>addWidget(chartView);}
+\DoxyCodeLine{209     layout-\/>addWidget(scrollBar);}
+\DoxyCodeLine{210     layout-\/>addWidget(chartViewRSI);}
+\DoxyCodeLine{211     this-\/>setLayout(layout);}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213     \textcolor{comment}{//set up series}}
+\DoxyCodeLine{214     series =  \textcolor{keyword}{new} QBarSeries();}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216     RSI\_series=  \textcolor{keyword}{new} QLineSeries();}
+\DoxyCodeLine{217     RSI\_series-\/>setName(\textcolor{stringliteral}{"RSI"});}
+\DoxyCodeLine{218     RSI\_series-\/>setColor(Qt::black);}
+\DoxyCodeLine{219     RSI\_series-\/>setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{220     rsi-\/>\mbox{\hyperlink{classRSI_a97d440b6ee4a31209829547db87b0ce8}{generateIndice}}();}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222     axisX = \textcolor{keyword}{new} QBarCategoryAxis;}
+\DoxyCodeLine{223     axisY= \textcolor{keyword}{new} QValueAxis;}
+\DoxyCodeLine{224     axisY-\/>setMin(0);}
+\DoxyCodeLine{225     RSI\_axisX = \textcolor{keyword}{new} QBarCategoryAxis;}
+\DoxyCodeLine{226     RSI\_axisY = \textcolor{keyword}{new} QValueAxis;}
+\DoxyCodeLine{227     RSI\_axisY-\/>setRange(0,100);}
+\DoxyCodeLine{228     \textcolor{comment}{//binding sigals}}
+\DoxyCodeLine{229     QObject::connect(scrollBar, SIGNAL(valueChanged(\textcolor{keywordtype}{int})), \textcolor{keyword}{this}, SLOT(updateChart(\textcolor{keywordtype}{int})));}
+\DoxyCodeLine{230     QObject::connect(\textcolor{keyword}{this}, SIGNAL(\mbox{\hyperlink{classVolumeViewer_ab651c0eca099fb3621588c29c87e3675}{currentCours\_changed}}()), \textcolor{keyword}{this}, SLOT(currentCoursChanged\_react()));}
+\DoxyCodeLine{231     \textcolor{keywordflow}{if}(scrollBar-\/>maximum() == 0) \{updateChart(0);\}}
+\DoxyCodeLine{232     scrollBar-\/>setValue(scrollBar-\/>maximum());}
+\DoxyCodeLine{233 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classVolumeViewer_a622fba69985afcbdf81321ae62d69949}\label{classVolumeViewer_a622fba69985afcbdf81321ae62d69949}} 
+\index{VolumeViewer@{VolumeViewer}!````~VolumeViewer@{$\sim$VolumeViewer}}
+\index{````~VolumeViewer@{$\sim$VolumeViewer}!VolumeViewer@{VolumeViewer}}
+\doxysubsubsection{\texorpdfstring{$\sim$VolumeViewer()}{~VolumeViewer()}}
+{\footnotesize\ttfamily Volume\+Viewer\+::$\sim$\+Volume\+Viewer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructeur. 
+
+
+
+Définition à la ligne 235 du fichier evolutionviewer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{235                             \{}
+\DoxyCodeLine{236     clearCharts();}
+\DoxyCodeLine{237     \textcolor{keyword}{delete} axisX;}
+\DoxyCodeLine{238     \textcolor{keyword}{delete} axisY;}
+\DoxyCodeLine{239     \textcolor{keyword}{delete} RSI\_series;}
+\DoxyCodeLine{240     \textcolor{keyword}{delete} RSI\_axisX;}
+\DoxyCodeLine{241     \textcolor{keyword}{delete} RSI\_axisY;}
+\DoxyCodeLine{242     \textcolor{keyword}{delete} chartRSI;}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244     \textcolor{keyword}{delete} chart;}
+\DoxyCodeLine{245     \textcolor{keyword}{delete} chartView;}
+\DoxyCodeLine{246     \textcolor{keyword}{delete} scrollBar;}
+\DoxyCodeLine{247     \textcolor{keyword}{delete} layout;}
+\DoxyCodeLine{248 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classVolumeViewer_ab651c0eca099fb3621588c29c87e3675}\label{classVolumeViewer_ab651c0eca099fb3621588c29c87e3675}} 
+\index{VolumeViewer@{VolumeViewer}!currentCours\_changed@{currentCours\_changed}}
+\index{currentCours\_changed@{currentCours\_changed}!VolumeViewer@{VolumeViewer}}
+\doxysubsubsection{\texorpdfstring{currentCours\_changed}{currentCours\_changed}}
+{\footnotesize\ttfamily void Volume\+Viewer\+::current\+Cours\+\_\+changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+signal current\+Cours\+\_\+changed 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: signal représentant le changement de cours 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classVolumeViewer_a4c2a332f26acf51aac5aa4b2812595fa}\label{classVolumeViewer_a4c2a332f26acf51aac5aa4b2812595fa}} 
+\index{VolumeViewer@{VolumeViewer}!setCurrentCours@{setCurrentCours}}
+\index{setCurrentCours@{setCurrentCours}!VolumeViewer@{VolumeViewer}}
+\doxysubsubsection{\texorpdfstring{setCurrentCours()}{setCurrentCours()}}
+{\footnotesize\ttfamily void Volume\+Viewer\+::set\+Current\+Cours (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}}}]{current\+Cours }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode set\+Current\+Cours 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em current\+Cours} & \+:\mbox{\hyperlink{classEvolutionCours_a9b9e9eb8eb12c2939d3693ca188cd302}{Evolution\+Cours\+::iterator}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: permet de changer le cours O\+H\+L\+CV en cours 
+\end{DoxyReturn}
+
+
+Définition à la ligne 238 du fichier evolutionviewer.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{238                                                               \{}
+\DoxyCodeLine{239         this-\/>currentCours = currentCours;}
+\DoxyCodeLine{240         emit \mbox{\hyperlink{classVolumeViewer_ab651c0eca099fb3621588c29c87e3675}{currentCours\_changed}}();}
+\DoxyCodeLine{241     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classVolumeViewer_a23a769c2037d634c017e783543fd7468}\label{classVolumeViewer_a23a769c2037d634c017e783543fd7468}} 
+\index{VolumeViewer@{VolumeViewer}!showChart@{showChart}}
+\index{showChart@{showChart}!VolumeViewer@{VolumeViewer}}
+\doxysubsubsection{\texorpdfstring{showChart()}{showChart()}}
+{\footnotesize\ttfamily void Volume\+Viewer\+::show\+Chart (\begin{DoxyParamCaption}\item[{Q\+Date}]{firstdate,  }\item[{Q\+Date}]{lastdate }\end{DoxyParamCaption})}
+
+
+
+méthode show\+Chart 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em firstdate} & \+:Q\+Date \\
+\hline
+{\em lastdate} & \+:Q\+Date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: permet de montrer le graphique 
+\end{DoxyReturn}
+
+
+Définition à la ligne 267 du fichier evolutionviewer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{267                                                             \{}
+\DoxyCodeLine{268     clearCharts();}
+\DoxyCodeLine{269     \mbox{\hyperlink{classCoursOHLCV}{EvolutionCours::iterator}} cours = evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_a64d7a97b6ef6f8a0cf9f3b8cd44da35c}{searchCours}}(firstdate);}
+\DoxyCodeLine{270     chart-\/>setTitle(evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}{toString}}() + \textcolor{stringliteral}{" en "} + cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"yyyy"}));}
+\DoxyCodeLine{271     chartRSI-\/>setTitle(\textcolor{stringliteral}{"RSI "} + evolutionCours-\/>\mbox{\hyperlink{classEvolutionCours_ad0e0d9c17e20efc9f8c4661c5eadc947}{getPaireDevises}}()-\/>\mbox{\hyperlink{classPaireDevises_a6db3a2e8901425e3fa454c2ac4f80462}{toString}}() + \textcolor{stringliteral}{" en "} + cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"yyyy"}));}
+\DoxyCodeLine{272     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} max = 0;}
+\DoxyCodeLine{273     \mbox{\hyperlink{classIndiceIndicateur}{Indicateur::iterator}} rsiIterator;}
+\DoxyCodeLine{274     QStringList dates;}
+\DoxyCodeLine{275     QBarSet *volumeSet = \textcolor{keyword}{new} QBarSet(\textcolor{stringliteral}{"Volume"});}
+\DoxyCodeLine{276     dates << firstdate.toString(\textcolor{stringliteral}{"d/M"});}
+\DoxyCodeLine{277     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{278     \textcolor{keywordflow}{for} (; cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}() <= lastdate; cours++)\{}
+\DoxyCodeLine{279         \textcolor{keywordflow}{if}(max < cours-\/>getVolume()) \{}
+\DoxyCodeLine{280             max = cours-\/>\mbox{\hyperlink{classCoursOHLCV_adc37cdb28c9c41b7f8e870d80c0c9fb8}{getVolume}}();}
+\DoxyCodeLine{281         \}}
+\DoxyCodeLine{282         *volumeSet<<cours-\/>\mbox{\hyperlink{classCoursOHLCV_adc37cdb28c9c41b7f8e870d80c0c9fb8}{getVolume}}();}
+\DoxyCodeLine{283         rsiIterator = rsi-\/>\mbox{\hyperlink{classIndicateur_a7059d1b3c2fce6dcd30fcf3ee2dde7cb}{searchIndice}}(cours);}
+\DoxyCodeLine{284         \textcolor{keywordflow}{if}(!rsiIterator) \{}
+\DoxyCodeLine{285             RSI\_series-\/>append(i, 0);}
+\DoxyCodeLine{286         \}}
+\DoxyCodeLine{287         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{288             RSI\_series-\/>append(i, rsiIterator-\/>\mbox{\hyperlink{classIndiceIndicateur_ac8cb8f95d4647f942a6c928f4921bdbd}{getIndice}}());}
+\DoxyCodeLine{289         \}}
+\DoxyCodeLine{290         i++;}
+\DoxyCodeLine{291         dates << cours-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}().toString(\textcolor{stringliteral}{"d/M"});}
+\DoxyCodeLine{292         \textcolor{keywordflow}{if} (cours == currentCours) \textcolor{keywordflow}{break};       \textcolor{comment}{//only show up to current cours}}
+\DoxyCodeLine{293     \}}
+\DoxyCodeLine{294     series-\/>append(volumeSet);}
+\DoxyCodeLine{295     axisX-\/>append(dates);}
+\DoxyCodeLine{296     RSI\_axisX-\/>append(dates);}
+\DoxyCodeLine{297     axisY-\/>setMax(max*1.01);}
+\DoxyCodeLine{298     chart-\/>addSeries(series);}
+\DoxyCodeLine{299     chart-\/>setAxisX(axisX,series);}
+\DoxyCodeLine{300     chart-\/>setAxisY(axisY,series);}
+\DoxyCodeLine{301     chartRSI-\/>addSeries(RSI\_series);}
+\DoxyCodeLine{302     chartRSI-\/>setAxisX(RSI\_axisX,RSI\_series);}
+\DoxyCodeLine{303     chartRSI-\/>setAxisY(RSI\_axisY,RSI\_series);}
+\DoxyCodeLine{304 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Chart/\mbox{\hyperlink{evolutionviewer_8h}{evolutionviewer.\+h}}\item 
+Chart/\mbox{\hyperlink{evolutionviewer_8cpp}{evolutionviewer.\+cpp}}\end{DoxyCompactItemize}

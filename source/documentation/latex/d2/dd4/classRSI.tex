@@ -1,0 +1,275 @@
+\hypertarget{classRSI}{}\doxysection{Référence de la classe R\+SI}
+\label{classRSI}\index{RSI@{RSI}}
+
+
+l\textquotesingle{}indicateur \mbox{\hyperlink{classRSI}{R\+SI}} \+: Relative Strength Index attributs \+: lookback\+Period, overbought\+Bound, oversold\+Bound méthodees \+: generate\+Indice, set\+Parameters, get\+Parameters, set\+Overbought\+Bound, set\+Oversold\+Bound, set\+Lookback\+Period amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \href{https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi}{\texttt{ https\+://stockcharts.\+com/school/doku.\+php?id=chart\+\_\+school\+:technical\+\_\+indicators\+:relative\+\_\+strength\+\_\+index\+\_\+rsi}}  
+
+
+
+
+{\ttfamily \#include $<$trading.\+h$>$}
+
+Graphe d\textquotesingle{}héritage de R\+SI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/dd4/classRSI}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRSI_a97d440b6ee4a31209829547db87b0ce8}{generate\+Indice}} ()
+\begin{DoxyCompactList}\small\item\em méthode generate\+Indice \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRSI_a927376c63a51838fd667442806175ec3}{set\+Overbought\+Bound}} (double overbought\+Bound=80)
+\begin{DoxyCompactList}\small\item\em méthode generate\+Indice \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRSI_ab7083d951021a2e0cc64939e21927071}{set\+Oversold\+Bound}} (double oversold\+Bound=20)
+\begin{DoxyCompactList}\small\item\em méthode oversold\+Bound \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRSI_ac335301b36d76be31ec51a4681956adf}{set\+Lookback\+Period}} (unsigned int lookback\+Period=14)
+\begin{DoxyCompactList}\small\item\em méthode set\+Lookback\+Period \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRSI_a24819034d38a313fc98e74510b56e7cf}{set\+Parameters}} (Q\+Map$<$ Q\+String, Q\+Variant $>$ parameters)
+\begin{DoxyCompactList}\small\item\em méthode set\+Parameters \end{DoxyCompactList}\item 
+Q\+Map$<$ Q\+String, Q\+Variant $>$ \mbox{\hyperlink{classRSI_a51ae2c173b2d2d58a9f58429739e8509}{get\+Parameters}} () const
+\begin{DoxyCompactList}\small\item\em méthode get\+Parameters ; \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRSI_a222e2b39985432a8e02aea6c2d5f841f}\label{classRSI_a222e2b39985432a8e02aea6c2d5f841f}} 
+class {\bfseries Indicateur\+Collection}
+\end{DoxyCompactItemize}
+\doxysubsection*{Membres hérités additionnels}
+
+
+\doxysubsection{Description détaillée}
+l\textquotesingle{}indicateur \mbox{\hyperlink{classRSI}{R\+SI}} \+: Relative Strength Index attributs \+: lookback\+Period, overbought\+Bound, oversold\+Bound méthodees \+: generate\+Indice, set\+Parameters, get\+Parameters, set\+Overbought\+Bound, set\+Oversold\+Bound, set\+Lookback\+Period amitiés \+: \mbox{\hyperlink{classIndicateurCollection}{Indicateur\+Collection}} Remarques \+: hérite de la classe \mbox{\hyperlink{classIndicateur}{Indicateur}} \href{https://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:relative_strength_index_rsi}{\texttt{ https\+://stockcharts.\+com/school/doku.\+php?id=chart\+\_\+school\+:technical\+\_\+indicators\+:relative\+\_\+strength\+\_\+index\+\_\+rsi}} 
+
+Définition à la ligne 676 du fichier trading.\+h.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classRSI_a97d440b6ee4a31209829547db87b0ce8}\label{classRSI_a97d440b6ee4a31209829547db87b0ce8}} 
+\index{RSI@{RSI}!generateIndice@{generateIndice}}
+\index{generateIndice@{generateIndice}!RSI@{RSI}}
+\doxysubsubsection{\texorpdfstring{generateIndice()}{generateIndice()}}
+{\footnotesize\ttfamily void R\+S\+I\+::generate\+Indice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode generate\+Indice 
+
+\begin{DoxyReturn}{Renvoie}
+void \+: création du tableau d\textquotesingle{}indices 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{classIndicateur_af8d408a8aa64531c442cd8aa9adfc361}{Indicateur}}.
+
+
+
+Définition à la ligne 76 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{76                          \{}
+\DoxyCodeLine{77     \textcolor{comment}{//set parameters}}
+\DoxyCodeLine{78     \mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}} = \mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_aa8abf863c4a64622bf46d201b5aa691e}{getNbCours}}();}
+\DoxyCodeLine{79     \mbox{\hyperlink{classIndicateur_a8e786471f5ab9776ec24c7fa6ea736ac}{nbIndicateur}} = \mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}} -\/ lookbackPeriod -\/1;}
+\DoxyCodeLine{80     \textcolor{keyword}{delete} [] \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}};}
+\DoxyCodeLine{81     \mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}} = \textcolor{keyword}{new} \mbox{\hyperlink{classIndiceIndicateur}{IndiceIndicateur}}[\mbox{\hyperlink{classIndicateur_aa41dec251341be1250d216e0d3103ff7}{nbMaxIndicateur}}];}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordtype}{double} avgGain=0, avgLost=0, RS;}
+\DoxyCodeLine{84     \mbox{\hyperlink{classCoursOHLCV}{EvolutionCours::iterator}} coursIterator;}
+\DoxyCodeLine{85     \textcolor{keywordtype}{double} e;}
+\DoxyCodeLine{86     \textcolor{keywordflow}{for} (coursIterator = \mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}{begin}}()+1; coursIterator != \mbox{\hyperlink{classIndicateur_ad822d276436ede2212d186a36b0587f9}{evolutionCours}}-\/>\mbox{\hyperlink{classEvolutionCours_a236d4fdf4c774ff6eac892131e36c8a2}{begin}}()+lookbackPeriod+1; coursIterator++) \{}
+\DoxyCodeLine{87         e = coursIterator-\/>\mbox{\hyperlink{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}{getClose}}() -\/ (coursIterator-\/1)-\/>getClose();}
+\DoxyCodeLine{88         \textcolor{keywordflow}{if} (e>0) \{}
+\DoxyCodeLine{89             avgGain += e;}
+\DoxyCodeLine{90         \}}
+\DoxyCodeLine{91         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{92             avgLost += -\/e;}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95     avgGain /= lookbackPeriod;}
+\DoxyCodeLine{96     avgLost /= lookbackPeriod;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{comment}{//il n'y a pas d'indicateur RSI pendant le look back periode}}
+\DoxyCodeLine{99     \mbox{\hyperlink{classIndicateur_a690d5bb561bcae04f59a90fa2aa88be4}{iterator}} indiceIterator = \mbox{\hyperlink{classIndicateur_a15cd611fe58c9ba90086131a1f20f252}{begin}}();}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{comment}{//element suivant}}
+\DoxyCodeLine{102     \textcolor{keywordflow}{while}(indiceIterator != \mbox{\hyperlink{classIndicateur_a8eaa0e8daf91be5661a8da012aa254f7}{end}}()) \{}
+\DoxyCodeLine{103         e = coursIterator-\/>\mbox{\hyperlink{classCoursOHLCV_aeff7d29932b6008cff7d938992a2c3a0}{getClose}}() -\/ (coursIterator-\/1)-\/>getClose();}
+\DoxyCodeLine{104         \textcolor{keywordflow}{if} (e > 0) \{}
+\DoxyCodeLine{105             avgGain = (avgGain*(lookbackPeriod-\/1) + e)/lookbackPeriod;}
+\DoxyCodeLine{106         \}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{108             avgLost = (avgLost*(lookbackPeriod-\/1) -\/ e)/lookbackPeriod;}
+\DoxyCodeLine{109         \}}
+\DoxyCodeLine{110         RS = avgGain/avgLost;}
+\DoxyCodeLine{111         indiceIterator-\/>setDate(coursIterator-\/>\mbox{\hyperlink{classCoursOHLCV_a8f0c96eabbe5fe9d36f9eb4ffa20d260}{getDate}}());}
+\DoxyCodeLine{112         indiceIterator-\/>setIndice(100 -\/ 100/(1+RS));}
+\DoxyCodeLine{113         \textcolor{comment}{//qDebug() << indiceIterator-\/>toString();}}
+\DoxyCodeLine{114         indiceIterator++;}
+\DoxyCodeLine{115         coursIterator++;}
+\DoxyCodeLine{116     \}}
+\DoxyCodeLine{117 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRSI_a51ae2c173b2d2d58a9f58429739e8509}\label{classRSI_a51ae2c173b2d2d58a9f58429739e8509}} 
+\index{RSI@{RSI}!getParameters@{getParameters}}
+\index{getParameters@{getParameters}!RSI@{RSI}}
+\doxysubsubsection{\texorpdfstring{getParameters()}{getParameters()}}
+{\footnotesize\ttfamily Q\+Map$<$ Q\+String, Q\+Variant $>$ R\+S\+I\+::get\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode get\+Parameters ; 
+
+
+
+Implémente \mbox{\hyperlink{classIndicateur_aefd5d5adeda2708179d912f78012992f}{Indicateur}}.
+
+
+
+Définition à la ligne 133 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{133                                                  \{}
+\DoxyCodeLine{134     QMap<QString, QVariant> parameters;}
+\DoxyCodeLine{135     parameters[\textcolor{stringliteral}{"lookbackPeriod"}] = lookbackPeriod;}
+\DoxyCodeLine{136     parameters[\textcolor{stringliteral}{"overboughtBound"}] = overboughtBound;}
+\DoxyCodeLine{137     parameters[\textcolor{stringliteral}{"oversoldBound"}] = oversoldBound;}
+\DoxyCodeLine{138     \textcolor{keywordflow}{return} parameters;}
+\DoxyCodeLine{139 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRSI_ac335301b36d76be31ec51a4681956adf}\label{classRSI_ac335301b36d76be31ec51a4681956adf}} 
+\index{RSI@{RSI}!setLookbackPeriod@{setLookbackPeriod}}
+\index{setLookbackPeriod@{setLookbackPeriod}!RSI@{RSI}}
+\doxysubsubsection{\texorpdfstring{setLookbackPeriod()}{setLookbackPeriod()}}
+{\footnotesize\ttfamily void R\+S\+I\+::set\+Lookback\+Period (\begin{DoxyParamCaption}\item[{unsigned int}]{lookback\+Period = {\ttfamily 14} }\end{DoxyParamCaption})}
+
+
+
+méthode set\+Lookback\+Period 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lookback\+Period} & \+:unsigned int =14 par défault \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: modifie la valeur de lookback\+Period 
+\end{DoxyReturn}
+
+
+Définition à la ligne 119 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119                                                        \{}
+\DoxyCodeLine{120     \textcolor{comment}{//refresh array of indice if look back period is changed}}
+\DoxyCodeLine{121     \textcolor{keywordflow}{if}(this-\/>lookbackPeriod != lookbackPeriod || !\mbox{\hyperlink{classIndicateur_a659ba59316b71d13b9025f954e801280}{indices}}) \{}
+\DoxyCodeLine{122         this-\/>lookbackPeriod = lookbackPeriod;}
+\DoxyCodeLine{123         \mbox{\hyperlink{classRSI_a97d440b6ee4a31209829547db87b0ce8}{generateIndice}}();}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRSI_a927376c63a51838fd667442806175ec3}\label{classRSI_a927376c63a51838fd667442806175ec3}} 
+\index{RSI@{RSI}!setOverboughtBound@{setOverboughtBound}}
+\index{setOverboughtBound@{setOverboughtBound}!RSI@{RSI}}
+\doxysubsubsection{\texorpdfstring{setOverboughtBound()}{setOverboughtBound()}}
+{\footnotesize\ttfamily void R\+S\+I\+::set\+Overbought\+Bound (\begin{DoxyParamCaption}\item[{double}]{overbought\+Bound = {\ttfamily 80} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode generate\+Indice 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em overbought\+Bound} & \+:double =80 par défault \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: modifie la valeur de overbought\+Bound 
+\end{DoxyReturn}
+
+
+Définition à la ligne 702 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{702 \{this-\/>overboughtBound = overboughtBound;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRSI_ab7083d951021a2e0cc64939e21927071}\label{classRSI_ab7083d951021a2e0cc64939e21927071}} 
+\index{RSI@{RSI}!setOversoldBound@{setOversoldBound}}
+\index{setOversoldBound@{setOversoldBound}!RSI@{RSI}}
+\doxysubsubsection{\texorpdfstring{setOversoldBound()}{setOversoldBound()}}
+{\footnotesize\ttfamily void R\+S\+I\+::set\+Oversold\+Bound (\begin{DoxyParamCaption}\item[{double}]{oversold\+Bound = {\ttfamily 20} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+méthode oversold\+Bound 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em oversold\+Bound} & \+:double =20 par défault \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: modifie la valeur de oversold\+Bound 
+\end{DoxyReturn}
+
+
+Définition à la ligne 708 du fichier trading.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{708 \{this-\/>oversoldBound = oversoldBound;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classRSI_a24819034d38a313fc98e74510b56e7cf}\label{classRSI_a24819034d38a313fc98e74510b56e7cf}} 
+\index{RSI@{RSI}!setParameters@{setParameters}}
+\index{setParameters@{setParameters}!RSI@{RSI}}
+\doxysubsubsection{\texorpdfstring{setParameters()}{setParameters()}}
+{\footnotesize\ttfamily void R\+S\+I\+::set\+Parameters (\begin{DoxyParamCaption}\item[{Q\+Map$<$ Q\+String, Q\+Variant $>$}]{parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+méthode set\+Parameters 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Q\+Map$<$\+Q\+String} & \\
+\hline
+{\em Q\+Variant$>$} & parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: modifie les paramatres 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{classIndicateur_a3d7f0dff88e616b0112f9b5fb7826996}{Indicateur}}.
+
+
+
+Définition à la ligne 127 du fichier indicateur.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127                                                           \{}
+\DoxyCodeLine{128     \textcolor{keywordflow}{if} (parameters.contains(\textcolor{stringliteral}{"overboughtBound"})) \mbox{\hyperlink{classRSI_a927376c63a51838fd667442806175ec3}{setOverboughtBound}}(parameters[\textcolor{stringliteral}{"overboughtBound"}].toDouble());}
+\DoxyCodeLine{129     \textcolor{keywordflow}{if} (parameters.contains(\textcolor{stringliteral}{"oversoldBound"})) \mbox{\hyperlink{classRSI_ab7083d951021a2e0cc64939e21927071}{setOversoldBound}}(parameters[\textcolor{stringliteral}{"oversoldBound"}].toDouble());}
+\DoxyCodeLine{130     \textcolor{keywordflow}{if} (parameters.contains(\textcolor{stringliteral}{"lookbackPeriod"})) \mbox{\hyperlink{classRSI_ac335301b36d76be31ec51a4681956adf}{setLookbackPeriod}}(parameters[\textcolor{stringliteral}{"lookbackPeriod"}].toInt());}
+\DoxyCodeLine{131 \}}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{trading_8h}{trading.\+h}}\item 
+Core\+\_\+\+Devises/\mbox{\hyperlink{indicateur_8cpp}{indicateur.\+cpp}}\end{DoxyCompactItemize}

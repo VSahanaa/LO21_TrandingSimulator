@@ -3,7 +3,7 @@
 
 /**
  * \file 	modeautowidget.h
- * \brief 	classe modeManuelWidget dans le namespace Ui
+ * \brief 	classe modeManuelWidget
  * 	
  * 	Contient le QWidget du mode Manuel
  * 			
@@ -13,10 +13,6 @@
 #include <QMessageBox>
 #include "../Controller/simulation.h"
 
-//! Namespace Ui
-/**
-* classe : modeManuelWidget
-*/
 namespace Ui {
     class modeManuelWidget;
 }
