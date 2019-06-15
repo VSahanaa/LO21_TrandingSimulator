@@ -6,7 +6,7 @@
  * \brief 	Contient le noyau de l'application
  * 	
  * 	Contient les classes concernant les Devises : TradingException, Devise, PaireDevises, DevisesManager
- * 	Contient les classes concernant les Cours : coursOHLCV, ListEvolutionCours, EvolutionCours
+ * 	Contient les classes concernant les Cours : coursOHLCV, EvolutionCours
  * 	Contient les classes concernant les Indicateurs : Indicateur, IndicateurCollection, IndiceIndicateur, EMA, MACD, RSI
  * 			
  */
@@ -466,7 +466,7 @@ public:
 	iterator begin() { return cours; }
     //! méthode end 
 	/** 
-    * \return  iterator : pointe vers la fin de la table de Cours
+    	* \return  iterator : pointe vers la fin de la table de Cours
 	*/
     iterator end() { return cours + nbCours; }
     using const_iterator = const CoursOHLCV*; /**< const_iterator correspond à const coursOHLCV* */
@@ -477,7 +477,7 @@ public:
 	const_iterator cbegin() const { return cours; }
     //! méthode end
 	/** 
-    * \return  const_iterator : pointeur constant vers la fin de la table de Cours
+   	 * \return  const_iterator : pointeur constant vers la fin de la table de Cours
 	*/
     const_iterator cend() const { return cours + nbCours; }
 	//! méthode searchCours
