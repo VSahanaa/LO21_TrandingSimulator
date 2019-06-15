@@ -36,7 +36,7 @@ public:
     explicit ModePasPaswidget(ModePas_Pas* modePas_Pas, QWidget *parent = nullptr);
     //! Destructeur
 	~ModePasPaswidget();
-	//! slot updateData
+    //! Mettre à jour les données sur le panneau
 	/**
 	* \return void : pour mettre à jour les données 
 	*/
@@ -44,37 +44,37 @@ public:
 signals:
 	//! signal transactionChanged
 	/**
-	* \return void : signale le changement de transaction (précédente à la suivante)
+    * \return void : signale l'ajout ou annule d'une transaction
 	*/
     void transactionChanged();
 private slots:
-	//! slot updateCurrentCours
+    //! Mettre à jour le cours actuel
 	/**
-	* \return void : pour la mise à jour après le choix du cours OHLCV
+    * \return void : pour la mise à jour après le cours changé apres une itération
 	*/
     void updateCurrentCours();
-	//! on_goBack_clicked
+    //! Roll back à un jour dans le passé
 	/**
 	* \return void : pour revenir en arrière
 	*/
     void on_goBack_clicked();
-	//! slot on_comboBox_timer_currentIndexChanged
+    //! Changer l'interval de temps
 	/**
 	* \param index :int
 	* \return void : pour le changement au niveau du timer (avancer, reculer...)
 	*/
     void on_comboBox_timer_currentIndexChanged(const QString &arg1);
-	//! slot on_pushButton_achat_clicked
+    //! Redaction quand le bouton achat est appuyé
 	/**
 	* \return void : pour la demande d'achat
 	*/
     void on_pushButton_achat_clicked();
-	//! slot on_pushButton_vente_clicked
+    //! Redaction quand le bouton vente est appuyé
 	/**
 	* \return void : pour la demande de vente
 	*/
     void on_pushButton_vente_clicked();
-	//! slot on_pushButton_annulerTransaction_clicked
+    //! Redaction quand le bouton annuler est appuyé
 	/**
 	* \return void : pour la demande d'annuler la transaction
 	*/

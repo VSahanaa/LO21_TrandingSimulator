@@ -27,10 +27,10 @@ using namespace std;
 */
 class TradingException {
 public:
-    //! constructeur
+    //! Constructeur
     /** \param message :const QString&*/
     TradingException(const QString& message) :info(message) {}
-    //! méthode getInfo
+    //! Information d'une exception
     /**
     * \return   un QString : la valeur contenue dans l'attribut info
     */
@@ -53,28 +53,28 @@ class Devise {
     QString code; /**< code :Qstring contient le code de la devise */
     QString monnaie; /**< monnaie :Qstring contient le nom de la monnaie concernée */
     QString zone; /**< zone :Qstring contient le nom de la zone géographique associée à la devise */
-    //! constructeur
+    //! Constructeur
     /**
     * \param code :const QString&
     * \param monnaie :const QString&
     * \param zone :const QString&
     */
     Devise(const QString& code, const QString& monnaie, const QString& zone = "");
-    //! destructor
+    //! Destructor par défault
     ~Devise() = default;
     friend class DevisesManager; /**< declaration d'amitiés : DevisesManager */
 public:
-    //! méthode getCode
+    //! Code de la devise
     /**
     * \return  QString : la valeur de l'attribut code
     */
     QString getCode() const { return code; }
-    //! méthode getMonnaie
+    //! Monnaie de la devise
     /**
     * \return   QString : la valeur de l'attribut monnaie
     */
     const QString& getMonnaie() const { return monnaie; }
-    //! méthode getZoneGeographique
+    //! Zone geographique de la devise
     /**
     * \return   QString : la valeur de l'attribut zone
     */
@@ -83,7 +83,7 @@ public:
 
 /**
 * \class PaireDevises
-* \brief Représente une paire de devise
+* \brief Représente une paire de devises
 * attributs : base, contrepartie, surnom
 * méthodees : getBase, getContrepartie, getSurnom
 * amitiéss : class DeviseManager
@@ -94,39 +94,39 @@ class PaireDevises {
     const Devise* contrepartie; /**< contrepartie : const Devise* pointe sur la devise de contrepartie */
     QString surnom; /**< surnom : Qstring contient le surnom de la paire */
 
-    //! constructeur
+    //! Constructeur
     /**
     * \param base :const Devise&
     * \param contrepartie :const Devise&
     * \param surnom :const Qstring&
     */
     PaireDevises(const Devise& base, const Devise& contrepartie, const QString& surnom = "");
-    //! destructor
+    //! Destructor par défault
     ~PaireDevises() = default;
     friend class DevisesManager;/**< declaration d'amitiés : DevisesManager */
 public:
-    //! méthode getBase
+    //! Devise de base
     /**
     * \return   const Devise& : la valeur de l'attribut base
     */
     const Devise& getBase() const { return *base; }
-    //! méthode getContrepartie
+    //! Devise de contre partie
     /**
     * \return   const Devise& : la valeur de l'attribut contrepartie
     */
     const Devise& getContrepartie() const { return *contrepartie; }
-    //! méthode getSurnom
+    //! Sur nom de la paire
     /**
     * \return   const QString& : la valeur de l'attribut surnom
     */
     const QString& getSurnom() const { return surnom; }
-    //! méthode setSurnom
+    //! Mettre le sur nom de la devise
     /**
     * \return   void : permet de modifier le surnom
     * \param surnom :Qstring
     */
     void setSurnom(QString surnom) {this->surnom = surnom;}
-    //! méthode toString
+    //! Information complet de la paire
     /**
     * \return  Qstring : donne le nom de la paire sous forme de string
     * \brief  renvoie <code>.<contrepartie>/<contrepartie>.<code> sous forme de string
@@ -136,7 +136,7 @@ public:
 
 /**
 * \class DeviseManager
-* \brief DeviseManager est la classe qui permet de gérer les devises et les paires
+* \brief DeviseManager est la classe singleton qui permet de gérer les devises et les paires
 * attributs : devises, nbDevises, nbMaxDevises, paires, nbPaires, nbMaxPaires
 * attribut statique : handler
 * méthodees : getDeviseCodes, creationDevise, getDevise, getPaireDevises
@@ -154,10 +154,10 @@ class DevisesManager {
     // empêcher la duplication par recopie ou affectation
     DevisesManager(const DevisesManager& deviseManager) = delete;
     DevisesManager& operator=(const DevisesManager& deviseManager) = delete;
-    //! constructeur
+    //! Constructeur privé
     /** tous les attributs sont nuls par default*/
     DevisesManager() {}
-    //! destructor
+    //! Destructor privé
     ~DevisesManager();
 
     //! \struct Handler
@@ -167,48 +167,48 @@ class DevisesManager {
     */
     struct Handler {
         DevisesManager* instance = nullptr; /**< instance :DevisesManager* pointe sur l'unique DeviseManager */
-        //! destructor
+        //! Destructor de handler
         /** \brief Permet de libérer la mémoire allouée lors de la création de instance */
         ~Handler() { delete instance; }
     };
     static Handler handler; /**< handler: static Handler représente l'unique DeviseManager */
 public:
-    //! méthode getManager
+    //! Retourne la référence du objet DevisesManager unique du programme
     /**
-    * \return  static DevisesManager& : la valeur de handler.instance, si elle n'existe pas, elle la créée
+    * \return  static DevisesManager& : la référence à instance unique, si elle n'existe pas, elle la créée
     */
     static DevisesManager& getManager() {
         if (handler.instance == nullptr)
             handler.instance = new DevisesManager;
         return *handler.instance;
     }
-    //! méthode libererManager
+    //! Libérer le manager
     /**
     * \return void : libère l'instance handler.instance
     */
     static void libererManager() {
         delete handler.instance;  handler.instance = nullptr;
     }
-    //! méthode getDeviseCodes
+    //! Liste de codes des devises
     /**
     * \return  QstringList : la liste des codes des devises
     */
     QStringList getDeviseCodes() const;
-    //! méthode creationDevise
+    //! Créer une nouvelle devise
     /**
     * \param code :const QString&
     * \param monnaie :const Qstring&
     * \param zone :const QString&
-    * \return Devise* : la valeur de l'adresse de la devise qui vient d'être créée et nullptr en cas d'échec
+    * \return Devise* : la valeur de l'adresse de la devise qui vient d'être créée
     */
     Devise* creationDevise(const QString& code, const QString& monnaie, const QString& zone);
-    //! méthode getDevise ;
+    //! Chercher une devise
     /**
     * \param code :const QString&
     * \return Devise* : la valeur de l'adresse de la devise dont le code est égale au code donné en entrée
     */
     Devise* getDevise(const QString& code)const;
-    //! méthode getPaireDevises
+    //! Retouner une paire de devises
     /**
     * \param baseCode :const QString&
     * \param contrepartieCode :const Qstring&
@@ -240,10 +240,10 @@ class CoursOHLCV {
     unsigned int volume = 0; /**< volume :unsigned int représente le volume échangé */
     QDate date; /**< QDate :date représente la date */
 public:
-    //! constructeur 1
+    //! Constructeur par défault
     /** tous les attributs sont nuls par default, sauf la date qui n'est pas fixé*/
     CoursOHLCV() {}
-    //! constructeur 2
+    //! Constructeur avec des informations d'un cours
     /**
     * \param open :double
     * \parma high :double
@@ -253,32 +253,32 @@ public:
     * \param date :QDate
     */
     CoursOHLCV(double open, double high, double low, double close, unsigned int volume, const QDate& date);
-    //! méthode getOpen
+    //! valeur du prix d'ouverture
     /**
     * \return  double : la valeur de l'attribut open
     */
     double getOpen() const { return open; }
-    //! méthode getHigh
+    //! valeur du prix le plus haut
     /**
     * \return  double : la valeur de l'attribut high
     */
     double getHigh() const { return high; }
-    //! méthode getLow
+    //! valeur du prix le plus bas
     /**
     * \return  double : la valeur de l'attribut low
     */
     double getLow() const { return low; }
-    //! méthode getClos
+    //! valeur du prix ferméture
     /**
     * \return  double : la valeur de l'attribut close
     */
     double getClose() const { return close; }
-    //! méthode getVolume
+    //! value de la volume
     /**
     * \return  double : la valeur de l'attribut volume
     */
     unsigned getVolume() const {return volume;}
-    //! méthode setCours ; modifie les valeurs des attributs d'un cours
+    //! méthode setCours ; modifie les valeurs des prix d'un cours
     /**
     * \param open :double
     * \parma high :double
@@ -304,7 +304,7 @@ public:
     * \return void
     */
     void setDate(const QDate& d) { date=d;}
-    //! méthode form
+    //! Forme de la bougie
     /**
     * \return  QString : donne la forme de la bougie
     */
@@ -401,27 +401,27 @@ class EvolutionCours {
     unsigned int nbCours = 0; /**< nbCours :unsigned int représente le nombre d'éléments dans le tableau de cours*/
     unsigned int nbMaxCours = 0; /**< nbMaxCours :unsigned int représente le nombre maximal d'éléments qu'on peut mettre dans le tableau de cours*/
 public:
-    //! constructeur
+    //! Constructeur créer l'evolution cours vide
     /**
     * \param paire :const PaireDevises&
     */
     EvolutionCours(const PaireDevises& paire);
-    //! constructeur
+    //! Constructeur charge un fichier csv de données
     /**
     * \brief constructeur pour charger les cours d'un fichier csv
     * \param pair :const PaireDevises&
     * \param filename: QString
     */
     EvolutionCours(const PaireDevises& pair, QString filename); //charger depuis fichier csv
-    //! destructor
+    //! Destructor
     ~EvolutionCours();
-    //! constructeur
+    //! Constructeur dupplication par recopie
     /**
     * \brief duplication par recopie
     * \param evolutionCours :const EvolutionCours&
     */
     EvolutionCours(const EvolutionCours& evolutionCours);
-    //! méthode addCours ; ajoute un cours au tableau
+    //! Ajoute un cours au tableau
     /**
     * \param open :double
     * \parma high :double
@@ -432,59 +432,59 @@ public:
     * \return void
     */
     void addCours(double open, double high, double low, double close, unsigned int volume, const QDate& date);
-    //! méthode operator=
+    //! Recopie par operator =
     /**
     * \param evolutionCours :const EvolutionCours&
     * \return EvolutionCours& : duplication par affectation
     */
     EvolutionCours& operator=(const EvolutionCours& evolutionCours);
-    //! méthode getNbCours
+    //! nombre de cours dans la série
     /**
     * \return  unsigned int : la valeur de l'attribut NbCours
     */
     unsigned int getNbCours() const { return nbCours; }
-    //! méthode getPaireDevises
+    //! Paire de devises associé
     /**
     * \return  const PaireDevises* : la valeur de l'attribut paire
     */
     const PaireDevises* getPaireDevises() const { return paire; }
-    //! méthode getCollection
+    //! Collection des indicateurs associée
     /**
     * \return  IndicateurCollection* : la valeur de l'attribut indicateurCollection
     */
     IndicateurCollection* getCollection() const {return indicateurCollection;}
-    //! méthode getNomFichier
+    //! Nom de fichier .csv qui utilisé pour chargé évolution cours
     /**
     * \return  const QString&* : la valeur de l'attribut filen
     */
     const QString& getNomFichier() const {return filen;}
 
     using iterator = CoursOHLCV*; /**< iterator correspond à coursOHLCV* */
-    //! méthode begin
+    //! Debut de la table de cours
     /**
     * \return  iterator : la valeur du pointeur du premier cours
     */
     iterator begin() { return cours; }
-    //! méthode end
+    //! Fin de la table de cours
     /**
     * \return  iterator : pointe vers la fin de la table de Cours
     */
     iterator end() { return cours + nbCours; }
     using const_iterator = const CoursOHLCV*; /**< const_iterator correspond à const coursOHLCV* */
-    //! méthode begin
+    //! Pointeur constant du debut de la table de cours
     /**
     * \return  const_iterator : la valeur du pointeur const du premier cours
     */
     const_iterator cbegin() const { return cours; }
-    //! méthode end
+    //! Pointeur constant de la fin de la table de cours
     /**
     * \return  const_iterator : pointeur constant vers la fin de la table de Cours
     */
     const_iterator cend() const { return cours + nbCours; }
-    //! méthode searchCours
+    //! Chercher un cours en utilisant le date
     /**
     * \param date :Qdate
-    * \return iterator : la valeur du pointeur du cours correspondant à la date si elle existe et nullptr, sinon.
+    * \return iterator : la valeur du pointeur du cours associé avec le date correspondant ou just après la date entrée si elle existe et nullptr, sinon.
     */
     iterator searchCours(QDate date);
 };
@@ -505,35 +505,35 @@ private:
         double donnee; /**< donnee :double contient la valeur de l'indicateur pour un jour*/
         QDate  date; /**< date :QDate contient la date à laquelle donnee est associée*/
 public:
-        //! constructeur
+        //! Constructeur
         /**
         * \param list :QStringList
         */
         IndiceIndicateur(){}
-        //! méthode getIndice
+        //! valeur d'idicateur
         /**
         * \return  double : la valeur de l'attribut donnee
         */
         double getIndice() const { return donnee;}
-        //! méthode getDate
+        //! Date associé avec cet indicateur
         /**
         * \return  QDate :  la valeur de la date
         */
         QDate  getDate() const { return date;}
-        //! méthode setIndice
+        //! Changer la valeur d'indicateur
         /**
         * \param donnee :double
         * \return void : modifie la valeur de l'indice
         */
         void setIndice(double donnee) { this->donnee = donnee;}
-        //! méthode setDate
+        //! Change la date
         /**
         * \param date :QDate
         * \return void : modifie la valeur de date
         */
         void setDate(QDate date) { this->date = date;}
         //for debugging
-        //! méthode toString
+        //! Information de l'indicateur, peut utiliser pour debugging
         /**
         * \return  QString : la concaténation <date>.indicateur.<donnee
         */
@@ -547,10 +547,10 @@ public:
 * méthodees : searchIndice
 * méthodees virtuelles pures : generateIndice, setParameters, getParameters
 * amitiés : IndicateurCollection
-* Remarques : possède un iterateur
+* Remarques : Utiliser seul pour Polymorphisme, possède un iterateur
             - iterator qui correspond à IndiceIndicateur*
             - const_iterator qui correspond à const IndiceIndicateur*
-            avec les méthodes : begin, end, searchcours associées
+            avec les méthodes : begin, end, searchIndice associées
 */
 class Indicateur {
     friend class IndicateurCollection;
@@ -560,59 +560,59 @@ protected:
     IndiceIndicateur* indices = nullptr;  /**< indices :IndiceIndicateur* pointe sur un tableau de IndiceIndicateur */
     unsigned int nbIndicateur; /**< nbIndicateur :unsigned int contient la valeur du nombre d'éléments dans le tableau indices */
     unsigned int nbMaxIndicateur; /**< nbMaxIndicateur :unsigned int contient la valeur du nombre maximal d'éléments que peut contenir le tableau indices*/
-    //! constructeur
+    //! Constructeur avec une série d'indice vide
     /**
     * \param evolutionCours :EvolutionCours*
     * \param nom :QString = "unnamed indicator" par default
     */
     Indicateur(EvolutionCours* evolutionCours, QString nom = "unnamed indicator"); //peut instancier que des classes dérivé
     Indicateur() = delete;
-    //! destructor virtual
+    //! destructor virtuel
     /** \brief libère la mémoire allouée pour le tableau indices
     */
     virtual ~Indicateur() {delete[] indices;}
 public:
-    //! méthode virtual pure generateIndice
+    //! Interface virtual pure generateIndice, generer la series d'indicateur
     /**
     * \return  void : génére le tableau d'indice
     */
     virtual void generateIndice() = 0;          //where array of Indices is generated
     using iterator = IndiceIndicateur*; /**< iterator correspond à IndiceIndicateur* */
     using const_iterator = const IndiceIndicateur*; /**< const_iterator correspond à const IndiceIndicateur* */
-    //! méthode begin
+    //! Debut de la série d'indicateur
     /**
     * \return  iterator : pointe sur premier élément du tableau indices
     */
     iterator begin(){return indices;}
-    //! méthode end
+    //! Fin de la série d'indicateur
     /**
     * \return  iterator : pointe sur la fin du tableau indices
     */
     iterator end(){return indices + nbIndicateur;}
-    //! méthode begin
+    //! Pointeur constant du debut de la série d'indicateur
     /**
     * \return  const_iterator : la valeur du pointeur const sur le premier élément du tableau indices
     */
     const_iterator cbegin() const {return indices;}
-    //! méthode end
+    //! Pointeur constant de la fin de la série d'indicateur
     /**
     * \return  	const_iterator : la valeur du pointeur const sur la fin du tableau indices
     */
     const_iterator cend() const {return indices+ nbIndicateur;}
-    //! méthode searchIndice
+    //! Cherche un indice selon le coursOHLCV qu'il associé
     /**
     * \param cours :coursOHLCV*
     * \return IndiceIndicateur*
     */
     IndiceIndicateur* searchIndice(CoursOHLCV* cours);
-    //! méthode virtual pure setParameters
+    //! Interface virtual pure setParameters pour modifier les paramtres d'indicateur et regénérer la série d'indices
     /**
     * \param QMap<QString
     * \param QVariant> parameter
     * \return void : modifie les paramatres
     */
     virtual void setParameters(QMap<QString, QVariant> parameters) = 0;         //encapsulate parameters inside an QMap object and pass it as argument
-    //! méthode virtual pure getParameters ;
+    //! Interface virtual pure getParameters pour prendre des valeur de parametres
     virtual QMap<QString, QVariant> getParameters() const = 0;
     //! méthode index
     /**
@@ -640,27 +640,27 @@ class EMA : public Indicateur{
     friend class IndicateurCollection;     //can only be created by IndicateurCollection
     friend class MACD;
 private:
-    unsigned int period; /**< period :unsigned int contient le nombre de jours sur lequel se base l'indicateur*/
-    //! constructeur
+    unsigned int period; /**< period :unsigned int contient la période utilisé pour cacule l'indicateur*/
+    //! Constructeur
     /**
     * \param evolutionCours :EvolutionCours*
     * \param period :unsigned int
     */
     EMA(EvolutionCours* evolutionCours, unsigned int period = 10) : Indicateur(evolutionCours, "EMA"), period(period) {}      //create instance with an empty array of indices
 public:
-    //! méthode generateIndice
+    //! Implementer l'interface generateIndice()
     /**
     * \return  void : création du tableau d'indices
     */
     void generateIndice();        //where array of indice is really instanciate
-    //! méthode setParameters
+    //! Implémenter l'interface setParameters()
     /**
     * \param QMap<QString
     * \param QVariant> parameter
     * \return void : modifie les paramatres
     */
     void setParameters(QMap<QString, QVariant> parameters);
-    //! méthode getParameters ;
+    //! Implémenter l'interface getParameters ;
     QMap<QString, QVariant> getParameters() const;
 };
 
@@ -679,7 +679,7 @@ private:
     unsigned int lookbackPeriod; /**< lookbackPeriod :unsigned int contient la valeur de la periode précédente*/
     double overboughtBound; /**< overboughtBound :double si RSI>overboughtBound alors on se trouve en sur-achat*/
     double oversoldBound; /**< overboughtBound :double si RSI<overboughtBound alors on se trouve en sur-vente*/
-    //! constructeur
+    //! Constructeur
     /**
     * \param evolutionCours :EvolutionCours*
     * \param lookbackPeriod :unsigned int =14 par défault
@@ -689,37 +689,37 @@ private:
     RSI(EvolutionCours* evolutionCours, unsigned int lookbackPeriod = 14, double overboughtBound= 80, double oversoldBound= 20) :
         Indicateur(evolutionCours, "RSI"), lookbackPeriod(lookbackPeriod), overboughtBound(overboughtBound), oversoldBound(oversoldBound) {}      //create instance with an empty array of indices
 public:
-    //! méthode generateIndice
+    //! Implémenter l'interface generateIndice
     /**
     * \return  void : création du tableau d'indices
     */
     void generateIndice();
-    //! méthode generateIndice
+    //! Changer la valeur de la borne sur-achat
     /**
     * \param overboughtBound :double =80 par défault
     * \return void :  modifie la valeur de overboughtBound
     */
     void setOverboughtBound(double overboughtBound=80) {this->overboughtBound = overboughtBound;}
-    //! méthode oversoldBound
+    //! Changer la valeur de la borne sur-vente
     /**
     * \param oversoldBound :double =20 par défault
     * \return void : modifie la valeur de oversoldBound
     */
     void setOversoldBound(double oversoldBound=20) {this->oversoldBound = oversoldBound;}
-    //! méthode setLookbackPeriod
+    //! Changer la valeur de la periode précédente
     /**
     * \param lookbackPeriod :unsigned int =14 par défault
     * \return void : modifie la valeur de lookbackPeriod
     */
     void setLookbackPeriod(unsigned int lookbackPeriod=14);
-    //! méthode setParameters
+    //! Implémenter l'interface setParameters()
     /**
     * \param QMap<QString
     * \param QVariant> parameter
     * \return void : modifie les paramatres
     */
     void setParameters(QMap<QString, QVariant> parameters);
-    //! méthode getParameters ;
+    //! Implémenter l'interface getParameters ;
     QMap<QString, QVariant> getParameters() const;
 };
 
@@ -741,7 +741,7 @@ private:
     IndiceIndicateur* signalLine = nullptr; /**< signalLine :IndiceIndicateur* */
     IndiceIndicateur* histogram = nullptr; /**< histogram :IndiceIndicateur* */
     //create instance with an empty array of indices
-    //! constructeur
+    //! Constructeur
     /**
     * \param evolutionCours :EvolutionCours*,
     * \param shortPeriod :unsigned int =12 par défault
@@ -753,36 +753,36 @@ private:
         this->longPeriod = longPeriod;  this->shortPeriod = shortPeriod;    this->signalPeriod = signalPeriod;
     }
 public:
-    //! méthode generateIndice
+    //! Implémenter l'interface generateIndice
     /**
     * \return  void : création du tableau d'indices
     */
     void generateIndice();
-    //! méthode setParameters
+    //! Implémenter l'interface setParameters
     /**
     * \param QMap<QString
     * \param QVariant> parameter
     * \return void : modifie les paramatres
     */
     void setParameters(QMap<QString, QVariant> parameters);
-    //! méthode getParameters ;
+    //! Implémenter l'interface getParameters ;
     QMap<QString, QVariant> getParameters() const;
-    //! méthode signalLine_begin
+    //! Debut de la série signalLine
     /**
     * \return  iterator : pointe sur premier élément du tableau signalLine
     */
     iterator signalLine_begin() {return signalLine;}
-    //! méthode signalLine_end
+    //! Fin de la série signalLine
     /**
     * \return  iterator : pointe sur la fin du tableau signalLine
     */
     iterator signalLine_end() {return signalLine + nbIndicateur;}
-    //! méthode histogramLine_begin
+    //! Debut de la série histogram
     /**
     * \return  iterator : pointe sur premier élément du tableau histogram
     */
     iterator histogramLine_begin() {return histogram;}
-    //! méthode histogramLine_end
+    //! Fin de la série histogram
     /**
     * \return  iterator : pointe sur la fin du tableau histogram
     */
@@ -794,7 +794,7 @@ public:
 * \brief collection des indicateurs, ils appartiennent à un objet EvolutionCours
 * méthodes : getIndicateur
 * amitiés : EvolutionCours
-* Remarques : 	hérite de la classe Indicateur
+* Remarques : Appliquer design patern Factory
 */
 class IndicateurCollection {
     friend class EvolutionCours;        //can only be created and deleted by EvolutionCours
@@ -806,7 +806,7 @@ class IndicateurCollection {
     IndicateurCollection(EvolutionCours* evolutionCours);
     ~IndicateurCollection();
 public:
-    //! méthode getIndicateur
+    //! Retourne un Indicateur choisir
     /**
     * \param nom :QString
     * \return Indicateur* :  le pointeur qui pointe sur l'indicateur demandé et nullptr, sinon

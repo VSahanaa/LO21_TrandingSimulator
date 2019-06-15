@@ -40,7 +40,7 @@ public:
     * \param type :int
     */
     NoteItem (Note* note, QListWidget* parent=nullptr, int type=0) : QListWidgetItem(parent, type), note(note) {}
-    //! méthode getNote
+    //! Note référencé
     /**
     * \return Note* : renvoie la valeur de l'attribut note
     */
@@ -64,105 +64,105 @@ public:
     //! Destructeur
     ~MainInterface();
 signals:
-    //! Signal giveName
+    //! Envoyer le nom de la simulation à la tab de Fenetre principale
     /**
     * \param nom :QString
-    * \return void : quand un nom est donné
+    * \return void : Donner le nom de simulation
     */
     void giveName(QString nom);
 private slots:
-    //! slot newSimulation
+    //! Charger la simulation
     /**
-    * \return void : pour dréer une nouvelle simulation
+    * \return void : charger la nouvelle simulation
     */
     void newSimulation();
-    //! slot showSimulation
+    //! Afficher la simulation sur l'interface
     /**
     * \return void : pour montrer la simulation
     */
     void showSimulation();
-    //! slot on_newSimulation_button_clicked
+    //! Redaction quand le bouton New Simulation est appuyé
     /**
     * \return void : pour la demande d'une nouvelle simulation
     */
     void on_newSimulation_button_clicked();
-    //! slot endSimulationMessage
+    //! Redaction quand la simulation finit
     /**
     * \return void : pour afficher un message en fin de simulation
     */
     void endSimulationMessage();
-    //! slot updateGraph
+    //! Mettre à jour les graphiques
     /**
     * \return void : pour mettre à jour les graphiques
     */
     void updateGraph();
-    //! slot updateTransactionTable
+    //! Mettre à jour le tableau de Transaction
     /**
     * \return void : pour mettre à jour le tableau de transactions
     */
     void updateTransactionTable();
-    //! slot on_chargeSimulation_button_clicked
+    //! Redaction quand le bouton Charge Simulation est appuyé
     /**
     * \return void : pour la demande de charger une simulation
     */
     void on_chargeSimulation_button_clicked();
-    //! slot on_save_clicked
+    //! Redaction quand le bouton Sauvegarder est appuyé
     /**
     * \return void : pour la demande de sauvegarder
     */
     void on_save_clicked();
-    //! slot on_addNote_clicked
+    //! Redaction quand le bouton New note est appuyé
     /**
     * \return void : pour la demande d'ajout de notes
     */
     void on_addNote_clicked();
-    //! slot on_listNote_itemDoubleClicked
+    //! Choisir un note à afficher
     /**
     * \param item :QListWidgetItem
     * \return void : pour la demande d'afficher la liste de notes
     */
     void on_listNote_itemDoubleClicked(QListWidgetItem *item);
-    //! slot on_nameEdit_editingFinished
+    //! Redaction quand le nom de note est chargé
     /**
     * \return void : pour la fin de l'édition du nom
     */
     void on_nameEdit_editingFinished();
-    //! slot on_pushButton_2_clicked
+    //! Supprimer un note
     /**
-    * \return void : pour la prise de notes
+    * \return void : supprimer un note
     */
     void on_pushButton_2_clicked();
-    //! slot on_closeNote_clicked
+    //! Fermer un note
     /**
     * \return void : pour la demander de fermer la prise de notes
     */
     void on_closeNote_clicked();
-    //! slot on_noteEdit_textChanged
+    //! Redaction quand le note est chargé
     /**
     * \return void : pour la modification de la note choisie
     */
     void on_noteEdit_textChanged();
-    //! slot on_deleteSimulation_clicked
+    //! Redaction quand le bouton Delete Simulation est appuyé
     /**
     * \return void : pour la demande de supprimer la simulation
     */
     void on_deleteSimulation_clicked();
-    //! slot on_ema_stateChanged
+    //! Activer ou désactiver indicateur EMA
     /**
     * \return void : pour l'affichage ou non de l'EMA
     */
     void on_ema_stateChanged(int arg1);
-    //! slot on_macd_stateChanged
+    //! Activer ou désactiver indicateur MACD
     /**
     * \return void : pour l'affichage ou non du MACD
     */
     void on_macd_stateChanged(int arg1);
-    //! slot on_rsi_clicked
+    //! Changer les paramètres de RSI
     /**
     * \return void : pour l'affichage ou non du RSI
     */
     void on_rsi_clicked();
-    //! slot on_pushButton_clicked
+    //! Afficher le dialog Info
     /**
     * \return void : pour la fenetre d'informations
     */
@@ -176,7 +176,6 @@ private:
     QWidget* controlPanel; /**< controlPanel :QWidget* pointe sur un panneau de contrôle*/
     EvolutionViewer* evolutionViewer; /**< evolutionViewer :EvolutionViewer* pointe sur l'object EvolutionViewer qui permet de représenter une série de cours sous forme de graphe*/
     VolumeViewer* volumeViewer; /**< evolutionViewer :EvolutionViewer* pointe sur l'object VolumeViewer qui permet de représenter une série de volume sous forme de graphe*/
-    //QWidget* ROI_Viewer;
 };
 
 #endif // MAININTERFACE_H

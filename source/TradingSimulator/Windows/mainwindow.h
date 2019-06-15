@@ -36,24 +36,23 @@ signals:
     */
     void closeWindow_request();
 private slots:
-    //! slot newTab
+    //! Nouveau tab
     /**
     * \return void : pour créer le tableau
     */
     void newTab();
-    //! slot closeTab
+    //! Fermer un tab
     /**
     * \param index :int
     * \return void : pour fermer le tableau
     */
     void closeTab(int index);
-    //! slot setTabName
+    //! Changer le nom d'un tab quand la simulation est créée
     /**
     * \param nom :QString
     * \return void : pour donner un nom au tableau
     */
     void setTabName(QString nom) {
-        qDebug() << nom;
         setTabText(currentIndex(), nom);}
 };
 
@@ -76,9 +75,9 @@ public:
     //! Destructeur
     ~MainWindow();
 signals:
-    //! Signal stop
+    //! Ferme le programme quand il n'y a plus de tab
     /**
-    * \return void : signal pour arrêter la simulation
+    * \return void : signal pour arrêter le programme
     */
     void stop();
 private slots:

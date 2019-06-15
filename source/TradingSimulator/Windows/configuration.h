@@ -38,9 +38,9 @@ public:
     explicit Configuration(QWidget *parent = nullptr);
     //! Destructeur
     ~Configuration();
-    //! méthode getSimulation
+    //! Retourner la nouvelle simulation créée
     /**
-    * \return Simulation* : renvoie la simulation créée, la valeur de l'attrinbut simulation
+    * \return Simulation* : renvoie la simulation créée, la valeur de l'attribut simulation
     */
     Simulation* getSimulation() const {return simulation;}
 private slots:
@@ -91,7 +91,7 @@ private:
     AddDevise_Dialog* addDevise_dialog; /**< addDevise_dialog :AddDevise_Dialog* instance de AddDevise_Dialog, fenêtre QDialog pour ajouter une devise*/          //child widget of Configuration
     EvolutionCours* evolutionCours = nullptr; /**< evolutionCours :EvolutionCours* pointe sur la série de cours associée à la simulation */
     Simulation* simulation = nullptr; /**<simulation :Simulation* pointe sur la simulation choisie*/
-    StrategieFactory* strategieFactory = StrategieFactory::getStrategieFactory(); /**< strategieFactory :StrategieFactory* pointe dur l'instance StrategieFactory pour avoir les stratégies*/
+    StrategieFactory* strategieFactory = StrategieFactory::getStrategieFactory(); /**< strategieFactory :StrategieFactory* pointe dur l'instance StrategieFactory pour prendre les stratégies*/
     QString modeSimulation; /**< modeSimulation :QString contient le mode de simulation choisie*/
     QString nomSimulation; /**< nomSimulation :QString contient le nom de simulation fourni*/
     QDate dateDebut; /**< dateDebut :QDate contient la date à laquelle commencera la simulation*/
@@ -100,17 +100,17 @@ private:
     double montantContrepartieInitial = 1000000; /**< montantContrepartieInitial :double représente le montant de contrepartie initial pour la simulation*/
     Strategie* strategie = nullptr; /**< strategie : Strategie* pointe sur la stratégie choisie ou créée*/
     QMap<QString, QVariant> parameters; /**< parameters :QMap<QString,QVariant> pour les paramètres de la simulation*/
-    //! méthode setListesDevise
+    //! Charger les devises existants à la liste à proposer
     /**
     * \return void : permet de montrer la liste de devises disponibles
     */
     void setListesDevise();
-    //! méthode setListesDevise
+    //! Charger l'evolution cours depuis un fichier choisi
     /**
-    * \return void : permet de montrer la liste de cours disponibles
+    * \return void : permet de charger une évolution cours depuis un fichier
     */
     void setEvolutionCours();
-    //! méthode setListesDevise
+    //! Finir la configuration de l'evolution cours pour passer à l'étape suivant
     /**
     * \return void : permet de finir la selection de la serie de cours et de passer à la configuration des paramètres
     */
@@ -121,7 +121,7 @@ private:
     * \return void : permet mettre à jour le choix de stratégie
     */
     void refreshStrategieLayout(QString strategieNom);
-    //! méthode createSimulation
+    //! Créer la simulation à partir des informations fournit
     /**
     * \return void : permet créer la simulation
     */

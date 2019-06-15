@@ -42,20 +42,26 @@ signals:
 	*/
     void transactionChanged();
 private slots:
-	//! slot updateData
+    //! Mettre à jour les données sur le panneau
 	/**
 	* \return void : pour mettre à jour les données 
 	*/
     void updateData();
-	//! slot on_comboBox_timer_currentIndexChanged
+    //! Redaction quand utilisateur choisir un nouvel interval de temps
 	/**
 	* \param index :int
 	* \return void : pour le changement au niveau du timer (avancer, reculer...)
 	*/
     void on_comboBox_timer_currentIndexChanged(int index);
-
+    //! pause la simulation
+    /**
+    * \return void : faire une pause sur la simulation
+    */
     void on_pause_clicked();
-
+    //! Avancer à l'itération suivant
+    /**
+    * \return void : sauter à l'itération suivant
+    */
     void on_next_clicked();
 
 private:

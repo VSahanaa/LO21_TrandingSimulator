@@ -37,31 +37,31 @@ public:
         connect(this, SIGNAL(pressed()), this, SLOT(viewForm()));
         connect(this,SIGNAL(clicked()),this, SLOT(pickCours()));
     }
-    //! méthode getCoursOHLCV
+    //! Cours OHLCV associé avec la bougie
     /**
     * \return const CoursOHLCV& : retourne le cours associé à la bougie
     */
     const CoursOHLCV& getCoursOHLCV() const { return *cours;}
 signals:
-    //! signal clickBougie
+    //! signaler quand la bougie est appuyer
     /**
     * \param cours CoursOHLCV*
     * \return void
     */
     void clickBougie(CoursOHLCV* cours);
-    //! signal hoverBougie
+    //! signaler quand la bougie est pressé
     /**
     * \param cours CoursOHLCV*
     * \return void
     */
     void hoverBougie(CoursOHLCV* cours);
 private slots:
-    //! slot pickCours
+    //! Choisir un cours
     /**
     * \return void : permet de passer le message que la bougie a été cliquée
     */
     void pickCours(){ emit clickBougie(cours); }
-    //! slot viewForm
+    //! slot viewForm de la bougie
     /**
     * \return void : permet créer la forme de la bougie
     */
@@ -84,7 +84,7 @@ class EvolutionViewer: public QWidget{
     EMA* ema; /**< ema :EMA* pointe sur la série d'indicateur EMA auquelle elle est associée*/
     MACD* macd; /**< macd :MACD* pointe sur la série d'indicateur MACD auquelle elle est associée*/
     EvolutionCours::iterator currentCours; /**< currentCours :EvolutionCours::iterator pointe sur le cours OHLCV en cours*/
-    qint64 maxDateShown = 30; /**< maxDateShown :qint64 représente le nombre de bougie afficher à l'écran*/
+    qint64 maxDateShown = 30; /**< maxDateShown :qint64 représente le nombre de date afficher à l'écran*/
     QCandlestickSeries* series; /**< series :QCandlestickSeries* pointe sur la série de bougies qui vont être représentées*/
     QLineSeries* EMA_series; /**< EMA_series :QLineSeries* pointe sur la série de EMA qui va être représentée*/
     QLineSeries* MACD_series, *MACD_signal, *MACD_histogram; /**< MACD_histogram, MACD_series, MACD_signal :QLineSeries* pointe sur les séries de MACD qui vont être représentées*/
@@ -94,7 +94,7 @@ class EvolutionViewer: public QWidget{
     QChartView* chartView; /**< chartView :QChartView* vue du graphe */
     QScrollBar* scrollBar; /**< scrollBar :QScrollBar* pointe sur la barre de scroll permettant de bouger sur le graphique*/
     QVBoxLayout* layout; /**< layout :QVBoxLayout* pointe sur la VBox dans laquelle seront alignées les données sur la bougie */
-    //! méthode clearCharts
+    //! Effacer le graphique
     /**
     * \return void : permet d'éffacer le graphique
     */
@@ -109,14 +109,14 @@ public:
     EvolutionViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget *parent = nullptr);
     //! Destructeur
     ~EvolutionViewer();
-    //! méthode showChart
+    //! Afficher le graphique
     /**
     * \param firstdate :QDate
     * \param lastdate :QDate
     * \return void : permet de montrer le graphique
     */
     void showChart(QDate firstdate, QDate lastdate);
-    //! méthode setCurrentCours
+    //! Changer le cours actuel
     /**
     * \param currentCours :EvolutionCours::iterator
     * \return void : permet de changer le cours OHLCV en cours
@@ -125,13 +125,13 @@ public:
         this->currentCours = currentCours;
         emit currentCours_changed();
     }
-    //! méthode activateEMA
+    //! activer EMA
     /**
     * \param val :bool
     * \return void : permet de rendre visible ou non le graphe d'EMA
     */
     void activateEMA(bool val) {EMA_series->setVisible(val);   emit scrollBar->valueChanged(scrollBar->value());}
-    //! méthode activateMACD
+    //! activer MACD
     /**
     * \param val :bool
     * \return void : permet de rendre visible ou non les graphes de MACD
@@ -142,7 +142,6 @@ public:
         MACD_histogram->setVisible(val);
         emit scrollBar->valueChanged(scrollBar->value());
     }
-    //void resizeEvent(QResizeEvent *event);
 signals:
     //! signal currentCours_changed
     /**
@@ -173,7 +172,7 @@ private slots:
     */
     void pickCours(CoursOHLCV* cours) {emit coursPicked(cours);}
 public slots:
-    //! slot analyseForm
+    //! Analyse de bougie
     /**
     * \param cours :CoursOHLCV*
     * \return void : analyse de la forme de la bougie du cours OHLCV
@@ -195,7 +194,7 @@ class VolumeViewer: public QWidget {
     EvolutionCours* evolutionCours; /**< evolutionCours :EvolutionCours* pointe sur la série de cours associés */
     RSI* rsi; /**< rsi :RSI* pointe sur l'indicateur rsi associé*/
     EvolutionCours::iterator currentCours; /**< currentCours :EvolutionCours::iterator pointe sur le cours OHLCV en cours*/
-    qint64 maxDateShown = 30; /**< maxDateShown :qint64 représente le nombre de volume montré à l'écran (résolution) */
+    qint64 maxDateShown = 30; /**< maxDateShown :qint64 représente le nombre de date montré à l'écran (résolution) */
     QBarSeries *series; /**< series :QBarSeries* pointe sur la séries de bar (pour le volume) */
     QLineSeries* RSI_series; /**< RSI_series :QLineSeries* pointe sur la séries de RSI */
     QChart *chart; /**< chart :QChart* pointe sur le graphique des volumes*/
@@ -208,7 +207,7 @@ class VolumeViewer: public QWidget {
     QValueAxis* RSI_axisY; /**< axisY :QValueAxis* pointe sur l'axe Y du graphe RSI */
     QScrollBar* scrollBar;	/**< scrollBar ::QScrollBar* barre scrollable pour se déplacer sur le graphique*/
     QVBoxLayout* layout; /**< layout ::QVBoxLayout* pointe sur la VBox sur laquelle seront rangées les données*/
-    //! méthode clearCharts
+    //! Effacer le graphique
     /**
     * \return void : permet d'éffacer le graphique
     */
@@ -223,14 +222,14 @@ public:
     VolumeViewer(EvolutionCours* evolutionCours, EvolutionCours::iterator currentCours, QWidget *parent = nullptr);
     //! Destructeur
     ~VolumeViewer();
-    //! méthode showChart
+    //! Afficher le graphique
     /**
     * \param firstdate :QDate
     * \param lastdate :QDate
     * \return void : permet de montrer le graphique
     */
     void showChart(QDate firstdate, QDate lastdate);
-    //! méthode setCurrentCours
+    //! Changer le cours actuel
     /**
     * \param currentCours :EvolutionCours::iterator
     * \return void : permet de changer le cours OHLCV en cours

@@ -16,8 +16,7 @@
 * méthodes virtuelles protégées : setEvolutionCours, Strategie
 * méthodes virtuelles : ~Strategie, clone, getNom, setParameters, getParameters, operator()
 * amitiéss : class StrategieFactory
-* Remarques : 	seules les classes filles ou la classe StrategieFactory peut créer un objet de la classe
-*				duplication par recopie supprimée
+* Remarques : 	Appliquer design patern Strategy, utiliseé seul pour Polymorphisme
 * Fontionnement : 	le trading se base sur l'operator() qui retourne :
                         - un nombre négatif pour une vente
                         - un nombre positif pour un achat
@@ -29,22 +28,22 @@ class Strategie {
 protected:
     QString nom = "unnamed strategie"; /**< nom :QString nom de la stratégie */
     EvolutionCours* evolutionCours = nullptr; /**< evolutionCours :EvolutionCours* pointe sur la serie de cours sur laquelle s'appliquera la stratégie*/
-    //! Constructeur
+    //! Constructeur avec le nom de strategie
     /**
     * \param nom :QString
     */
     Strategie(QString nom) : nom(nom){}
     Strategie(Strategie* strategie) = delete;
-    //! Méthode setEvolutionCours
+    //! Appliquer la strategie sur une evolution cours
     /**
     * \param evolutionCours :EvolutionCours*
     * \return void : modifie la valeur de l'attribut evolutionCours
     */
     void setEvolutionCours(EvolutionCours* evolutionCours) {this->evolutionCours = evolutionCours;}
 public:
-    //! Destructeur virtuel
+    //! Destructeur par défault
     virtual ~Strategie() = default;
-    //! Méthode vituelle clone
+    //! Duppliquer un objet Stratégie
     /**
     * \return Strategie* : revoie une réplique de la stratégie
     */
@@ -53,23 +52,23 @@ public:
         clone->setEvolutionCours(evolutionCours);
         return clone;
     }
-    //! Method getNom
+    //! Nom de la stratégie
     /**
     * \return const QString& : la valeur de l'attribut nom
     */
     const QString& getNom() const {return nom;}
-    //! méthode virtuelle setParameters
+    //! Interface virtuelle setParameters(), changer les valeurs de paramètres de Stratégie
     /**
     * \param QMap<QString,QVariant> parameter
     * \return void : modifie les paramatres
     */
     virtual void setParameters(QMap<QString, QVariant> parameters) {/*do nothing*/}
-    //! méthode virtuelle getParameters
+    //! Interface virtuelle getParameters, retourne les valeurs de paramètres de Stratégie
     /**
     * \return QMap<QString,QVariant> : donne les paramatres de la statégie
     */
     virtual QMap<QString, QVariant> getParameters() const {return QMap<QString, QVariant>(); /*return empty object*/}
-    //! méthode operator()
+    //! Implémenter l'algorithme de stratégie, donne la décision pour une journée
     /**
     * \return double : le montant de la transaction
     * renvoie :	- un montant positif si la transaction à faire est un achat
@@ -111,23 +110,23 @@ class MA_Strategie : public Strategie {
 public:
     //! Destructeur
     ~MA_Strategie() {delete ema;}
-    //! méthode clone
+    //! Implémenter l'interface clone
     /**
-    * \return Strategie* : renvoie une réplique de la stratégie
+    * \return Strategie* : renvoie une réplique de la stratégie MA
     */
     Strategie* clone();
-    //! méthode virtuelle setParameters
+    //! Implémenter interface setParameters()
     /**
     * \param QMap<QString,QVariant> parameter
     * \return void : modifie les paramatres
     */
     void setParameters(QMap<QString, QVariant> parameters);
-    //! méthode virtuelle getParameters
+    //! Implémenter interface getParameters()
     /**
     * \return QMap<QString,QVariant> : donne les paramatres de la statégie
     */
     QMap<QString, QVariant> getParameters() const {return ema->getParameters();}
-    //! méthode operator()
+    //! Implémenter algorithme de trading
     /**
     * \return double : le montant de la transaction
     * renvoie :	- un montant positif si la transaction à faire est un achat
@@ -153,28 +152,28 @@ class RSI_Strategie : public Strategie {
     friend class StrategieFactory; /**< Déclaration d'amitié : StrategieFactory */
     RSI* rsi=nullptr; /**< rsi :RSI* pointe sur l'indicateur RSI associé à l'evolutionCours sur laquelle va s'appliquer la strategie*/
     RSI::iterator rsi_Iterator=nullptr; /**< rsi_Iterator :RSI::iterator permet de parcourir le tableau de valeurs RSI par jour*/
-    //!Constructeur
+    //! Constructeur
     RSI_Strategie() : Strategie("RSI Strategie") {}
 public:
     //! Destructeur
     ~RSI_Strategie() {delete rsi;}
-    //! méthode clone
+    //! Implémenter interface clone()
     /**
-    * \return Strategie* : renvoie une réplique de la stratégie
+    * \return Strategie* : renvoie une réplique de la stratégie RSI
     */
     Strategie* clone();
-    //! méthode virtuelle setParameters
+    //! Implémenter interface setParameters()
     /**
     * \param QMap<QString,QVariant> parameter
     * \return void : modifie les paramatres
     */
     void setParameters(QMap<QString, QVariant> parameters);
-    //! méthode virtuelle getParameters
+    //! Implémenter interface getParameters()
     /**
     * \return QMap<QString,QVariant> : donne les paramatres de la statégie
     */
     QMap<QString, QVariant> getParameters() const {return rsi->getParameters();}
-    //! méthode operator()
+    //! Implémenter algorithme de trading
     /**
     * \return double : le montant de la transaction
     * renvoie :	- un montant positif si la transaction à faire est un achat
@@ -192,28 +191,28 @@ public:
  */
  /**
 * \class StrategieFactory
-* \brief se charge du prototype des Strategie
+* \brief se stocke les prototypes des Strategie pour produit des stratégie selon les besoins
 * attributs : rsi, rsi_Iterator
 * méthodes privées : StrategieFactory, ~StrategieFactory
 * méthodes publiques : getStrategieFactory, libererFactory, getStrategie, listeStrategie
 * amitiéss : class StrategieFactory
-* Remarques : 	design pattern singleton, et design pattern factory
+* Remarques : 	design pattern singleton, et design pattern factory et builder
                 l'ajout d'une strategie provoque l'ajout de son nom au dictionnaire de stratégie
                 la duplication est supprimée
 */
 class StrategieFactory {
     static StrategieFactory* instance; /**< instance :StrategieFactory* pointe sur l'instance unique de StrategieFactory*/
     QHash<QString, Strategie*> strategieDictionary; /**< strategieDictionary :QHash<QString, Strategie*> contient le dictionnaire de stratégies*/
-    //! Constructeur
+    //! Constructeur privé
     StrategieFactory();
-    //! Destructeur
+    //! Destructeur privé
     ~StrategieFactory();
     StrategieFactory(StrategieFactory*) = delete;
     StrategieFactory& operator=(StrategieFactory*) = delete;
 public:
-    //! Méthode statique getStrategieFactory
+    //! Retourner instance unique de StrategieFactory
     /**
-    * \return StrategieFactory* : renvoie la valeur de l'attribut instance si elle existe et nullptr, sinon
+    * \return StrategieFactory* : renvoie la valeur de l'attribut instance si elle existe et la créer, sinon
     */
     static StrategieFactory* getStrategieFactory(){
         if (instance == nullptr) {
@@ -221,7 +220,7 @@ public:
         }
         return instance;
     }
-    //! Méthode libererFactory
+    //! Libérer l'instance
     /**
     * \return void : libère instance
     */
@@ -229,14 +228,14 @@ public:
         delete instance;
         instance = nullptr;
     }
-    //! Méthode getStrategie
+    //! Retourner la strategie demandé et s'applique cette stratégie sur une évolution cours fournit en entrée
     /**
     * \param nom :QString
     * \param evolutionCours :EvolutionCours*
     * \return Strategie* : renvoie la valeur du pointeur sur la stratégie demandée sur l'EvolutionCours souhaité
     */
     Strategie* getStrategie(QString nom, EvolutionCours* evolutionCours) const;
-    //! Méthode listeStrategie
+    //! Liste de Strategie disponible
     /**
     * \return const QStringList : renvoie la liste des stratégies disponibles
     */

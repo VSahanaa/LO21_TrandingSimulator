@@ -31,7 +31,7 @@ class modeManuelWidget : public QWidget {
     Ui::modeManuelWidget *ui; /**< ui :modeManuelWidget* instance de modeManuelWidget*/
     ModeManuel* modeManuel; /**< modeManuel :modeManuel* pointe sur la classe gérant le mode manuel*/
     TransactionManager* transactionManager; /**< transactionManager :TransactionManager* pointe sur la classe gérant les transactions*/
-    CoursOHLCV* coursPicked; /**< coursPicked :coursOHLV* pointe sue le cours OHLCV choisi*/
+    CoursOHLCV* coursPicked; /**< coursPicked :coursOHLV* pointe sur le cours OHLCV choisi*/
 public:
 	//! Constructeur explicite
 	/**
@@ -41,7 +41,7 @@ public:
     explicit modeManuelWidget(ModeManuel* modeManuel, QWidget *parent = nullptr);
     //! Destructeur
 	~modeManuelWidget();
-	//! slot updateData
+    //! Mettre à jour les données sur le panneau
 	/**
 	* \return void : pour mettre à jour les données 
 	*/
@@ -49,27 +49,27 @@ public:
 signals:
 	//! signal transactionChanged
 	/**
-	* \return void : signale le changement de transaction (précédente à la suivante)
+    * \return void : signale le ajouter ou supprimer d'une transaction
 	*/
     void transactionChanged();
 private slots:
-	//! slot on_pushButton_achat_clicked
+    //! Readaction quand le bouton achat est appuyé
 	/**
 	* \return void : pour la demande d'achat
 	*/
     void on_pushButton_achat_clicked();
-    //! slot on_pushButton_vente_clicked
+    //! Readaction quand le bouton vente est appuyé
 	/**
 	* \return void : pour la demande de vente
 	*/
 	void on_pushButton_vente_clicked();
-	//! slot on_pushButton_annulerTransaction_clicked
+    //! Readaction quand le bouton annuler est appuyé
 	/**
 	* \return void : pour la demande d'annuler la transaction
 	*/
     void on_pushButton_annulerTransaction_clicked();
 public slots:
-	//! slot setCoursPicked
+    //! Choisir un cours
 	/**
 	* \param cours :CoursOHLCV*
 	* \return void : pour le choix du cours OHLCV

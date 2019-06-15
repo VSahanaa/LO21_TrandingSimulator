@@ -47,15 +47,15 @@ class Transaction {
     Transaction(Transaction* transactionDernier, const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montantBase, double montantContrepartie, double montantBaseInitial, double montantContrepartieInitial):
         transactionDernier(transactionDernier), paire(paire), cours(cours), achat(achat), montantBase(montantBase), montantContrepartie(montantContrepartie), montantBaseInitial(montantBaseInitial), montantContrepartieInitial(montantContrepartieInitial) {}
 public:
-    //! méthode differenceBase
+    //! Méthode differenceBase
     /**
-    * \return double :retourne la différence entre le montant de base de cette transaction et de lla précédente
+    * \return double :retourne la différence entre le montant de base de cette transaction et de la précédente
     */
     double differenceBase() const {
         if(!transactionDernier) return this->montantBase - montantBaseInitial;
         return this->montantBase - transactionDernier->montantBase;
     }
-    //! méthode differenceContrepartie
+    //! Méthode differenceContrepartie
     /**
     * \return double :retourne la différence entre le montant de contrepartie de cette transaction et de lla précédente
     */
@@ -63,47 +63,47 @@ public:
         if(!transactionDernier) return this->montantContrepartie - montantContrepartieInitial;
         return this->montantContrepartie - transactionDernier->montantContrepartie;
     }
-    //! méthode montantTotal
+    //! Solde du compte
     /**
     * \return double :retourne le montant total dans la devise de contrepartie
     */
     double montantTotal() const {return montantBase*cours->getClose() + montantContrepartie;}
-    //! méthode roi
+    //! Retour sur invertissement total
     /**
     * \return double : ratio entre le montantTotal et le montantTotalInitial
     */
     double roi(double montantTotalInitial) const {return montantTotal()/ montantTotalInitial;}
-    //! méthode getMontantBase
+    //! Valeur de montant de base
     /**
     * \return double :retourne la valeur de l'attribut montantBase
     */
     double getMontantBase() const {return montantBase;}
-    //! méthode getMontantContrepartie
+    //! Valeur de montant de contre partie
     /**
     * \return double :retourne la valeur de l'attribut montantContrepartie
     */
     double getMontantContrepartie() const {return montantContrepartie;}
-    //! méthode getCours
+    //! CoursOHLCV ou effectué la transaction
     /**
     * \return CoursOHLCV* : retourne la valeur de l'attribut cours
     */
     CoursOHLCV* getCours() const {return cours;}
-    //! méthode est_achat
+    //! Booléan Transaction est achat ou vente
     /**
     * \return bool : retourne la valeur de l'attribut achat
     */
     bool est_achat() const {return achat;}
-    //! méthode getLastTransaction
+    //! Pointeur vers la transaction précedente
     /**
     * \return Transaction* : retourne la valeur de l'attribut transactionDernier
     */
     Transaction* getLastTransaction() const {return transactionDernier;}
-    //! méthode next
+    //! Noeud suivant dans la liste chainée
     /**
     * \return Transaction* : retourne la valeur de l'attribut transactionDernier
     */
     Transaction* next() const {return getLastTransaction();}
-    //! méthode hasNext
+    //! Boolean si avoir un noeud suivant
     /**
     * \return bool : true si transactionDernier existe, false sinon
     */
@@ -118,7 +118,7 @@ public:
  */
 /**
 * \class TransactionManager
-* \brief s'occupe de la classe Transaction
+* \brief s'occupe de la classe Transaction, appartient une Simulation
 * attributs : listeTransaction, pourcentage, montantBaseInitial, montantContrepartieInitial
 * méthodes privées : TransactionManager, ~TransactionManager, clearTransactions
 * méthodes publiques : addTransaction,deleteLastTransaction, solde, getMontantBase, getMontantContrepartie, getPourcentage, roi
@@ -133,7 +133,7 @@ class TransactionManager {
     double montantBaseInitial; /**< montantBaseInitial :double montant de la devise de base au début de la simulation */
     double montantContrepartieInitial; /**< montantContrepartieInitial :double montant de la devise de contrepartie au début de la simulation */
     double montantTotalInitial; /**<montantTotalInitial :double montant total disposé avant la simulation */
-    //! constructeur privé
+    //! Constructeur privé
     /**
     * \param pourcentage :double
     * \param montantBaseInitial :double
@@ -144,13 +144,13 @@ class TransactionManager {
         pourcentage(pourcentage), montantBaseInitial(montantBaseInitial), montantContrepartieInitial(montantContrepartieInitial), montantTotalInitial(montantTotalInitial) {}
     //! Destructeur
     ~TransactionManager();
-    //! méthode clearTransactions
+    //! Supprimer tous les transactions
     /**
     * \return void : suppression des transactions
     */
     void clearTransactions();
 public:
-    //! méthode addTransaction
+    //! Ajouter une nouvelle transaction avec le montant de trading
     /**
     * \param paire :PaireDevises*
     * \param achat :bool
@@ -158,7 +158,7 @@ public:
     * \return void : ajout d'une transaction
     */
     void addTransaction(const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montant);
-    //! méthode addTransaction
+    //! Ajouter une nouvelle transaction avec le montant de base et contre partie apres effectuer la transaction, utilisée pour le chargement de la simulation
     /**
     * \param paire :PaireDevises*
     * \param achat :bool
@@ -168,17 +168,17 @@ public:
     * \return void : ajout d'une transaction
     */
     void addTransaction(const PaireDevises* paire, CoursOHLCV* cours, bool achat, double montantBase, double montantContrepartie);
-    //! méthode deleteLastTransaction
+    //! Supprimer la transaction plus récent
     /**
     * \return void : supprime la dernière transaction faite (la plus récente)
     */
     void deleteLastTransaction();
-    //! méthode solde
+    //! Solde du compte
     /**
     * \return double : donne le solde en devise de contrepartie
     */
     double solde() const;                       //retourne le solde en devise de contrepartie
-    //! méthode getMontantBase
+    //! Montant de base du compte
     /**
     * \return double : donne le montant de la devise de base détenu par l'utilisateur au moment présent
     */
@@ -186,12 +186,12 @@ public:
         if (!listeTransaction) {return montantBaseInitial;}
             return listeTransaction->getMontantBase();
     }
-    //! méthode getPourcentage
+    //! Interet du broker
     /**
     * \return double : donne la valeur de l'attribut pourcentage
     */
     double getPourcentage() const {return pourcentage;}
-    //! méthode getMontantContrepartie
+    //! Montant de contrepartie du compte
     /**
     * \return double : donne le montant de la devise de contrepartie détenu par l'utilisateur au moment présent
     */
@@ -199,13 +199,13 @@ public:
         if (!listeTransaction) {return montantContrepartieInitial;}
             return listeTransaction->getMontantContrepartie();
     }
-    //! méthode getMontantTotalInitial
+    //! Montant total initial
     /**
     * \return double : donne le montant totale détenu par l'utilisateur initialement
     */
     double getMontantTotalInitial() const {return montantTotalInitial;}
     using iterator = Transaction*; /**< déclaration iterator <=> Transaction* */    //definir iterator avec 2 operations: next() et hasNext()
-    //! méthode head
+    //! La tete de la liste chainée
     /**
     * \return iterator : donne la la transaction la plus récente
     */

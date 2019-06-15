@@ -35,7 +35,7 @@ public:
     explicit AddDevise_Dialog(QWidget *parent = nullptr);
     //! Destructeur
     ~AddDevise_Dialog();
-    //! méthode getNewDevise
+    //! Retourner la nouvelle devise créée
     /**
     * \return const Devise* : renvoie la valeur de l'attribut newDevise
     */
