@@ -486,11 +486,6 @@ public:
 	* \return iterator : la valeur du pointeur du cours correspondant à la date si elle existe et nullptr, sinon.
 	*/
     iterator searchCours(QDate date);
-	//! méthode saveFile
-	/** 
-	* \return   int : permet de sauvegarder les cours dans un fichier.
-	*/
-    int saveFile();
 };
 
 

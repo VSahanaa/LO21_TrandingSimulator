@@ -354,32 +354,3 @@ EvolutionCours::iterator EvolutionCours::searchCours(QDate date) {
         }
         return nullptr;
 }
-
-int EvolutionCours::saveFile() {
-    QFile file(filen);
-    if (!file.open(QIODevice::WriteOnly)) {
-        qDebug() << file.errorString();
-        return 1;
-    }
-    for(unsigned int i=0; i<nbCours; i++) {
-        QStringList line;
-        line << QString::number(cours[i].getOpen());
-        line << QString::number(cours[i].getHigh());
-        line << QString::number(cours[i].getLow());
-        line << QString::number(cours[i].getClose());
-        line << QString::number(cours[i].getVolume());
-        line << cours[i].getDate().toString("yyyy,M,d\n");
-
-        /*
-         * date = QDate::fromString(wordlist.at(0), "yyyy-MM-dd");
-            //qDebug() << date.toString();
-            open = wordlist.at(1).toDouble();
-            high = wordlist.at(2).toDouble();
-            low = wordlist.at(3).toDouble();
-            close = wordlist.at(4).toDouble();
-            volume = wordlist.at(6).toInt();
-            */
-        file.write(line.join(',').toLocal8Bit());
-    }
-    return 0;
-}
