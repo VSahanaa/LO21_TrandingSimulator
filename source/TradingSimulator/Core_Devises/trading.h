@@ -6,7 +6,7 @@
  * \brief 	Contient le noyau de l'application
  * 	
  * 	Contient les classes concernant les Devises : TradingException, Devise, PaireDevises, DevisesManager
- * 	Contient les classes concernant les Cours : coursOHLCV, ListEvolutionCours, EvolutionCours
+ * 	Contient les classes concernant les Cours : coursOHLCV, EvolutionCours
  * 	Contient les classes concernant les Indicateurs : Indicateur, IndicateurCollection, IndiceIndicateur, EMA, MACD, RSI
  * 			
  */
